@@ -1,0 +1,25 @@
+Rebuild database:
+
+parse_soft.pl -> datasets, dataset_subsets, samples
+ sample->dataset pointers
+ sample->subset pointers
+ word2geo for title, description
+
+write GEO::*->display routines
+
+parse_series.pl -> series, raw_samples
+ field checking for series.csv; definitely some weirdness
+ download only as necessary
+ rs->gse pointers
+ rs->path
+ word2geo for title
+ series->dataset pointers where they exist (series.csv[6])
+
+RawSamples->next()
+Series->next()
+Dataset->next()
+DatasetSubset->next()
+Sample->next()		# for dataset samples
+
+So: raw_samples->series_ID must be raw_samples->series_IDS; use case
+  is GSM577841, which has at least two series attached: GSE23554 and GSE23603
