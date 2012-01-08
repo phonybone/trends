@@ -3,7 +3,7 @@
 #
 # map the dataset (gds) to series (gse) in the series db
 # using the dataset db.
-# THIS SCRIPT IS NOW OBSOLETE; USE parse_soft.pl instead.
+# THIS SCRIPT IS NOW OBSOLETE; USE parse_dataset_soft.pl instead.
 #
 
 

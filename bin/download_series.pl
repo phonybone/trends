@@ -1,5 +1,7 @@
 #!/usr/bin/env perl 
 
+# Download series tar (GSExxxxx_RAW.tar.gz) files and unpack them.
+# These contain raw (sample) data of various formats.
 
 use strict;
 use warnings;
@@ -121,8 +123,8 @@ sub skip {
 	warnf("%s: didn't pass filter\n", $GSE) if $ENV{DEBUG};
 	return 1;
     }
-    if (-r $series->tarpath && !$options{force}) { # generally won't happen  unless -keep_tars was used previously
-	warnf("%s: tarpath readable and force not in effect (%s)\n", $GSE, $series->tarpath) if $ENV{DEBUG};
+    if (-r $series->tar_path && !$options{force}) { # generally won't happen  unless -keep_tars was used previously
+	warnf("%s: tar_path readable and force not in effect (%s)\n", $GSE, $series->tar_path) if $ENV{DEBUG};
 	return 1;
     }
     

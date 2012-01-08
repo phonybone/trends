@@ -1,7 +1,7 @@
 #!/usr/bin/env perl 
 
 #
-# Fetch the .soft file for all series that have been downloaded
+# Fetch the .soft (GSExxxxx_family.soft.gz) file for all series that have been downloaded
 # Doesn't write to any dbs.
 # Uses GEO::Series->fetch_soft
 #
@@ -20,7 +20,7 @@ use lib "$FindBin::Bin/../lib";
 use GEO;
 
 BEGIN: {
-  Options::use(qw(d q v h fuse=i gses=s));
+  Options::use(qw(d q v h fuse=i gses=s force|f));
     Options::useDefaults(fuse => -1, gses=>[]);
     Options::get();
     die Options::usage() if $options{h};
@@ -38,20 +38,20 @@ sub main {
 	my $series=new GEO::Series($gse);
 	mkdir $series->path unless -d $series->path;
 
-	if (-r $series->softpath) {
+	if (-r $series->soft_path && !$options{force}) {
 	    $stats->{previous}++;
-	    warnf("%s: softpath already exists\n", $series->geo_id);
+	    warnf("%s: soft_path already exists\n", $series->geo_id);
 	    next;
 	}
 	
 	eval {
 	    $series->fetch_soft;
-	    if (-r $series->softpath) {
+	    if (-r $series->soft_path) {
 		$stats->{downloaded}++;
-		warnf("%s downloaded\n", $series->softpath) unless $options{q};
+		warnf("%s downloaded\n", $series->soft_path) unless $options{q};
 	    }
 	}; if ($@) {
-	    warnf "Unable to download softpath for %s: %s\n", $series->geo_id, $@;
+	    warnf "Unable to download soft_path for %s: %s\n", $series->geo_id, $@;
 	    $stats->{errors}++;
 	}
 	

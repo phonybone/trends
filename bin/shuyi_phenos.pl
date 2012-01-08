@@ -20,7 +20,7 @@ use GEO;
 BEGIN: {
   Options::use(qw(d q v h n fuse=i src_dir=s db_name=s));
     Options::useDefaults(fuse => -1, 
-			 src_dir=>'/proj/price1/vcassen/trends/shuyi',
+			 src_dir=>'/mnt/price1/vcassen/trends/shuyi',
 			 db_name=>'geo',
 			 );
     Options::get();
@@ -30,6 +30,9 @@ BEGIN: {
     warnf "writing to %s\n", $options{db_name};
 }
 
+# Don't actually use these in the db; we'd have to have codes for every phenotype that
+# ever came along, and we'd have to ensure that they're different, etc.
+# But, yes, these will be hard to search on...
 my %codes=(
 	   ADC=>'adenocarcinoma',
 	   SCC=>'squamous cell carcinoma',
@@ -42,6 +45,7 @@ my %codes=(
 my $stats={};
 
 sub main {
+    warnf "$0 ", join(' ',@_), "\n" if $ENV{DEBUG};
     my @files=get_files();
 
     foreach my $file (@files) {
@@ -55,13 +59,14 @@ sub main {
 	    my $sample;
 	    eval { $sample=GEO->factory($sample_id) };
 	    if ($@) {
+		$@=~s/\n.*/\n/gsm;
 		warn $@;
 		$stats->{no_class}++;
 		next;
 	    }
 	    
 	    unless ($sample->_id) {
-		warnf "$sample_id: record not found\n";
+		warnf "$sample_id (%s): record not found\n", $pheno;
 		$stats->{not_found}++; # won't update anyway without upsert
 		next;
 	    }

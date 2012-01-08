@@ -1,0 +1,29 @@
+Outline of project:
+- gather all the (human) expression data from public repositories;
+  normalize as needed.  (Currently, just GEO, but more to follow).
+- assign one or more classes to each expression set, based on
+  metadata. (current bottleneck).
+- build a set of (overlapping?) classifiers (one per phenotype).
+- as new data is uploaded, check it against appropriate classifiers.
+- Does classifier accuracy improve? Yay!  Otherwise, find out why and consider splitting classes as needed.
+- record provenance for all actions s.t. data history can be reconstituted.
+
+Immediate Challenges: 
+- how to assign phenotypes/classes to expression sets based on meta data (title, description)
+
+Short term:
+- build "mini" pipeline demonstrating proof-of-concept
+- gather data from other sources and incorporate
+- apply classifiers to sample data sets
+- record provenance
+- query system for specific class reports
+ 
+
+Long term: 
+- what are the trends of expression data for each disease? (Nathan can
+  fill this in more fully).  Figure out a query/report system.
+- build accurate molecular signatures for every class/phenotype.
+- Make decisions about if and how we would like this to be publicly
+  accessible.  Needs a web interface?
+- Can we incorporate other types of data?
+

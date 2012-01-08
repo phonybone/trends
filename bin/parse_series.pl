@@ -1,7 +1,7 @@
 #!/usr/bin/env perl 
 
 #
-# Download GEO "series" data from NCBI.
+# Download GEO "series" data from NCBI and build up geo dbs.  (Use download_series.pl to only download series->tar_file's)
 # "series" data consists of series records and attactched raw_sample data.  A series is really nothing
 # more than a container for a group of raw_sample data files plus metadata.
 #
@@ -20,6 +20,8 @@
 # - fix up the database since you deleted it by accident, dumbass.
 # - add complete raw_sample records to db
 #
+
+
 
 use strict;
 use warnings;

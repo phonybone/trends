@@ -1,6 +1,9 @@
 #!/usr/bin/env perl 
 
 # 
+# Parse all (or some of) the series.soft files.
+# Store info to platform, series, and sample dbs.
+# Writes data tables for platforms and samples (not series)
 #
 
 use strict;
@@ -16,6 +19,9 @@ use PhonyBone::FileUtilities qw(warnf dief file_lines);
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use GEO;
+use GEO::Series;
+use GEO::Platform;
+use GEO::Platform;
 use ParseSoft;
 
 # todo:
@@ -32,10 +38,10 @@ our %subrefs=(
 	      sample=>\&handle_sample
 	      );
 BEGIN: {
-  Options::use(qw(d q v h fuse=i db_name=s series_dir=s report_overwrites gses=s));
+  Options::use(qw(d q v h fuse=i db_name=s series_dir=s report_overwrites gses=s ignore_table));
     Options::useDefaults(fuse => -1, 
 			 db_name=>'geo',
-			 series_dir=>'/proj/price1/vcassen/trends/data/GEO/series',
+			 series_dir=>'/mnt/price1/vcassen/trends/data/GEO/series',
 			 gses=>[],
 			 );
     Options::get();
@@ -46,16 +52,20 @@ BEGIN: {
     $options{v}=1 if $options{d};
     GEO->db_name($options{db_name});
     warnf "writing to db %s\n", $options{db_name} if $ENV{DEBUG};
+    warn "ignoring data tables\n" if $options{ignore_table};
 }
 
 sub main {
+    warn "$0: ", join(' ', @_), "\n" if $ENV{DEBUG};
+
     # get a list of all the GSE_family.soft files (might be gzipped)
     my @soft_files=get_soft_files();
-    warnf "processing %d files\n", scalar @soft_files;
+    my $fuse=$options{fuse};
+    warnf "processing %d files (fuse=$fuse)\n", scalar @soft_files;
 
     # parse each soft file
-    my $fuse=$options{fuse};
     foreach my $soft_file (@soft_files) {
+	warn "parsing $soft_file...\n";
 	parse_soft($soft_file);
 	last if --$fuse==0;
     }
@@ -67,18 +77,8 @@ sub get_soft_files {
     my @files=();
 
     # if $options{gses} present, use that
-    if (my $gse_list=$options{gses}) { # can either be command-line list or name of file containing "\n"-separated list
-	my @gses=();
-	if (-r $gse_list->[0]) {
-	    @gses=map {chomp; $_} file_lines($gse_list->[0]);
-	} elsif (ref $gse_list eq 'ARRAY') {
-	    @gses=@$gse_list;
-	} else {
-	    die "Don't know how to convert to list of gse's: ", Dumper($gse_list);
-	}
-	@files=map {GEO::Series->new($_)->softpath} @gses;
-	return wantarray? @files:\@files;
-    }
+    my @gses=Options::file_or_list('gses');
+    return wantarray? @gses:\@gses if @gses;
 
     # Look for all unparsed series.soft and series.soft.gz files under $options{series_dir}:
     my $series_dir=$options{series_dir};
@@ -86,7 +86,6 @@ sub get_soft_files {
     my $find_output=`find $series_dir -name '*family.soft'`;
     push @files, split(/\n/, $find_output);
 
-    # temporarily comment these out until fully debugged
     $find_output=`find $series_dir -name '*family.soft.gz'`;
     push @files, split(/\n/, $find_output);
     
@@ -94,27 +93,6 @@ sub get_soft_files {
 }
 
 ########################################################################
-
-sub parse_soft_old {
-    my ($filename)=@_;
-    warn "parsing $filename...\n" if $ENV{DEBUG};
-    $filename=gunzip($filename);		# handles messy logic
-
-    if (already_processed($filename)) {
-	warn "already processed $filename, skipping\n";
-	return;
-    }	
-
-    my $ps=new ParseSoft($filename);
-    my @records=$ps->parse;
-    warnf "%s: got %d records\n", $filename, scalar @records;
-
-    foreach my $record (@records) {
-	my $class=ref $record;
-	my $subref=$subrefs{$class} or die "Don't know how to handle '$class', bye";
-	$subref->($record);
-    }
-}
 
 sub parse_soft {
     my ($filename)=@_;
@@ -126,7 +104,7 @@ sub parse_soft {
 	return;
     }	
 
-    my $ps=new ParseSoft($filename);
+    my $ps=new ParseSoft(filename=>$filename, ignore_table=>$options{ignore_table});
     while (1) {
 	my $record;
 	eval { $record=$ps->next };
@@ -144,6 +122,11 @@ sub parse_soft {
 
 sub gunzip {
     my ($filename)=@_;
+
+    # check if $filename already unzipped:
+    $filename=~s/\.gz$//;	# remove .gz if exists
+    return $filename if -r $filename;
+
     $filename.='.gz' unless $filename=~/\.gz$/;	# append '.gz' if needed
     my $rc=system('gunzip',$filename) if -r $filename;	# gunzip filename if it exists
     if ($rc) {
@@ -171,91 +154,60 @@ sub already_processed {
 	return undef unless -e $sample->data_table_file
     }
 
-    return 1;
+    return $options{ignore_table}; # this goes last because we have to check all the samples if $options{ignore_table} not set.
 }
 
 ########################################################################
 
 sub handle_series {
     my ($record)=@_;
-    $record->{sample_ids}=$record->{sample_id};
+
+    $record->{sample_ids}=$record->{sample_id};	# this sux, but what to do...?
     delete $record->{sample_id};
-    update_record($record, GEO::Series->mongo);
+    unless (ref $record->{sample_ids} eq 'ARRAY') {
+	$record->{sample_ids}=[$record->{sample_ids}];
+    }
+
+    my $series=update_record($record);
+    foreach my $sample_id (@{$series->sample_ids}) {
+	GEO::Sample->new($sample_id)->tie_to_geo($series, 'series_ids');
+      }
+    $series->add_to_word2geo;
 }
 
 sub update_record {
-    my ($record, $mongo)=@_;
-
-    # see if an old record exists:
-    my $geo_id=$record->{geo_accession} or die "no geo_id by way of geo_accession in ",Dumper($record);
-
-    my $old_rec=$mongo->find_one({geo_id=>$geo_id});
-    if ($old_rec) {
-	$stats->{updated}++;
-    } else {
-	$old_rec={geo_id=>$geo_id};
-	$stats->{inserted}++;
-    }
-
-    # copy new record into old, with warnings:
-    while (my ($k,$v)=each %$record) {
-	if ($old_rec->{$k}) {	# check for overwrites and attempt to write a useful warning message if found:
-	    if ($options{report_overwrites} && !ref $old_rec->{$k} && !ref $record->{$k}) {
-		if ($old_rec->{$k} ne $record->{$k}) {
-		    warnf "%s: overwriting old '%s' with '%s'\n", $geo_id, $k, (ref $v || $v);
-		} 
-	    } else {
-		#warnf "%s->{%s}: non-scalar field(s) might differ\n", $geo_id, $k;
-	    }
-	}
-	$old_rec->{$k}=$v;
-    }
-    $old_rec->{isb_status}='downloaded';
-
-    # insert/update the record:
-    eval {
-	warnf "updating $geo_id...\n" if $ENV{DEBUG};
-
-	# update, but exclude __table:
-	my $__table=$record->{__table};
-	$record->{__table}=undef; # You'd think delete would work, but it doesn't seem to, as far as MongoDB is concerned
-	$mongo->update({geo_id=>$geo_id}, $old_rec, {upsert=>1, safe=>1});
-	$record->{__table}=$__table;
-
-	$stats->{success}++;
+    my ($record)=@_;
+    my $geo_id=$record->{geo_id} or do {
+	$stats->{missing_geo_id}++;
+	return;
     };
-    if ($@) {
-	warnf("%s: update error: $@\n", $geo_id);
-	$stats->{errors}++;
-    }
+
+    my $geo=GEO->factory($geo_id);
+    $geo->hash_assign(%$record);
+    $geo->status('downloaded') if $geo->can('status');
+    my $class=ref $geo;
+    $class=~s/^GEO:://;
+    $stats->{"n_${class}_updated"}++;
+    $geo;
 }
 
 sub handle_sample {
     my ($record)=@_;
-    GEO::SeriesData->new($record->{geo_accession})->write_table($record->{__table});
-    delete $record->{__table};
-    update_record($record, GEO::SeriesData->mongo);
+    my $sample=update_record($record);
+    $sample->write_table unless $options{ignore_table};
 }
     
 
 sub handle_platform {
     my ($record)=@_;
-    my $mongo=GEO::Platform->mongo;
+    my $platform=update_record($record);
     
     # If record and data file already exist, just ignore this:
-    my $geo_id=$record->{geo_accession} or die "no geo_id by way of geo_accession in ",Dumper($record);
-    my $platform=new GEO::Platform($geo_id);
     if ($platform->_id && -e $platform->data_table_file) {
-	warnf "platform %s already in db and data.table exists, skipping\n", $geo_id;
-	return;
+	warnf "platform %s already in db and data.table exists, skipping\n", $platform->geo_id;
+    } else {
+	$platform->write_table unless $options{ignore_table};
     }
-
-    GEO::Platform->new($record->{geo_accession})->write_table($record->{__table});
-    delete $record->{__table};
-    update_record($record, GEO::Platform->mongo);
-    
-    
-
 }
 
-main();
+main(@ARGV);
