@@ -1,11 +1,12 @@
 package GEO::word2geo;
 use Moose;
-extends 'GEO';
+extends 'Mongoid';
 use MooseX::ClassAttribute;
 use Data::Dumper;
 
 has 'word' => (is=>'rw', isa=>'Str');
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'word2geo');
+class_has 'db_name'         => (is=>'ro', isa=>'Str', default=>'geo');
+class_has 'collection_name' => (is=>'ro', isa=>'Str', default=>'word2geo');
 class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [{geo_id=>1, word=>1},{unique=>1}] });
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'w2g' );
 

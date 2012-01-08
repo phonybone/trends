@@ -20,10 +20,6 @@ has 'description'     => (is=>'rw');
 has '_series'         => (is=>'rw', isa=>'GEO::Series');
 has 'phenotype'       => (is=>'rw', isa=>'Str');
 
-class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'gsd' );
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'ds_samples');
-class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'sample_data');
-class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title description)]});
 
 
 # series accessor
@@ -46,6 +42,22 @@ sub datafile {
     join('/', $self->path, join('.', $self->geo_id, 'table.data'));
 }
 
+# return the Series' data as a 1D array;
+# actually returns a hashref: k=probe_id (or other gene id), v=expression value
+# throws exceptions!
+sub as_vector_hash {
+    my ($self)=@_;
+    my $vector={};
+    open(DONUT, $self->datafile) or dief "Can't open %s: $!\n", $self->datafile;
+    <DONUT>; <DONUT>;		# burn first two lines
+    while (<DONUT>) {
+	chomp;
+	my (@fields)=split(',');
+	$vector->{$fields[0]}=$fields[1];
+    }
+    $vector;
+}
+
 sub path {
     my ($self)=@_;
     $self->geo_id =~ /GSM\d\d\d/ or dief "badly formed SeriesData geo_id: %s", $self->geo_id;
@@ -60,4 +72,6 @@ sub report {
     $report.=sprintf("\n            dataset: %s", $self->dataset_id) if $self->dataset_id;
     $report;
 }
+
+
 1;

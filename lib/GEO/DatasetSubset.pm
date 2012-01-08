@@ -9,7 +9,7 @@ has 'description' => (is=>'rw', isa=>'Str');
 has 'sample_id' => (is=>'rw', isa=>'Str'); # should have been 'sample_ids'
 has 'type' => (is=>'rw', isa=>'Str');
 
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'dataset_subsets');
+class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'dataset_subsets');
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GDS_SS');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(description)]});
 

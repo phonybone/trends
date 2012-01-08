@@ -8,22 +8,23 @@ use PhonyBone::FileUtilities qw(warnf dief);
 use PhonyBone::ListUtilities qw(subtract union unique);
 use Cwd;
 
-has 'author'      => (is=>'rw', isa=>'Str');
-has 'date'        => (is=>'rw', isa=>'Str');
-has 'organism'    => (is=>'rw', isa=>'Str');
-has 'series_type' => (is=>'rw', isa=>'Str');
-has 'status'      => (is=>'rw', isa=>'Str');
-has 'isb_status'  => (is=>'rw', isa=>'Str');
-has 'error'       => (is=>'rw', isa=>'Str');
-has 'title'       => (is=>'rw', isa=>'Str');
-has 'dataset_ids' => (is=>'rw', isa=>'ArrayRef');
-has 'sample_ids'    => (is=>'rw', isa=>'ArrayRef'); 
-has '_rs_iter'      => (is=>'rw', isa=>'GEO::RawSample::Iterator');
+has 'author'      => (is=>'rw');
+has 'date'        => (is=>'rw');
+has 'organism'    => (is=>'rw');
+has 'series_type' => (is=>'rw');
+has 'status'      => (is=>'rw');
+has 'isb_status'  => (is=>'rw');
+has 'error'       => (is=>'rw');
+has 'title'       => (is=>'rw');
+has 'dataset_ids' => (is=>'rw');
+has 'sample_ids'  => (is=>'rw');
+has 'summary'     => (is=>'rw');
+#has '_rs_iter'      => (is=>'rw');
 
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GSE' );
 class_has 'ftp_base'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/supplementary/series');
 class_has 'ftp_soft'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/SOFT/by_series');
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'series');
+class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'series');
 class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'series');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title summary)]});
 
@@ -90,16 +91,16 @@ sub next_sample {
 
 ########################################################################
 
-sub tarfile { sprintf "%s_RAW.tar", shift->geo_id }
-sub tarpath { 
+sub tar_file { sprintf "%s_RAW.tar", shift->geo_id }
+sub tar_path { 
     my ($self)=@_;
-    join('/', $self->data_dir, $self->subdir, $self->geo_id, $self->tarfile);
+    join('/', $self->data_dir, $self->subdir, $self->geo_id, $self->tar_file);
 }
 
-sub softfile { sprintf "%s_family.soft.gz", shift->geo_id }
-sub softpath { 
+sub soft_file { sprintf "%s_family.soft", shift->geo_id }
+sub soft_path { 
     my ($self)=@_;
-    join('/', $self->data_dir, $self->subdir, $self->geo_id, $self->softfile);
+    join('/', $self->data_dir, $self->subdir, $self->geo_id, $self->soft_file);
 }
     
 
@@ -107,7 +108,7 @@ sub softpath {
 # Download the series .tar file; return nothing, but throw exceptions on error.
 # downloads to current directory
 # throws exceptions on errors, or returns undef
-sub _fetch_tarfile {
+sub _fetch_tar_file {
     my ($self)=@_;
     my $ftp=$self->_get_ftp();
 
@@ -128,7 +129,7 @@ sub _fetch_tarfile {
 	}
 	
 	# Download the .tar file:
-	my $target=$self->tarfile;
+	my $target=$self->tar_file;
 	warn "fetching $target...\n" if $ENV{DEBUG};;
 	$ftp->binary;
 	$ftp->get("$target") or die "Can't get $target: ",$ftp->message;
@@ -144,14 +145,14 @@ sub _fetch_tarfile {
 
 # Unpack the series .tar file
 # unlinks tar file unless $options{keep_tars} set
-# assumes the tarfile is in the current directory
+# assumes the tar_file is in the current directory
 # dies on errors
 # returns listref of sample ids (you got a better idea?)
 sub _unpack_tar {
     my ($self)=@_;
-    warnf("  unpacking %s\n", $self->tarfile) if $ENV{DEBUG};
+    warnf("  unpacking %s\n", $self->tar_file) if $ENV{DEBUG};
 
-    my $dst_tar=$self->tarfile;
+    my $dst_tar=$self->tar_file;
     my $rc=`tar xfv $dst_tar`;
     die "error unpacking $dst_tar: $rc" if $?!=0;
 
@@ -174,7 +175,7 @@ sub fetch_soft {
     my $ftp=$self->_get_ftp;
     
     # Cd to correct point on server:
-    my $target=$self->softfile;
+    my $target=join('.',$self->soft_file,'gz');
     my $full_base_dir=join('/', $self->ftp_soft, $self->geo_id);
     warnf("fetching %s/%s...\n", $full_base_dir, $target) if $ENV{DEBUG};
 

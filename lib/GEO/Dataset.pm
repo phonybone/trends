@@ -24,7 +24,7 @@ has 'type'                     => (is=>'rw', isa=>'Str');
 has 'update_date'              => (is=>'rw', isa=>'Str');
 has 'value_type'               => (is=>'rw', isa=>'Str');
 
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'datasets');
+class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'datasets');
 class_has 'prefix'=> (is=>'ro', isa=>'Str', default=>'GDS');
 class_has 'subdir' => (is=>'ro', isa=>'Str', default=>'datasets');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title description)]});

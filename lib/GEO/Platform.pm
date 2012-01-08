@@ -33,9 +33,9 @@ has 'relation' => (is=>'rw', isa=>'ArrayRef');
 has 'data_row_count' => (is=>'rw', isa=>'Str');
 
 
-class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GPL' );
-class_has 'collection'=> (is=>'ro', isa=>'Str', default=>'platform');
-class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'platforms');
+class_has 'prefix'          => (is=>'ro', isa=>'Str', default=>'GPL' );
+class_has 'collection_name' => (is=>'ro', isa=>'Str', default=>'platform');
+class_has 'subdir'          => (is=>'ro', isa=>'Str', default=>'platforms');
 
 
 
