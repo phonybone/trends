@@ -1,0 +1,1553 @@
+fetching http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=GSE[ETYP]&retmax=20&usehistory=y
+$VAR1 = bless( {
+                 '_protocol' => 'HTTP/1.1',
+                 '_content' => '<?xml version="1.0" ?>
+<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD eSearchResult, 11 May 2002//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/eSearch_020511.dtd">
+<eSearchResult><Count>26541</Count><RetMax>20</RetMax><RetStart>0</RetStart><QueryKey>1</QueryKey><WebEnv>NCID_1_326540405_130.14.22.28_9001_1323124833_2065330324</WebEnv><IdList>
+		<Id>200034126</Id>
+		<Id>200023196</Id>
+		<Id>200031647</Id>
+		<Id>200034146</Id>
+		<Id>200030501</Id>
+		<Id>200033518</Id>
+		<Id>200019339</Id>
+		<Id>200033509</Id>
+		<Id>200033717</Id>
+		<Id>200034133</Id>
+		<Id>200022598</Id>
+		<Id>200025302</Id>
+		<Id>200032587</Id>
+		<Id>200034123</Id>
+		<Id>200034110</Id>
+		<Id>200034121</Id>
+		<Id>200034118</Id>
+		<Id>200034116</Id>
+		<Id>200031158</Id>
+		<Id>200034122</Id>
+	</IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>GSE[ETYP]</Term>    <Field>ETYP</Field>    <Count>26541</Count>    <Explode>Y</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>GSE[ETYP]</QueryTranslation></eSearchResult>
+',
+                 '_rc' => '200',
+                 '_headers' => bless( {
+                                        'connection' => 'close',
+                                        'client-response-num' => 1,
+                                        'set-cookie' => 'ncbi_sid=9DFC7976EDD48611_0046SID; domain=.nih.gov; path=/; expires=Wed, 05 Dec 2012 22:40:33 GMT',
+                                        'cache-control' => 'private',
+                                        'access-control-allow-origin' => '*',
+                                        'date' => 'Mon, 05 Dec 2011 22:40:33 GMT',
+                                        'client-peer' => '130.14.29.110:80',
+                                        'client-date' => 'Mon, 05 Dec 2011 22:40:33 GMT',
+                                        'content-type' => 'text/xml; charset=UTF-8',
+                                        'client-transfer-encoding' => [
+                                                                        'chunked'
+                                                                      ],
+                                        'server' => 'Apache'
+                                      }, 'HTTP::Headers' ),
+                 '_msg' => 'OK',
+                 '_request' => bless( {
+                                        '_content' => '',
+                                        '_uri' => bless( do{\(my $o = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=GSE[ETYP]&retmax=20&usehistory=y')}, 'URI::http' ),
+                                        '_headers' => bless( {
+                                                               'user-agent' => 'libwww-perl/6.02',
+                                                               'content-type' => 'application/x-www-form-urlencoded',
+                                                               'content-length' => 0
+                                                             }, 'HTTP::Headers' ),
+                                        '_method' => 'POST',
+                                        '_uri_canonical' => $VAR1->{'_request'}{'_uri'}
+                                      }, 'HTTP::Request' )
+               }, 'HTTP::Response' );
+fetching http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&query_key=1&WebEnv=NCID_1_326540405_130.14.22.28_9001_1323124833_2065330324&retmax=20
+$VAR1 = '<?xml version="1.0"?>
+<!DOCTYPE eSummaryResult PUBLIC "-//NLM//DTD eSummaryResult, 29 October 2004//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/eSummary_041029.dtd">
+<eSummaryResult>
+<DocSum>
+	<Id>200034126</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">An Animal Model of Myc-driven medulloblastoma</Item>
+	<Item Name="summary" Type="String">Medulloblastoma (MB) is the most common malignant brain tumor in children. Patients whose tumors exhibit overexpression or amplification of the MYC oncogene (c-MYC) usually have an extremely poor prognosis, but there are no animal models of this subtype of the disease. Here we show that cerebellar stem cells expressing Myc and mutant Trp53 (p53) generate aggressive tumors following orthotopic transplantation. These tumors consist of large, pleiomorphic cells and resemble human MYC-driven MB at a molecular level. Notably, antagonists of PI3K/mTOR signaling, but not Hedgehog signaling, inhibit growth of tumor cells. These findings suggest that cerebellar stem cells can give rise to MYC-driven MB, and identify a novel model that can be used to test therapies for this devastating disease. To gain insight into the pathways that control growth of MYC-driven MB, we compared gene expression profiles of murine Myc/DNp53 (MP) tumor cells to those of freshly isolated cerebellar stem cells (Prom1+Lin- cells) and of tumors from Ptch1 mutant mice (a model for Sonic Hedgehog-associated MB). RNA was isolated from stem cells and tumor cells using the RNAqueous kit (Ambion). RNA was labeled and hybridized to Affymetrix Mouse Genome 430 2.0 arrays.</Item>
+	<Item Name="GPL" Type="String">1261</Item>
+	<Item Name="GSE" Type="String">34126</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842160</Item>
+			<Item Name="Title" Type="String">normal stem cells rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842163</Item>
+			<Item Name="Title" Type="String">stem cell-derived tumors rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842166</Item>
+			<Item Name="Title" Type="String">stem cell-derived tumors rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842169</Item>
+			<Item Name="Title" Type="String">patched tumors rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842159</Item>
+			<Item Name="Title" Type="String">normal stem cells rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842162</Item>
+			<Item Name="Title" Type="String">stem cell-derived tumors rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842165</Item>
+			<Item Name="Title" Type="String">stem cell-derived tumors rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842172</Item>
+			<Item Name="Title" Type="String">progenitor-derived tumors rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842175</Item>
+			<Item Name="Title" Type="String">progenitor-derived tumors rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842158</Item>
+			<Item Name="Title" Type="String">normal stem cells rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842161</Item>
+			<Item Name="Title" Type="String">normal stem cells rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842168</Item>
+			<Item Name="Title" Type="String">patched tumors rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842171</Item>
+			<Item Name="Title" Type="String">progenitor-derived tumors rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842174</Item>
+			<Item Name="Title" Type="String">progenitor-derived tumors rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842157</Item>
+			<Item Name="Title" Type="String">normal stem cells rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842164</Item>
+			<Item Name="Title" Type="String">stem cell-derived tumors rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842167</Item>
+			<Item Name="Title" Type="String">patched tumors rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842170</Item>
+			<Item Name="Title" Type="String">patched tumors rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842173</Item>
+			<Item Name="Title" Type="String">progenitor-derived tumors rep3</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">19</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200023196</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">High IGFBP2 Expression Correlates with Tumor Severity in Pediatric Rhabdomyosarcoma.</Item>
+	<Item Name="summary" Type="String">Rhabdomyosarcoma (RMS) is the most common childhood sarcoma and is identified as either the embryonal or alveolar (ARMS) subtype. In approximately 75% of cases, ARMSs are characterized by specific chromosomal translocations that involve PAX and FKHR genes. ARMS gene expression signatures vary, depending on the presence or absence of the translocations. Insulin-like growth factor-binding protein 2 (IGFBP2) is strongly overexpressed in translocation-negative RMS. Because IGFBP2 is associated with tumorigenesis, we investigated its functional role in RMS. An analysis of IGFBP2 distribution in RMS cell lines revealed a strong accumulation in the Golgi complex, in which morphological characteristics appeared peculiarly modified. After silencing IGFBP2 expression, our microarray analysis revealed mostly cell cycle and actin cytoskeleton gene modulations. In parallel, IGFBP2-silenced cells showed reduced cell cycle and rates of invasion and decreased seeding in the lungs after tail vein injections in immunodeficient mice. An analysis of IGFBP2 mRNA and protein localization in human tumors showed abnormal protein accumulation in the Golgi complex, mostly in PAX/FKHR-negative RMS. Moreover, an analysis of patients with RMS revealed the presence of conspicuous circulating levels of IGFBP2 proteins in children with highly aggressive RMS tumors. Taken together, our data provide evidence that IGFBP2 contributes to tumor progression and that it could be used as a marker to better classify clinical and biological risks in RMS.</Item>
+	<Item Name="GPL" Type="String">2136</Item>
+	<Item Name="GSE" Type="String">23196</Item>
+	<Item Name="taxon" Type="String">Homo sapiens</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570828</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 2B (Technical replicate)</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570809</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 1B (Technical replicate)</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570829</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 3A</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570808</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 1A</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570827</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 2A</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM570830</Item>
+			<Item Name="Title" Type="String">IGFBP2 silencing - experiment 3B (Technical replicate)</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">6</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List">
+		<Item Name="int" Type="Integer">21924226</Item>
+	</Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200031647</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Nicotinamide mononucleotide, a key NAD+ precursor, treats the pathophysiology of diet- and age-induced diabetes</Item>
+	<Item Name="summary" Type="String">Type 2 diabetes (T2D) has become an epidemic in our modern lifestyle, likely due to calorie-rich diets overwhelming our adaptive metabolic pathways. One such pathway is mediated by nicotinamide phosphoribosyltransferase (NAMPT), the rate-limiting enzyme in mammalian NAD+ biosynthesis, and the NAD+-dependent protein deacetylase SIRT1. Here we show that NAMPT-mediated NAD+ biosynthesis is severely compromised in metabolic organs by high-fat diet (HFD). Strikingly, nicotinamide mononucleotide (NMN), a product of the NAMPT reaction and a key NAD+ intermediate, ameliorates glucose intolerance by restoring NAD+ levels in HFD-induced T2D mice. NMN also enhances hepatic insulin sensitivity and restores gene expression related to oxidative stress, inflammatory response, and circadian rhythm, partly through SIRT1 activation. Furthermore, NAD+ and NAMPT levels show significant decreases in multiple organs during aging, and NMN improves glucose intolerance and lipid profiles in age-induced T2D mice. These findings provide critical insights into a novel intervention against diet- and age-induced T2D.</Item>
+	<Item Name="GPL" Type="String">6885</Item>
+	<Item Name="GSE" Type="String">31647</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785917</Item>
+			<Item Name="Title" Type="String">RC3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785920</Item>
+			<Item Name="Title" Type="String">HFD2a</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785923</Item>
+			<Item Name="Title" Type="String">HFD1b</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785926</Item>
+			<Item Name="Title" Type="String">HFD4b</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785916</Item>
+			<Item Name="Title" Type="String">RC2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785919</Item>
+			<Item Name="Title" Type="String">HFD1a</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785922</Item>
+			<Item Name="Title" Type="String">HFD4a</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785929</Item>
+			<Item Name="Title" Type="String">NMN3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785921</Item>
+			<Item Name="Title" Type="String">HFD3a</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785924</Item>
+			<Item Name="Title" Type="String">HFD2b</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785927</Item>
+			<Item Name="Title" Type="String">NMN1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785930</Item>
+			<Item Name="Title" Type="String">NMN4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785915</Item>
+			<Item Name="Title" Type="String">RC1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785918</Item>
+			<Item Name="Title" Type="String">RC4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785925</Item>
+			<Item Name="Title" Type="String">HFD3b</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM785928</Item>
+			<Item Name="Title" Type="String">NMN2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">16</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List">
+		<Item Name="int" Type="Integer">21982712</Item>
+	</Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034146</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Transcriptional profiling of MMTV-tTA/TOP-ICN1 tumor derived cell lines comparing untreated (ICN1-On) cells to 24-hour doxcycline treated (ICN1-Off) samples</Item>
+	<Item Name="summary" Type="String">NOTCH activation has been recently implicated in human basal-like breast cancers associated with a poor prognosis. To address the role of Notch1 in mammary transformation and mammary tumor initiating cell activity, we developed a doxycycline-regulated model of Notch1-mediated mammary transformation. These mice develop mammary adenocarcinomas that express cytokeratin (CK) 8/18 and contain rare cells that also express keratin 14. In vivo limiting dilution analyses reveal that these mammary tumors exhibit functional heterogeneity and harbor a rare (1/2978) mammary tumor initiating cell population. Using this dox-regulated Notch1 mammary tumor model, we demonstrate that Notch1 inhibition results in mammary tumor regression in vivo and prevents disease recurrence in 4 of 6 tumors tested. Consistent with the in vivo data, Notch1 inhibition reduces mammary tumorsphere forming activity in vitro. Using doxycycline-responsive tumor derived cell lines, we also identify the embryonic stem cell transcription factor Nanog as a novel Notch1-regulated gene in mammospheres. These data indicate that Notch1 contributes to mammary tumor initiating activity and raises the possibility that NOTCH therapeutics may have efficacy in human basal-like breast cancers associated with NOTCH activation.</Item>
+	<Item Name="GPL" Type="String">1261</Item>
+	<Item Name="GSE" Type="String">34146</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842876</Item>
+			<Item Name="Title" Type="String">8542_Untreated_24hr_1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842875</Item>
+			<Item Name="Title" Type="String">8534_Dox_24hr_1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842874</Item>
+			<Item Name="Title" Type="String">8534_Untreated_24hr_1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842877</Item>
+			<Item Name="Title" Type="String">8542_Dox_24hr_1</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">4</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200030501</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Down-regulation of PAX2 affects ovarian cancer cell growth and migration</Item>
+	<Item Name="summary" Type="String">PAX2 is one of nine PAX genes that regulate tissue development and cellular differentiation in embryos. PAX2 promotes cell proliferation, oncogenic transformation, cell lineage specification, migration, and survival. In our previous study, we found that PAX2 is highly expressed in low-grade ovarian serous carcinoma, but its expression in clear cell, endometrioid, and mucinous cell ovarian carcinomas have not been studied. More importantly, the functional role of PAX2 in ovarian cancer is not known. Downregulation of PAX2 in PAX2-expressing ovarian cancer cells inhibits cell proliferation and migration. This growth inhibition is due to the upregulation of the tumor suppressor gene G0S2 and subsequent induction of apoptosis. The PAX2 pathway thus represents a potential therapeutic target for PAX2-expressing ovarian carcinomas.</Item>
+	<Item Name="GPL" Type="String">570</Item>
+	<Item Name="GSE" Type="String">30501</Item>
+	<Item Name="taxon" Type="String">Homo sapiens</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756541</Item>
+			<Item Name="Title" Type="String">PLKO-1 vector control puromycin stable TOV21G cell line</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756544</Item>
+			<Item Name="Title" Type="String">PAX2 shRNA 15841 puromycin stable TOV21G cell line</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756540</Item>
+			<Item Name="Title" Type="String">non-target shRNA puromycin stable TOV21G cell line</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756539</Item>
+			<Item Name="Title" Type="String">parental TOV21G cell line</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756543</Item>
+			<Item Name="Title" Type="String">PAX2 shRNA 15840 puromycin stable TOV21G cell line</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM756542</Item>
+			<Item Name="Title" Type="String">PAX2 shRNA 15839 puromycin stable TOV21G cell line</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">6</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200033518</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Identification and characterization of Hoxa9 binding sites in hematopoietic cells</Item>
+	<Item Name="summary" Type="String">This SuperSeries is composed of the following subset Series: GSE21299: Expression data from murine cell line transduced with epitope tagged forms of Hoxa9 GSE33509: Identification and Characterization of Hoxa9 Binding Sites in Hematopoietic Cells GSE33517: Epigenetic profiling of histone H3K4me1, H3K4me3, H3K27me3, H3ac, H4ac, CBP and P300 using ChIP-chip</Item>
+	<Item Name="GPL" Type="String">14849;1261;9185;14850</Item>
+	<Item Name="GSE" Type="String">33518</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array; Genome binding/occupancy profiling by genome tiling array; Genome binding/occupancy profiling by high throughput sequencing</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/05</Item>
+	<Item Name="suppFile" Type="String">CEL PAIR WIG</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532282</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 3, rep 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532285</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 4, rep 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829656</Item>
+			<Item Name="Title" Type="String">Hoxa9</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829659</Item>
+			<Item Name="Title" Type="String">Cebpa F</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842248</Item>
+			<Item Name="Title" Type="String">Meis1 replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842251</Item>
+			<Item Name="Title" Type="String">Meis1 replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532280</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 3, rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532283</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 4, rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532286</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 5, rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532289</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 0, rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829655</Item>
+			<Item Name="Title" Type="String">H3K4trimethyl+</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829662</Item>
+			<Item Name="Title" Type="String">H3K4me1+ sample</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842250</Item>
+			<Item Name="Title" Type="String">Control replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842253</Item>
+			<Item Name="Title" Type="String">Control replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532281</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 3, rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532288</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 5, rep 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532291</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 0, rep 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829657</Item>
+			<Item Name="Title" Type="String">Pu.1 SCBT</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829660</Item>
+			<Item Name="Title" Type="String">P300+ sample</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829663</Item>
+			<Item Name="Title" Type="String">H3 acetyl+ sample</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842252</Item>
+			<Item Name="Title" Type="String">Hoxa replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532284</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 4, rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532287</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 5, rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM532290</Item>
+			<Item Name="Title" Type="String">Hoxa9-ER on day 0, rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829654</Item>
+			<Item Name="Title" Type="String">H3K27trimethyl+</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829658</Item>
+			<Item Name="Title" Type="String">Stat5 SCBT</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829661</Item>
+			<Item Name="Title" Type="String">H4 acetyl+ sample</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM829664</Item>
+			<Item Name="Title" Type="String">CBP+ sample</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842249</Item>
+			<Item Name="Title" Type="String">Hoxa replicate 1</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">29</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200019339</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Differential gene expression in thrombus-derived white blood cells of patients with acute coronary syndrome</Item>
+	<Item Name="summary" Type="String">Inflammatory mechanisms and immune cells are involved in acute coronary syndromes (ACS) and may lead to acute plaque rupture. However, the local expression of the different genes potentially involved is largely unknown. We therefore performed an Affymetrix analysis of genes expressed in white blood cells obtained from an occluding coronary thrombus or peripheral blood of patients with ST-elevation myocardial infarction.</Item>
+	<Item Name="GPL" Type="String">570</Item>
+	<Item Name="GSE" Type="String">19339</Item>
+	<Item Name="taxon" Type="String">Homo sapiens</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480384</Item>
+			<Item Name="Title" Type="String">blood vessel, infarction, biological rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480387</Item>
+			<Item Name="Title" Type="String">blood, normal, biological rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480382</Item>
+			<Item Name="Title" Type="String">blood vessel, infarction, biological rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480385</Item>
+			<Item Name="Title" Type="String">blood vessel, infarction, biological rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480388</Item>
+			<Item Name="Title" Type="String">blood, normal, biological rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480383</Item>
+			<Item Name="Title" Type="String">blood vessel, infarction, biological rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480386</Item>
+			<Item Name="Title" Type="String">blood, normal, biological rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM480389</Item>
+			<Item Name="Title" Type="String">blood, normal, biological rep4</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">8</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200033509</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Identification and Characterization of Hoxa9 Binding Sites in Hematopoietic Cells</Item>
+	<Item Name="summary" Type="String">The clustered homeobox proteins play crucial roles in development, hematopoiesis and leukemia yet the targets they regulate and their mechanisms of action are poorly understood. Here, we identified the binding sites for Hoxa9 and the Hox cofactor Meis1 on a genome-wide level and profiled their associated epigenetic modifications and transcriptional targets. Hoxa9 and the Hox cofactor Meis1 co-bind at hundreds of highly evolutionarily-conserved sites, most of which are distant from transcription start sites. These sites show high levels of histone H3K4 monomethylation and CBP/P300 binding characteristic of enhancers. Furthermore, a subset of these sites shows enhancer activity in transient transfection assays. Many Hoxa9 and Meis1 binding sites are also bound by PU.1 and other lineage-restricted transcription factors previously implicated in establishment of myeloid enhancers. Conditional Hoxa9 activation is associated with CBP/P300 recruitment, histone acetylation and transcriptional activation of a network of proto-oncogenes including Erg, Flt3, Lmo2, Myb and Sox4. Collectively this work suggests that Hoxa9 regulates transcription by interacting with enhancers of genes important for hematopoiesis and leukemia.</Item>
+	<Item Name="GPL" Type="String">9185</Item>
+	<Item Name="GSE" Type="String">33509</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Genome binding/occupancy profiling by high throughput sequencing</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">WIG</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842249</Item>
+			<Item Name="Title" Type="String">Hoxa replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842252</Item>
+			<Item Name="Title" Type="String">Hoxa replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842248</Item>
+			<Item Name="Title" Type="String">Meis1 replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842251</Item>
+			<Item Name="Title" Type="String">Meis1 replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842250</Item>
+			<Item Name="Title" Type="String">Control replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842253</Item>
+			<Item Name="Title" Type="String">Control replicate 2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">6</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List">
+		<Item Name="int" Type="Integer">22072553</Item>
+	</Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200033717</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">PDGF-BB modulates hematopoiesis and tumor angiogenesis by inducing erythropoietin production in stromal cells.</Item>
+	<Item Name="summary" Type="String">The platelet-derived growth factor (PDGF) signaling system contributes to tumor angiogenesis and vascular remodeling. Here, we show PDGF-BB markedly induces erythropoietin (EPO) mRNA and protein expression by targeting the PDGFR-beta+ stromal and perivascular compartments. In mouse tumor models, PDGF-BB-induced EPO promotes tumor growth via two mechanisms: 1) paracrine stimulation of tumor angiogenesis by directly inducing endothelial cell proliferation, migration, sprouting and tube formation; and 2) endocrine stimulation of extramedullary hematopoiesis leading to increased oxygen perfusion and protection against tumor-associated anemia. Similarly, delivery of an adenovirus-PDGF-BB to tumor-free mice markedly increases EPO production and hematopoietic parameters. An EPO blockade specifically attenuates PDGF-BB-induced tumor growth, angiogenesis and hematopoiesis. At the molecular level, we show that the PDGF-BB-PDGFR-beta signaling system activates EPO promoter via in part transcriptional regulation of ATF3 by possible association with c-Jun and SP1. These findings uncover a novel mechanism of PDGF-BB-induced tumor growth, angiogenesis and hematopoiesis.</Item>
+	<Item Name="GPL" Type="String">7546</Item>
+	<Item Name="GSE" Type="String">33717</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833290</Item>
+			<Item Name="Title" Type="String">PDGF-BB treated replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833289</Item>
+			<Item Name="Title" Type="String">Control replicate 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833292</Item>
+			<Item Name="Title" Type="String">PDGF-BB treated replicate 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833287</Item>
+			<Item Name="Title" Type="String">Control replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833288</Item>
+			<Item Name="Title" Type="String">Control replicate 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM833291</Item>
+			<Item Name="Title" Type="String">PDGF-BB treated replicate 2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">6</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034133</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Proinflammatory role of histamine-releasing factor in asthma and allergy</Item>
+	<Item Name="summary" Type="String">Immunoglobulin (Ig) E-mediated activation of mast cells and basophils underlies allergic diseases such as asthma. Histamine-releasing factor (HRF), also known as translationally controlled tumor protein (TCTP) and fortilin, is a highly conserved protein with both intracellular and extracellular functions. Secreted HRF can stimulate histamine release and IL-4 and IL-13 production from IgE-sensitized basophils and mast cells. HRF is found in nasal, skin blister and bronchoalveolar lavage (BAL) fluids during late-phase allergic reactions (LPRs), which implicates HRF in the LPR and chronic allergic inflammation. Here we identify a subset of IgE and IgG antibodies as HRF-interacting molecules. HRF can exist as a dimer and bind to immunoglobulins (Igs) via interactions of its N-terminal and internal regions with the Fab region of Igs. Therefore, HRF together with HRF-reactive IgE can activate mast cells in vitro. The Ig-interacting HRF peptides that block HRF-Ig interactions can inhibit IgE+HRF-induced mast cell activation and in vivo cutaneous anaphylaxis and airway inflammation. Intranasally administered HRF can recruit inflammatory immune cells to the lung in naïve mice in a mast cell- and Fc receptor-dependent manner. These results strongly suggest the proinflammatory role of HRF in asthma and skin immediate hypersensitivity.</Item>
+	<Item Name="GPL" Type="String">10787</Item>
+	<Item Name="GSE" Type="String">34133</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842259</Item>
+			<Item Name="Title" Type="String">FceRla KO mHRF</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842255</Item>
+			<Item Name="Title" Type="String">WT mHRF</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842258</Item>
+			<Item Name="Title" Type="String">FceRla KO PBS</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842254</Item>
+			<Item Name="Title" Type="String">WT PBS</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842257</Item>
+			<Item Name="Title" Type="String">FcRg KO mHRF</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842256</Item>
+			<Item Name="Title" Type="String">FcRg KO PBS</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">6</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200022598</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Clinical significance of UNC5B Expression in Colorectal Cancer</Item>
+	<Item Name="summary" Type="String">Purpose and Experimental Design: The purpose of this study is to find a methylation-related gene that could become a biomarker or therapeutic target in colorectal carcinoma (CRC). We screened candidate genes suspected to be silenced by DNA methylation using oligonucleotide microarray analysis. To investigate the clinical significance of one candidate gene (UNC5B), we analyzed the correlation between mRNA expression and clinicopathological features using clinical tissue samples. Finally, methylation specific PCR analysis was performed to reveal whether the promoter region was methylated in CRC cell lines. Results: We found 75 candidate genes that were potentially suppressed by DNA methylation in CRC. We focused on UNC5B, a possible tumor suppressor gene and regulator of apoptosis known to be inactivated in CRC. The mRNA expression analysis using tissue samples revealed that UNC5B mRNA was down-expressed in about 20% of CRC patients, and the patients with low-UNC5B-expression tumors showed a significantly higher recurrence rate after curative surgery. According to the univariate and multivariate analysis, low UNC5B expression was an independent risk factor for postoperative recurrence in stage I, II, and III CRC patients. Furthermore, patients with low expression of UNC5B in tumors had significantly poorer prognosis than those with high expression of UNC5B. Although UNC5B mRNA expression was restored by the demethylation treatment in CRC cell lines, the promoter region of UNC5B was not methylated. Conclusion: UNC5B is a potential biomarker for the selection of patients with high risk of postoperative recurrence and worse prognosis in CRC.</Item>
+	<Item Name="GPL" Type="String">570</Item>
+	<Item Name="GSE" Type="String">22598</Item>
+	<Item Name="taxon" Type="String">Homo sapiens</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452629</Item>
+			<Item Name="Title" Type="String">patient 006, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452632</Item>
+			<Item Name="Title" Type="String">patient 027, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452635</Item>
+			<Item Name="Title" Type="String">patient 031, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452642</Item>
+			<Item Name="Title" Type="String">patient 042, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452645</Item>
+			<Item Name="Title" Type="String">patient 047, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452648</Item>
+			<Item Name="Title" Type="String">patient 024, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452655</Item>
+			<Item Name="Title" Type="String">patient 035, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452658</Item>
+			<Item Name="Title" Type="String">patient 041, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452661</Item>
+			<Item Name="Title" Type="String">patient 045, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452631</Item>
+			<Item Name="Title" Type="String">patient 024, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452638</Item>
+			<Item Name="Title" Type="String">patient 035, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452641</Item>
+			<Item Name="Title" Type="String">patient 041, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452644</Item>
+			<Item Name="Title" Type="String">patient 045, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452647</Item>
+			<Item Name="Title" Type="String">patient 011, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452651</Item>
+			<Item Name="Title" Type="String">patient 030, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452654</Item>
+			<Item Name="Title" Type="String">patient 033, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452657</Item>
+			<Item Name="Title" Type="String">patient 038, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452660</Item>
+			<Item Name="Title" Type="String">patient 044, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM560746</Item>
+			<Item Name="Title" Type="String">HT29 cell line, 5aza treated</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452634</Item>
+			<Item Name="Title" Type="String">patient 030, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452637</Item>
+			<Item Name="Title" Type="String">patient 033, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452640</Item>
+			<Item Name="Title" Type="String">patient 038, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452643</Item>
+			<Item Name="Title" Type="String">patient 044, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452650</Item>
+			<Item Name="Title" Type="String">patient 028, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452653</Item>
+			<Item Name="Title" Type="String">patient 032, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452656</Item>
+			<Item Name="Title" Type="String">patient 036, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM560745</Item>
+			<Item Name="Title" Type="String">HT29 cell line, control</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM560748</Item>
+			<Item Name="Title" Type="String">HCT15 cell line, 5aza treated</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452630</Item>
+			<Item Name="Title" Type="String">patient 011, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452633</Item>
+			<Item Name="Title" Type="String">patient 028, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452636</Item>
+			<Item Name="Title" Type="String">patient 032, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452639</Item>
+			<Item Name="Title" Type="String">patient 036, normal, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452646</Item>
+			<Item Name="Title" Type="String">patient 006, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452649</Item>
+			<Item Name="Title" Type="String">patient 027, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452652</Item>
+			<Item Name="Title" Type="String">patient 031, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452659</Item>
+			<Item Name="Title" Type="String">patient 042, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM452662</Item>
+			<Item Name="Title" Type="String">patient 047, cancer, homogenized</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM560747</Item>
+			<Item Name="Title" Type="String">HCT15 cell line, control</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">38</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List">
+		<Item Name="int" Type="Integer">21922135</Item>
+	</Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200025302</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Synergistic Tumor Suppressor Activity of E-cadherin and p53 in a Conditional Mouse Model for Diffuse-Type Gastric Cancer</Item>
+	<Item Name="summary" Type="String">BACKGROUND &amp; AIMS: Gastric cancer is the second most frequent cause of death from cancer in the world, diffuse-type gastric cancer (DGC) exhibiting a poor prognosis. Germline mutations of CDH1, encoding E-cadherin, have been reported in hereditary DGCs, and genetic and/or epigenetic alterations of CDH1 are frequently detected in sporadic DGCs. Genetic alterations of TP53 are also frequently found in DGCs. To examine the synergistic effect of loss of E-cadherin and p53 on gastric carcinogenesis, we established a mouse line in which E-cadherin and p53 are specifically inactivated in the stomach parietal cell lineage. METHODS: We crossed Atp4b-Cre mice with Cdh1loxP/loxP and Trp53loxP/loxP mice, and examined the gastric phenotype of Atp4b-Cre+;Cdh1loxP/loxP;Trp53loxP/loxP mice. RESULTS: Non-polarization of E-cadherin-negative parietal cells and proton pump-negative atypical foci were observed in the transgenic mice. Intramucosal cancers and invasive cancers composed of poorly differentiated carcinoma cells and signet ring cells, which were histologically very similar to those in humans, were found from 6 and 9 months, respectively. Fatal DGCs developed at 100% penetrance within a year, frequently metastasized to lymph nodes, and had tumorigenic activity in immunodeficient mice. Gene expression profiling analyses also revealed that DGCs in the E-cadherin/p53-deficient mice resembled human DGCs. CONCLUSIONS: Our mouse line is the first genetically modified mouse model of DGC and very useful for clarifying the mechanism underlying gastric carcinogenesis, and provides a new approach to the treatment and prevention of DGC because of morphological and biochemical similarities with human DGC.</Item>
+	<Item Name="GPL" Type="String">11202</Item>
+	<Item Name="GSE" Type="String">25302</Item>
+	<Item Name="taxon" Type="String">Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM622301</Item>
+			<Item Name="Title" Type="String">Diffuse-type Gastric Cancer Replicate 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM622303</Item>
+			<Item Name="Title" Type="String">Diffuse-type Gastric Cancer Replicate 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM622302</Item>
+			<Item Name="Title" Type="String">Diffuse-type Gastric Cancer Replicate 2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">3</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List">
+		<Item Name="int" Type="Integer">21865403</Item>
+	</Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200032587</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Large-Scale Discovery of Enhancers from Human Heart Tissue</Item>
+	<Item Name="summary" Type="String">Development and function of the human heart depend on the dynamic control of tissue-specific gene expression by distant-acting transcriptional enhancers. While large numbers of heart enhancers have been identified using the mouse as a model system, many of these regulatory sequences are poorly conserved in the human genome. To generate an accurate genome-wide map of human heart enhancers, we used an epigenomic enhancer discovery approach and identified ~6,200 candidate enhancer sequences directly from fetal and adult human heart tissue. Consistent with their predicted function, these elements were markedly enriched near genes implicated in heart development, function and disease. To further validate their in vivo enhancer activity, we tested 65 of these human sequences in a transgenic mouse enhancer assay and observed that 43 (66%) drove reproducible reporter gene expression in the heart. These results support the discovery of a genome-wide set of non-coding sequences highly enriched in human heart enhancers which is likely to facilitate down-stream studies of the role of enhancers in development and pathological conditions of the heart.</Item>
+	<Item Name="GPL" Type="String">9185;9052</Item>
+	<Item Name="GSE" Type="String">32587</Item>
+	<Item Name="taxon" Type="String">Homo sapiens; Mus musculus</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Genome binding/occupancy profiling by high throughput sequencing</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/04</Item>
+	<Item Name="suppFile" Type="String">BED SRA Experiment SRA Study TXT WIG</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM807734</Item>
+			<Item Name="Title" Type="String">HumanAdultHeart_acCBP-p300_ChIP-seq</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM807737</Item>
+			<Item Name="Title" Type="String">MouseP2Heart_acCBP-p300_ChIP-seq</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM807735</Item>
+			<Item Name="Title" Type="String">HumanFetaltHeart_acCBP-p300_ChIP-seq</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM807736</Item>
+			<Item Name="Title" Type="String">HumanFetaltHeart_polII_ChIP-seq</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">4</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034123</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">A genome-wide analysis reveals that the Drosophila transcription factor, Lola, promotes axon growth in part by suppressing expression of the actin nucleation factor, Spire</Item>
+	<Item Name="summary" Type="String">This SuperSeries is composed of the following subset Series: GSE34121: A genome-wide analysis reveals that the Drosophila transcription factor, Lola, promotes axon growth in part by suppressing expression of the actin nucleation factor, Spire (allele lola_ORE76) GSE34122: A genome-wide analysis reveals that the Drosophila transcription factor, Lola, promotes axon growth in part by suppressing expression of the actin nucleation factor, Spire (allele lola_ORC4)</Item>
+	<Item Name="GPL" Type="String">1908</Item>
+	<Item Name="GSE" Type="String">34123</Item>
+	<Item Name="taxon" Type="String">Drosophila melanogaster</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842132</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842135</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep6</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842139</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842142</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep6</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842131</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842138</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842141</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842134</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842137</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842140</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842130</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842133</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842136</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep7</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842143</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep7</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">14</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034110</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Gene expression study after 3 days of cold exposure in a Solanum tuberosum cultivar called Desirée</Item>
+	<Item Name="summary" Type="String">The molecular response to cold exposure was studied in the leaves of an S. tuberosum clone using cDNA microarray. Differentially expressed genes were classified according to their known or predicted function and their expression ratio as compared to the control. The major changes upon cold exposure in Desirée leaves were observed in the photosynthesis-related genes, which were down-regulated, whereas cell rescue, detoxication and transcription factor-related genes were mostly up-regulated. We also observed an increased expression of polyamine and proline synthesis-related genes, as well as some carbohydrate-related genes such as sucrose synthase and trehalose-6-phosphate synthase.</Item>
+	<Item Name="GPL" Type="String">14110</Item>
+	<Item Name="GSE" Type="String">34110</Item>
+	<Item Name="taxon" Type="String">Solanum tuberosum</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842008</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842011</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842010</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842009</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">4</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034121</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">A genome-wide analysis reveals that the Drosophila transcription factor, Lola, promotes axon growth in part by suppressing expression of the actin nucleation factor, Spire (allele lola_ORE76)</Item>
+	<Item Name="summary" Type="String">Transcriptional profiling of Drosophila embryos comparing lola mutant 10-12 hour after egg lay (AEL) embryos to age-matched control embryos. Mutants are homozygous lola nulls (allele lola_ORE76).</Item>
+	<Item Name="GPL" Type="String">1908</Item>
+	<Item Name="GSE" Type="String">34121</Item>
+	<Item Name="taxon" Type="String">Drosophila melanogaster</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842136</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep7</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842132</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842135</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep6</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842131</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842134</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842130</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842133</Item>
+			<Item Name="Title" Type="String">lola_null_(ORE76)_rep4</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">7</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034118</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Gene expression study after 3 days of cold or salt exposure in a Solanum tuberosum cultivar called Desirée</Item>
+	<Item Name="summary" Type="String">This SuperSeries is composed of the following subset Series: GSE34110: Gene expression study after 3 days of cold exposure in a Solanum tuberosum cultivar called Desirée GSE34116: Gene expression study after 3 days of salt exposure in a Solanum tuberosum cultivar called Desirée</Item>
+	<Item Name="GPL" Type="String">14110</Item>
+	<Item Name="GSE" Type="String">34118</Item>
+	<Item Name="taxon" Type="String">Solanum tuberosum</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842010</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842087</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842090</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842009</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842089</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842008</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842011</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. cold-treated, day3, rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842088</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">8</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034116</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Gene expression study after 3 days of salt exposure in a Solanum tuberosum cultivar called Desirée</Item>
+	<Item Name="summary" Type="String">The molecular response to salt exposure was studied in the leaves of an S. tuberosum clone using cDNA microarray. Differentially expressed genes were classified according to their known or predicted function and their expression ratio as compared to the control. The major changes upon a 150 mM NaCl exposure in potato leaves occurred in the photosystem apparatus and Calvin cycle: many transcripts coding for proteins belonging to photosystems I and II and chlorophyll synthesis were repressed, whereas cell rescue and transcription factor-related genes were mostly up-regulated. A strong down-regulation of several functional categories including primary metabolism, detoxication apparatus and signal transduction was also observed.</Item>
+	<Item Name="GPL" Type="String">14110</Item>
+	<Item Name="GSE" Type="String">34116</Item>
+	<Item Name="taxon" Type="String">Solanum tuberosum</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR TXT</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842089</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842087</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842090</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842088</Item>
+			<Item Name="Title" Type="String">Potato leaves, control Vs. salt-treated, day3, rep2</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">4</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200031158</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">Expression data from WT, MPK6 Overexpression, and mpk6 T-DNA knockout Arabidopsis root and shoot under hypoxic and mock conditions</Item>
+	<Item Name="summary" Type="String">MPK6 shows transient increase in activity under hypoxia with maximal activity at 2 hrs. To study the role of MPK6 in hypoxia in Arabidopsis, 10 do seedlings of WT, mpk6 and MPK6 plants were exposed to 2 hrs hypoxia and 2hr air (mock). Because there are no major phenotypic differences between the genotypes, microarray was used to determine if there were transcript level differences between the genotypes.</Item>
+	<Item Name="GPL" Type="String">198</Item>
+	<Item Name="GSE" Type="String">31158</Item>
+	<Item Name="taxon" Type="String">Arabidopsis thaliana</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">CEL</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771373</Item>
+			<Item Name="Title" Type="String">Wild Type Root Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771376</Item>
+			<Item Name="Title" Type="String">Wild Type Shoot Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771379</Item>
+			<Item Name="Title" Type="String">Wild Type Shoot Hypoxia Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771386</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Root Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771389</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Root Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771392</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Shoot Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771375</Item>
+			<Item Name="Title" Type="String">Wild Type Shoot Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771382</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Root Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771385</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Root Hypoxia Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771388</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Shoot Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771391</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Shoot Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771395</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Root Hypoxia Biological Rep 3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771378</Item>
+			<Item Name="Title" Type="String">Wild Type Root Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771381</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Root Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771384</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Shoot Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771387</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Shoot Hypoxia Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771394</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Root Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771397</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Shoot Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771374</Item>
+			<Item Name="Title" Type="String">Wild Type Root Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771377</Item>
+			<Item Name="Title" Type="String">Wild Type Root Hypoxia Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771380</Item>
+			<Item Name="Title" Type="String">Wild Type Shoot Hypoxia Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771383</Item>
+			<Item Name="Title" Type="String">mpk6 T-DNA insertion Knockout Shoot Normoxia (mock) Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771390</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Root Normoxia (mock) Biological Rep 2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771393</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Root Hypoxia Biological Rep 1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM771396</Item>
+			<Item Name="Title" Type="String">MPK6 Over Expression Shoot Hypoxia Biological Rep 1</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">25</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+<DocSum>
+	<Id>200034122</Id>
+	<Item Name="GDS" Type="String"></Item>
+	<Item Name="title" Type="String">A genome-wide analysis reveals that the Drosophila transcription factor, Lola, promotes axon growth in part by suppressing expression of the actin nucleation factor, Spire (allele lola_ORC4)</Item>
+	<Item Name="summary" Type="String">Transcriptional profiling of Drosophila embryos comparing lola mutant 10-12 hour after egg lay (AEL) embryos to age-matched control embryos. Mutants are homozygous isoform K nulls (allele lola_ORC4).</Item>
+	<Item Name="GPL" Type="String">1908</Item>
+	<Item Name="GSE" Type="String">34122</Item>
+	<Item Name="taxon" Type="String">Drosophila melanogaster</Item>
+	<Item Name="GSM_L" Type="String"></Item>
+	<Item Name="GSM_titles_L" Type="String"></Item>
+	<Item Name="entryType" Type="String">GSE</Item>
+	<Item Name="gdsType" Type="String">Expression profiling by array</Item>
+	<Item Name="ptechType" Type="String"></Item>
+	<Item Name="valType" Type="String"></Item>
+	<Item Name="SSInfo" Type="String"></Item>
+	<Item Name="subsetInfo" Type="String"></Item>
+	<Item Name="PDAT" Type="String">2011/12/03</Item>
+	<Item Name="suppFile" Type="String">GPR</Item>
+	<Item Name="Samples" Type="List">
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842138</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep2</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842141</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep5</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842137</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep1</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842140</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep4</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842143</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep7</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842139</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep3</Item>
+		</Item>
+		<Item Name="Sample" Type="Structure">
+			<Item Name="Accession" Type="String">GSM842142</Item>
+			<Item Name="Title" Type="String">lola_isoform_K_(ORC4)_rep6</Item>
+		</Item>
+	</Item>
+	<Item Name="Relations" Type="List"></Item>
+	<Item Name="n_samples" Type="Integer">7</Item>
+	<Item Name="SeriesTitle" Type="String"></Item>
+	<Item Name="PlatformTitle" Type="String"></Item>
+	<Item Name="PlatformTaxa" Type="String"></Item>
+	<Item Name="SamplesTaxa" Type="String"></Item>
+	<Item Name="PubMedIds" Type="List"></Item>
+	<Item Name="Projects" Type="List"></Item>
+</DocSum>
+
+</eSummaryResult>
+';

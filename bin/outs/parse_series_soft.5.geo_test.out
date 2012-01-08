@@ -1,0 +1,154 @@
+writing to db geo_test
+looking for files under /proj/price1/vcassen/trends/data/GEO/series...
+processing 5 files
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE1000/GSE1000_family.soft...
+/proj/price1/vcassen/trends/data/GEO/series/GSE1000/GSE1000_family.soft: got 13 records
+updating GSE1000...
+GSE1000: total size=4339 at parse_series_soft.pl, line 128
+BUILD: fetching record for GPL96 (GEO::Platform)
+platform GPL96 already in db and data.table exists, skipping
+BUILD: fetching record for GSM15785 (GEO::SeriesData)
+GSM15785 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15785.table.data
+updating GSM15785...
+GSM15785: total size=4253 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15786 (GEO::SeriesData)
+GSM15786 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15786.table.data
+GSM15786: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15786...
+GSM15786: total size=4245 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15787 (GEO::SeriesData)
+GSM15787 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15787.table.data
+GSM15787: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15787...
+GSM15787: total size=4237 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15788 (GEO::SeriesData)
+GSM15788 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15788.table.data
+GSM15788: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15788...
+GSM15788: total size=4229 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15789 (GEO::SeriesData)
+GSM15789 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15789.table.data
+GSM15789: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15789...
+GSM15789: total size=4245 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15790 (GEO::SeriesData)
+GSM15790 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15790.table.data
+GSM15790: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15790...
+GSM15790: total size=4253 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15791 (GEO::SeriesData)
+GSM15791 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15791.table.data
+GSM15791: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15791...
+GSM15791: total size=4253 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15792 (GEO::SeriesData)
+GSM15792 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15792.table.data
+GSM15792: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15792...
+GSM15792: total size=4245 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15794 (GEO::SeriesData)
+GSM15794 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15794.table.data
+GSM15794: overwriting old 'description' with 'Cultured in DMEM with 10% FBS and penicillin (100U/ml)/streptomycin (100ug/ml). Media changed every other day. 37ºC, 5% CO2.'
+updating GSM15794...
+GSM15794: total size=4245 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM15795 (GEO::SeriesData)
+GSM15795 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM157/GSM15795.table.data
+updating GSM15795...
+GSM15795: total size=4277 at parse_series_soft.pl, line 128
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE14777/GSE14777_family.soft...
+/proj/price1/vcassen/trends/data/GEO/series/GSE14777/GSE14777_family.soft: got 8 records
+GSE14777: overwriting old 'overall_design' with 'The total RNA was isolated from control and treated cells using the TRIzol (Invitrogen) method. The Micromax direct labeling kit, MPS502 (PerkinElmer), was used to synthesize the labeled cDNA from 70 ug of total RNA and further process the hybridized cDNA on the array. All the steps were carried out according to manufacturer’s instructions (www.perkinelmer.com/lifesciences). The array slides were scanned immediately by the PerkinElmer Scan array Gx Microarray scanner. The Scan array software (PerkinElmer) was used for grid wise normalization of array images. Five arrays were used with at least two biological treatments of cells, and dye-swap experiments were included in the final analysis. The data was analysed by GeneSpring GX and Biointerpreter software from Genotypic Technology, Bangalore. The differential expression was considered if the Log 2 mean of at least -1 for the downregulated genes and +1 for the upregulated genes. We considered only the genes that were reproducible from all five replicates.'
+updating GSE14777...
+GSE14777: total size=7046 at parse_series_soft.pl, line 128
+BUILD: fetching record for GPL5166 (GEO::Platform)
+platform GPL5166 already in db and data.table exists, skipping
+BUILD: fetching record for GSM368874 (GEO::SeriesData)
+GSM368874 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM368/GSM368874.table.data
+updating GSM368874...
+GSM368874: total size=7479 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM368875 (GEO::SeriesData)
+GSM368875 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM368/GSM368875.table.data
+updating GSM368875...
+GSM368875: total size=7479 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM368876 (GEO::SeriesData)
+GSM368876 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM368/GSM368876.table.data
+updating GSM368876...
+GSM368876: total size=7479 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM368891 (GEO::SeriesData)
+GSM368891 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM368/GSM368891.table.data
+updating GSM368891...
+GSM368891: total size=7479 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM368893 (GEO::SeriesData)
+GSM368893 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM368/GSM368893.table.data
+updating GSM368893...
+GSM368893: total size=7479 at parse_series_soft.pl, line 128
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE1832/GSE1832_family.soft...
+/proj/price1/vcassen/trends/data/GEO/series/GSE1832/GSE1832_family.soft: got 18 records
+updating GSE1832...
+GSE1832: total size=4586 at parse_series_soft.pl, line 128
+BUILD: fetching record for GPL8300 (GEO::Platform)
+BUILD: fetching record for GPL8300 (GEO::Platform)
+GPL8300 (GEO::Platform): writing data table to /proj/price1/vcassen/trends/data/GEO/platforms/GPL8300/GPL8300.table.data
+updating GPL8300...
+GPL8300: total size=3640 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32066 (GEO::SeriesData)
+GSM32066 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM320/GSM32066.table.data
+updating GSM32066...
+GSM32066: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32097 (GEO::SeriesData)
+GSM32097 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM320/GSM32097.table.data
+updating GSM32097...
+GSM32097: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32098 (GEO::SeriesData)
+GSM32098 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM320/GSM32098.table.data
+updating GSM32098...
+GSM32098: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32099 (GEO::SeriesData)
+GSM32099 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM320/GSM32099.table.data
+updating GSM32099...
+GSM32099: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32100 (GEO::SeriesData)
+GSM32100 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32100.table.data
+updating GSM32100...
+GSM32100: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32101 (GEO::SeriesData)
+GSM32101 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32101.table.data
+updating GSM32101...
+GSM32101: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32102 (GEO::SeriesData)
+GSM32102 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32102.table.data
+updating GSM32102...
+GSM32102: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32103 (GEO::SeriesData)
+GSM32103 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32103.table.data
+updating GSM32103...
+GSM32103: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32104 (GEO::SeriesData)
+GSM32104 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32104.table.data
+updating GSM32104...
+GSM32104: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32105 (GEO::SeriesData)
+GSM32105 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32105.table.data
+updating GSM32105...
+GSM32105: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32106 (GEO::SeriesData)
+GSM32106 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32106.table.data
+updating GSM32106...
+GSM32106: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32107 (GEO::SeriesData)
+GSM32107 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32107.table.data
+updating GSM32107...
+GSM32107: total size=3599 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32108 (GEO::SeriesData)
+GSM32108 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32108.table.data
+updating GSM32108...
+GSM32108: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32109 (GEO::SeriesData)
+GSM32109 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32109.table.data
+updating GSM32109...
+GSM32109: total size=3591 at parse_series_soft.pl, line 128
+BUILD: fetching record for GSM32110 (GEO::SeriesData)
+GSM32110 (GEO::SeriesData): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM321/GSM32110.table.data
+updating GSM32110...
+GSM32110: total size=3591 at parse_series_soft.pl, line 128
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE29383/GSE29383_family.soft...

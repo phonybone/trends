@@ -1,0 +1,49 @@
+got 25763 raw samples
+first raw sample: $VAR1 = 'GSM1';
+
+got 21861 series samples
+first series sample: $VAR1 = 'GSM29804';
+
+Use of uninitialized value in exists at /local/lib/perl5/site_perl/5.8.8/PhonyBone/ListUtilities.pm line 102.
+got 39 ids in common
+$VAR1 = [
+          'GSM101110',
+          'GSM219246',
+          'GSM219261',
+          'GSM219260',
+          'GSM101114',
+          'GSM101097',
+          'GSM101102',
+          'GSM101107',
+          'GSM219251',
+          'GSM219252',
+          'GSM219245',
+          'GSM219244',
+          'GSM101095',
+          'GSM219249',
+          'GSM219241',
+          'GSM101103',
+          'GSM219264',
+          'GSM101116',
+          'GSM219259',
+          'GSM101109',
+          'GSM219256',
+          'GSM101113',
+          'GSM101100',
+          'GSM101101',
+          'GSM219250',
+          'GSM219262',
+          'GSM101115',
+          'GSM101096',
+          'GSM219258',
+          'GSM101111',
+          'GSM101104',
+          'GSM219242',
+          'GSM101106',
+          'GSM219257',
+          'GSM101098',
+          'GSM219248',
+          'GSM219243',
+          'GSM101105',
+          'GSM219263'
+        ];

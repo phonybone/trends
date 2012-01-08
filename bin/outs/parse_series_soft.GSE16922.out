@@ -1,0 +1,263 @@
+writing to db geo
+parse_series_soft.pl: 
+processing 1 files (fuse=-1)
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE16922/GSE16922_family.soft.gz...
+parsing /proj/price1/vcassen/trends/data/GEO/series/GSE16922/GSE16922_family.soft.gz...
+trying to open /proj/price1/vcassen/trends/data/GEO/series/GSE16922/GSE16922_family.soft at /proj/price1/vcassen/trends/bin/../lib/ParseSoft.pm line 64.
+tied GSE16922 to GSM424361
+tied GSE16922 to GSM424362
+tied GSE16922 to GSM424363
+tied GSE16922 to GSM424364
+tied GSE16922 to GSM424365
+tied GSE16922 to GSM424366
+tied GSE16922 to GSM424367
+tied GSE16922 to GSM424368
+tied GSE16922 to GSM424369
+tied GSE16922 to GSM424370
+tied GSE16922 to GSM424371
+tied GSE16922 to GSM424372
+tied GSE16922 to GSM424373
+tied GSE16922 to GSM424374
+tied GSE16922 to GSM424375
+tied GSE16922 to GSM424376
+tied GSE16922 to GSM424377
+tied GSE16922 to GSM424378
+tied GSE16922 to GSM424379
+tied GSE16922 to GSM424380
+tied GSE16922 to GSM424381
+tied GSE16922 to GSM424382
+tied GSE16922 to GSM424383
+tied GSE16922 to GSM424384
+tied GSE16922 to GSM424385
+tied GSE16922 to GSM424386
+tied GSE16922 to GSM424387
+tied GSE16922 to GSM424388
+tied GSE16922 to GSM424389
+tied GSE16922 to GSM424390
+tied GSE16922 to GSM424391
+tied GSE16922 to GSM424392
+tied GSE16922 to GSM424393
+tied GSE16922 to GSM424394
+tied GSE16922 to GSM424395
+tied GSE16922 to GSM424396
+tied GSE16922 to GSM424397
+tied GSE16922 to GSM424398
+tied GSE16922 to GSM424399
+tied GSE16922 to GSM424400
+tied GSE16922 to GSM424401
+tied GSE16922 to GSM424402
+tied GSE16922 to GSM424403
+tied GSE16922 to GSM424404
+tied GSE16922 to GSM424405
+tied GSE16922 to GSM424406
+tied GSE16922 to GSM424407
+tied GSE16922 to GSM424408
+tied GSE16922 to GSM424409
+tied GSE16922 to GSM424410
+tied GSE16922 to GSM424411
+tied GSE16922 to GSM424412
+tied GSE16922 to GSM424413
+tied GSE16922 to GSM424414
+tied GSE16922 to GSM424415
+tied GSE16922 to GSM424416
+tied GSE16922 to GSM424417
+tied GSE16922 to GSM424418
+tied GSE16922 to GSM424419
+tied GSE16922 to GSM424420
+tied GSE16922 to GSM424421
+tied GSE16922 to GSM424422
+tied GSE16922 to GSM424423
+tied GSE16922 to GSM424424
+tied GSE16922 to GSM424425
+tied GSE16922 to GSM424426
+tied GSE16922 to GSM424427
+tied GSE16922 to GSM424428
+tied GSE16922 to GSM424429
+tied GSE16922 to GSM424430
+tied GSE16922 to GSM424431
+tied GSE16922 to GSM424432
+tied GSE16922 to GSM424433
+tied GSE16922 to GSM424434
+tied GSE16922 to GSM424435
+tied GSE16922 to GSM424436
+tied GSE16922 to GSM424437
+tied GSE16922 to GSM424438
+tied GSE16922 to GSM424439
+tied GSE16922 to GSM424440
+tied GSE16922 to GSM424441
+tied GSE16922 to GSM424442
+tied GSE16922 to GSM424443
+tied GSE16922 to GSM424444
+tied GSE16922 to GSM424445
+tied GSE16922 to GSM424446
+tied GSE16922 to GSM424447
+tied GSE16922 to GSM424448
+tied GSE16922 to GSM424449
+tied GSE16922 to GSM424450
+tied GSE16922 to GSM424451
+tied GSE16922 to GSM424452
+tied GSE16922 to GSM424453
+tied GSE16922 to GSM424454
+tied GSE16922 to GSM424455
+tied GSE16922 to GSM424456
+tied GSE16922 to GSM424457
+tied GSE16922 to GSM424458
+tied GSE16922 to GSM424459
+inserting microrna->GSE16922
+inserting expression->GSE16922
+inserting profiling->GSE16922
+inserting predicts->GSE16922
+inserting clinical->GSE16922
+inserting outcome->GSE16922
+inserting of->GSE16922
+inserting chronic->GSE16922
+inserting hepatitis->GSE16922
+inserting c->GSE16922
+inserting by->GSE16922
+inserting interferon->GSE16922
+inserting administration->GSE16922
+inserting we->GSE16922
+inserting attempt->GSE16922
+inserting to->GSE16922
+inserting catalog->GSE16922
+inserting the->GSE16922
+inserting microrna->GSE16922
+inserting mirna->GSE16922
+inserting expression->GSE16922
+inserting profile->GSE16922
+inserting according->GSE16922
+inserting to->GSE16922
+inserting the->GSE16922
+inserting response->GSE16922
+inserting of->GSE16922
+inserting combination->GSE16922
+inserting therapy->GSE16922
+inserting in->GSE16922
+inserting order->GSE16922
+inserting to->GSE16922
+inserting predict->GSE16922
+inserting the->GSE16922
+inserting outcome->GSE16922
+inserting of->GSE16922
+inserting drug->GSE16922
+inserting response->GSE16922
+inserting before->GSE16922
+inserting administration->GSE16922
+inserting and->GSE16922
+inserting clarify->GSE16922
+inserting the->GSE16922
+inserting relationship->GSE16922
+inserting between->GSE16922
+inserting aberrant->GSE16922
+inserting expression->GSE16922
+inserting of->GSE16922
+inserting mirnas->GSE16922
+inserting and->GSE16922
+inserting chronic->GSE16922
+inserting liver->GSE16922
+inserting disease->GSE16922
+GPL9081 (GEO::Platform): writing data table to /proj/price1/vcassen/trends/data/GEO/platforms/GPL9081/GPL9081.table.data
+GSM424361 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424361.table.data
+GSM424362 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424362.table.data
+GSM424363 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424363.table.data
+GSM424364 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424364.table.data
+GSM424365 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424365.table.data
+GSM424366 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424366.table.data
+GSM424367 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424367.table.data
+GSM424368 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424368.table.data
+GSM424369 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424369.table.data
+GSM424370 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424370.table.data
+GSM424371 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424371.table.data
+GSM424372 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424372.table.data
+GSM424373 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424373.table.data
+GSM424374 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424374.table.data
+GSM424375 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424375.table.data
+GSM424376 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424376.table.data
+GSM424377 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424377.table.data
+GSM424378 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424378.table.data
+GSM424379 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424379.table.data
+GSM424380 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424380.table.data
+GSM424381 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424381.table.data
+GSM424382 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424382.table.data
+GSM424383 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424383.table.data
+GSM424384 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424384.table.data
+GSM424385 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424385.table.data
+GSM424386 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424386.table.data
+GSM424387 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424387.table.data
+GSM424388 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424388.table.data
+GSM424389 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424389.table.data
+GSM424390 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424390.table.data
+GSM424391 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424391.table.data
+GSM424392 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424392.table.data
+GSM424393 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424393.table.data
+GSM424394 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424394.table.data
+GSM424395 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424395.table.data
+GSM424396 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424396.table.data
+GSM424397 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424397.table.data
+GSM424398 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424398.table.data
+GSM424399 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424399.table.data
+GSM424400 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424400.table.data
+GSM424401 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424401.table.data
+GSM424402 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424402.table.data
+GSM424403 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424403.table.data
+GSM424404 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424404.table.data
+GSM424405 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424405.table.data
+GSM424406 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424406.table.data
+GSM424407 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424407.table.data
+GSM424408 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424408.table.data
+GSM424409 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424409.table.data
+GSM424410 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424410.table.data
+GSM424411 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424411.table.data
+GSM424412 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424412.table.data
+GSM424413 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424413.table.data
+GSM424414 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424414.table.data
+GSM424415 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424415.table.data
+GSM424416 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424416.table.data
+GSM424417 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424417.table.data
+GSM424418 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424418.table.data
+GSM424419 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424419.table.data
+GSM424420 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424420.table.data
+GSM424421 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424421.table.data
+GSM424422 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424422.table.data
+GSM424423 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424423.table.data
+GSM424424 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424424.table.data
+GSM424425 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424425.table.data
+GSM424426 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424426.table.data
+GSM424427 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424427.table.data
+GSM424428 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424428.table.data
+GSM424429 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424429.table.data
+GSM424430 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424430.table.data
+GSM424431 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424431.table.data
+GSM424432 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424432.table.data
+GSM424433 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424433.table.data
+GSM424434 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424434.table.data
+GSM424435 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424435.table.data
+GSM424436 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424436.table.data
+GSM424437 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424437.table.data
+GSM424438 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424438.table.data
+GSM424439 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424439.table.data
+GSM424440 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424440.table.data
+GSM424441 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424441.table.data
+GSM424442 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424442.table.data
+GSM424443 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424443.table.data
+GSM424444 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424444.table.data
+GSM424445 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424445.table.data
+GSM424446 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424446.table.data
+GSM424447 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424447.table.data
+GSM424448 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424448.table.data
+GSM424449 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424449.table.data
+GSM424450 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424450.table.data
+GSM424451 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424451.table.data
+GSM424452 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424452.table.data
+GSM424453 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424453.table.data
+GSM424454 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424454.table.data
+GSM424455 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424455.table.data
+GSM424456 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424456.table.data
+GSM424457 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424457.table.data
+GSM424458 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424458.table.data
+GSM424459 (GEO::Sample): writing data table to /proj/price1/vcassen/trends/data/GEO/sample_data/GSM424/GSM424459.table.data
+stats: $VAR1 = {
+          'n_Platform_updated' => 1,
+          'n_Series_updated' => 1,
+          'n_Sample_updated' => 99
+        };

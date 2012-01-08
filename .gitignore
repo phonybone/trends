@@ -1,0 +1,14 @@
+*.gz
+*.out
+*.data
+*.tar
+data/*
+*.mat
+#*
+.#*
+bin/outs/*
+bin/butte
+bin/fixers
+bin/eutil
+.DS_Store
+
