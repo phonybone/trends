@@ -1,5 +1,7 @@
 package GEO;
 use Moose;
+extends 'Mongoid';
+
 use MooseX::ClassAttribute;
 use Carp;
 use Data::Dumper;
@@ -11,48 +13,33 @@ use Devel::Size qw(size total_size);
 
 use GEO::Dataset;
 use GEO::DatasetSubset;
-use GEO::RawSample;
+use GEO::Sample;
 use GEO::Series;
-use GEO::SeriesData;
 use GEO::Platform;
 use GEO::word2geo;
 
 use PhonyBone::FileUtilities qw(warnf dief);
+use PhonyBone::ListUtilities qw(in_list);
 
-has '_id'    => (isa=>'MongoDB::OID', is=>'rw');	# mongo id
 has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
-has 'record' => (is=>'rw', isa=>'HashRef'); # 
+#has 'record' => (is=>'rw', isa=>'HashRef'); # 
 
 our %mongos=();
 class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>'/proj/price1/vcassen/trends/data/GEO');
-class_has 'db'       => (is=>'rw');
-class_has 'db_name'  => (is=>'rw', isa=>'Str', default=>'geo');
 
 class_has 'testing' =>     (is=>'rw', isa=>'Int', default=>0);
 class_has 'ftp_link'=>     (is=>'ro', isa=>'Str', default=>'ftp.ncbi.nih.gov');
-class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO::RawSample',
+class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO::Sample',
 								      GSE=>'GEO::Series',
 								      GDS=>'GEO::Dataset',
 								      GDS_SS=>'GEO::DatasetSubset',
 								      GPL=>'GEO::Platform',
 								      w2g=>'GEO::word2geo',
-								      gsd=>'GEO::SeriesData', # hmmm....
 								  } });
 
-# get the class from a geo_id
-sub class_of { 
-    my ($self, $geo_id)=@_;
-    my $prefix=substr($geo_id,0,3);
-    my $class=$self->prefix2class->{$prefix} or die "no class for $prefix\n";
-    $class='GEO::DatasetSubset' if $class eq 'GEO::Dataset' && $geo_id=~/GDS\d+_\d+/;
-    $class;
-}
-
+class_has 'db_name'         => (is=>'rw', isa=>'Str', default=>'geo');	
 class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [{geo_id=>1},{unique=>1}] });
 
-# "private" class variables
-our $connection;
-our $db;
 
 
 around BUILDARGS => sub {
@@ -73,26 +60,47 @@ sub BUILD {
     if ($self->geo_id && !$self->_id) {
 #	warnf "BUILD: fetching record for %s (%s)\n", $self->geo_id, (ref $self || $self) if $ENV{DEBUG};
 	my $record=$self->get_mongo_record;
-	while (my ($k,$v)=each %$record) {
-	    next unless $self->can($k);
-	    $self->$k($v);
-	}
+	$self->hash_assign(%$record);
     }
     $self;
 }
+
+
+# get the class from a geo_id
+sub class_of { 
+    my ($self, $geo_id)=@_;
+    my $prefix=substr($geo_id,0,3);
+    my $class=$self->prefix2class->{$prefix} or confess "no class for $geo_id\n";
+    $class='GEO::DatasetSubset' if $class eq 'GEO::Dataset' && $geo_id=~/GDS\d+_\d+/;
+    $class;
+}
+
+
+# "private" class variables
+#our $connection;
+#our $db;
+
+
 
 # Assign the contents of a hash to a geo object.  Extract each field of hash for which
 # a geo accessor exists.
 # Returns $self
 sub hash_assign {
     my ($self, @args)=@_;
+    confess "ref found where list needed" if ref $args[0]; # should be a hash key
     my %hash=@args;
     while (my ($k,$v)=each %hash) {
-	$self->$k($v) if $self->can($k);
+	$self->{$k}=$v;
     }
     $self;
 }
 
+sub record {
+    my ($self)=@_;
+    my %record=%$self;
+    unbless \%record;
+    wantarray? %record:\%record;
+}
 ########################################################################
 
 # return the class-based prefix for geo_ids: subclasses must define
@@ -102,7 +110,7 @@ sub prefix {
     confess "no prefix defined for $self";
 }
 
-
+# sorting method:
 sub by_geo_id($$) {
     my $_a=shift;
     my $_b=shift;
@@ -131,7 +139,6 @@ sub by_geo_id($$) {
 # $class, if present
 # $geo_id, using extracted prefix
 # $self, with geo_id as an attribute of $self
-# factory() checks SeriesData db if $class=='RawSample' and no record is found
 sub factory {
     my ($self, $geo_id, $class)=@_;
 
@@ -145,54 +152,11 @@ sub factory {
     $geo_id ||= $self->geo_id;
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;
     $class=$self->class_of($geo_id) if $geo_id;	# when
-
-    # make an object and return it; special check if RawSamples if record not found
     my $geo=$class->new($geo_id);
-    return $geo if defined $geo->_id || $class ne 'GEO::RawSample';
-
-    # $class='GEO::RawSample' and $geo_id not found in db; try looking in SeriesData
-    # this may be a terrible hack
-    my $gds=GEO::SeriesData->new($geo_id);
-    defined $gds->_id? $gds : $geo; # return $gds if found in db, original $geo otherwise
 }
 
-sub next {
-    my ($self)=@_;
-    my $class=ref $self || $self;
-    confess "$self does not implement next()";
-}
 
 ########################################################################
-
-# return the mongo collection for the given type; also cache it (based on class prefix)
-# can call as class method
-sub mongo {
-    my ($self, $class)=@_;
-
-    # new:
-    $class ||= ref $self || $self;
-    my $prefix=$class->prefix or die "no prefix defined for $class";
-
-    # check for cached collection:
-    if (my $mongo=$mongos{$prefix}) { return $mongo; }
-    
-    if (! defined $db) {
-	$connection||=MongoDB::Connection->new; # connect if haven't already done so
-	$class->db_name($class->db_name.'_test') if $class->testing;
-	my $db_name=$class->db_name;
-	$db=$connection->$db_name;
-	$self->db($db);
-    }
-
-    my $coll_name=$class->collection; # wow, could your naming get any worse?
-    my $collection=$db->$coll_name;
-
-    $mongos{$prefix}=$collection;
-    foreach my $index (@{$class->indexes}) {
-	$collection->ensure_index($index);
-    }
-    $collection;
-}
 
 # fetch the geo record for this geo item
 # pass $class to force collection
@@ -233,40 +197,6 @@ sub get_mongo_records {
 
 #-----------------------------------------------------------------------
 
-sub insert {
-    my ($self, $options)=@_;
-    $self->mongo->insert($self, $options);
-    $self;
-}
-
-# update a record
-# $opts is a hashref; accepted keys are 'upsert', 'multiple'.
-sub update {
-    my ($self, $opts)=@_;
-    $self->mongo->update({geo_id=>$self->geo_id}, $self, $opts);
-    $self;
-}
-
-sub delete {
-    my ($self)=@_;
-    $self->mongo->remove({geo_id=>$self->geo_id});
-    $self;
-}    
-
-# remove all the dups of a record
-# NOT threadsafe; works by removing all instances of record, the re-inserting
-sub remove_dups {
-    my ($self, $options)=@_;
-    my $collection=$self->mongo;
-    
-    my $class=ref $self;
-    unbless $self;		# arrgghh!  It burns!
-    delete $self->{_id};	# It's ripping my soul away!
-
-    $collection->remove($self, $options); # removes all matching
-    $collection->insert($self); # put one copy back in
-    bless $self, $class;	# ahhhh...
-}
 
 ########################################################################
 
@@ -290,12 +220,28 @@ sub _get_ftp {
 
 
 ########################################################################
+# add a value to an attribute that is a list.  If the attribute exists 
+# but is not already a list, make it one.
+# returns the list, but does not update the db
+sub append {
+    my ($self, $attr, $value, $opts)=@_;
+    confess "missing args" unless defined $value;
+    $opts||={};
+    
+    my $list=$self->{$attr} || [];
+    $list=[$list] unless ref $list eq 'ARRAY';
+    push @$list, $value if !($opts->{unique} && in_list($list, $value));
+    $self->{$attr}=$list;
+    $self;			# so you can chain
+}
+
+########################################################################
 
 sub data_table_file { join('/', $_[0]->path, join('.', $_[0]->geo_id, 'table.data')) }
 
 sub write_table {
     my ($self, $table, $dest_file)=@_;
-    
+    $table||=$self->{__table} or confess "no __table";
     $dest_file ||= $self->data_table_file;
     mkdir $self->path unless -d $self->path;
 
@@ -313,5 +259,64 @@ sub write_table {
     }
     $fh->close;
 }
+
+########################################################################
+
+sub add_to_word2geo {
+    my ($self)=@_;
+    $self->can('word_fields') or return $self;
+    my $fields=$self->word_fields;
+    my @words;
+    foreach my $field (@$fields) {
+	my $value=$self->{$field};
+	my @lines=ref $value eq 'ARRAY'? @$value : ($value);
+	foreach my $line (@lines) {
+	    push @words, split(/[-,\s.:]+/, $line);
+	}
+    }
+
+    foreach my $word (@words) {
+	$word=lc $word;
+	$word=~s/[^\w\d_]//g;	# remove junk
+	GEO::word2geo->mongo->insert({word=>$word, geo_id=>$self->{geo_id}}); # index prevents dups
+	warnf("inserting %s->%s\n", $word, $self->{geo_id}) if $ENV{DEBUG};
+    }
+    $self;
+}
+
+########################################################################
+
+# "tie" (not perl tie) $self to another GEO object.
+# This means taking the $geo_id from the other object 
+# and appending it to the $id_field as given.
+#
+# The second GEO object can also be an unblessed hash, so long as
+# $record->{geo_id} exists, or even just a $geo_id
+#
+# returns $self.
+
+sub tie_to_geo {
+    my ($self, $record, $id_field)=@_;
+
+    my $target_id=ref $record? $record->{geo_id} : $record;
+    confess "no target_id" unless $target_id;
+
+    $self->append($id_field, $target_id, {unique=>1}); # append to dataset_ids
+    warnf "tied %s to %s\n", $target_id, $self->geo_id if $ENV{DEBUG};
+
+    if (0) {
+	# check for $id_field w/o the tailing 's':
+	if ($id_field=~/s$/) {
+	    $id_field=~s/s$//;		# remove trailing 's'
+	    if (defined $self->{$id_field} && !ref $self->{$id_field}) { 
+		$self->append("${id_field}s", $self->{$id_field}, {unique=>1});
+		delete $self->{$id_field};
+	    }
+	}
+    }
+    $self->update({upsert=>1}); # aannnd update
+    $self;
+}
+
 
 1;

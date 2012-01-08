@@ -10,4 +10,5 @@ bin/outs/*
 bin/butte
 bin/fixers
 bin/eutil
+.DS_Store
 

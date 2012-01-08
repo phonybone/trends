@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/tools/bin/perl
 
 #
 # A script to find one monogoDB record and print it nicely
@@ -8,7 +8,7 @@
 
 use strict;
 use warnings;
-use MongoDB;
+#use MongoDB;
 use Data::Dumper;
 use Carp;
 

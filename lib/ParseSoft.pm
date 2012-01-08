@@ -19,6 +19,7 @@ use FileHandle;
 
 has 'filename' => (isa=>'Str', is=>'rw');
 has '_fh' => (is=>'rw');
+has 'ignore_table' => (is=>'rw');
 
 around BUILDARGS => sub {
     my $orig  = shift;
@@ -45,13 +46,12 @@ sub parse {
     my $record_hash={};
     my $file_order=1;
     foreach (@blocks) {		# $_ holds each block
-	my $record=parse_block($_, $record_hash);
+	my $record=$self->parse_block($_, $record_hash);
 	$record->{__file_order}=$file_order++ unless defined $record->{__file_order};
 	my $key=join('_', ref $record, $record->{geo_id});
 	$record_hash->{$key}=$record;	# can overwrite because $record was added to in parse_block()
     }
 
-#    push @records, parse_data($data_block);
     my @records=sort {$a->{__file_order} <=> $b->{__file_order}} values %$record_hash;
     wantarray? @records:\@records;
 }
@@ -61,7 +61,7 @@ sub parse {
 sub next {
     my ($self)=@_;
     if (! $self->_fh) {
-	warn "trying to open ",$self->filename;
+	warn "trying to open ",$self->filename if $ENV{DEBUG};
 	my $fh=FileHandle->new($self->filename, "r") or 
 	    die "Can't open ", $self->filename, ": $!";
 	$self->_fh($fh);
@@ -73,12 +73,14 @@ sub next {
 	$self->_fh(undef);	# closes fh
 	return undef;
     }
-    parse_block($block);
+    $self->parse_block($block);
 }
 
 
 
+# parse an entire block, (stuff between "\n^" record separators)
 sub parse_block {
+    my $self=shift;
     local $_=shift;
     my $record_hash=shift || {};
     my @lines=split(/\n/);
@@ -112,23 +114,25 @@ sub parse_block {
 	  };
 
 	  $first eq '#' and do {
-	      parse_hash_line($line, $record);
+	      parse_hash_line($line, $record) unless $self->ignore_table;
 	      last SWITCH;
 	  };
 
 	  # default:
-	  parse_data_line($whole_line, $record);
+	  parse_data_line($whole_line, $record) unless $self->ignore_table;
       }
     }
     bless $record, $class;	# class probably isn't a real class; more like a label for the record
 }
 
+# bang ('!') lines basically hold attr-value pairs
+# in .soft files the attr is prefixed with the record type; we remove the prefix.
 sub parse_bang_line {
     my ($line, $record, $class)=@_;
     my ($k,$v)=split(/\s*=\s*/, $line, 2);
     $k=lc $k;
-    $k=~s/^$class//;
-    $k=~s/^_//;
+    $k=~s/^$class//;		# remove the prefix...
+    $k=~s/^_//;			# ...and the '_' char
 
     # values in the record can either be scalars or lists of scalars.
     # The first time a key is encountered, it is assigned with it's value
@@ -145,7 +149,7 @@ sub parse_bang_line {
     undef;
 }
 
-# parse a header line: split on ' = '
+# parse a header line: split on ' = '; append to $record->{__table}->{header}
 sub parse_hash_line {
     my ($line, $record)=@_;
 
@@ -155,40 +159,13 @@ sub parse_hash_line {
     undef;
 }
 
-# table data is a LoL
+# table data is a LoL; split on whitespace and append arrayref to $record->{__table}->{data}
 sub parse_data_line {
     my ($line, $record)=@_;
     push @{$record->{__table}->{data}}, [split(/\s+/, $line)];
     undef;
 }
 
-
-# hmmm, this seems to be obsolete...
-sub parse_data {
-    my ($block)=@_;
-    confess "obsolete";
-    my $header=[];
-    my $data=[];
-
-    local $/="\n";
-    my @lines=split(/\n/, $block);
-    shift @lines;		# burn the first line
-    foreach (@lines) {
-	chomp;
-	if (/^\#/) {		# header line
-	    my ($col_name, $desc)=split(/\s*=\s*/);
-	    $col_name=~s/^\#//;
-	    $desc=~s/Value for [^:]+:\s*//;
-	    push @$header, [$col_name, $desc];
-	}
-	elsif (/^[^^!]/) {		# if the line doesn't begin with '^' or '!'.  Sheesh
-	    push @$data, [split(/\s+/)];
-	}
-    }
-    
-    warnf "got %d rows in data\n", scalar @$data if $ENV{DEBUG};
-    return bless {header=>$header, data=>$data}, 'datatable'; # not a real object
-}
 
 
 1;

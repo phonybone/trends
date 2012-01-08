@@ -1,3 +1,20 @@
+28Dec:
+merge raw_samples, ds_samples into 'samples' table
+- combine records, report on any conflicts (status?)
+- don't touch original tables
+- weed out spurious crap from ds_samples, eg keys=~/sample_/, _file_order, __table, 
+- store path_rawdata where appropriate; get from filesystem.
+
+combine GEO::RawSample and GEO::SeriesData
+- fixes to GEO.pm (eg prefix, prefix2class, mongo, etc)
+- merge attributes
+- path() might be trickier? rs uses series path (or does it?)
+- need two versions of as_vector?
+
+need a script to generate perl code defining all attributes taken from a mongo db.
+
+
+
 Rebuild database:
 
 parse_soft.pl -> datasets, dataset_subsets, samples
