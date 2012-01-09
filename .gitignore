@@ -9,4 +9,4 @@ data/*
 bin/outs/*
 bin/butte
 .DS_Store
-
+no_git/*
