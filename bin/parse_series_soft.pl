@@ -77,8 +77,11 @@ sub get_soft_files {
     my @files=();
 
     # if $options{gses} present, use that
-    my @gses=Options::file_or_list('gses');
-    return wantarray? @gses:\@gses if @gses;
+    if ($options{gses}) {
+	my @gses=Options::file_or_list('gses');
+	@files=map {sprintf "%s/%s/%s/%s_family.soft", GEO->data_dir, GEO::Series->subdir, $_, $_} @gses;
+	return wantarray? @files:\@files;
+    }
 
     # Look for all unparsed series.soft and series.soft.gz files under $options{series_dir}:
     my $series_dir=$options{series_dir};
@@ -98,7 +101,7 @@ sub parse_soft {
     my ($filename)=@_;
     warn "parsing $filename...\n" if $ENV{DEBUG};
     $filename=gunzip($filename) or return;
-
+    
     if (already_processed($filename)) {
 	warn "already processed $filename, skipping\n";
 	return;
@@ -175,6 +178,7 @@ sub handle_series {
     $series->add_to_word2geo;
 }
 
+# update the database and return a GEO object based on $record
 sub update_record {
     my ($record)=@_;
     my $geo_id=$record->{geo_id} or do {
@@ -183,11 +187,17 @@ sub update_record {
     };
 
     my $geo=GEO->factory($geo_id);
-    $geo->hash_assign(%$record);
+    $geo->hash_assign(%$record); # ignores all keys starting with '_'
     $geo->status('downloaded') if $geo->can('status');
+    $geo->update({upsert=>1});
     my $class=ref $geo;
     $class=~s/^GEO:://;
     $stats->{"n_${class}_updated"}++;
+
+    foreach my $k (grep /^_/, keys %$record) {
+	$geo->{$k}=$record->{$k};
+    }
+
     $geo;
 }
 
@@ -208,6 +218,7 @@ sub handle_platform {
     } else {
 	$platform->write_table unless $options{ignore_table};
     }
+
 }
 
 main(@ARGV);
