@@ -11,13 +11,23 @@ class TestAllIdsWithPheno(unittest.TestCase):
         pass
         
     def test_all_ids_with_pheno(self):
-        pheno='normal'
-        ids=Sample.all_ids_with_pheno(pheno)
-        self.assertIsInstance(ids, list)
-        warn("got %d '%s' samples" % (len(ids), pheno))
+        phenos=[
+            "normal",
+            "adenocarcinoma",
+            "squamous cell carcinoma",
+            "asthma",
+            "chronic obstructive pulmonary disease",
+            "large cell lung carcinoma"
+            ]
 
-        ids_with_data=[x for x in ids if os.access(Sample.data_path_of(geo_id=x), os.R_OK)]
-        warn("got %d '%s' samples with data" % (len(ids_with_data), pheno))
+        for pheno in phenos:
+            ids=Sample.all_ids_with_pheno(pheno)
+            self.assertIsInstance(ids, list)
+            warn("got %d '%s' samples" % (len(ids), pheno))
+            self.assertTrue(len(list) > 0)
+
+            ids_with_data=[x for x in ids if os.access(Sample.data_path_of(geo_id=x), os.R_OK)]
+            warn("got %d '%s' samples with data" % (len(ids_with_data), pheno))
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestAllIdsWithPheno)
