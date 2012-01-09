@@ -1,0 +1,59 @@
+fetching http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=GSE[ETYP]&retmax=20&usehistory=y
+$VAR1 = bless( {
+                 '_protocol' => 'HTTP/1.1',
+                 '_content' => '<?xml version="1.0" ?>
+<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD eSearchResult, 11 May 2002//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/eSearch_020511.dtd">
+<eSearchResult><Count>26541</Count><RetMax>20</RetMax><RetStart>0</RetStart><QueryKey>1</QueryKey><WebEnv>NCID_1_326516617_130.14.22.28_9001_1323124115_1857284919</WebEnv><IdList>
+		<Id>200034126</Id>
+		<Id>200023196</Id>
+		<Id>200031647</Id>
+		<Id>200034146</Id>
+		<Id>200030501</Id>
+		<Id>200033518</Id>
+		<Id>200019339</Id>
+		<Id>200033509</Id>
+		<Id>200033717</Id>
+		<Id>200034133</Id>
+		<Id>200022598</Id>
+		<Id>200025302</Id>
+		<Id>200032587</Id>
+		<Id>200034123</Id>
+		<Id>200034110</Id>
+		<Id>200034121</Id>
+		<Id>200034118</Id>
+		<Id>200034116</Id>
+		<Id>200031158</Id>
+		<Id>200034122</Id>
+	</IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>GSE[ETYP]</Term>    <Field>ETYP</Field>    <Count>26541</Count>    <Explode>Y</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>GSE[ETYP]</QueryTranslation></eSearchResult>
+',
+                 '_rc' => '200',
+                 '_headers' => bless( {
+                                        'connection' => 'close',
+                                        'client-response-num' => 1,
+                                        'set-cookie' => 'ncbi_sid=08DD77A0EDD45931_0025SID; domain=.nih.gov; path=/; expires=Wed, 05 Dec 2012 22:28:35 GMT',
+                                        'cache-control' => 'private',
+                                        'access-control-allow-origin' => '*',
+                                        'date' => 'Mon, 05 Dec 2011 22:28:35 GMT',
+                                        'client-peer' => '130.14.29.110:80',
+                                        'client-date' => 'Mon, 05 Dec 2011 22:28:35 GMT',
+                                        'content-type' => 'text/xml; charset=UTF-8',
+                                        'client-transfer-encoding' => [
+                                                                        'chunked'
+                                                                      ],
+                                        'server' => 'Apache'
+                                      }, 'HTTP::Headers' ),
+                 '_msg' => 'OK',
+                 '_request' => bless( {
+                                        '_content' => '',
+                                        '_uri' => bless( do{\(my $o = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=GSE[ETYP]&retmax=20&usehistory=y')}, 'URI::http' ),
+                                        '_headers' => bless( {
+                                                               'user-agent' => 'libwww-perl/6.02',
+                                                               'content-type' => 'application/x-www-form-urlencoded',
+                                                               'content-length' => 0
+                                                             }, 'HTTP::Headers' ),
+                                        '_method' => 'POST',
+                                        '_uri_canonical' => $VAR1->{'_request'}{'_uri'}
+                                      }, 'HTTP::Request' )
+               }, 'HTTP::Response' );
+web_env is NCID_1_326516617_130.14.22.28_9001_1323124115_1857284919
+got 1 ids
