@@ -1,0 +1,38 @@
+Overview: We are using the sum of archived human expression data to
+create a collection of statistical classifiers covering <as many
+phenotypes as we can think of>.  This set of classifiers would
+provide a "molecular signature" for each of the phenotypes used in
+training, such that any new expression dataset could then be
+identified 
+
+
+
+We will use as much expression data as is publicly available
+to create statistical classifiers for as many phenotypes as possible.
+
+Something about molecular signatures
+
+Background: Description of classifiers.
+A classifier is a statistical test that, once trained, provides a
+yes/no classification to a new input data set with minimal computation
+resources required.
+
+Inclusion of meta-data
+
+
+
+What we're actually doing:
+1. Download expression data from GEO, ArrayExpress, OncoMine, etc
+   (including meta data).
+2. Catagorize each expression dataset using the metadata associated
+   with it, and run clustering algorithms to create classifier
+   training sets.
+3. Create classifiers based on said training sets.
+4. We will then monitor the expression data repositories for new
+   expression sets as they become available.  Upon such an event, the
+   new expression set will be both compared to the existing
+   classifiers to identify its nature and incorporated into the
+   existing classifier set to increase the accuracy of those
+   classifiers. 
+5. Something about identifying trends across time.
+6. 
