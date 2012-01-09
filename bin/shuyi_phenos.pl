@@ -66,9 +66,8 @@ sub main {
 	    }
 	    
 	    unless ($sample->_id) {
-		warnf "$sample_id (%s): record not found\n", $pheno;
-		$stats->{not_found}++; # won't update anyway without upsert
-		next;
+		$sample->insert;
+		warnf "inserting %s\n", $sample->geo_id;
 	    }
 
 	    $sample->phenotype($pheno);

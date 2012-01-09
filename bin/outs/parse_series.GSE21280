@@ -1,0 +1,19 @@
+parse_series.pl ../data/GEO/series.csv -repair_db -d db_name=geo_rebuild -filter_gses GSE21280 at parse_series.pl line 66.
+1 gses in filter
+
+GSE21280
+BUILD: fetching record for GSE21280 (GEO::Series)
+4 samples at parse_series.pl, line 121
+BUILD: fetching record for GSM531992 (GEO::RawSample)
+BUILD: fetching record for GSM531992 (GEO::SeriesData)
+BUILD: fetching record for GSM531991 (GEO::RawSample)
+BUILD: fetching record for GSM531991 (GEO::SeriesData)
+BUILD: fetching record for GSM531989 (GEO::RawSample)
+BUILD: fetching record for GSM531989 (GEO::SeriesData)
+BUILD: fetching record for GSM531990 (GEO::RawSample)
+BUILD: fetching record for GSM531990 (GEO::SeriesData)
+GSE21280: status=downloaded
+Stats:
+$VAR1 = {
+          'downloaded' => 1
+        };

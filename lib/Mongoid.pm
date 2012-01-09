@@ -63,7 +63,13 @@ sub update {
     while (my ($k,$v)=each %$self) { # copy fields to new record, ...
 	$record->{$k}=$v unless $k=~/^_/; # ...skipping "_keys"
     }
+<<<<<<< HEAD
     $self->mongo->update({_id=>$self->_id}, $record, $opts);
+=======
+#    $self->mongo->update({_id=>$self->_id}, $record, $opts);
+    my $_id=$self->mongo->save($record, $opts);
+    $self->_id($_id) unless $_id eq 1; # see perldoc MongoDB::Collection, 'save'
+>>>>>>> d3202eeddff5cd9607085b10d29d3abf81851b66
     $self;
 }
 

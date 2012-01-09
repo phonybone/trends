@@ -1,0 +1,33 @@
+ok 1 - require GEO::Platform;
+ok 2 - got one record
+total_size: 3608
+table_end: size=40
+contact_country: size=48
+contact_phone: size=56
+__file_order: size=64
+contact_state: size=64
+status: size=72
+contact_name: size=72
+contact_city: size=72
+web_link: size=0
+contact_address: size=56
+taxid: size=56
+manufacture_protocol: size=80
+table_begin: size=80
+organism: size=80
+submission_date: size=80
+platform_GPL8300: size=80
+contact_web_link: size=88
+contact_institute: size=88
+geo_id: size=88
+description: size=0
+distribution: size=64
+contact_zip/postal_code: size=64
+data_row_count: size=64
+contact_email: size=96
+manufacturer: size=96
+technology: size=96
+title: size=104
+geo_accession: size=104
+last_update_date: size=104
+1..2

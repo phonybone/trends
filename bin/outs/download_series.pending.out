@@ -1,0 +1,1366 @@
+download_series.pl ../data/GEO/series.csv -filter_gses gses.pending
+343 gses in filter
+fetching GSE9820...
+GSE9820: Can't get GSE9820_RAW.tar: GSE9820_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE5346...
+GSE5346: Can't ftp cd to GSE5346 in 'pub/geo/DATA/supplementary/series/GSE5346': GSE5346: No such file or directory
+
+disk 26% full
+fetching GSE8845...
+GSE8845: Can't ftp cd to GSE8845 in 'pub/geo/DATA/supplementary/series/GSE8845': GSE8845: No such file or directory
+
+disk 26% full
+fetching GSE10123...
+GSE10123: Can't ftp cd to GSE10123 in 'pub/geo/DATA/supplementary/series/GSE10123': GSE10123: No such file or directory
+
+disk 26% full
+fetching GSE6348...
+GSE6348: Can't get GSE6348_RAW.tar: GSE6348_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE9332...
+GSE9332: Can't ftp cd to GSE9332 in 'pub/geo/DATA/supplementary/series/GSE9332': GSE9332: No such file or directory
+
+disk 26% full
+fetching GSE8759...
+GSE8759: Can't get GSE8759_RAW.tar: GSE8759_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE8914...
+GSE8914: Can't ftp cd to GSE8914 in 'pub/geo/DATA/supplementary/series/GSE8914': GSE8914: No such file or directory
+
+disk 26% full
+fetching GSE5106...
+GSE5106: Can't ftp cd to GSE5106 in 'pub/geo/DATA/supplementary/series/GSE5106': GSE5106: No such file or directory
+
+disk 26% full
+fetching GSE5504...
+GSE5504: Can't ftp cd to GSE5504 in 'pub/geo/DATA/supplementary/series/GSE5504': GSE5504: No such file or directory
+
+disk 26% full
+fetching GSE5474...
+GSE5474: Can't ftp cd to GSE5474 in 'pub/geo/DATA/supplementary/series/GSE5474': GSE5474: No such file or directory
+
+disk 26% full
+fetching GSE8325...
+GSE8325: Can't ftp cd to GSE8325 in 'pub/geo/DATA/supplementary/series/GSE8325': GSE8325: No such file or directory
+
+disk 26% full
+fetching GSE5180...
+GSE5180: Can't ftp cd to GSE5180 in 'pub/geo/DATA/supplementary/series/GSE5180': GSE5180: No such file or directory
+
+disk 26% full
+fetching GSE5117...
+GSE5117: Can't ftp cd to GSE5117 in 'pub/geo/DATA/supplementary/series/GSE5117': GSE5117: No such file or directory
+
+disk 26% full
+fetching GSE5080...
+GSE5080: Can't ftp cd to GSE5080 in 'pub/geo/DATA/supplementary/series/GSE5080': GSE5080: No such file or directory
+
+disk 26% full
+fetching GSE3624...
+GSE3624: Can't ftp cd to GSE3624 in 'pub/geo/DATA/supplementary/series/GSE3624': GSE3624: No such file or directory
+
+disk 26% full
+fetching GSE7833...
+GSE7833: downloaded ok
+disk 26% full
+fetching GSE6887...
+GSE6887: Can't ftp cd to GSE6887 in 'pub/geo/DATA/supplementary/series/GSE6887': GSE6887: No such file or directory
+
+disk 26% full
+fetching GSE7436...
+GSE7436: Can't ftp cd to GSE7436 in 'pub/geo/DATA/supplementary/series/GSE7436': GSE7436: No such file or directory
+
+disk 26% full
+fetching GSE6481...
+GSE6481: Can't ftp cd to GSE6481 in 'pub/geo/DATA/supplementary/series/GSE6481': GSE6481: No such file or directory
+
+disk 26% full
+fetching GSE4407...
+GSE4407: Can't ftp cd to GSE4407 in 'pub/geo/DATA/supplementary/series/GSE4407': GSE4407: No such file or directory
+
+disk 26% full
+fetching GSE5108...
+GSE5108: Can't ftp cd to GSE5108 in 'pub/geo/DATA/supplementary/series/GSE5108': GSE5108: No such file or directory
+
+disk 26% full
+fetching GSE3005...
+GSE3005: Can't ftp cd to GSE3005 in 'pub/geo/DATA/supplementary/series/GSE3005': GSE3005: No such file or directory
+
+disk 26% full
+fetching GSE5543...
+GSE5543: Can't ftp cd to GSE5543 in 'pub/geo/DATA/supplementary/series/GSE5543': GSE5543: No such file or directory
+
+disk 26% full
+fetching GSE5222...
+GSE5222: Can't ftp cd to GSE5222 in 'pub/geo/DATA/supplementary/series/GSE5222': GSE5222: No such file or directory
+
+disk 26% full
+fetching GSE4386...
+GSE4386: Can't ftp cd to GSE4386 in 'pub/geo/DATA/supplementary/series/GSE4386': GSE4386: No such file or directory
+
+disk 26% full
+fetching GSE5339...
+GSE5339: Can't ftp cd to GSE5339 in 'pub/geo/DATA/supplementary/series/GSE5339': GSE5339: No such file or directory
+
+disk 26% full
+fetching GSE4806...
+GSE4806: Can't ftp cd to GSE4806 in 'pub/geo/DATA/supplementary/series/GSE4806': GSE4806: No such file or directory
+
+disk 26% full
+fetching GSE4852...
+GSE4852: Can't ftp cd to GSE4852 in 'pub/geo/DATA/supplementary/series/GSE4852': GSE4852: No such file or directory
+
+disk 26% full
+fetching GSE6053...
+GSE6053: Can't ftp cd to GSE6053 in 'pub/geo/DATA/supplementary/series/GSE6053': GSE6053: No such file or directory
+
+disk 26% full
+fetching GSE3920...
+GSE3920: Can't ftp cd to GSE3920 in 'pub/geo/DATA/supplementary/series/GSE3920': GSE3920: No such file or directory
+
+disk 26% full
+fetching GSE6257...
+GSE6257: downloaded ok
+disk 26% full
+fetching GSE6431...
+GSE6431: Can't ftp cd to GSE6431 in 'pub/geo/DATA/supplementary/series/GSE6431': GSE6431: No such file or directory
+
+disk 26% full
+fetching GSE6432...
+GSE6432: Can't ftp cd to GSE6432 in 'pub/geo/DATA/supplementary/series/GSE6432': GSE6432: No such file or directory
+
+disk 26% full
+fetching GSE5056...
+GSE5056: Can't ftp cd to GSE5056 in 'pub/geo/DATA/supplementary/series/GSE5056': GSE5056: No such file or directory
+
+disk 26% full
+fetching GSE5057...
+GSE5057: Can't ftp cd to GSE5057 in 'pub/geo/DATA/supplementary/series/GSE5057': GSE5057: No such file or directory
+
+disk 26% full
+fetching GSE5059...
+GSE5059: Can't ftp cd to GSE5059 in 'pub/geo/DATA/supplementary/series/GSE5059': GSE5059: No such file or directory
+
+disk 26% full
+fetching GSE6264...
+GSE6264: Can't ftp cd to GSE6264 in 'pub/geo/DATA/supplementary/series/GSE6264': GSE6264: No such file or directory
+
+disk 26% full
+fetching GSE6260...
+GSE6260: Can't ftp cd to GSE6260 in 'pub/geo/DATA/supplementary/series/GSE6260': GSE6260: No such file or directory
+
+disk 26% full
+fetching GSE4655...
+GSE4655: Can't ftp cd to GSE4655 in 'pub/geo/DATA/supplementary/series/GSE4655': GSE4655: No such file or directory
+
+disk 26% full
+fetching GSE4717...
+GSE4717: Can't ftp cd to GSE4717 in 'pub/geo/DATA/supplementary/series/GSE4717': GSE4717: No such file or directory
+
+disk 26% full
+fetching GSE4226...
+GSE4226: Can't ftp cd to GSE4226 in 'pub/geo/DATA/supplementary/series/GSE4226': GSE4226: No such file or directory
+
+disk 26% full
+fetching GSE3410...
+GSE3410: Can't ftp cd to GSE3410 in 'pub/geo/DATA/supplementary/series/GSE3410': GSE3410: No such file or directory
+
+disk 26% full
+fetching GSE5168...
+GSE5168: Can't ftp cd to GSE5168 in 'pub/geo/DATA/supplementary/series/GSE5168': GSE5168: No such file or directory
+
+disk 26% full
+fetching GSE4525...
+GSE4525: Can't ftp cd to GSE4525 in 'pub/geo/DATA/supplementary/series/GSE4525': GSE4525: No such file or directory
+
+disk 26% full
+fetching GSE5519...
+GSE5519: Can't ftp cd to GSE5519 in 'pub/geo/DATA/supplementary/series/GSE5519': GSE5519: No such file or directory
+
+disk 26% full
+fetching GSE5590...
+GSE5590: Can't ftp cd to GSE5590 in 'pub/geo/DATA/supplementary/series/GSE5590': GSE5590: No such file or directory
+
+disk 26% full
+fetching GSE4392...
+GSE4392: Can't ftp cd to GSE4392 in 'pub/geo/DATA/supplementary/series/GSE4392': GSE4392: No such file or directory
+
+disk 26% full
+fetching GSE5820...
+GSE5820: Can't ftp cd to GSE5820 in 'pub/geo/DATA/supplementary/series/GSE5820': GSE5820: No such file or directory
+
+disk 26% full
+fetching GSE5824...
+GSE5824: Can't ftp cd to GSE5824 in 'pub/geo/DATA/supplementary/series/GSE5824': GSE5824: No such file or directory
+
+disk 26% full
+fetching GSE3606...
+GSE3606: Can't ftp cd to GSE3606 in 'pub/geo/DATA/supplementary/series/GSE3606': GSE3606: No such file or directory
+
+disk 26% full
+fetching GSE4342...
+GSE4342: Can't ftp cd to GSE4342 in 'pub/geo/DATA/supplementary/series/GSE4342': GSE4342: No such file or directory
+
+disk 26% full
+fetching GSE4974...
+GSE4974: Can't ftp cd to GSE4974 in 'pub/geo/DATA/supplementary/series/GSE4974': GSE4974: No such file or directory
+
+disk 26% full
+fetching GSE5574...
+GSE5574: Can't ftp cd to GSE5574 in 'pub/geo/DATA/supplementary/series/GSE5574': GSE5574: No such file or directory
+
+disk 26% full
+fetching GSE5093...
+GSE5093: Can't ftp cd to GSE5093 in 'pub/geo/DATA/supplementary/series/GSE5093': GSE5093: No such file or directory
+
+disk 26% full
+fetching GSE5550...
+GSE5550: Can't ftp cd to GSE5550 in 'pub/geo/DATA/supplementary/series/GSE5550': GSE5550: No such file or directory
+
+disk 26% full
+fetching GSE5542...
+GSE5542: Can't ftp cd to GSE5542 in 'pub/geo/DATA/supplementary/series/GSE5542': GSE5542: No such file or directory
+
+disk 26% full
+fetching GSE4006...
+GSE4006: Can't ftp cd to GSE4006 in 'pub/geo/DATA/supplementary/series/GSE4006': GSE4006: No such file or directory
+
+disk 26% full
+fetching GSE4858...
+GSE4858: Can't ftp cd to GSE4858 in 'pub/geo/DATA/supplementary/series/GSE4858': GSE4858: No such file or directory
+
+disk 26% full
+fetching GSE3037...
+GSE3037: Can't ftp cd to GSE3037 in 'pub/geo/DATA/supplementary/series/GSE3037': GSE3037: No such file or directory
+
+disk 26% full
+fetching GSE5230...
+GSE5230: Can't ftp cd to GSE5230 in 'pub/geo/DATA/supplementary/series/GSE5230': GSE5230: No such file or directory
+
+disk 26% full
+fetching GSE4025...
+GSE4025: Can't ftp cd to GSE4025 in 'pub/geo/DATA/supplementary/series/GSE4025': GSE4025: No such file or directory
+
+disk 26% full
+fetching GSE4225...
+GSE4225: Can't ftp cd to GSE4225 in 'pub/geo/DATA/supplementary/series/GSE4225': GSE4225: No such file or directory
+
+disk 26% full
+fetching GSE4748...
+GSE4748: Can't ftp cd to GSE4748 in 'pub/geo/DATA/supplementary/series/GSE4748': GSE4748: No such file or directory
+
+disk 26% full
+fetching GSE5023...
+GSE5023: Can't ftp cd to GSE5023 in 'pub/geo/DATA/supplementary/series/GSE5023': GSE5023: No such file or directory
+
+disk 26% full
+fetching GSE4785...
+GSE4785: Can't ftp cd to GSE4785 in 'pub/geo/DATA/supplementary/series/GSE4785': GSE4785: No such file or directory
+
+disk 26% full
+fetching GSE3573...
+GSE3573: Can't ftp cd to GSE3573 in 'pub/geo/DATA/supplementary/series/GSE3573': GSE3573: No such file or directory
+
+disk 26% full
+fetching GSE5099...
+GSE5099: Can't ftp cd to GSE5099 in 'pub/geo/DATA/supplementary/series/GSE5099': GSE5099: No such file or directory
+
+disk 26% full
+fetching GSE5216...
+GSE5216: Can't ftp cd to GSE5216 in 'pub/geo/DATA/supplementary/series/GSE5216': GSE5216: No such file or directory
+
+disk 26% full
+fetching GSE5220...
+GSE5220: Can't ftp cd to GSE5220 in 'pub/geo/DATA/supplementary/series/GSE5220': GSE5220: No such file or directory
+
+disk 26% full
+fetching GSE4619...
+GSE4619: Can't ftp cd to GSE4619 in 'pub/geo/DATA/supplementary/series/GSE4619': GSE4619: No such file or directory
+
+disk 26% full
+fetching GSE2503...
+GSE2503: Can't ftp cd to GSE2503 in 'pub/geo/DATA/supplementary/series/GSE2503': GSE2503: No such file or directory
+
+disk 26% full
+fetching GSE4060...
+GSE4060: Can't ftp cd to GSE4060 in 'pub/geo/DATA/supplementary/series/GSE4060': GSE4060: No such file or directory
+
+disk 26% full
+fetching GSE4251...
+GSE4251: Can't ftp cd to GSE4251 in 'pub/geo/DATA/supplementary/series/GSE4251': GSE4251: No such file or directory
+
+disk 26% full
+fetching GSE4975...
+GSE4975: Can't ftp cd to GSE4975 in 'pub/geo/DATA/supplementary/series/GSE4975': GSE4975: No such file or directory
+
+disk 26% full
+fetching GSE4731...
+GSE4731: Can't ftp cd to GSE4731 in 'pub/geo/DATA/supplementary/series/GSE4731': GSE4731: No such file or directory
+
+disk 26% full
+fetching GSE3280...
+GSE3280: Can't ftp cd to GSE3280 in 'pub/geo/DATA/supplementary/series/GSE3280': GSE3280: No such file or directory
+
+disk 26% full
+fetching GSE4172...
+GSE4172: Can't ftp cd to GSE4172 in 'pub/geo/DATA/supplementary/series/GSE4172': GSE4172: No such file or directory
+
+disk 26% full
+fetching GSE3893...
+GSE3893: Can't ftp cd to GSE3893 in 'pub/geo/DATA/supplementary/series/GSE3893': GSE3893: No such file or directory
+
+disk 26% full
+fetching GSE4828...
+GSE4828: Can't ftp cd to GSE4828 in 'pub/geo/DATA/supplementary/series/GSE4828': GSE4828: No such file or directory
+
+disk 26% full
+fetching GSE4592...
+GSE4592: Can't ftp cd to GSE4592 in 'pub/geo/DATA/supplementary/series/GSE4592': GSE4592: No such file or directory
+
+disk 26% full
+fetching GSE4688...
+GSE4688: Can't ftp cd to GSE4688 in 'pub/geo/DATA/supplementary/series/GSE4688': GSE4688: No such file or directory
+
+disk 26% full
+fetching GSE4754...
+GSE4754: Can't ftp cd to GSE4754 in 'pub/geo/DATA/supplementary/series/GSE4754': GSE4754: No such file or directory
+
+disk 26% full
+fetching GSE3397...
+GSE3397: Can't ftp cd to GSE3397 in 'pub/geo/DATA/supplementary/series/GSE3397': GSE3397: No such file or directory
+
+disk 26% full
+fetching GSE4097...
+GSE4097: Can't ftp cd to GSE4097 in 'pub/geo/DATA/supplementary/series/GSE4097': GSE4097: No such file or directory
+
+disk 26% full
+fetching GSE3998...
+GSE3998: Can't ftp cd to GSE3998 in 'pub/geo/DATA/supplementary/series/GSE3998': GSE3998: No such file or directory
+
+disk 26% full
+fetching GSE4707...
+GSE4707: Can't ftp cd to GSE4707 in 'pub/geo/DATA/supplementary/series/GSE4707': GSE4707: No such file or directory
+
+disk 26% full
+fetching GSE4667...
+GSE4667: Can't ftp cd to GSE4667 in 'pub/geo/DATA/supplementary/series/GSE4667': GSE4667: No such file or directory
+
+disk 26% full
+fetching GSE4668...
+GSE4668: Can't ftp cd to GSE4668 in 'pub/geo/DATA/supplementary/series/GSE4668': GSE4668: No such file or directory
+
+disk 26% full
+fetching GSE4630...
+GSE4630: Can't ftp cd to GSE4630 in 'pub/geo/DATA/supplementary/series/GSE4630': GSE4630: No such file or directory
+
+disk 26% full
+fetching GSE3891...
+GSE3891: Can't ftp cd to GSE3891 in 'pub/geo/DATA/supplementary/series/GSE3891': GSE3891: No such file or directory
+
+disk 26% full
+fetching GSE3542...
+GSE3542: Can't ftp cd to GSE3542 in 'pub/geo/DATA/supplementary/series/GSE3542': GSE3542: No such file or directory
+
+disk 26% full
+fetching GSE4425...
+GSE4425: Can't ftp cd to GSE4425 in 'pub/geo/DATA/supplementary/series/GSE4425': GSE4425: No such file or directory
+
+disk 26% full
+fetching GSE4027...
+GSE4027: Can't ftp cd to GSE4027 in 'pub/geo/DATA/supplementary/series/GSE4027': GSE4027: No such file or directory
+
+disk 26% full
+fetching GSE4084...
+GSE4084: Can't ftp cd to GSE4084 in 'pub/geo/DATA/supplementary/series/GSE4084': GSE4084: No such file or directory
+
+disk 26% full
+fetching GSE4587...
+GSE4587: Can't ftp cd to GSE4587 in 'pub/geo/DATA/supplementary/series/GSE4587': GSE4587: No such file or directory
+
+disk 26% full
+fetching GSE4570...
+GSE4570: Can't ftp cd to GSE4570 in 'pub/geo/DATA/supplementary/series/GSE4570': GSE4570: No such file or directory
+
+disk 26% full
+fetching GSE4573...
+GSE4573: Can't ftp cd to GSE4573 in 'pub/geo/DATA/supplementary/series/GSE4573': GSE4573: No such file or directory
+
+disk 26% full
+fetching GSE3493...
+GSE3493: Can't ftp cd to GSE3493 in 'pub/geo/DATA/supplementary/series/GSE3493': GSE3493: No such file or directory
+
+disk 26% full
+fetching GSE4549...
+GSE4549: Can't ftp cd to GSE4549 in 'pub/geo/DATA/supplementary/series/GSE4549': GSE4549: No such file or directory
+
+disk 26% full
+fetching GSE2883...
+GSE2883: Can't ftp cd to GSE2883 in 'pub/geo/DATA/supplementary/series/GSE2883': GSE2883: No such file or directory
+
+disk 26% full
+fetching GSE4483...
+GSE4483: Can't ftp cd to GSE4483 in 'pub/geo/DATA/supplementary/series/GSE4483': GSE4483: No such file or directory
+
+disk 26% full
+fetching GSE3589...
+GSE3589: Can't ftp cd to GSE3589 in 'pub/geo/DATA/supplementary/series/GSE3589': GSE3589: No such file or directory
+
+disk 26% full
+fetching GSE3868...
+GSE3868: Can't ftp cd to GSE3868 in 'pub/geo/DATA/supplementary/series/GSE3868': GSE3868: No such file or directory
+
+disk 26% full
+fetching GSE4186...
+GSE4186: Can't ftp cd to GSE4186 in 'pub/geo/DATA/supplementary/series/GSE4186': GSE4186: No such file or directory
+
+disk 26% full
+fetching GSE4315...
+GSE4315: Can't ftp cd to GSE4315 in 'pub/geo/DATA/supplementary/series/GSE4315': GSE4315: No such file or directory
+
+disk 26% full
+fetching GSE3720...
+GSE3720: Can't ftp cd to GSE3720 in 'pub/geo/DATA/supplementary/series/GSE3720': GSE3720: No such file or directory
+
+disk 26% full
+fetching GSE4115...
+GSE4115: Can't ftp cd to GSE4115 in 'pub/geo/DATA/supplementary/series/GSE4115': GSE4115: No such file or directory
+
+disk 26% full
+fetching GSE4292...
+GSE4292: Can't ftp cd to GSE4292 in 'pub/geo/DATA/supplementary/series/GSE4292': GSE4292: No such file or directory
+
+disk 26% full
+fetching GSE4289...
+GSE4289: Can't ftp cd to GSE4289 in 'pub/geo/DATA/supplementary/series/GSE4289': GSE4289: No such file or directory
+
+disk 26% full
+fetching GSE3983...
+GSE3983: Can't ftp cd to GSE3983 in 'pub/geo/DATA/supplementary/series/GSE3983': GSE3983: No such file or directory
+
+disk 26% full
+fetching GSE2649...
+GSE2649: Can't ftp cd to GSE2649 in 'pub/geo/DATA/supplementary/series/GSE2649': GSE2649: No such file or directory
+
+disk 26% full
+fetching GSE2296...
+GSE2296: Can't ftp cd to GSE2296 in 'pub/geo/DATA/supplementary/series/GSE2296': GSE2296: No such file or directory
+
+disk 26% full
+fetching GSE4209...
+GSE4209: Can't ftp cd to GSE4209 in 'pub/geo/DATA/supplementary/series/GSE4209': GSE4209: No such file or directory
+
+disk 26% full
+fetching GSE3697...
+GSE3697: Can't ftp cd to GSE3697 in 'pub/geo/DATA/supplementary/series/GSE3697': GSE3697: No such file or directory
+
+disk 26% full
+fetching GSE2238...
+GSE2238: Can't ftp cd to GSE2238 in 'pub/geo/DATA/supplementary/series/GSE2238': GSE2238: No such file or directory
+
+disk 26% full
+fetching GSE4106...
+GSE4106: Can't ftp cd to GSE4106 in 'pub/geo/DATA/supplementary/series/GSE4106': GSE4106: No such file or directory
+
+disk 26% full
+fetching GSE4110...
+GSE4110: Can't ftp cd to GSE4110 in 'pub/geo/DATA/supplementary/series/GSE4110': GSE4110: No such file or directory
+
+disk 26% full
+fetching GSE2221...
+GSE2221: Can't ftp cd to GSE2221 in 'pub/geo/DATA/supplementary/series/GSE2221': GSE2221: No such file or directory
+
+disk 26% full
+fetching GSE2223...
+GSE2223: Can't ftp cd to GSE2223 in 'pub/geo/DATA/supplementary/series/GSE2223': GSE2223: No such file or directory
+
+disk 26% full
+fetching GSE4089...
+GSE4089: Can't ftp cd to GSE4089 in 'pub/geo/DATA/supplementary/series/GSE4089': GSE4089: No such file or directory
+
+disk 26% full
+fetching GSE4090...
+GSE4090: Can't ftp cd to GSE4090 in 'pub/geo/DATA/supplementary/series/GSE4090': GSE4090: No such file or directory
+
+disk 26% full
+fetching GSE3529...
+GSE3529: Can't ftp cd to GSE3529 in 'pub/geo/DATA/supplementary/series/GSE3529': GSE3529: No such file or directory
+
+disk 26% full
+fetching GSE4016...
+GSE4016: Can't ftp cd to GSE4016 in 'pub/geo/DATA/supplementary/series/GSE4016': GSE4016: No such file or directory
+
+disk 26% full
+fetching GSE3976...
+GSE3976: Can't ftp cd to GSE3976 in 'pub/geo/DATA/supplementary/series/GSE3976': GSE3976: No such file or directory
+
+disk 26% full
+fetching GSE3972...
+GSE3972: Can't ftp cd to GSE3972 in 'pub/geo/DATA/supplementary/series/GSE3972': GSE3972: No such file or directory
+
+disk 26% full
+fetching GSE2322...
+GSE2322: Can't ftp cd to GSE2322 in 'pub/geo/DATA/supplementary/series/GSE2322': GSE2322: No such file or directory
+
+disk 26% full
+fetching GSE2508...
+GSE2508: Can't ftp cd to GSE2508 in 'pub/geo/DATA/supplementary/series/GSE2508': GSE2508: No such file or directory
+
+disk 26% full
+fetching GSE2964...
+GSE2964: Can't ftp cd to GSE2964 in 'pub/geo/DATA/supplementary/series/GSE2964': GSE2964: No such file or directory
+
+disk 26% full
+fetching GSE3598...
+GSE3598: Can't ftp cd to GSE3598 in 'pub/geo/DATA/supplementary/series/GSE3598': GSE3598: No such file or directory
+
+disk 26% full
+fetching GSE3001...
+GSE3001: Can't ftp cd to GSE3001 in 'pub/geo/DATA/supplementary/series/GSE3001': GSE3001: No such file or directory
+
+disk 26% full
+fetching GSE3945...
+GSE3945: Can't ftp cd to GSE3945 in 'pub/geo/DATA/supplementary/series/GSE3945': GSE3945: No such file or directory
+
+disk 26% full
+fetching GSE3922...
+GSE3922: Can't ftp cd to GSE3922 in 'pub/geo/DATA/supplementary/series/GSE3922': GSE3922: No such file or directory
+
+disk 26% full
+fetching GSE3880...
+GSE3880: Can't ftp cd to GSE3880 in 'pub/geo/DATA/supplementary/series/GSE3880': GSE3880: No such file or directory
+
+disk 26% full
+fetching GSE3871...
+GSE3871: Can't ftp cd to GSE3871 in 'pub/geo/DATA/supplementary/series/GSE3871': GSE3871: No such file or directory
+
+disk 26% full
+fetching GSE2514...
+GSE2514: downloaded ok
+disk 26% full
+fetching GSE1682...
+GSE1682: Can't ftp cd to GSE1682 in 'pub/geo/DATA/supplementary/series/GSE1682': GSE1682: No such file or directory
+
+disk 26% full
+fetching GSE2299...
+GSE2299: Can't ftp cd to GSE2299 in 'pub/geo/DATA/supplementary/series/GSE2299': GSE2299: No such file or directory
+
+disk 26% full
+fetching GSE2397...
+GSE2397: Can't ftp cd to GSE2397 in 'pub/geo/DATA/supplementary/series/GSE2397': GSE2397: No such file or directory
+
+disk 26% full
+fetching GSE3188...
+GSE3188: downloaded ok
+disk 26% full
+fetching GSE3308...
+GSE3308: Can't ftp cd to GSE3308 in 'pub/geo/DATA/supplementary/series/GSE3308': GSE3308: No such file or directory
+
+disk 26% full
+fetching GSE2327...
+GSE2327: Can't ftp cd to GSE2327 in 'pub/geo/DATA/supplementary/series/GSE2327': GSE2327: No such file or directory
+
+disk 26% full
+fetching GSE2006...
+GSE2006: Can't ftp cd to GSE2006 in 'pub/geo/DATA/supplementary/series/GSE2006': GSE2006: No such file or directory
+
+disk 26% full
+fetching GSE3647...
+GSE3647: Can't ftp cd to GSE3647 in 'pub/geo/DATA/supplementary/series/GSE3647': GSE3647: No such file or directory
+
+disk 26% full
+fetching GSE3040...
+GSE3040: Can't ftp cd to GSE3040 in 'pub/geo/DATA/supplementary/series/GSE3040': GSE3040: No such file or directory
+
+disk 26% full
+fetching GSE3485...
+GSE3485: Can't ftp cd to GSE3485 in 'pub/geo/DATA/supplementary/series/GSE3485': GSE3485: No such file or directory
+
+disk 26% full
+fetching GSE3320...
+GSE3320: Can't ftp cd to GSE3320 in 'pub/geo/DATA/supplementary/series/GSE3320': GSE3320: No such file or directory
+
+disk 26% full
+fetching GSE2787...
+GSE2787: Can't ftp cd to GSE2787 in 'pub/geo/DATA/supplementary/series/GSE2787': GSE2787: No such file or directory
+
+disk 26% full
+fetching GSE3492...
+GSE3492: Can't ftp cd to GSE3492 in 'pub/geo/DATA/supplementary/series/GSE3492': GSE3492: No such file or directory
+
+disk 26% full
+fetching GSE3489...
+GSE3489: Can't ftp cd to GSE3489 in 'pub/geo/DATA/supplementary/series/GSE3489': GSE3489: No such file or directory
+
+disk 26% full
+fetching GSE3491...
+GSE3491: Can't ftp cd to GSE3491 in 'pub/geo/DATA/supplementary/series/GSE3491': GSE3491: No such file or directory
+
+disk 26% full
+fetching GSE2559...
+GSE2559: Can't ftp cd to GSE2559 in 'pub/geo/DATA/supplementary/series/GSE2559': GSE2559: No such file or directory
+
+disk 26% full
+fetching GSE3408...
+GSE3408: Can't ftp cd to GSE3408 in 'pub/geo/DATA/supplementary/series/GSE3408': GSE3408: No such file or directory
+
+disk 26% full
+fetching GSE3364...
+GSE3364: Can't ftp cd to GSE3364 in 'pub/geo/DATA/supplementary/series/GSE3364': GSE3364: No such file or directory
+
+disk 26% full
+fetching GSE3365...
+GSE3365: Can't ftp cd to GSE3365 in 'pub/geo/DATA/supplementary/series/GSE3365': GSE3365: No such file or directory
+
+disk 26% full
+fetching GSE2712...
+GSE2712: Can't ftp cd to GSE2712 in 'pub/geo/DATA/supplementary/series/GSE2712': GSE2712: No such file or directory
+
+disk 26% full
+fetching GSE2939...
+GSE2939: Can't ftp cd to GSE2939 in 'pub/geo/DATA/supplementary/series/GSE2939': GSE2939: No such file or directory
+
+disk 26% full
+fetching GSE3003...
+GSE3003: Can't ftp cd to GSE3003 in 'pub/geo/DATA/supplementary/series/GSE3003': GSE3003: No such file or directory
+
+disk 26% full
+fetching GSE3306...
+GSE3306: Can't ftp cd to GSE3306 in 'pub/geo/DATA/supplementary/series/GSE3306': GSE3306: No such file or directory
+
+disk 26% full
+fetching GSE2403...
+GSE2403: Can't ftp cd to GSE2403 in 'pub/geo/DATA/supplementary/series/GSE2403': GSE2403: No such file or directory
+
+disk 26% full
+fetching GSE3297...
+GSE3297: Can't ftp cd to GSE3297 in 'pub/geo/DATA/supplementary/series/GSE3297': GSE3297: No such file or directory
+
+disk 26% full
+fetching GSE1751...
+GSE1751: Can't ftp cd to GSE1751 in 'pub/geo/DATA/supplementary/series/GSE1751': GSE1751: No such file or directory
+
+disk 26% full
+fetching GSE3268...
+GSE3268: Can't ftp cd to GSE3268 in 'pub/geo/DATA/supplementary/series/GSE3268': GSE3268: No such file or directory
+
+disk 26% full
+fetching GSE3271...
+GSE3271: Can't ftp cd to GSE3271 in 'pub/geo/DATA/supplementary/series/GSE3271': GSE3271: No such file or directory
+
+disk 26% full
+fetching GSE1815...
+GSE1815: Can't ftp cd to GSE1815 in 'pub/geo/DATA/supplementary/series/GSE1815': GSE1815: No such file or directory
+
+disk 26% full
+fetching GSE2706...
+GSE2706: Can't ftp cd to GSE2706 in 'pub/geo/DATA/supplementary/series/GSE2706': GSE2706: No such file or directory
+
+disk 26% full
+fetching GSE2912...
+GSE2912: Can't ftp cd to GSE2912 in 'pub/geo/DATA/supplementary/series/GSE2912': GSE2912: No such file or directory
+
+disk 26% full
+fetching GSE3239...
+GSE3239: Can't ftp cd to GSE3239 in 'pub/geo/DATA/supplementary/series/GSE3239': GSE3239: No such file or directory
+
+disk 26% full
+fetching GSE3204...
+GSE3204: Can't ftp cd to GSE3204 in 'pub/geo/DATA/supplementary/series/GSE3204': GSE3204: No such file or directory
+
+disk 26% full
+fetching GSE3189...
+GSE3189: Can't ftp cd to GSE3189 in 'pub/geo/DATA/supplementary/series/GSE3189': GSE3189: No such file or directory
+
+disk 26% full
+fetching GSE3194...
+GSE3194: Can't ftp cd to GSE3194 in 'pub/geo/DATA/supplementary/series/GSE3194': GSE3194: No such file or directory
+
+disk 26% full
+fetching GSE3140...
+GSE3140: Can't ftp cd to GSE3140 in 'pub/geo/DATA/supplementary/series/GSE3140': GSE3140: No such file or directory
+
+disk 26% full
+fetching GSE3099...
+GSE3099: Can't ftp cd to GSE3099 in 'pub/geo/DATA/supplementary/series/GSE3099': GSE3099: No such file or directory
+
+disk 26% full
+fetching GSE3113...
+GSE3113: Can't ftp cd to GSE3113 in 'pub/geo/DATA/supplementary/series/GSE3113': GSE3113: No such file or directory
+
+disk 26% full
+fetching GSE1710...
+GSE1710: Can't ftp cd to GSE1710 in 'pub/geo/DATA/supplementary/series/GSE1710': GSE1710: No such file or directory
+
+disk 26% full
+fetching GSE2776...
+GSE2776: Can't ftp cd to GSE2776 in 'pub/geo/DATA/supplementary/series/GSE2776': GSE2776: No such file or directory
+
+disk 26% full
+fetching GSE2052...
+GSE2052: Can't ftp cd to GSE2052 in 'pub/geo/DATA/supplementary/series/GSE2052': GSE2052: No such file or directory
+
+disk 26% full
+fetching GSE2705...
+GSE2705: Can't ftp cd to GSE2705 in 'pub/geo/DATA/supplementary/series/GSE2705': GSE2705: No such file or directory
+
+disk 26% full
+fetching GSE2779...
+GSE2779: Can't ftp cd to GSE2779 in 'pub/geo/DATA/supplementary/series/GSE2779': GSE2779: No such file or directory
+
+disk 26% full
+fetching GSE2510...
+GSE2510: Can't ftp cd to GSE2510 in 'pub/geo/DATA/supplementary/series/GSE2510': GSE2510: No such file or directory
+
+disk 26% full
+fetching GSE2992...
+GSE2992: Can't ftp cd to GSE2992 in 'pub/geo/DATA/supplementary/series/GSE2992': GSE2992: No such file or directory
+
+disk 26% full
+fetching GSE1767...
+GSE1767: Can't ftp cd to GSE1767 in 'pub/geo/DATA/supplementary/series/GSE1767': GSE1767: No such file or directory
+
+disk 26% full
+fetching GSE1793...
+GSE1793: Can't ftp cd to GSE1793 in 'pub/geo/DATA/supplementary/series/GSE1793': GSE1793: No such file or directory
+
+disk 26% full
+fetching GSE2657...
+GSE2657: Can't ftp cd to GSE2657 in 'pub/geo/DATA/supplementary/series/GSE2657': GSE2657: No such file or directory
+
+disk 26% full
+fetching GSE2900...
+GSE2900: Can't ftp cd to GSE2900 in 'pub/geo/DATA/supplementary/series/GSE2900': GSE2900: No such file or directory
+
+disk 26% full
+fetching GSE2604...
+GSE2604: Can't ftp cd to GSE2604 in 'pub/geo/DATA/supplementary/series/GSE2604': GSE2604: No such file or directory
+
+disk 26% full
+fetching GSE2624...
+GSE2624: Can't ftp cd to GSE2624 in 'pub/geo/DATA/supplementary/series/GSE2624': GSE2624: No such file or directory
+
+disk 26% full
+fetching GSE2117...
+GSE2117: Can't ftp cd to GSE2117 in 'pub/geo/DATA/supplementary/series/GSE2117': GSE2117: No such file or directory
+
+disk 26% full
+fetching GSE2208...
+GSE2208: Can't ftp cd to GSE2208 in 'pub/geo/DATA/supplementary/series/GSE2208': GSE2208: No such file or directory
+
+disk 26% full
+fetching GSE2719...
+GSE2719: Can't ftp cd to GSE2719 in 'pub/geo/DATA/supplementary/series/GSE2719': GSE2719: No such file or directory
+
+disk 26% full
+fetching GSE2748...
+GSE2748: Can't ftp cd to GSE2748 in 'pub/geo/DATA/supplementary/series/GSE2748': GSE2748: No such file or directory
+
+disk 26% full
+fetching GSE2143...
+GSE2143: Can't ftp cd to GSE2143 in 'pub/geo/DATA/supplementary/series/GSE2143': GSE2143: No such file or directory
+
+disk 26% full
+fetching GSE2715...
+GSE2715: Can't ftp cd to GSE2715 in 'pub/geo/DATA/supplementary/series/GSE2715': GSE2715: No such file or directory
+
+disk 26% full
+fetching GSE2549...
+GSE2549: Can't ftp cd to GSE2549 in 'pub/geo/DATA/supplementary/series/GSE2549': GSE2549: No such file or directory
+
+disk 26% full
+fetching GSE2222...
+GSE2222: Can't ftp cd to GSE2222 in 'pub/geo/DATA/supplementary/series/GSE2222': GSE2222: No such file or directory
+
+disk 26% full
+fetching GSE2699...
+GSE2699: Can't ftp cd to GSE2699 in 'pub/geo/DATA/supplementary/series/GSE2699': GSE2699: No such file or directory
+
+disk 26% full
+fetching GSE1434...
+GSE1434: Can't get GSE1434_RAW.tar: GSE1434_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE2685...
+GSE2685: Can't ftp cd to GSE2685 in 'pub/geo/DATA/supplementary/series/GSE2685': GSE2685: No such file or directory
+
+disk 26% full
+fetching GSE2668...
+GSE2668: Can't ftp cd to GSE2668 in 'pub/geo/DATA/supplementary/series/GSE2668': GSE2668: No such file or directory
+
+disk 26% full
+fetching GSE2230...
+GSE2230: Can't ftp cd to GSE2230 in 'pub/geo/DATA/supplementary/series/GSE2230': GSE2230: No such file or directory
+
+disk 26% full
+fetching GSE2451...
+GSE2451: Can't ftp cd to GSE2451 in 'pub/geo/DATA/supplementary/series/GSE2451': GSE2451: No such file or directory
+
+disk 26% full
+fetching GSE2505...
+GSE2505: Can't ftp cd to GSE2505 in 'pub/geo/DATA/supplementary/series/GSE2505': GSE2505: No such file or directory
+
+disk 26% full
+fetching GSE2504...
+GSE2504: Can't ftp cd to GSE2504 in 'pub/geo/DATA/supplementary/series/GSE2504': GSE2504: No such file or directory
+
+disk 26% full
+fetching GSE1493...
+GSE1493: Can't ftp cd to GSE1493 in 'pub/geo/DATA/supplementary/series/GSE1493': GSE1493: No such file or directory
+
+disk 26% full
+fetching GSE1849...
+GSE1849: Can't ftp cd to GSE1849 in 'pub/geo/DATA/supplementary/series/GSE1849': GSE1849: No such file or directory
+
+disk 26% full
+fetching GSE2020...
+GSE2020: Can't ftp cd to GSE2020 in 'pub/geo/DATA/supplementary/series/GSE2020': GSE2020: No such file or directory
+
+disk 26% full
+fetching GSE1900...
+GSE1900: Can't ftp cd to GSE1900 in 'pub/geo/DATA/supplementary/series/GSE1900': GSE1900: No such file or directory
+
+disk 26% full
+fetching GSE1629...
+GSE1629: Can't ftp cd to GSE1629 in 'pub/geo/DATA/supplementary/series/GSE1629': GSE1629: No such file or directory
+
+disk 26% full
+fetching GSE2232...
+GSE2232: Can't ftp cd to GSE2232 in 'pub/geo/DATA/supplementary/series/GSE2232': GSE2232: No such file or directory
+
+disk 26% full
+fetching GSE2049...
+GSE2049: Can't ftp cd to GSE2049 in 'pub/geo/DATA/supplementary/series/GSE2049': GSE2049: No such file or directory
+
+disk 26% full
+fetching GSE2111...
+GSE2111: Can't ftp cd to GSE2111 in 'pub/geo/DATA/supplementary/series/GSE2111': GSE2111: No such file or directory
+
+disk 26% full
+fetching GSE2302...
+GSE2302: Can't ftp cd to GSE2302 in 'pub/geo/DATA/supplementary/series/GSE2302': GSE2302: No such file or directory
+
+disk 26% full
+fetching GSE2193...
+GSE2193: Can't ftp cd to GSE2193 in 'pub/geo/DATA/supplementary/series/GSE2193': GSE2193: No such file or directory
+
+disk 26% full
+fetching GSE2256...
+GSE2256: Can't ftp cd to GSE2256 in 'pub/geo/DATA/supplementary/series/GSE2256': GSE2256: No such file or directory
+
+disk 26% full
+fetching GSE1718...
+GSE1718: Can't ftp cd to GSE1718 in 'pub/geo/DATA/supplementary/series/GSE1718': GSE1718: No such file or directory
+
+disk 26% full
+fetching GSE2251...
+GSE2251: Can't ftp cd to GSE2251 in 'pub/geo/DATA/supplementary/series/GSE2251': GSE2251: No such file or directory
+
+disk 26% full
+fetching GSE2075...
+GSE2075: Can't ftp cd to GSE2075 in 'pub/geo/DATA/supplementary/series/GSE2075': GSE2075: No such file or directory
+
+disk 26% full
+fetching GSE2191...
+GSE2191: Can't ftp cd to GSE2191 in 'pub/geo/DATA/supplementary/series/GSE2191': GSE2191: No such file or directory
+
+disk 26% full
+fetching GSE1739...
+GSE1739: Can't ftp cd to GSE1739 in 'pub/geo/DATA/supplementary/series/GSE1739': GSE1739: No such file or directory
+
+disk 26% full
+fetching GSE2149...
+GSE2149: Can't ftp cd to GSE2149 in 'pub/geo/DATA/supplementary/series/GSE2149': GSE2149: No such file or directory
+
+disk 26% full
+fetching GSE1562...
+GSE1562: Can't ftp cd to GSE1562 in 'pub/geo/DATA/supplementary/series/GSE1562': GSE1562: No such file or directory
+
+disk 26% full
+fetching GSE1158...
+GSE1158: Can't ftp cd to GSE1158 in 'pub/geo/DATA/supplementary/series/GSE1158': GSE1158: No such file or directory
+
+disk 26% full
+fetching GSE1481...
+GSE1481: Can't ftp cd to GSE1481 in 'pub/geo/DATA/supplementary/series/GSE1481': GSE1481: No such file or directory
+
+disk 26% full
+fetching GSE1432...
+GSE1432: Can't ftp cd to GSE1432 in 'pub/geo/DATA/supplementary/series/GSE1432': GSE1432: No such file or directory
+
+disk 26% full
+fetching GSE2067...
+GSE2067: Can't ftp cd to GSE2067 in 'pub/geo/DATA/supplementary/series/GSE2067': GSE2067: No such file or directory
+
+disk 26% full
+fetching GSE1469...
+GSE1469: Can't ftp cd to GSE1469 in 'pub/geo/DATA/supplementary/series/GSE1469': GSE1469: No such file or directory
+
+disk 26% full
+fetching GSE2053...
+GSE2053: Can't ftp cd to GSE2053 in 'pub/geo/DATA/supplementary/series/GSE2053': GSE2053: No such file or directory
+
+disk 26% full
+fetching GSE1982...
+GSE1982: Can't ftp cd to GSE1982 in 'pub/geo/DATA/supplementary/series/GSE1982': GSE1982: No such file or directory
+
+disk 26% full
+fetching GSE2003...
+GSE2003: Can't ftp cd to GSE2003 in 'pub/geo/DATA/supplementary/series/GSE2003': GSE2003: No such file or directory
+
+disk 26% full
+fetching GSE1989...
+GSE1989: Can't ftp cd to GSE1989 in 'pub/geo/DATA/supplementary/series/GSE1989': GSE1989: No such file or directory
+
+disk 26% full
+fetching GSE860...
+GSE860: Can't ftp cd to GSE860 in 'pub/geo/DATA/supplementary/series/GSE860': GSE860: No such file or directory
+
+disk 26% full
+fetching GSE1977...
+GSE1977: Can't ftp cd to GSE1977 in 'pub/geo/DATA/supplementary/series/GSE1977': GSE1977: No such file or directory
+
+disk 26% full
+fetching GSE1643...
+GSE1643: Can't ftp cd to GSE1643 in 'pub/geo/DATA/supplementary/series/GSE1643': GSE1643: No such file or directory
+
+disk 26% full
+fetching GSE1925...
+GSE1925: Can't ftp cd to GSE1925 in 'pub/geo/DATA/supplementary/series/GSE1925': GSE1925: No such file or directory
+
+disk 26% full
+fetching GSE1926...
+GSE1926: Can't ftp cd to GSE1926 in 'pub/geo/DATA/supplementary/series/GSE1926': GSE1926: No such file or directory
+
+disk 26% full
+fetching GSE1595...
+GSE1595: Can't ftp cd to GSE1595 in 'pub/geo/DATA/supplementary/series/GSE1595': GSE1595: No such file or directory
+
+disk 26% full
+fetching GSE1724...
+GSE1724: Can't ftp cd to GSE1724 in 'pub/geo/DATA/supplementary/series/GSE1724': GSE1724: No such file or directory
+
+disk 26% full
+fetching GSE1802...
+GSE1802: Can't ftp cd to GSE1802 in 'pub/geo/DATA/supplementary/series/GSE1802': GSE1802: No such file or directory
+
+disk 26% full
+fetching GSE1805...
+GSE1805: Can't ftp cd to GSE1805 in 'pub/geo/DATA/supplementary/series/GSE1805': GSE1805: No such file or directory
+
+disk 26% full
+fetching GSE444...
+GSE444: Can't ftp cd to GSE444 in 'pub/geo/DATA/supplementary/series/GSE444': GSE444: No such file or directory
+
+disk 26% full
+fetching GSE1845...
+GSE1845: Can't ftp cd to GSE1845 in 'pub/geo/DATA/supplementary/series/GSE1845': GSE1845: No such file or directory
+
+disk 26% full
+fetching GSE1764...
+GSE1764: Can't ftp cd to GSE1764 in 'pub/geo/DATA/supplementary/series/GSE1764': GSE1764: No such file or directory
+
+disk 26% full
+fetching GSE1801...
+GSE1801: Can't ftp cd to GSE1801 in 'pub/geo/DATA/supplementary/series/GSE1801': GSE1801: No such file or directory
+
+disk 26% full
+fetching GSE1823...
+GSE1823: Can't ftp cd to GSE1823 in 'pub/geo/DATA/supplementary/series/GSE1823': GSE1823: No such file or directory
+
+disk 26% full
+fetching GSE1824...
+GSE1824: Can't ftp cd to GSE1824 in 'pub/geo/DATA/supplementary/series/GSE1824': GSE1824: No such file or directory
+
+disk 26% full
+fetching GSE923...
+GSE923: Can't ftp cd to GSE923 in 'pub/geo/DATA/supplementary/series/GSE923': GSE923: No such file or directory
+
+disk 26% full
+fetching GSE1822...
+GSE1822: Can't ftp cd to GSE1822 in 'pub/geo/DATA/supplementary/series/GSE1822': GSE1822: No such file or directory
+
+disk 26% full
+fetching GSE1647...
+GSE1647: Can't ftp cd to GSE1647 in 'pub/geo/DATA/supplementary/series/GSE1647': GSE1647: No such file or directory
+
+disk 26% full
+fetching GSE1743...
+GSE1743: Can't ftp cd to GSE1743 in 'pub/geo/DATA/supplementary/series/GSE1743': GSE1743: No such file or directory
+
+disk 26% full
+fetching GSE997...
+GSE997: Can't ftp cd to GSE997 in 'pub/geo/DATA/supplementary/series/GSE997': GSE997: No such file or directory
+
+disk 26% full
+fetching GSE1740...
+GSE1740: Can't ftp cd to GSE1740 in 'pub/geo/DATA/supplementary/series/GSE1740': GSE1740: No such file or directory
+
+disk 26% full
+fetching GSE1725...
+GSE1725: Can't ftp cd to GSE1725 in 'pub/geo/DATA/supplementary/series/GSE1725': GSE1725: No such file or directory
+
+disk 26% full
+fetching GSE1726...
+GSE1726: Can't ftp cd to GSE1726 in 'pub/geo/DATA/supplementary/series/GSE1726': GSE1726: No such file or directory
+
+disk 26% full
+fetching GSE1644...
+GSE1644: Can't ftp cd to GSE1644 in 'pub/geo/DATA/supplementary/series/GSE1644': GSE1644: No such file or directory
+
+disk 26% full
+fetching GSE1473...
+GSE1473: Can't ftp cd to GSE1473 in 'pub/geo/DATA/supplementary/series/GSE1473': GSE1473: No such file or directory
+
+disk 26% full
+fetching GSE1511...
+GSE1511: Can't ftp cd to GSE1511 in 'pub/geo/DATA/supplementary/series/GSE1511': GSE1511: No such file or directory
+
+disk 26% full
+fetching GSE1572...
+GSE1572: Can't ftp cd to GSE1572 in 'pub/geo/DATA/supplementary/series/GSE1572': GSE1572: No such file or directory
+
+disk 26% full
+fetching GSE1484...
+GSE1484: Can't ftp cd to GSE1484 in 'pub/geo/DATA/supplementary/series/GSE1484': GSE1484: No such file or directory
+
+disk 26% full
+fetching GSE1474...
+GSE1474: Can't ftp cd to GSE1474 in 'pub/geo/DATA/supplementary/series/GSE1474': GSE1474: No such file or directory
+
+disk 26% full
+fetching GSE1470...
+GSE1470: Can't ftp cd to GSE1470 in 'pub/geo/DATA/supplementary/series/GSE1470': GSE1470: No such file or directory
+
+disk 26% full
+fetching GSE1309...
+GSE1309: Can't ftp cd to GSE1309 in 'pub/geo/DATA/supplementary/series/GSE1309': GSE1309: No such file or directory
+
+disk 26% full
+fetching GSE1378...
+GSE1378: Can't ftp cd to GSE1378 in 'pub/geo/DATA/supplementary/series/GSE1378': GSE1378: No such file or directory
+
+disk 26% full
+fetching GSE1379...
+GSE1379: Can't ftp cd to GSE1379 in 'pub/geo/DATA/supplementary/series/GSE1379': GSE1379: No such file or directory
+
+disk 26% full
+fetching GSE762...
+GSE762: Can't ftp cd to GSE762 in 'pub/geo/DATA/supplementary/series/GSE762': GSE762: No such file or directory
+
+disk 26% full
+fetching GSE770...
+GSE770: Can't ftp cd to GSE770 in 'pub/geo/DATA/supplementary/series/GSE770': GSE770: No such file or directory
+
+disk 26% full
+fetching GSE1144...
+GSE1144: Can't ftp cd to GSE1144 in 'pub/geo/DATA/supplementary/series/GSE1144': GSE1144: No such file or directory
+
+disk 26% full
+fetching GSE841...
+GSE841: Can't ftp cd to GSE841 in 'pub/geo/DATA/supplementary/series/GSE841': GSE841: No such file or directory
+
+disk 26% full
+fetching GSE1368...
+GSE1368: Can't ftp cd to GSE1368 in 'pub/geo/DATA/supplementary/series/GSE1368': GSE1368: No such file or directory
+
+disk 26% full
+fetching GSE1377...
+GSE1377: Can't ftp cd to GSE1377 in 'pub/geo/DATA/supplementary/series/GSE1377': GSE1377: No such file or directory
+
+disk 26% full
+fetching GSE848...
+GSE848: Can't ftp cd to GSE848 in 'pub/geo/DATA/supplementary/series/GSE848': GSE848: No such file or directory
+
+disk 26% full
+fetching GSE1264...
+GSE1264: Can't ftp cd to GSE1264 in 'pub/geo/DATA/supplementary/series/GSE1264': GSE1264: No such file or directory
+
+disk 26% full
+fetching GSE1347...
+GSE1347: Can't ftp cd to GSE1347 in 'pub/geo/DATA/supplementary/series/GSE1347': GSE1347: No such file or directory
+
+disk 26% full
+fetching GSE1343...
+GSE1343: Can't ftp cd to GSE1343 in 'pub/geo/DATA/supplementary/series/GSE1343': GSE1343: No such file or directory
+
+disk 26% full
+fetching GSE1152...
+GSE1152: Can't ftp cd to GSE1152 in 'pub/geo/DATA/supplementary/series/GSE1152': GSE1152: No such file or directory
+
+disk 26% full
+fetching GSE763...
+GSE763: Can't ftp cd to GSE763 in 'pub/geo/DATA/supplementary/series/GSE763': GSE763: No such file or directory
+
+disk 26% full
+fetching GSE425...
+GSE425: Can't ftp cd to GSE425 in 'pub/geo/DATA/supplementary/series/GSE425': GSE425: No such file or directory
+
+disk 26% full
+fetching GSE1299...
+GSE1299: Can't ftp cd to GSE1299 in 'pub/geo/DATA/supplementary/series/GSE1299': GSE1299: No such file or directory
+
+disk 26% full
+fetching GSE1153...
+GSE1153: Can't ftp cd to GSE1153 in 'pub/geo/DATA/supplementary/series/GSE1153': GSE1153: No such file or directory
+
+disk 26% full
+fetching GSE1296...
+GSE1296: Can't ftp cd to GSE1296 in 'pub/geo/DATA/supplementary/series/GSE1296': GSE1296: No such file or directory
+
+disk 26% full
+fetching GSE1279...
+GSE1279: Can't ftp cd to GSE1279 in 'pub/geo/DATA/supplementary/series/GSE1279': GSE1279: No such file or directory
+
+disk 26% full
+fetching GSE1036...
+GSE1036: Can't ftp cd to GSE1036 in 'pub/geo/DATA/supplementary/series/GSE1036': GSE1036: No such file or directory
+
+disk 26% full
+fetching GSE1147...
+GSE1147: Can't ftp cd to GSE1147 in 'pub/geo/DATA/supplementary/series/GSE1147': GSE1147: No such file or directory
+
+disk 26% full
+fetching GSE1010...
+GSE1010: Can't ftp cd to GSE1010 in 'pub/geo/DATA/supplementary/series/GSE1010': GSE1010: No such file or directory
+
+disk 26% full
+fetching GSE1045...
+GSE1045: Can't ftp cd to GSE1045 in 'pub/geo/DATA/supplementary/series/GSE1045': GSE1045: No such file or directory
+
+disk 26% full
+fetching GSE1133...
+GSE1133: downloaded ok
+disk 26% full
+fetching GSE967...
+GSE967: Can't ftp cd to GSE967 in 'pub/geo/DATA/supplementary/series/GSE967': GSE967: No such file or directory
+
+disk 26% full
+fetching GSE1081...
+GSE1081: Can't ftp cd to GSE1081 in 'pub/geo/DATA/supplementary/series/GSE1081': GSE1081: No such file or directory
+
+disk 26% full
+fetching GSE1028...
+GSE1028: Can't ftp cd to GSE1028 in 'pub/geo/DATA/supplementary/series/GSE1028': GSE1028: No such file or directory
+
+disk 26% full
+fetching GSE590...
+GSE590: Can't ftp cd to GSE590 in 'pub/geo/DATA/supplementary/series/GSE590': GSE590: No such file or directory
+
+disk 26% full
+fetching GSE1041...
+GSE1041: Can't ftp cd to GSE1041 in 'pub/geo/DATA/supplementary/series/GSE1041': GSE1041: No such file or directory
+
+disk 26% full
+fetching GSE908...
+GSE908: Can't ftp cd to GSE908 in 'pub/geo/DATA/supplementary/series/GSE908': GSE908: No such file or directory
+
+disk 26% full
+fetching GSE909...
+GSE909: Can't ftp cd to GSE909 in 'pub/geo/DATA/supplementary/series/GSE909': GSE909: No such file or directory
+
+disk 26% full
+fetching GSE581...
+GSE581: Can't ftp cd to GSE581 in 'pub/geo/DATA/supplementary/series/GSE581': GSE581: No such file or directory
+
+disk 26% full
+fetching GSE939...
+GSE939: Can't ftp cd to GSE939 in 'pub/geo/DATA/supplementary/series/GSE939': GSE939: No such file or directory
+
+disk 26% full
+fetching GSE755...
+GSE755: Can't ftp cd to GSE755 in 'pub/geo/DATA/supplementary/series/GSE755': GSE755: No such file or directory
+
+disk 26% full
+fetching GSE758...
+GSE758: Can't ftp cd to GSE758 in 'pub/geo/DATA/supplementary/series/GSE758': GSE758: No such file or directory
+
+disk 26% full
+fetching GSE764...
+GSE764: Can't ftp cd to GSE764 in 'pub/geo/DATA/supplementary/series/GSE764': GSE764: No such file or directory
+
+disk 26% full
+fetching GSE846...
+GSE846: Can't ftp cd to GSE846 in 'pub/geo/DATA/supplementary/series/GSE846': GSE846: No such file or directory
+
+disk 26% full
+fetching GSE847...
+GSE847: Can't ftp cd to GSE847 in 'pub/geo/DATA/supplementary/series/GSE847': GSE847: No such file or directory
+
+disk 26% full
+fetching GSE567...
+GSE567: Can't ftp cd to GSE567 in 'pub/geo/DATA/supplementary/series/GSE567': GSE567: No such file or directory
+
+disk 26% full
+fetching GSE740...
+GSE740: Can't ftp cd to GSE740 in 'pub/geo/DATA/supplementary/series/GSE740': GSE740: No such file or directory
+
+disk 26% full
+fetching GSE595...
+GSE595: Can't ftp cd to GSE595 in 'pub/geo/DATA/supplementary/series/GSE595': GSE595: No such file or directory
+
+disk 26% full
+fetching GSE522...
+GSE522: Can't ftp cd to GSE522 in 'pub/geo/DATA/supplementary/series/GSE522': GSE522: No such file or directory
+
+disk 26% full
+fetching GSE837...
+GSE837: Can't ftp cd to GSE837 in 'pub/geo/DATA/supplementary/series/GSE837': GSE837: No such file or directory
+
+disk 26% full
+fetching GSE803...
+GSE803: Can't ftp cd to GSE803 in 'pub/geo/DATA/supplementary/series/GSE803': GSE803: No such file or directory
+
+disk 26% full
+fetching GSE703...
+GSE703: Can't ftp cd to GSE703 in 'pub/geo/DATA/supplementary/series/GSE703': GSE703: No such file or directory
+
+disk 26% full
+fetching GSE833...
+GSE833: Can't ftp cd to GSE833 in 'pub/geo/DATA/supplementary/series/GSE833': GSE833: No such file or directory
+
+disk 26% full
+fetching GSE569...
+GSE569: Can't ftp cd to GSE569 in 'pub/geo/DATA/supplementary/series/GSE569': GSE569: No such file or directory
+
+disk 26% full
+fetching GSE766...
+GSE766: Can't ftp cd to GSE766 in 'pub/geo/DATA/supplementary/series/GSE766': GSE766: No such file or directory
+
+disk 26% full
+fetching GSE751...
+GSE751: Can't ftp cd to GSE751 in 'pub/geo/DATA/supplementary/series/GSE751': GSE751: No such file or directory
+
+disk 26% full
+fetching GSE593...
+GSE593: Can't ftp cd to GSE593 in 'pub/geo/DATA/supplementary/series/GSE593': GSE593: No such file or directory
+
+disk 26% full
+fetching GSE685...
+GSE685: Can't ftp cd to GSE685 in 'pub/geo/DATA/supplementary/series/GSE685': GSE685: No such file or directory
+
+disk 26% full
+fetching GSE609...
+GSE609: Can't ftp cd to GSE609 in 'pub/geo/DATA/supplementary/series/GSE609': GSE609: No such file or directory
+
+disk 26% full
+fetching GSE712...
+GSE712: Can't ftp cd to GSE712 in 'pub/geo/DATA/supplementary/series/GSE712': GSE712: No such file or directory
+
+disk 26% full
+fetching GSE701...
+GSE701: Can't ftp cd to GSE701 in 'pub/geo/DATA/supplementary/series/GSE701': GSE701: No such file or directory
+
+disk 26% full
+fetching GSE713...
+GSE713: Can't ftp cd to GSE713 in 'pub/geo/DATA/supplementary/series/GSE713': GSE713: No such file or directory
+
+disk 26% full
+fetching GSE697...
+GSE697: Can't ftp cd to GSE697 in 'pub/geo/DATA/supplementary/series/GSE697': GSE697: No such file or directory
+
+disk 26% full
+fetching GSE675...
+GSE675: Can't ftp cd to GSE675 in 'pub/geo/DATA/supplementary/series/GSE675': GSE675: No such file or directory
+
+disk 26% full
+fetching GSE674...
+GSE674: Can't ftp cd to GSE674 in 'pub/geo/DATA/supplementary/series/GSE674': GSE674: No such file or directory
+
+disk 26% full
+fetching GSE527...
+GSE527: Can't ftp cd to GSE527 in 'pub/geo/DATA/supplementary/series/GSE527': GSE527: No such file or directory
+
+disk 26% full
+fetching GSE453...
+GSE453: Can't ftp cd to GSE453 in 'pub/geo/DATA/supplementary/series/GSE453': GSE453: No such file or directory
+
+disk 26% full
+fetching GSE574...
+GSE574: Can't ftp cd to GSE574 in 'pub/geo/DATA/supplementary/series/GSE574': GSE574: No such file or directory
+
+disk 26% full
+fetching GSE463...
+GSE463: Can't ftp cd to GSE463 in 'pub/geo/DATA/supplementary/series/GSE463': GSE463: No such file or directory
+
+disk 26% full
+fetching GSE503...
+GSE503: Can't ftp cd to GSE503 in 'pub/geo/DATA/supplementary/series/GSE503': GSE503: No such file or directory
+
+disk 26% full
+fetching GSE511...
+GSE511: Can't ftp cd to GSE511 in 'pub/geo/DATA/supplementary/series/GSE511': GSE511: No such file or directory
+
+disk 26% full
+fetching GSE516...
+GSE516: Can't ftp cd to GSE516 in 'pub/geo/DATA/supplementary/series/GSE516': GSE516: No such file or directory
+
+disk 26% full
+fetching GSE443...
+GSE443: Can't ftp cd to GSE443 in 'pub/geo/DATA/supplementary/series/GSE443': GSE443: No such file or directory
+
+disk 26% full
+fetching GSE361...
+GSE361: Can't ftp cd to GSE361 in 'pub/geo/DATA/supplementary/series/GSE361': GSE361: No such file or directory
+
+disk 26% full
+fetching GSE362...
+GSE362: Can't ftp cd to GSE362 in 'pub/geo/DATA/supplementary/series/GSE362': GSE362: No such file or directory
+
+disk 26% full
+fetching GSE364...
+GSE364: Can't ftp cd to GSE364 in 'pub/geo/DATA/supplementary/series/GSE364': GSE364: No such file or directory
+
+disk 26% full
+fetching GSE282...
+GSE282: Can't ftp cd to GSE282 in 'pub/geo/DATA/supplementary/series/GSE282': GSE282: No such file or directory
+
+disk 26% full
+fetching GSE281...
+GSE281: Can't ftp cd to GSE281 in 'pub/geo/DATA/supplementary/series/GSE281': GSE281: No such file or directory
+
+disk 26% full
+fetching GSE121...
+GSE121: Can't ftp cd to GSE121 in 'pub/geo/DATA/supplementary/series/GSE121': GSE121: No such file or directory
+
+disk 26% full
+fetching GSE90...
+GSE90: Can't ftp cd to GSE90 in 'pub/geo/DATA/supplementary/series/GSE90': GSE90: No such file or directory
+
+disk 26% full
+fetching GSE80...
+GSE80: Can't ftp cd to GSE80 in 'pub/geo/DATA/supplementary/series/GSE80': GSE80: No such file or directory
+
+disk 26% full
+fetching GSE56...
+GSE56: Can't ftp cd to GSE56 in 'pub/geo/DATA/supplementary/series/GSE56': GSE56: No such file or directory
+
+disk 26% full
+fetching GSE58...
+GSE58: Can't ftp cd to GSE58 in 'pub/geo/DATA/supplementary/series/GSE58': GSE58: No such file or directory
+
+disk 26% full
+fetching GSE59...
+GSE59: Can't ftp cd to GSE59 in 'pub/geo/DATA/supplementary/series/GSE59': GSE59: No such file or directory
+
+disk 26% full
+fetching GSE20247...
+GSE20247: downloaded ok
+disk 26% full
+fetching GSE17635...
+GSE17635: Can't get GSE17635_RAW.tar: GSE17635_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE11138...
+GSE11138: Can't get GSE11138_RAW.tar: GSE11138_RAW.tar: No such file or directory
+
+disk 26% full
+fetching GSE14428...
+GSE14428: downloaded ok
+disk 26% full
+Stats:
+$VAR1 = {};
+1 leftover GSEs:  at download_series.pl, line 97

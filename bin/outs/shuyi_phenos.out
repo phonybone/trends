@@ -1,0 +1,1495 @@
+writing to geo
+
+PhenGSM_NORM.tsv: pheno=normal
+GSM98205 -> normal
+GSM98231 -> normal
+GSM98232 -> normal
+GSM98233 -> normal
+GSM98237 -> normal
+GSM98238 -> normal
+GSM98246 -> normal
+GSM98247 -> normal
+GSM98248 -> normal
+GSM98249 -> normal
+GSM98250 -> normal
+GSM98252 -> normal
+GSM98253 -> normal
+GSM98255 -> normal
+GSM98256 -> normal
+GSM98257 -> normal
+GSM98206 -> normal
+GSM98207 -> normal
+GSM98209 -> normal
+GSM98211 -> normal
+GSM98212 -> normal
+GSM98213 -> normal
+GSM98217 -> normal
+GSM98218 -> normal
+GSM98219 -> normal
+GSM98221 -> normal
+GSM98222 -> normal
+GSM98223 -> normal
+GSM98225 -> normal
+GSM98229 -> normal
+GSM98230 -> normal
+GSM98234 -> normal
+GSM98235 -> normal
+GSM98236 -> normal
+GSM98239 -> normal
+GSM98240 -> normal
+GSM98241 -> normal
+GSM98242 -> normal
+GSM98243 -> normal
+GSM98244 -> normal
+GSM98245 -> normal
+GSM98251 -> normal
+GSM98254 -> normal
+GSM98258 -> normal
+GSM101095 -> normal
+GSM101096 -> normal
+GSM101097 -> normal
+GSM101098 -> normal
+GSM101099 -> normal
+GSM101100 -> normal
+GSM101101 -> normal
+GSM101102 -> normal
+GSM101103 -> normal
+GSM101104 -> normal
+GSM101105 -> normal
+GSM101106 -> normal
+GSM101107 -> normal
+GSM101108 -> normal
+GSM101109 -> normal
+GSM101110 -> normal
+GSM101111 -> normal
+GSM101112 -> normal
+GSM101113 -> normal
+GSM101114 -> normal
+GSM101115 -> normal
+GSM101116 -> normal
+GSM114089 -> normal
+GSM114090 -> normal
+GSM190151 -> normal
+GSM190153 -> normal
+GSM252867 -> normal
+GSM254149 -> normal
+GSM254150 -> normal
+GSM254151 -> normal
+GSM254152 -> normal
+GSM252879 -> normal
+GSM252882 -> normal
+GSM252884 -> normal
+GSM252885 -> normal
+GSM254157 -> normal
+GSM254158 -> normal
+GSM254159 -> normal
+GSM254160 -> normal
+GSM254161 -> normal
+GSM210005 -> normal
+GSM210009 -> normal
+GSM210014 -> normal
+GSM210015 -> normal
+GSM210087 -> normal
+GSM210192 -> normal
+GSM210196 -> normal
+GSM210979 -> normal
+GSM211008 -> normal
+GSM212067 -> normal
+GSM212068 -> normal
+GSM212070 -> normal
+GSM212787 -> normal
+GSM212789 -> normal
+GSM212790 -> normal
+GSM212811 -> normal
+GSM212853 -> normal
+GSM213035 -> normal
+GSM213036 -> normal
+GSM28358 -> normal
+GSM28360 -> normal
+GSM28362 -> normal
+GSM28370 -> normal
+GSM28372 -> normal
+GSM28374 -> normal
+GSM28376 -> normal
+GSM28378 -> normal
+GSM28380 -> normal
+GSM28382 -> normal
+GSM28384 -> normal
+GSM28386 -> normal
+GSM272770 -> normal
+GSM272771 -> normal
+GSM272772 -> normal
+GSM185811 -> normal
+GSM185813 -> normal
+GSM185815 -> normal
+GSM185817 -> normal
+GSM185819 -> normal
+GSM185821 -> normal
+GSM185823 -> normal
+GSM185825 -> normal
+GSM185827 -> normal
+GSM185829 -> normal
+GSM185831 -> normal
+GSM185833 -> normal
+GSM185835 -> normal
+GSM185837 -> normal
+GSM185839 -> normal
+GSM185841 -> normal
+GSM185843 -> normal
+GSM185845 -> normal
+GSM185847 -> normal
+GSM185849 -> normal
+GSM185851 -> normal
+GSM185853 -> normal
+GSM185855 -> normal
+GSM185857 -> normal
+GSM185859 -> normal
+GSM185861 -> normal
+GSM185863 -> normal
+GSM254638 -> normal
+GSM254644 -> normal
+GSM254651 -> normal
+GSM254665 -> normal
+GSM254667 -> normal
+GSM254671 -> normal
+GSM254676 -> normal
+GSM254679 -> normal
+GSM254683 -> normal
+GSM254685 -> normal
+GSM254689 -> normal
+GSM254691 -> normal
+GSM254706 -> normal
+GSM254710 -> normal
+GSM254712 -> normal
+GSM254713 -> normal
+GSM254725 -> normal
+GSM254626 -> normal
+GSM254635 -> normal
+GSM254643 -> normal
+GSM254649 -> normal
+GSM254653 -> normal
+GSM254658 -> normal
+GSM254660 -> normal
+GSM254673 -> normal
+GSM254681 -> normal
+GSM254693 -> normal
+GSM254695 -> normal
+GSM254702 -> normal
+GSM254719 -> normal
+GSM254727 -> normal
+GSM254628 -> normal
+GSM254632 -> normal
+GSM254634 -> normal
+GSM254640 -> normal
+GSM254646 -> normal
+GSM254655 -> normal
+GSM254662 -> normal
+GSM254669 -> normal
+GSM254677 -> normal
+GSM254699 -> normal
+GSM254703 -> normal
+GSM254708 -> normal
+GSM254711 -> normal
+GSM254715 -> normal
+GSM254717 -> normal
+GSM254723 -> normal
+GSM254730 -> normal
+GSM254731 -> normal
+GSM475657 -> normal
+GSM475658 -> normal
+GSM475659 -> normal
+GSM475660 -> normal
+GSM475663 -> normal
+GSM475665 -> normal
+GSM475666 -> normal
+GSM475667 -> normal
+GSM475669 -> normal
+GSM475671 -> normal
+GSM475673 -> normal
+GSM475675 -> normal
+GSM475678 -> normal
+GSM475680 -> normal
+GSM475682 -> normal
+GSM475684 -> normal
+GSM475686 -> normal
+GSM475688 -> normal
+GSM475690 -> normal
+GSM475693 -> normal
+GSM475695 -> normal
+GSM475697 -> normal
+GSM475699 -> normal
+GSM475702 -> normal
+GSM475704 -> normal
+GSM475705 -> normal
+GSM475707 -> normal
+GSM475711 -> normal
+GSM475714 -> normal
+GSM475716 -> normal
+GSM475718 -> normal
+GSM475721 -> normal
+GSM475723 -> normal
+GSM475725 -> normal
+GSM475726 -> normal
+GSM475729 -> normal
+GSM475732 -> normal
+GSM475734 -> normal
+GSM475736 -> normal
+GSM475738 -> normal
+GSM475740 -> normal
+GSM475742 -> normal
+GSM475743 -> normal
+GSM475745 -> normal
+GSM475746 -> normal
+GSM475749 -> normal
+GSM475750 -> normal
+GSM475752 -> normal
+GSM475754 -> normal
+GSM475755 -> normal
+GSM475757 -> normal
+GSM475764 -> normal
+GSM475766 -> normal
+GSM475767 -> normal
+GSM475771 -> normal
+GSM475775 -> normal
+GSM475781 -> normal
+GSM475783 -> normal
+GSM475786 -> normal
+GSM475790 -> normal
+GSM475798 -> normal
+GSM475800 -> normal
+GSM475807 -> normal
+GSM475809 -> normal
+GSM475811 -> normal
+GSM467037 -> normal
+GSM467035 -> normal
+GSM467033 -> normal
+GSM467031 -> normal
+GSM467027 -> normal
+GSM467025 -> normal
+GSM467022 -> normal
+GSM467020 -> normal
+GSM467019 -> normal
+GSM467017 -> normal
+GSM467015 -> normal
+GSM467013 -> normal
+GSM467011 -> normal
+GSM467009 -> normal
+GSM467007 -> normal
+GSM467005 -> normal
+GSM467003 -> normal
+GSM467002 -> normal
+GSM467001 -> normal
+GSM467000 -> normal
+GSM466999 -> normal
+GSM466997 -> normal
+GSM466995 -> normal
+GSM466992 -> normal
+GSM466990 -> normal
+GSM466988 -> normal
+GSM466986 -> normal
+GSM466984 -> normal
+GSM466981 -> normal
+GSM466979 -> normal
+GSM466978 -> normal
+GSM466976 -> normal
+GSM466974 -> normal
+GSM466972 -> normal
+GSM466970 -> normal
+GSM466968 -> normal
+GSM466966 -> normal
+GSM466964 -> normal
+GSM466961 -> normal
+GSM466959 -> normal
+GSM466957 -> normal
+GSM466955 -> normal
+GSM466953 -> normal
+GSM466950 -> normal
+GSM466948 -> normal
+GSM309986 -> normal
+GSM309987 -> normal
+GSM309988 -> normal
+GSM309989 -> normal
+no class for A07
+no class for A11
+no class for A06
+no class for A13
+no class for A10
+no class for A01
+no class for A22
+no class for A04
+no class for A20
+no class for A14
+no class for A02
+no class for A08
+no class for 4804L
+no class for 4816L
+no class for 4818L
+no class for 4824L
+no class for 4825L
+no class for 4826L
+no class for 4827L_1
+no class for 4827L_2
+no class for 4827L_3
+no class for 4827L_4
+no class for 4827L_5
+no class for 4827U_1
+no class for 4827U_2
+no class for 4827U_3
+no class for 4827U_4
+no class for 4827U_5
+no class for 4851L
+no class for 4859L
+no class for 4860L
+no class for 4863L
+no class for 4874L
+no class for 4874U
+no class for 4878L
+no class for 4878U
+no class for 20000L
+no class for 20002L
+no class for 20002U
+no class for 20008L
+no class for 20008U
+no class for 20010L
+no class for 20010U
+no class for 20014L
+no class for 20015L
+no class for 20015U
+no class for 20016L
+no class for 20017L
+no class for 20017U
+no class for 20021L
+no class for 20021U
+no class for 20024L
+GSM15684 -> normal
+GSM15685 -> normal
+GSM15686 -> normal
+GSM15687 -> normal
+GSM15688 -> normal
+GSM15689 -> normal
+GSM15690 -> normal
+GSM15691 -> normal
+GSM15692 -> normal
+GSM15693 -> normal
+GSM15694 -> normal
+GSM15695 -> normal
+GSM15696 -> normal
+GSM15697 -> normal
+GSM15698 -> normal
+GSM15699 -> normal
+GSM15700 -> normal
+GSM15701 -> normal
+GSM15702 -> normal
+GSM15703 -> normal
+GSM15704 -> normal
+GSM15705 -> normal
+GSM15706 -> normal
+GSM15707 -> normal
+GSM15708 -> normal
+GSM15709 -> normal
+GSM15710 -> normal
+GSM15711 -> normal
+GSM15712 -> normal
+GSM15713 -> normal
+GSM15714 -> normal
+GSM15715 -> normal
+GSM15716 -> normal
+GSM15717 -> normal
+GSM15718 -> normal
+GSM15719 -> normal
+GSM15720 -> normal
+GSM15721 -> normal
+GSM15722 -> normal
+GSM15723 -> normal
+GSM15724 -> normal
+GSM15725 -> normal
+GSM15726 -> normal
+GSM15727 -> normal
+GSM15728 -> normal
+GSM15729 -> normal
+GSM15730 -> normal
+GSM15731 -> normal
+GSM15732 -> normal
+GSM15733 -> normal
+GSM15734 -> normal
+GSM15735 -> normal
+GSM15736 -> normal
+GSM15737 -> normal
+GSM15738 -> normal
+GSM15739 -> normal
+GSM15740 -> normal
+GSM15741 -> normal
+GSM15742 -> normal
+GSM15743 -> normal
+GSM15744 -> normal
+GSM15745 -> normal
+GSM15746 -> normal
+GSM15747 -> normal
+GSM15748 -> normal
+GSM15749 -> normal
+GSM15750 -> normal
+GSM15751 -> normal
+GSM15752 -> normal
+GSM15753 -> normal
+GSM15754 -> normal
+GSM15755 -> normal
+GSM15756 -> normal
+GSM15757 -> normal
+GSM15758 -> normal
+GSM469508 -> normal
+GSM469513 -> normal
+GSM469515 -> normal
+GSM469516 -> normal
+GSM469517 -> normal
+GSM469519 -> normal
+GSM469521 -> normal
+no class for DL15N
+no class for DL50N
+no class for DL4_1N
+no class for DL4_17N
+no class for DL4_7N
+no class for DL4_11N
+no class for DL86N
+no class for DL79N
+no class for DL67N
+no class for 40-2
+no class for 33-2
+no class for 54-2
+no class for 48-2
+no class for 84-2
+no class for 89-2
+no class for 28-2
+no class for 41-2
+no class for 92-2
+no class for 78-2
+no class for 87-2
+no class for 38-2
+no class for 23-2
+no class for 61-2
+no class for 32-2
+no class for 47-2
+no class for 79-2
+no class for 86-2
+
+PhenGSM_LCLC.tsv: pheno=large cell lung carcinoma
+GSM179881 -> large cell lung carcinoma
+GSM203779 -> large cell lung carcinoma
+GSM231895 -> large cell lung carcinoma
+GSM231896 -> large cell lung carcinoma
+GSM46909 -> large cell lung carcinoma
+GSM46913 -> large cell lung carcinoma
+GSM88959 -> large cell lung carcinoma
+GSM475656 -> large cell lung carcinoma
+GSM475661 -> large cell lung carcinoma
+GSM475717 -> large cell lung carcinoma
+GSM475720 -> large cell lung carcinoma
+GSM475722 -> large cell lung carcinoma
+GSM475724 -> large cell lung carcinoma
+GSM475727 -> large cell lung carcinoma
+GSM475737 -> large cell lung carcinoma
+GSM475739 -> large cell lung carcinoma
+GSM475741 -> large cell lung carcinoma
+GSM475769 -> large cell lung carcinoma
+GSM475774 -> large cell lung carcinoma
+GSM475776 -> large cell lung carcinoma
+GSM475777 -> large cell lung carcinoma
+GSM475785 -> large cell lung carcinoma
+GSM475791 -> large cell lung carcinoma
+GSM475793 -> large cell lung carcinoma
+GSM475802 -> large cell lung carcinoma
+GSM475805 -> large cell lung carcinoma
+GSM370916 -> large cell lung carcinoma
+GSM370923 -> large cell lung carcinoma
+GSM370924 -> large cell lung carcinoma
+GSM370938 -> large cell lung carcinoma
+GSM370950 -> large cell lung carcinoma
+GSM370955 -> large cell lung carcinoma
+GSM370967 -> large cell lung carcinoma
+GSM370972 -> large cell lung carcinoma
+GSM370977 -> large cell lung carcinoma
+GSM370980 -> large cell lung carcinoma
+GSM257769 -> large cell lung carcinoma
+GSM257772 -> large cell lung carcinoma
+GSM257775 -> large cell lung carcinoma
+GSM257792 -> large cell lung carcinoma
+GSM257979 -> large cell lung carcinoma
+GSM257995 -> large cell lung carcinoma
+GSM258036 -> large cell lung carcinoma
+GSM258038 -> large cell lung carcinoma
+GSM258052 -> large cell lung carcinoma
+GSM258059 -> large cell lung carcinoma
+GSM258062 -> large cell lung carcinoma
+GSM258069 -> large cell lung carcinoma
+GSM259403 -> large cell lung carcinoma
+
+PhenGSM_AST.tsv: pheno=asthma
+GSM98141 -> asthma
+GSM98144 -> asthma
+GSM98145 -> asthma
+GSM98148 -> asthma
+GSM98149 -> asthma
+GSM98152 -> asthma
+GSM98153 -> asthma
+GSM98155 -> asthma
+GSM98158 -> asthma
+GSM98159 -> asthma
+GSM98161 -> asthma
+GSM98163 -> asthma
+GSM98166 -> asthma
+GSM98167 -> asthma
+GSM98169 -> asthma
+GSM98171 -> asthma
+GSM98174 -> asthma
+GSM98175 -> asthma
+GSM98177 -> asthma
+GSM98180 -> asthma
+GSM98182 -> asthma
+GSM98184 -> asthma
+GSM98186 -> asthma
+GSM98187 -> asthma
+GSM98190 -> asthma
+GSM98192 -> asthma
+GSM98193 -> asthma
+GSM98195 -> asthma
+GSM98197 -> asthma
+GSM98200 -> asthma
+GSM98201 -> asthma
+GSM98204 -> asthma
+GSM98208 -> asthma
+GSM98210 -> asthma
+GSM98214 -> asthma
+GSM98215 -> asthma
+GSM98216 -> asthma
+GSM98220 -> asthma
+GSM98224 -> asthma
+GSM98226 -> asthma
+GSM98227 -> asthma
+GSM98228 -> asthma
+GSM98203 -> asthma
+GSM98202 -> asthma
+GSM98196 -> asthma
+GSM98189 -> asthma
+GSM98185 -> asthma
+GSM98178 -> asthma
+GSM98176 -> asthma
+GSM98170 -> asthma
+GSM98165 -> asthma
+GSM98157 -> asthma
+GSM98154 -> asthma
+GSM98150 -> asthma
+GSM98143 -> asthma
+GSM177212 -> asthma
+GSM177213 -> asthma
+GSM177315 -> asthma
+GSM177214 -> asthma
+GSM177215 -> asthma
+GSM177318 -> asthma
+GSM469509 -> asthma
+GSM469510 -> asthma
+GSM469511 -> asthma
+GSM469512 -> asthma
+GSM469514 -> asthma
+GSM469518 -> asthma
+GSM469520 -> asthma
+GSM469522 -> asthma
+GSM469523 -> asthma
+
+PhenGSM_ADC.tsv: pheno=adenocarcinoma
+GSM258551 -> adenocarcinoma
+GSM258552 -> adenocarcinoma
+GSM258554 -> adenocarcinoma
+GSM258558 -> adenocarcinoma
+GSM258559 -> adenocarcinoma
+GSM258560 -> adenocarcinoma
+GSM258561 -> adenocarcinoma
+GSM258564 -> adenocarcinoma
+GSM258567 -> adenocarcinoma
+GSM258568 -> adenocarcinoma
+GSM258569 -> adenocarcinoma
+GSM258571 -> adenocarcinoma
+GSM258572 -> adenocarcinoma
+GSM258573 -> adenocarcinoma
+GSM258574 -> adenocarcinoma
+GSM258575 -> adenocarcinoma
+GSM258576 -> adenocarcinoma
+GSM258577 -> adenocarcinoma
+GSM258579 -> adenocarcinoma
+GSM258581 -> adenocarcinoma
+GSM258582 -> adenocarcinoma
+GSM258584 -> adenocarcinoma
+GSM258586 -> adenocarcinoma
+GSM258587 -> adenocarcinoma
+GSM258588 -> adenocarcinoma
+GSM258589 -> adenocarcinoma
+GSM258591 -> adenocarcinoma
+GSM258592 -> adenocarcinoma
+GSM258593 -> adenocarcinoma
+GSM258595 -> adenocarcinoma
+GSM258597 -> adenocarcinoma
+GSM258598 -> adenocarcinoma
+GSM258600 -> adenocarcinoma
+GSM258601 -> adenocarcinoma
+GSM258602 -> adenocarcinoma
+GSM258604 -> adenocarcinoma
+GSM258605 -> adenocarcinoma
+GSM258606 -> adenocarcinoma
+GSM258607 -> adenocarcinoma
+GSM258608 -> adenocarcinoma
+GSM435857 -> adenocarcinoma
+GSM435858 -> adenocarcinoma
+GSM435859 -> adenocarcinoma
+GSM435860 -> adenocarcinoma
+GSM435861 -> adenocarcinoma
+GSM435862 -> adenocarcinoma
+GSM435863 -> adenocarcinoma
+GSM435864 -> adenocarcinoma
+GSM435865 -> adenocarcinoma
+GSM435866 -> adenocarcinoma
+GSM435867 -> adenocarcinoma
+GSM435868 -> adenocarcinoma
+GSM435869 -> adenocarcinoma
+GSM435870 -> adenocarcinoma
+GSM435871 -> adenocarcinoma
+GSM435872 -> adenocarcinoma
+GSM435873 -> adenocarcinoma
+GSM435874 -> adenocarcinoma
+GSM435875 -> adenocarcinoma
+GSM435876 -> adenocarcinoma
+GSM435877 -> adenocarcinoma
+GSM435878 -> adenocarcinoma
+GSM435879 -> adenocarcinoma
+GSM435880 -> adenocarcinoma
+GSM435881 -> adenocarcinoma
+GSM435882 -> adenocarcinoma
+GSM435883 -> adenocarcinoma
+GSM435884 -> adenocarcinoma
+GSM272754 -> adenocarcinoma
+GSM272755 -> adenocarcinoma
+GSM272756 -> adenocarcinoma
+GSM272757 -> adenocarcinoma
+GSM272758 -> adenocarcinoma
+GSM272759 -> adenocarcinoma
+GSM272760 -> adenocarcinoma
+GSM272761 -> adenocarcinoma
+GSM272762 -> adenocarcinoma
+GSM272763 -> adenocarcinoma
+GSM272764 -> adenocarcinoma
+GSM272765 -> adenocarcinoma
+GSM272766 -> adenocarcinoma
+GSM272767 -> adenocarcinoma
+GSM272768 -> adenocarcinoma
+GSM272769 -> adenocarcinoma
+GSM185812 -> adenocarcinoma
+GSM185814 -> adenocarcinoma
+GSM185816 -> adenocarcinoma
+GSM185818 -> adenocarcinoma
+GSM185820 -> adenocarcinoma
+GSM185822 -> adenocarcinoma
+GSM185824 -> adenocarcinoma
+GSM185826 -> adenocarcinoma
+GSM185828 -> adenocarcinoma
+GSM185830 -> adenocarcinoma
+GSM185832 -> adenocarcinoma
+GSM185834 -> adenocarcinoma
+GSM185836 -> adenocarcinoma
+GSM185838 -> adenocarcinoma
+GSM185840 -> adenocarcinoma
+GSM185842 -> adenocarcinoma
+GSM185844 -> adenocarcinoma
+GSM185846 -> adenocarcinoma
+GSM185848 -> adenocarcinoma
+GSM185850 -> adenocarcinoma
+GSM185852 -> adenocarcinoma
+GSM185854 -> adenocarcinoma
+GSM185856 -> adenocarcinoma
+GSM185858 -> adenocarcinoma
+GSM185860 -> adenocarcinoma
+GSM185862 -> adenocarcinoma
+GSM185864 -> adenocarcinoma
+GSM254625 -> adenocarcinoma
+GSM254627 -> adenocarcinoma
+GSM254629 -> adenocarcinoma
+GSM254630 -> adenocarcinoma
+GSM254631 -> adenocarcinoma
+GSM254633 -> adenocarcinoma
+GSM254636 -> adenocarcinoma
+GSM254637 -> adenocarcinoma
+GSM254639 -> adenocarcinoma
+GSM254641 -> adenocarcinoma
+GSM254642 -> adenocarcinoma
+GSM254645 -> adenocarcinoma
+GSM254647 -> adenocarcinoma
+GSM254648 -> adenocarcinoma
+GSM254650 -> adenocarcinoma
+GSM254652 -> adenocarcinoma
+GSM254654 -> adenocarcinoma
+GSM254656 -> adenocarcinoma
+GSM254657 -> adenocarcinoma
+GSM254659 -> adenocarcinoma
+GSM254661 -> adenocarcinoma
+GSM254663 -> adenocarcinoma
+GSM254664 -> adenocarcinoma
+GSM254666 -> adenocarcinoma
+GSM254668 -> adenocarcinoma
+GSM254670 -> adenocarcinoma
+GSM254672 -> adenocarcinoma
+GSM254674 -> adenocarcinoma
+GSM254675 -> adenocarcinoma
+GSM254678 -> adenocarcinoma
+GSM254680 -> adenocarcinoma
+GSM254682 -> adenocarcinoma
+GSM254684 -> adenocarcinoma
+GSM254686 -> adenocarcinoma
+GSM254687 -> adenocarcinoma
+GSM254688 -> adenocarcinoma
+GSM254690 -> adenocarcinoma
+GSM254692 -> adenocarcinoma
+GSM254694 -> adenocarcinoma
+GSM254696 -> adenocarcinoma
+GSM254697 -> adenocarcinoma
+GSM254698 -> adenocarcinoma
+GSM254700 -> adenocarcinoma
+GSM254701 -> adenocarcinoma
+GSM254704 -> adenocarcinoma
+GSM254705 -> adenocarcinoma
+GSM254707 -> adenocarcinoma
+GSM254709 -> adenocarcinoma
+GSM254714 -> adenocarcinoma
+GSM254716 -> adenocarcinoma
+GSM254718 -> adenocarcinoma
+GSM254720 -> adenocarcinoma
+GSM254721 -> adenocarcinoma
+GSM254722 -> adenocarcinoma
+GSM254724 -> adenocarcinoma
+GSM254726 -> adenocarcinoma
+GSM254728 -> adenocarcinoma
+GSM254729 -> adenocarcinoma
+GSM318073 -> adenocarcinoma
+GSM318074 -> adenocarcinoma
+GSM318075 -> adenocarcinoma
+GSM318076 -> adenocarcinoma
+GSM318077 -> adenocarcinoma
+GSM318078 -> adenocarcinoma
+GSM318079 -> adenocarcinoma
+GSM318080 -> adenocarcinoma
+GSM318081 -> adenocarcinoma
+GSM318082 -> adenocarcinoma
+GSM318083 -> adenocarcinoma
+GSM318084 -> adenocarcinoma
+GSM318085 -> adenocarcinoma
+GSM318086 -> adenocarcinoma
+GSM318087 -> adenocarcinoma
+GSM318088 -> adenocarcinoma
+GSM318089 -> adenocarcinoma
+GSM318090 -> adenocarcinoma
+GSM318091 -> adenocarcinoma
+GSM318092 -> adenocarcinoma
+GSM318093 -> adenocarcinoma
+GSM318094 -> adenocarcinoma
+GSM318095 -> adenocarcinoma
+GSM318096 -> adenocarcinoma
+GSM318097 -> adenocarcinoma
+GSM318098 -> adenocarcinoma
+GSM318099 -> adenocarcinoma
+GSM318100 -> adenocarcinoma
+GSM318101 -> adenocarcinoma
+GSM318102 -> adenocarcinoma
+GSM318103 -> adenocarcinoma
+GSM318104 -> adenocarcinoma
+GSM318105 -> adenocarcinoma
+GSM318106 -> adenocarcinoma
+GSM318107 -> adenocarcinoma
+GSM318108 -> adenocarcinoma
+GSM318109 -> adenocarcinoma
+GSM318110 -> adenocarcinoma
+GSM318111 -> adenocarcinoma
+GSM318112 -> adenocarcinoma
+GSM318113 -> adenocarcinoma
+GSM318114 -> adenocarcinoma
+GSM318115 -> adenocarcinoma
+GSM318116 -> adenocarcinoma
+GSM318117 -> adenocarcinoma
+GSM318118 -> adenocarcinoma
+GSM318119 -> adenocarcinoma
+GSM318120 -> adenocarcinoma
+GSM318121 -> adenocarcinoma
+GSM318122 -> adenocarcinoma
+GSM318123 -> adenocarcinoma
+GSM318124 -> adenocarcinoma
+GSM318125 -> adenocarcinoma
+GSM318126 -> adenocarcinoma
+GSM318127 -> adenocarcinoma
+GSM318128 -> adenocarcinoma
+GSM318129 -> adenocarcinoma
+GSM318130 -> adenocarcinoma
+GSM318131 -> adenocarcinoma
+GSM318132 -> adenocarcinoma
+GSM318133 -> adenocarcinoma
+GSM318134 -> adenocarcinoma
+GSM318135 -> adenocarcinoma
+GSM318136 -> adenocarcinoma
+GSM318137 -> adenocarcinoma
+GSM318138 -> adenocarcinoma
+GSM318139 -> adenocarcinoma
+GSM318140 -> adenocarcinoma
+GSM318141 -> adenocarcinoma
+GSM318142 -> adenocarcinoma
+GSM318143 -> adenocarcinoma
+GSM318144 -> adenocarcinoma
+GSM318145 -> adenocarcinoma
+GSM318146 -> adenocarcinoma
+GSM318147 -> adenocarcinoma
+GSM102447 -> adenocarcinoma
+GSM102505 -> adenocarcinoma
+GSM102512 -> adenocarcinoma
+GSM102548 -> adenocarcinoma
+GSM102555 -> adenocarcinoma
+GSM117632 -> adenocarcinoma
+GSM117671 -> adenocarcinoma
+GSM117731 -> adenocarcinoma
+GSM117756 -> adenocarcinoma
+GSM117770 -> adenocarcinoma
+GSM117772 -> adenocarcinoma
+GSM137910 -> adenocarcinoma
+GSM137912 -> adenocarcinoma
+GSM137916 -> adenocarcinoma
+GSM137931 -> adenocarcinoma
+GSM137945 -> adenocarcinoma
+GSM138001 -> adenocarcinoma
+GSM138002 -> adenocarcinoma
+GSM152592 -> adenocarcinoma
+GSM152594 -> adenocarcinoma
+GSM152681 -> adenocarcinoma
+GSM179786 -> adenocarcinoma
+GSM179827 -> adenocarcinoma
+GSM179918 -> adenocarcinoma
+GSM179951 -> adenocarcinoma
+GSM203643 -> adenocarcinoma
+GSM203787 -> adenocarcinoma
+GSM277695 -> adenocarcinoma
+GSM301693 -> adenocarcinoma
+GSM325836 -> adenocarcinoma
+GSM353885 -> adenocarcinoma
+GSM353897 -> adenocarcinoma
+GSM353908 -> adenocarcinoma
+GSM38058 -> adenocarcinoma
+GSM38060 -> adenocarcinoma
+GSM38104 -> adenocarcinoma
+GSM46824 -> adenocarcinoma
+GSM46843 -> adenocarcinoma
+GSM46860 -> adenocarcinoma
+GSM46903 -> adenocarcinoma
+GSM46904 -> adenocarcinoma
+GSM46941 -> adenocarcinoma
+GSM46961 -> adenocarcinoma
+GSM46975 -> adenocarcinoma
+GSM53170 -> adenocarcinoma
+GSM76488 -> adenocarcinoma
+GSM76574 -> adenocarcinoma
+GSM76585 -> adenocarcinoma
+GSM76587 -> adenocarcinoma
+GSM76590 -> adenocarcinoma
+GSM76595 -> adenocarcinoma
+GSM76621 -> adenocarcinoma
+GSM88953 -> adenocarcinoma
+GSM88962 -> adenocarcinoma
+GSM88981 -> adenocarcinoma
+GSM88983 -> adenocarcinoma
+GSM88997 -> adenocarcinoma
+GSM89046 -> adenocarcinoma
+GSM89060 -> adenocarcinoma
+GSM89072 -> adenocarcinoma
+GSM475662 -> adenocarcinoma
+GSM475670 -> adenocarcinoma
+GSM475672 -> adenocarcinoma
+GSM475676 -> adenocarcinoma
+GSM475677 -> adenocarcinoma
+GSM475679 -> adenocarcinoma
+GSM475681 -> adenocarcinoma
+GSM475683 -> adenocarcinoma
+GSM475685 -> adenocarcinoma
+GSM475687 -> adenocarcinoma
+GSM475689 -> adenocarcinoma
+GSM475691 -> adenocarcinoma
+GSM475692 -> adenocarcinoma
+GSM475696 -> adenocarcinoma
+GSM475698 -> adenocarcinoma
+GSM475700 -> adenocarcinoma
+GSM475701 -> adenocarcinoma
+GSM475703 -> adenocarcinoma
+GSM475706 -> adenocarcinoma
+GSM475708 -> adenocarcinoma
+GSM475709 -> adenocarcinoma
+GSM475710 -> adenocarcinoma
+GSM475712 -> adenocarcinoma
+GSM475715 -> adenocarcinoma
+GSM475747 -> adenocarcinoma
+GSM475761 -> adenocarcinoma
+GSM475765 -> adenocarcinoma
+GSM475768 -> adenocarcinoma
+GSM475770 -> adenocarcinoma
+GSM475772 -> adenocarcinoma
+GSM475773 -> adenocarcinoma
+GSM475779 -> adenocarcinoma
+GSM475780 -> adenocarcinoma
+GSM475784 -> adenocarcinoma
+GSM475787 -> adenocarcinoma
+GSM475788 -> adenocarcinoma
+GSM475792 -> adenocarcinoma
+GSM475794 -> adenocarcinoma
+GSM475795 -> adenocarcinoma
+GSM475796 -> adenocarcinoma
+GSM475797 -> adenocarcinoma
+GSM475799 -> adenocarcinoma
+GSM475803 -> adenocarcinoma
+GSM475808 -> adenocarcinoma
+GSM475810 -> adenocarcinoma
+GSM370913 -> adenocarcinoma
+GSM370917 -> adenocarcinoma
+GSM370920 -> adenocarcinoma
+GSM370921 -> adenocarcinoma
+GSM370928 -> adenocarcinoma
+GSM370931 -> adenocarcinoma
+GSM370933 -> adenocarcinoma
+GSM370934 -> adenocarcinoma
+GSM370935 -> adenocarcinoma
+GSM370939 -> adenocarcinoma
+GSM370941 -> adenocarcinoma
+GSM370944 -> adenocarcinoma
+GSM370951 -> adenocarcinoma
+GSM370956 -> adenocarcinoma
+GSM370958 -> adenocarcinoma
+GSM370962 -> adenocarcinoma
+GSM370976 -> adenocarcinoma
+GSM370979 -> adenocarcinoma
+GSM370984 -> adenocarcinoma
+GSM370985 -> adenocarcinoma
+GSM370986 -> adenocarcinoma
+GSM370987 -> adenocarcinoma
+GSM370992 -> adenocarcinoma
+GSM370997 -> adenocarcinoma
+GSM370999 -> adenocarcinoma
+GSM371000 -> adenocarcinoma
+GSM371001 -> adenocarcinoma
+GSM371002 -> adenocarcinoma
+GSM467036 -> adenocarcinoma
+GSM467032 -> adenocarcinoma
+GSM467030 -> adenocarcinoma
+GSM467024 -> adenocarcinoma
+GSM467021 -> adenocarcinoma
+GSM467012 -> adenocarcinoma
+GSM466985 -> adenocarcinoma
+GSM466973 -> adenocarcinoma
+GSM466969 -> adenocarcinoma
+GSM466967 -> adenocarcinoma
+GSM466965 -> adenocarcinoma
+GSM466960 -> adenocarcinoma
+GSM466954 -> adenocarcinoma
+GSM466951 -> adenocarcinoma
+GSM257694 -> adenocarcinoma
+GSM257774 -> adenocarcinoma
+GSM257790 -> adenocarcinoma
+GSM257791 -> adenocarcinoma
+GSM257806 -> adenocarcinoma
+GSM257807 -> adenocarcinoma
+GSM257809 -> adenocarcinoma
+GSM257811 -> adenocarcinoma
+GSM257957 -> adenocarcinoma
+GSM257975 -> adenocarcinoma
+GSM257978 -> adenocarcinoma
+GSM257980 -> adenocarcinoma
+GSM257997 -> adenocarcinoma
+GSM258037 -> adenocarcinoma
+GSM258043 -> adenocarcinoma
+GSM258044 -> adenocarcinoma
+GSM258045 -> adenocarcinoma
+GSM258046 -> adenocarcinoma
+GSM258047 -> adenocarcinoma
+GSM258048 -> adenocarcinoma
+GSM258054 -> adenocarcinoma
+GSM258057 -> adenocarcinoma
+GSM258058 -> adenocarcinoma
+GSM258060 -> adenocarcinoma
+GSM258061 -> adenocarcinoma
+GSM258071 -> adenocarcinoma
+GSM258072 -> adenocarcinoma
+GSM258074 -> adenocarcinoma
+GSM258076 -> adenocarcinoma
+GSM258895 -> adenocarcinoma
+GSM258896 -> adenocarcinoma
+GSM258897 -> adenocarcinoma
+GSM258898 -> adenocarcinoma
+GSM258899 -> adenocarcinoma
+GSM258900 -> adenocarcinoma
+GSM258901 -> adenocarcinoma
+GSM258902 -> adenocarcinoma
+GSM258903 -> adenocarcinoma
+GSM258904 -> adenocarcinoma
+GSM258905 -> adenocarcinoma
+GSM259073 -> adenocarcinoma
+GSM259399 -> adenocarcinoma
+GSM259400 -> adenocarcinoma
+GSM259401 -> adenocarcinoma
+GSM259402 -> adenocarcinoma
+GSM259405 -> adenocarcinoma
+GSM259410 -> adenocarcinoma
+GSM259417 -> adenocarcinoma
+GSM259422 -> adenocarcinoma
+GSM259424 -> adenocarcinoma
+GSM259425 -> adenocarcinoma
+GSM259427 -> adenocarcinoma
+GSM260378 -> adenocarcinoma
+GSM260379 -> adenocarcinoma
+GSM264313 -> adenocarcinoma
+GSM264314 -> adenocarcinoma
+GSM264315 -> adenocarcinoma
+GSM264316 -> adenocarcinoma
+GSM264317 -> adenocarcinoma
+no class for 0176_6496_h133+_98-0679
+no class for 0176_6500_h133+_99-0055
+no class for 0176_6594_h133+_98-985
+no class for 0176_6595_h133+_98-821
+no class for 0176_6600_h133+_99-1033
+no class for 0176_6602_h133+_98-711
+no class for 0176_6604_h133+_96-3
+no class for 0176_6610_h133+_99-671
+no class for 0176_6611_h133+_98-683
+no class for 0176_6614_h133+_98-543
+no class for 0176_6617_h133+_98-657
+no class for 0176_6618_h133+_99-440
+no class for 0176_6620_h133+_98-1146
+no class for 0176_6621_h133+_98-771
+no class for 0176_6622_h133+_98-1216
+no class for 0176_6623_h133+_98-1014
+no class for 0176_6626_h133+_98-152
+no class for 0176_6628_h133+_98-1296
+no class for 0176_6630_h133+_98-967
+no class for 0176_6631_h133+_99-1017
+no class for 0176_6636_h133+_99-137
+no class for 0176_6639_h133+_98-1063
+no class for 0176_6640_h133+_98-343
+no class for 0176_6641_h133+_98-186
+no class for 0176_6642_h133+_98-691
+no class for 0176_6643_h133+_98-723
+no class for 0176_6645_h133+_98-197
+no class for 0176_6685_h133+_97-1027
+no class for 0176_6687_h133+_98-438
+no class for 0176_6689_h133+_00-703
+no class for 0176_6692_h133+_98-956
+no class for 0176_6693_h133+_00-909
+no class for 0176_6699_h133+_98-417
+no class for 0176_6702_h133+_96-353
+no class for 0176_6784_h133+_00-0145
+no class for 0176_6785_h133+_00-0253
+no class for 0176_6786_h133+_00-0334
+no class for 0176_6787_h133+_00-0398
+no class for 0176_6789_h133+_00-0479
+no class for 0176_6791_h133+_00-0941
+no class for 0176_6793_h133+_00-1072
+no class for 0176_6794_h133+_00-1082
+no class for 0176_6798_h133+_01-0331
+no class for 0176_6799_h133+_01-0646
+no class for 0176_6864_h133+_01-139
+no class for 0266_7616_h133+_00693@N2
+no class for 0266_7617_h133+_001074@N2
+no class for 0266_7618_h133+_01399@N2
+no class for 0266_7620_h133+_01994@N2
+no class for 0266_7621_h133+_02765@N2
+no class for 0266_7622_h133+_04566@N2
+no class for 0266_7623_h133+_05042@N2
+no class for 0266_7624_h133+_05090@N2
+no class for 0266_7625_h133+_931334@N2
+no class for 0266_7628_h133+_98039@N2
+no class for 0266_7632_h133+_96470@N2
+no class for 0266_7633_h133+_03221@N2
+no class for 0266_7635_h133+_98645@N2
+no class for DL06
+no class for DL01
+no class for DL05
+no class for DL14
+no class for DL39
+no class for DL34
+no class for DL88
+no class for DL09
+no class for DL59
+no class for DL65
+no class for DL31
+no class for DL45
+no class for DL63
+no class for DL36
+no class for DL13
+no class for T42-1
+no class for DL68
+no class for DL50
+no class for DL46
+no class for DL30
+no class for DL40
+no class for DL51
+no class for DL08
+no class for DL35
+no class for DL58
+no class for DL61
+no class for DL33
+no class for DL16
+no class for DL37
+no class for DL12
+no class for DL67
+no class for DL91
+no class for DL54
+no class for DL47
+no class for DL57
+no class for DL03
+no class for DL41
+no class for DL15
+no class for DL66
+no class for DL11
+no class for DL44
+no class for DL38
+no class for DL56
+no class for DL60
+no class for DL48
+no class for DL89
+no class for DL42
+no class for DL32
+no class for DL55
+no class for 79-1
+no class for 47-1
+no class for 41-1
+no class for 61-1
+no class for 92-1
+no class for 60-1
+no class for 86-1
+no class for 53-1
+no class for 40-1
+no class for 33-1
+no class for 71-1
+no class for 23-1
+no class for 78-1
+no class for 89-1
+no class for 38-1
+no class for 84-1
+no class for 54-1
+no class for 87-1
+no class for 59-1
+no class for 28-1
+no class for 32-1
+no class for 67-1
+no class for 48-1
+
+PhenGSM_COPD.tsv: pheno=chronic obstructive pulmonary disease
+GSM114091 -> chronic obstructive pulmonary disease
+GSM114092 -> chronic obstructive pulmonary disease
+GSM114093 -> chronic obstructive pulmonary disease
+GSM114094 -> chronic obstructive pulmonary disease
+GSM114095 -> chronic obstructive pulmonary disease
+GSM114096 -> chronic obstructive pulmonary disease
+GSM114098 -> chronic obstructive pulmonary disease
+GSM114099 -> chronic obstructive pulmonary disease
+GSM114100 -> chronic obstructive pulmonary disease
+GSM114101 -> chronic obstructive pulmonary disease
+GSM114102 -> chronic obstructive pulmonary disease
+GSM114103 -> chronic obstructive pulmonary disease
+GSM114104 -> chronic obstructive pulmonary disease
+GSM114105 -> chronic obstructive pulmonary disease
+GSM252830 -> chronic obstructive pulmonary disease
+GSM252833 -> chronic obstructive pulmonary disease
+GSM252835 -> chronic obstructive pulmonary disease
+GSM252836 -> chronic obstructive pulmonary disease
+GSM252837 -> chronic obstructive pulmonary disease
+GSM252839 -> chronic obstructive pulmonary disease
+GSM252841 -> chronic obstructive pulmonary disease
+GSM254163 -> chronic obstructive pulmonary disease
+GSM254169 -> chronic obstructive pulmonary disease
+GSM254171 -> chronic obstructive pulmonary disease
+GSM254172 -> chronic obstructive pulmonary disease
+GSM254173 -> chronic obstructive pulmonary disease
+GSM254174 -> chronic obstructive pulmonary disease
+GSM254175 -> chronic obstructive pulmonary disease
+GSM254176 -> chronic obstructive pulmonary disease
+GSM210004 -> chronic obstructive pulmonary disease
+GSM210006 -> chronic obstructive pulmonary disease
+GSM210008 -> chronic obstructive pulmonary disease
+GSM210011 -> chronic obstructive pulmonary disease
+GSM210071 -> chronic obstructive pulmonary disease
+GSM210194 -> chronic obstructive pulmonary disease
+GSM210992 -> chronic obstructive pulmonary disease
+GSM210993 -> chronic obstructive pulmonary disease
+GSM211007 -> chronic obstructive pulmonary disease
+GSM211009 -> chronic obstructive pulmonary disease
+GSM212074 -> chronic obstructive pulmonary disease
+GSM212788 -> chronic obstructive pulmonary disease
+GSM212810 -> chronic obstructive pulmonary disease
+GSM212848 -> chronic obstructive pulmonary disease
+GSM212852 -> chronic obstructive pulmonary disease
+GSM213020 -> chronic obstructive pulmonary disease
+GSM28357 -> chronic obstructive pulmonary disease
+GSM28359 -> chronic obstructive pulmonary disease
+GSM28361 -> chronic obstructive pulmonary disease
+GSM28363 -> chronic obstructive pulmonary disease
+GSM28364 -> chronic obstructive pulmonary disease
+GSM28365 -> chronic obstructive pulmonary disease
+GSM28366 -> chronic obstructive pulmonary disease
+GSM28367 -> chronic obstructive pulmonary disease
+GSM28368 -> chronic obstructive pulmonary disease
+GSM28369 -> chronic obstructive pulmonary disease
+GSM28371 -> chronic obstructive pulmonary disease
+GSM28373 -> chronic obstructive pulmonary disease
+GSM28375 -> chronic obstructive pulmonary disease
+GSM28377 -> chronic obstructive pulmonary disease
+GSM28379 -> chronic obstructive pulmonary disease
+GSM28381 -> chronic obstructive pulmonary disease
+GSM28383 -> chronic obstructive pulmonary disease
+GSM28385 -> chronic obstructive pulmonary disease
+
+PhenGSM_SCC.tsv: pheno=squamous cell carcinoma
+GSM258553 -> squamous cell carcinoma
+GSM258555 -> squamous cell carcinoma
+GSM258556 -> squamous cell carcinoma
+GSM258557 -> squamous cell carcinoma
+GSM258562 -> squamous cell carcinoma
+GSM258563 -> squamous cell carcinoma
+GSM258565 -> squamous cell carcinoma
+GSM258566 -> squamous cell carcinoma
+GSM258570 -> squamous cell carcinoma
+GSM258578 -> squamous cell carcinoma
+GSM258580 -> squamous cell carcinoma
+GSM258583 -> squamous cell carcinoma
+GSM258585 -> squamous cell carcinoma
+GSM258590 -> squamous cell carcinoma
+GSM258594 -> squamous cell carcinoma
+GSM258596 -> squamous cell carcinoma
+GSM258599 -> squamous cell carcinoma
+GSM258603 -> squamous cell carcinoma
+GSM102449 -> squamous cell carcinoma
+GSM102451 -> squamous cell carcinoma
+GSM102455 -> squamous cell carcinoma
+GSM102507 -> squamous cell carcinoma
+GSM102553 -> squamous cell carcinoma
+GSM102556 -> squamous cell carcinoma
+GSM117610 -> squamous cell carcinoma
+GSM117629 -> squamous cell carcinoma
+GSM117763 -> squamous cell carcinoma
+GSM138003 -> squamous cell carcinoma
+GSM152624 -> squamous cell carcinoma
+GSM152670 -> squamous cell carcinoma
+GSM152757 -> squamous cell carcinoma
+GSM179801 -> squamous cell carcinoma
+GSM203641 -> squamous cell carcinoma
+GSM203699 -> squamous cell carcinoma
+GSM203732 -> squamous cell carcinoma
+GSM231874 -> squamous cell carcinoma
+GSM231885 -> squamous cell carcinoma
+GSM231897 -> squamous cell carcinoma
+GSM231899 -> squamous cell carcinoma
+GSM231907 -> squamous cell carcinoma
+GSM231950 -> squamous cell carcinoma
+GSM277678 -> squamous cell carcinoma
+GSM277696 -> squamous cell carcinoma
+GSM301680 -> squamous cell carcinoma
+GSM353933 -> squamous cell carcinoma
+GSM38100 -> squamous cell carcinoma
+GSM38103 -> squamous cell carcinoma
+GSM46817 -> squamous cell carcinoma
+GSM46833 -> squamous cell carcinoma
+GSM46850 -> squamous cell carcinoma
+GSM46868 -> squamous cell carcinoma
+GSM46884 -> squamous cell carcinoma
+GSM46936 -> squamous cell carcinoma
+GSM46973 -> squamous cell carcinoma
+GSM46976 -> squamous cell carcinoma
+GSM53167 -> squamous cell carcinoma
+GSM88949 -> squamous cell carcinoma
+GSM475664 -> squamous cell carcinoma
+GSM475668 -> squamous cell carcinoma
+GSM475674 -> squamous cell carcinoma
+GSM475694 -> squamous cell carcinoma
+GSM475713 -> squamous cell carcinoma
+GSM475719 -> squamous cell carcinoma
+GSM475728 -> squamous cell carcinoma
+GSM475730 -> squamous cell carcinoma
+GSM475731 -> squamous cell carcinoma
+GSM475733 -> squamous cell carcinoma
+GSM475735 -> squamous cell carcinoma
+GSM475744 -> squamous cell carcinoma
+GSM475748 -> squamous cell carcinoma
+GSM475751 -> squamous cell carcinoma
+GSM475753 -> squamous cell carcinoma
+GSM475756 -> squamous cell carcinoma
+GSM475758 -> squamous cell carcinoma
+GSM475759 -> squamous cell carcinoma
+GSM475760 -> squamous cell carcinoma
+GSM475762 -> squamous cell carcinoma
+GSM475763 -> squamous cell carcinoma
+GSM475778 -> squamous cell carcinoma
+GSM475782 -> squamous cell carcinoma
+GSM475789 -> squamous cell carcinoma
+GSM475801 -> squamous cell carcinoma
+GSM475804 -> squamous cell carcinoma
+GSM475806 -> squamous cell carcinoma
+GSM370914 -> squamous cell carcinoma
+GSM370915 -> squamous cell carcinoma
+GSM370918 -> squamous cell carcinoma
+GSM370919 -> squamous cell carcinoma
+GSM370922 -> squamous cell carcinoma
+GSM370925 -> squamous cell carcinoma
+GSM370926 -> squamous cell carcinoma
+GSM370927 -> squamous cell carcinoma
+GSM370929 -> squamous cell carcinoma
+GSM370930 -> squamous cell carcinoma
+GSM370932 -> squamous cell carcinoma
+GSM370936 -> squamous cell carcinoma
+GSM370937 -> squamous cell carcinoma
+GSM370940 -> squamous cell carcinoma
+GSM370942 -> squamous cell carcinoma
+GSM370943 -> squamous cell carcinoma
+GSM370945 -> squamous cell carcinoma
+GSM370946 -> squamous cell carcinoma
+GSM370947 -> squamous cell carcinoma
+GSM370948 -> squamous cell carcinoma
+GSM370949 -> squamous cell carcinoma
+GSM370952 -> squamous cell carcinoma
+GSM370953 -> squamous cell carcinoma
+GSM370954 -> squamous cell carcinoma
+GSM370957 -> squamous cell carcinoma
+GSM370959 -> squamous cell carcinoma
+GSM370960 -> squamous cell carcinoma
+GSM370961 -> squamous cell carcinoma
+GSM370963 -> squamous cell carcinoma
+GSM370964 -> squamous cell carcinoma
+GSM370965 -> squamous cell carcinoma
+GSM370966 -> squamous cell carcinoma
+GSM370968 -> squamous cell carcinoma
+GSM370969 -> squamous cell carcinoma
+GSM370970 -> squamous cell carcinoma
+GSM370971 -> squamous cell carcinoma
+GSM370973 -> squamous cell carcinoma
+GSM370974 -> squamous cell carcinoma
+GSM370975 -> squamous cell carcinoma
+GSM370978 -> squamous cell carcinoma
+GSM370981 -> squamous cell carcinoma
+GSM370982 -> squamous cell carcinoma
+GSM370983 -> squamous cell carcinoma
+GSM370988 -> squamous cell carcinoma
+GSM370989 -> squamous cell carcinoma
+GSM370990 -> squamous cell carcinoma
+GSM370991 -> squamous cell carcinoma
+GSM370993 -> squamous cell carcinoma
+GSM370994 -> squamous cell carcinoma
+GSM370995 -> squamous cell carcinoma
+GSM370996 -> squamous cell carcinoma
+GSM370998 -> squamous cell carcinoma
+GSM144019 -> squamous cell carcinoma
+GSM144021 -> squamous cell carcinoma
+GSM144023 -> squamous cell carcinoma
+GSM144025 -> squamous cell carcinoma
+GSM144028 -> squamous cell carcinoma
+GSM144030 -> squamous cell carcinoma
+GSM144032 -> squamous cell carcinoma
+GSM144034 -> squamous cell carcinoma
+GSM144036 -> squamous cell carcinoma
+GSM144038 -> squamous cell carcinoma
+GSM144040 -> squamous cell carcinoma
+GSM144042 -> squamous cell carcinoma
+GSM144044 -> squamous cell carcinoma
+GSM144046 -> squamous cell carcinoma
+GSM144049 -> squamous cell carcinoma
+GSM144051 -> squamous cell carcinoma
+GSM144053 -> squamous cell carcinoma
+GSM144055 -> squamous cell carcinoma
+GSM467034 -> squamous cell carcinoma
+GSM467029 -> squamous cell carcinoma
+GSM467028 -> squamous cell carcinoma
+GSM467026 -> squamous cell carcinoma
+GSM467023 -> squamous cell carcinoma
+GSM467018 -> squamous cell carcinoma
+GSM467016 -> squamous cell carcinoma
+GSM467014 -> squamous cell carcinoma
+GSM467010 -> squamous cell carcinoma
+GSM467008 -> squamous cell carcinoma
+GSM467006 -> squamous cell carcinoma
+GSM467004 -> squamous cell carcinoma
+GSM466998 -> squamous cell carcinoma
+GSM466996 -> squamous cell carcinoma
+GSM466994 -> squamous cell carcinoma
+GSM466993 -> squamous cell carcinoma
+GSM466991 -> squamous cell carcinoma
+GSM466989 -> squamous cell carcinoma
+GSM466987 -> squamous cell carcinoma
+GSM466983 -> squamous cell carcinoma
+GSM466982 -> squamous cell carcinoma
+GSM466977 -> squamous cell carcinoma
+GSM466975 -> squamous cell carcinoma
+GSM466971 -> squamous cell carcinoma
+GSM466963 -> squamous cell carcinoma
+GSM466962 -> squamous cell carcinoma
+GSM466958 -> squamous cell carcinoma
+GSM466980 -> squamous cell carcinoma
+GSM466956 -> squamous cell carcinoma
+GSM466952 -> squamous cell carcinoma
+GSM466949 -> squamous cell carcinoma
+GSM466947 -> squamous cell carcinoma
+no class for 0176_6489_h133+_97-0949
+no class for 0176_6491_h133+_98-0292
+no class for 0176_6499_h133+_99-0077
+no class for 0176_6596_h133+_98-853
+no class for 0176_6597_h133+_99-927
+no class for 0176_6598_h133+_10-00
+no class for 0176_6599_h133+_98-506
+no class for 0176_6601_h133+_98-320
+no class for 0176_6603_h133+_98-401
+no class for 0176_6606_h133+_97-1026
+no class for 0176_6607_h133+_98-933
+no class for 0176_6608_h133+_96-475
+no class for 0176_6612_h133+_97-403
+no class for 0176_6613_h133+_97-587
+no class for 0176_6616_h133+_99-692
+no class for 0176_6619_h133+_99-728
+no class for 0176_6624_h133+_99-830
+no class for 0176_6625_h133+_00-011
+no class for 0176_6627_h133+_98-1293
+no class for 0176_6629_h133+_98-375
+no class for 0176_6632_h133+_00-315
+no class for 0176_6633_h133+_00-151
+no class for 0176_6634_h133+_99-1067
+no class for 0176_6635_h133+_99-301
+no class for 0176_6647_h133+_98-828
+no class for 0176_6686_h133+_00-327
+no class for 0176_6688_h133+_98-1277
+no class for 0176_6691_h133+_00-440
+no class for 0176_6694_h133+_97-666
+no class for 0176_6695_h133+_97-608
+no class for 0176_6696_h133+_97-829
+no class for 0176_6697_h133+_00-550
+no class for 0176_6698_h133+_99-706
+no class for 0176_6700_h133+_96-264
+no class for 0176_6701_h133+_97-792
+no class for 0176_6788_h133+_00-0452
+no class for 0176_6790_h133+_00-0827
+no class for 0176_6792_h133+_00-1059
+no class for 0176_6795_h133+_01-0181
+no class for 0176_6796_h133+_01-0189
+no class for 0176_6797_h133+_01-0236
+no class for 0176_6800_h133+_01-0284
+no class for 0176_6801_h133+_01-0369
+no class for 0176_6802_h133+_01-0424
+no class for 0176_6803_h133+_01-0534
+no class for 0176_6865_h133+_97-0930
+no class for 0266_7614_h133+_00037@N2
+no class for 0266_7615_h133+_00502@N2
+no class for 0266_7619_h133+_01758@N2
+no class for 0266_7627_h133+_97646@N2
+no class for 0266_7629_h133+_98180@N2
+no class for 0266_7630_h133+_98610@N2
+no class for 0266_7631_h133+_99625@N2
+Stats:
+$VAR1 = {
+          'squamous cell carcinoma' => 186,
+          'large cell lung carcinoma' => 49,
+          'no_class' => 262,
+          'normal' => 390,
+          'n_updated' => 1208,
+          'asthma' => 70,
+          'adenocarcinoma' => 450,
+          'total_samples' => 1470,
+          'chronic obstructive pulmonary disease' => 63
+        };

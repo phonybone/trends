@@ -1,0 +1,8 @@
+disk 16% full
+Stats:
+$VAR1 = {
+          'errors' => 6412,
+          'downloaded' => 2005,
+          'n_samples' => 58561,
+          'empty' => 1593
+        };

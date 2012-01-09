@@ -58,3 +58,11 @@ class Sample(GEO):
         kwargs['geo_id']=self.geo_id
         return self.__class__.data_path_of(**kwargs)
 
+
+    ########################################################################
+    # Return a matrix (would be best to return a DataTable from AUREA) such that
+    # 
+
+    @classmethod
+    def one_vs_all(self, **kwargs):
+        pass

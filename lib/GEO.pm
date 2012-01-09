@@ -10,6 +10,8 @@ use Net::FTP;
 use Data::Structure::Util qw(unbless);
 use Text::CSV;
 use Devel::Size qw(size total_size);
+use File::Basename;
+use File::Path qw(make_path);
 
 use GEO::Dataset;
 use GEO::DatasetSubset;
@@ -40,6 +42,15 @@ class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO:
 class_has 'db_name'         => (is=>'rw', isa=>'Str', default=>'geo');	
 class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [{geo_id=>1},{unique=>1}] });
 
+sub _init {
+    my ($class)=@_;
+    if (defined $ENV{TRENDS_HOME}) {
+	$class->data_dir(join('/', $ENV{TRENDS_HOME}, 'data', 'GEO'));
+    } else {
+	$class->data_dir(join('/', '/proj/price1/vcassen/trends', 'data', 'GEO'));
+    }
+    warnf "data_dir: %s\n", $class->data_dir;
+}
 
 
 around BUILDARGS => sub {
@@ -90,7 +101,7 @@ sub hash_assign {
     confess "ref found where list needed" if ref $args[0]; # should be a hash key
     my %hash=@args;
     while (my ($k,$v)=each %hash) {
-	$self->{$k}=$v;
+	$self->{$k}=$v unless $k=~/^_/;
     }
     $self;
 }
@@ -212,7 +223,8 @@ sub _get_ftp {
     warnf("trying to connect to %s", $self->ftp_link) if $ENV{DEBUG};
     my $ftp=Net::FTP->new($self->ftp_link) or die "Can't connect to $self->ftp_link: $!\n";
     warnf("trying to login to %s", $self->ftp_link) if $ENV{DEBUG};
-    $ftp->login('anonymous', 'phonybone@gmail.com') or dief "Can't login to %s: msg=%s\n", $self->ftp_link, $ftp->message;
+    $ftp->login('anonymous', 'phonybone@gmail.com') or 
+	dief "Can't login to %s: msg=%s\n", $self->ftp_link, ($ftp->message || 'unknown error');
     warn "login successful" if $ENV{DEBUG};
     $ftp->binary;
     $ftp;
@@ -243,7 +255,8 @@ sub write_table {
     my ($self, $table, $dest_file)=@_;
     $table||=$self->{__table} or confess "no __table";
     $dest_file ||= $self->data_table_file;
-    mkdir $self->path unless -d $self->path;
+    make_path $self->path unless -d $self->path;
+    warnf "%s: path is %s (exists: %d)\n", $self->geo_id, $self->path, -d $self->path if $ENV{DEBUG};
 
     warnf "%s (%s): writing data table to %s\n", $self->geo_id, ref $self, $dest_file if $ENV{DEBUG};
     my $csv=new Text::CSV {binary=>1};
@@ -318,5 +331,7 @@ sub tie_to_geo {
     $self;
 }
 
+
+__PACKAGE__->_init();
 
 1;

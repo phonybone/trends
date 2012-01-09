@@ -8,5 +8,6 @@ data/*
 .#*
 bin/outs/*
 bin/butte
-.DS_Store
+*.pyc
 no_git/*
+.DS_Store

@@ -180,6 +180,7 @@ sub fetch_soft {
     warnf("fetching %s/%s...\n", $full_base_dir, $target) if $ENV{DEBUG};
 
     my $curr_dir=getcwd;
+    mkdir $self->path unless -d $self->path;
     chdir $self->path or dief "Can't chdir to %s: %s", $self->path, $!;
     
     eval {
