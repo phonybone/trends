@@ -7,32 +7,33 @@ identified
 
 
 
-We will use as much expression data as is publicly available
-to create statistical classifiers for as many phenotypes as possible.
 
-Something about molecular signatures
+Background: Description of classifiers.  A classifier is a statistical
+test that, once trained, provides a yes/no classification to a new
+input data set with minimal computation resources required.  They can
+be used to to indicate if a given sample exhibits characteristics
+of a particular phenotype or molecular state.
 
-Background: Description of classifiers.
-A classifier is a statistical test that, once trained, provides a
-yes/no classification to a new input data set with minimal computation
-resources required.
+Our procedure is to download all non-redundant human expression data
+from public repositories such as the Gene Omnibus Expression,
+OncoMine, ArrayExpress, etc, along with all metadata associated with
+each dataset.  Typical metadata includes textual information such as
+experiment titles and descriptions, pubmed IDs (from which abstracts
+of reporting journal articles may be obtained), among other data.
 
-Inclusion of meta-data
+This textual data is used to produce overlapping groups of related
+samples based on simple keyword associations.  These samples groups
+are then clustered based on gene expression values until distinct
+phenotype groups are determined.  
 
+Each group is then labeled with it's corresponding phenotype and used
+as a training set in the creating of a classifier.  When new
+expression data becomes available via the public repositories or from
+other sources, it is run against the existing classifiers to determine
+it's properties.  It can also be used to improve the accuracy of
+classifiers as needed.
 
+A provenance history of each sample and each classifier is also kept
+to that the long term characteristics of the classifiers can be
+tracked and global trends in the expression data can be determined.
 
-What we're actually doing:
-1. Download expression data from GEO, ArrayExpress, OncoMine, etc
-   (including meta data).
-2. Catagorize each expression dataset using the metadata associated
-   with it, and run clustering algorithms to create classifier
-   training sets.
-3. Create classifiers based on said training sets.
-4. We will then monitor the expression data repositories for new
-   expression sets as they become available.  Upon such an event, the
-   new expression set will be both compared to the existing
-   classifiers to identify its nature and incorporated into the
-   existing classifier set to increase the accuracy of those
-   classifiers. 
-5. Something about identifying trends across time.
-6. 

@@ -62,8 +62,7 @@ sub table_data_file {
     join('/', $self->path, join('.', $self->geo_id, 'table.data'));
 }
 
-# return the Series' data as a 1D array;
-# actually returns a hashref: k=probe_id (or other gene id), v=expression value
+# returns sample's data as a hashref: k=probe_id (or other gene id), v=expression value
 # throws exceptions if can't find $self->data_file
 sub as_vector_hash {
     my ($self, $opts)=@_;

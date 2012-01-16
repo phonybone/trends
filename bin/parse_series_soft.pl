@@ -49,7 +49,6 @@ BEGIN: {
     die "options -q and -d are mutually exclusive\n" if $options{q} && $options{d};
     die "options -q and -v are mutually exclusive\n" if $options{q} && $options{v};
     $ENV{DEBUG} = 1 if $options{d};
-    $options{v}=1 if $options{d};
     GEO->db_name($options{db_name});
     warnf "writing to db %s\n", $options{db_name} if $ENV{DEBUG};
     warn "ignoring data tables\n" if $options{ignore_table};
@@ -161,7 +160,7 @@ sub already_processed {
 
 ########################################################################
 
-sub handle_series {
+sub series {
     my ($record)=@_;
 
     $record->{sample_ids}=$record->{sample_id};	# this sux, but what to do...?
@@ -192,10 +191,13 @@ sub update_record {
     my $class=ref $geo;
     $class=~s/^GEO:://;
     $stats->{"n_${class}_updated"}++;
+    warnf "updated: %s", $geo if $ENV{DEBUG} && $options{v};
 
+    # add fields starting with '_' back in to geo object:
     foreach my $k (grep /^_/, keys %$record) {
 	$geo->{$k}=$record->{$k};
     }
+
     $geo;
 }
 
