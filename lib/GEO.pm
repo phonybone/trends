@@ -49,7 +49,7 @@ sub _init {
     } else {
 	$class->data_dir(join('/', '/proj/price1/vcassen/trends', 'data', 'GEO'));
     }
-    warnf "data_dir: %s\n", $class->data_dir;
+#    warnf "data_dir: %s\n", $class->data_dir;
 }
 
 
