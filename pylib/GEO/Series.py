@@ -3,4 +3,5 @@ from GEO import GEO
 from warn import *
 
 class Series(GEO):
-    pass
+    collection_name='series'
+

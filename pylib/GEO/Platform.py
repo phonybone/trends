@@ -3,4 +3,6 @@ from GEO import GEO
 from warn import *
 
 class Platform(GEO):
-    pass
+    subdir='platforms'
+    collection_name='platform'
+

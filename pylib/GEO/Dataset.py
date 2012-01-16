@@ -3,4 +3,6 @@ from GEO import GEO
 from warn import *
 
 class Dataset(GEO):
-    pass
+    subdir='datasets'
+    collection_name='datasets'
+
