@@ -27,7 +27,7 @@ has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
 #has 'record' => (is=>'rw', isa=>'HashRef'); # 
 
 our %mongos=();
-class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>'/proj/price1/vcassen/trends/data/GEO');
+class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>'/mnt/price1/vcassen/trends/data/GEO');
 
 class_has 'testing' =>     (is=>'rw', isa=>'Int', default=>0);
 class_has 'ftp_link'=>     (is=>'ro', isa=>'Str', default=>'ftp.ncbi.nih.gov');
@@ -47,7 +47,7 @@ sub _init {
     if (defined $ENV{TRENDS_HOME}) {
 	$class->data_dir(join('/', $ENV{TRENDS_HOME}, 'data', 'GEO'));
     } else {
-	$class->data_dir(join('/', '/proj/price1/vcassen/trends', 'data', 'GEO'));
+	$class->data_dir(join('/', '/mnt/price1/vcassen/trends', 'data', 'GEO'));
     }
     warnf "data_dir: %s\n", $class->data_dir;
 }
@@ -331,7 +331,7 @@ sub tie_to_geo {
     $self;
 }
 
-
+# this has some whitespace
 __PACKAGE__->_init();
 
 1;

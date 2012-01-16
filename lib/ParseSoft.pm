@@ -57,7 +57,7 @@ sub parse {
 }
 
 
-# This is going to weird shit when blocks are revisited
+# This is going to do weird shit when blocks are revisited
 sub next {
     my ($self)=@_;
     if (! $self->_fh) {

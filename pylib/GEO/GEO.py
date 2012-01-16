@@ -24,4 +24,5 @@ class GEO(Mongoid):
         if isinstance(record, dict):
             for (k,v) in record.items():
                 setattr(self,k,v)
+        return self
         

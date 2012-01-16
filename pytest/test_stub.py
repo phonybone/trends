@@ -1,6 +1,7 @@
 import unittest, sys, os
-dir=os.path.normpath(os.path.dirname(os.path.abspath(__file__))+"/../..")
-sys.path.append(os.path.join(dir+'/pylib'))
+
+sys.path.append(os.environ['AUREA_SRC'])
+sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
 from warn import *
 
