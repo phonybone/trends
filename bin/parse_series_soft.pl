@@ -38,12 +38,15 @@ our %subrefs=(
 	      sample=>\&handle_sample
 	      );
 BEGIN: {
-  Options::use(qw(d q v h fuse=i db_name=s series_dir=s report_overwrites gses=s ignore_table));
+    $ENV{TRENDS_HOME}||='';
+    die "environment variable TRENDS_HOME not set or non-existant ($ENV{TRENDS_HOME})\n" 
+	unless -d $ENV{TRENDS_HOME};
+    Options::use(qw(d q v h fuse=i db_name=s series_dir=s report_overwrites gses=s ignore_table));
     Options::useDefaults(fuse => -1, 
 			 db_name=>'geo',
-			 series_dir=>'/mnt/price1/vcassen/trends/data/GEO/series',
+			 series_dir=>"$ENV{TRENDS_HOME}/data/GEO/series",
 			 gses=>[],
-			 );
+	);
     Options::get();
     die Options::usage() if $options{h};
     die "options -q and -d are mutually exclusive\n" if $options{q} && $options{d};
@@ -205,6 +208,12 @@ sub handle_sample {
     my ($record)=@_;
     my $sample=update_record($record);
     $sample->write_table unless $options{ignore_table};
+}
+    
+sub handle_series {
+    my ($record)=@_;
+    my $series=update_record($record);
+    # no table to worry about
 }
     
 

@@ -8,8 +8,12 @@ from warn import *
 class Factory(object):
     prefix2class={'GSM' : Sample, 'GDS': Dataset, 'GSE' : Series, 'GPL' : Platform}
     
-    def newGEO(self, geo_id):
+    def id2class(self, geo_id):
         prefix=geo_id[0:3]
         try: klass=self.prefix2class[prefix]
         except KeyError: raise Exception("No class for prefix '%s'" % prefix)
-        return klass(geo_id)
+        return klass
+
+    def newGEO(self, geo_id):
+        return self.id2class(geo_id)(geo_id)
+

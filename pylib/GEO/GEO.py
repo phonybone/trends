@@ -1,3 +1,4 @@
+import os
 from Mongoid import Mongoid
 from warn import *
 
@@ -10,7 +11,7 @@ import re
 
 class GEO(Mongoid):
     db_name='geo'
-    data_dir='/mnt/price1/vcassen/trends/data/GEO'
+    data_dir=os.path.join(os.environ['TRENDS_HOME'], 'data', 'GEO')
 
     def __init__(self,geo_id):
         ''' can initialize a geo object with either a geo_id or a dict '''

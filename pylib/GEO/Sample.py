@@ -67,14 +67,14 @@ class Sample(GEO):
 
     ########################################################################
     
-    def expression_data(self, id_type):
+    def expression_data(self, id_type='gene'):
         ''' 
         if id_type == None, choose one based on which data exists
         return (id_type, data) where data is a dict: k=id, v=expression value
         raises exceptions on errors, so be careful
         '''
 
-        # determine id_type if necessary:
+        # determine id_type if necessary, checking for existance as well:
         if id_type == None:
             if os.access(self.data_path(id_type='gene'), os.R_OK):
                 id_type='gene'
@@ -85,9 +85,6 @@ class Sample(GEO):
         else:
             if not re.search('^gene|probe$', id_type):
                 raise Exception('id_type must be one of "gene" or "probe"')
-
-#        if self.data[id_type]: 
-#            return self.data[id_type]
 
         # open data file:
         data_filename=self.data_path(id_type=id_type)
@@ -105,10 +102,6 @@ class Sample(GEO):
 
 #        self.data[id_type]=data
         return (id_type, data)
-
-    
-        
-
 
     ########################################################################
     # Return a matrix (would be best to return a DataTable from AUREA) such that
