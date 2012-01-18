@@ -9,6 +9,7 @@ use Moose;
 use MongoDB;
 use MooseX::ClassAttribute;
 use PhonyBone::FileUtilities qw(warnf dief);
+use Data::Dumper;
 
 has '_id'    => (isa=>'MongoDB::OID', is=>'rw');	# mongo id
 
@@ -50,7 +51,7 @@ sub mongo {
 
 sub insert {
     my ($self, $options)=@_;
-    $self->mongo->insert($self, $options);
+    $self->_id($self->mongo->insert($self, $options));
     $self;
 }
 
@@ -63,8 +64,13 @@ sub update {
     while (my ($k,$v)=each %$self) { # copy fields to new record, ...
 	$record->{$k}=$v unless $k=~/^_/; # ...skipping "_keys"
     }
-    my $_id=$self->mongo->save($record, $opts);
-    $self->_id($_id) unless $_id eq 1; # see perldoc MongoDB::Collection, 'save'
+    $opts||={}; $opts->{safe}=1;
+    my $geo_id=$self->geo_id;
+    my $report=$self->mongo->update({geo_id=>$geo_id}, $record, $opts);
+    warn "update $geo_id: nothing updated (_id not set, nor upsert)\n" if $report->{n}==0;
+#    warn "update: ",Dumper($report);
+    my $_id=$report->{upserted};
+    $self->_id($_id) if ref $_id eq 'MongoDB::OID'; # only works because geo_id is like a primary key
     $self;
 }
 

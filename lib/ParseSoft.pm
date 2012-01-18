@@ -61,7 +61,7 @@ sub parse {
 sub next {
     my ($self)=@_;
     if (! $self->_fh) {
-	warn "trying to open ",$self->filename if $ENV{DEBUG};
+	warn "ParseSoft: trying to open ",$self->filename,"\n" if $ENV{DEBUG};
 	my $fh=FileHandle->new($self->filename, "r") or 
 	    die "Can't open ", $self->filename, ": $!";
 	$self->_fh($fh);
@@ -106,7 +106,7 @@ sub parse_block {
 	$line=substr($whole_line, 1);
 
       SWITCH: {
-	  $first eq '^' and last; # 
+	  $first eq '^' and last; # going on to next record
 
 	  $first eq '!' and do {
 	      parse_bang_line($line, $record, $class);

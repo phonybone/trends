@@ -59,8 +59,8 @@ sub n_samples { scalar @{shift->samples} }
 sub report {
     my ($self)=@_;
     return sprintf("%s: no geo record", $self->geo_id) unless $self->_id;
-    my $report=sprintf "%8s: %s\n", $self->geo_id, $self->title;
-    $report.=sprintf "    %s\n", $self->description;
+    my $report=sprintf "%8s: title: %s\n", $self->geo_id, $self->title;
+    $report.=sprintf "    description: %s\n", $self->description;
     $report.=sprintf "%12s\n", $self->reference_series;
 
     $report.=sprintf "%12d subsets, %d samples\n", scalar @{$self->subsets}, $self->sample_count;

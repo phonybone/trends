@@ -67,7 +67,6 @@ sub main {
 
     # parse each soft file
     foreach my $soft_file (@soft_files) {
-	warn "parsing $soft_file...\n";
 	parse_soft($soft_file);
 	last if --$fuse==0;
     }
@@ -79,7 +78,7 @@ sub get_soft_files {
     my @files=();
 
     # if $options{gses} present, use that
-    if ($options{gses}) {
+    if (scalar @{$options{gses}}) {
 	my @gses=Options::file_or_list('gses');
 	@files=map {sprintf "%s/%s/%s/%s_family.soft", GEO->data_dir, GEO::Series->subdir, $_, $_} @gses;
 	return wantarray? @files:\@files;
@@ -189,12 +188,13 @@ sub update_record {
 
     my $geo=GEO->factory($geo_id);
     $geo->hash_assign(%$record); # ignores all keys starting with '_'
+    delete_geo_id_keys($geo);	 # removes keys like "sample_GSM8493"
     $geo->status('downloaded') if $geo->can('status');
     $geo->update({upsert=>1});
     my $class=ref $geo;
     $class=~s/^GEO:://;
     $stats->{"n_${class}_updated"}++;
-    warnf "updated: %s", $geo if $ENV{DEBUG} && $options{v};
+    warnf "updated: %s", Dumper($geo) if $ENV{DEBUG} && $options{v};
 
     # add fields starting with '_' back in to geo object:
     foreach my $k (grep /^_/, keys %$record) {
@@ -202,6 +202,16 @@ sub update_record {
     }
 
     $geo;
+}
+
+sub delete_geo_id_keys {
+    my ($geo)=@_;
+    my $type=(split('::', lc ref $geo))[-1];
+    my $regex=qr(^${type}_G\w\w\d+$);
+    my @sample_keys=grep /$regex/, keys %$geo;
+    foreach my $key (@sample_keys) {
+	delete $geo->{$key};
+    }
 }
 
 sub handle_sample {

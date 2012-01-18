@@ -15,7 +15,7 @@ class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(descrip
 
 sub sample_ids {
     my ($self)=@_;
-    my @s_ids=split(/\s*,\s*/, $self->sample_id);
+    my @s_ids=split(/\s*,\s*/, ($self->sample_id||''));
     wantarray? @s_ids:\@s_ids;
 }
 
@@ -34,7 +34,7 @@ sub series_data_objs { $_[0]->samples }
 
 sub report {
     my ($self)=@_;
-    sprintf "%s (%d samples): %s", $self->geo_id, scalar @{$self->sample_ids}, $self->description;
+    sprintf "%s (%d samples): %s", $self->geo_id, $self->n_samples, $self->description;
 }
 
 

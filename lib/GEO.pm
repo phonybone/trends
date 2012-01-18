@@ -103,6 +103,7 @@ sub hash_assign {
     while (my ($k,$v)=each %hash) {
 	$self->{$k}=$v unless $k=~/^_/;
     }
+    $self->_id($hash{_id}) if $hash{_id}; # as in constructor
     $self;
 }
 
@@ -329,6 +330,24 @@ sub tie_to_geo {
     }
     $self->update({upsert=>1}); # aannnd update
     $self;
+}
+
+sub dump {
+    my ($self)=@_;
+    my $dump='';
+    foreach my $key (sort keys %$self) {
+	my $value=$self->{$key};
+	$dump.="\t$key";
+	$dump.="\n", next unless defined $value;
+	if (! ref $value) {
+	    $dump.="\t$value\n";
+	} elsif (ref $value eq 'ARRAY') {
+	    $dump.="[]\t".join(', ', @$value)."\n";
+	} elsif (ref $value eq 'HASH') {
+	    $dump.="{}\t".join("\n\t", map{sprintf "%s => %s", $_, $value->{$_}} keys %$value)."\n";
+	}
+    }
+    $dump;
 }
 
 # this has some whitespace
