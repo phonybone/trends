@@ -16,7 +16,7 @@ use PhonyBone::FileUtilities qw(warnf dief);
 
 has 'dataset_ids'     => (is=>'rw');
 has 'title'           => (is=>'rw', isa=>'Str');
-has 'description'     => (is=>'rw');
+has 'description'     => (is=>'rw'); # comes from Dataset .soft files (table headings)
 has 'phenotype'       => (is=>'rw', isa=>'Str');
 has 'path_raw_data' => (is=>'rw', isa=>'Str');
 
@@ -85,6 +85,18 @@ sub path {
     $self->geo_id =~ /GSM\d\d?\d?/ or dief "badly formed Sample geo_id: %s", $self->geo_id;
     my $ssubdir=$&;
     join('/',$self->data_dir, $self->subdir, $ssubdir);
+}
+
+# compile all the descriptions related to this sample (eg from subsets, etc)
+sub descriptions {
+    my ($self)=@_;
+    my %descs;
+    $descs{$self->geo_id}=join(', ', @{$self->description}) if $self->description; # get our own first
+    foreach my $geo_id (@{$self->series_ids}, @{$self->subset_ids}, @{$self->dataset_ids}) {
+	my $geo=GEO->factory($geo_id);
+	$descs{$geo_id}=$geo->{description} if $geo->{description};
+    }
+    wantarray? %descs : join("\n", map {sprintf("%10s: %s", $_, $descs{$_})} sort keys %descs);
 }
 
 sub report {

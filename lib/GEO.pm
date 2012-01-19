@@ -27,7 +27,8 @@ has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
 #has 'record' => (is=>'rw', isa=>'HashRef'); # 
 
 our %mongos=();
-class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>'/mnt/price1/vcassen/trends/data/GEO');
+class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>"$ENV{TRENDS_HOME}/data/GEO");
+
 
 class_has 'testing' =>     (is=>'rw', isa=>'Int', default=>0);
 class_has 'ftp_link'=>     (is=>'ro', isa=>'Str', default=>'ftp.ncbi.nih.gov');
@@ -334,18 +335,18 @@ sub tie_to_geo {
 
 sub dump {
     my ($self)=@_;
-    my $dump='';
+    my $dump="    Dump:\n";
     foreach my $key (sort keys %$self) {
 	my $value=$self->{$key};
 	$dump.="\t$key";
-	$dump.="\n", next unless defined $value;
 	if (! ref $value) {
-	    $dump.="\t$value\n";
+	    $dump.="\t$value";
 	} elsif (ref $value eq 'ARRAY') {
-	    $dump.="[]\t".join(', ', @$value)."\n";
+	    $dump.=sprintf("[%d]\t%s", scalar @$value, join(', ', @$value));
 	} elsif (ref $value eq 'HASH') {
-	    $dump.="{}\t".join("\n\t", map{sprintf "%s => %s", $_, $value->{$_}} keys %$value)."\n";
+	    $dump.=sprintf("{%d}\t%s", scalar %$value, join("\n\t", map{sprintf "%s => %s", $_, $value->{$_}} keys %$value));
 	}
+	$dump.="\n";
     }
     $dump;
 }

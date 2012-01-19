@@ -4,4 +4,6 @@ from warn import *
 
 class Series(GEO):
     collection_name='series'
+    subdir='series'
 
+    

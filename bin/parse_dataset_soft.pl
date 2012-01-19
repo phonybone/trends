@@ -38,7 +38,7 @@ BEGIN: {
 		  find_keys s2ds
 ));
     Options::useDefaults(fuse => -1, db_name=>'geo', rebuild=>1, suffix=>'.header',
-			 dataset_dir=>'/mnt/price1/vcassen/trends/data/GEO/datasets');
+			 dataset_dir=>"$ENV{TRENDS_HOME}/data/GEO/datasets");
     Options::get();
     die Options::usage() if $options{h};
     $ENV{DEBUG} = 1 if $options{d};
@@ -124,6 +124,7 @@ sub rebuild {
     # iterate through all .soft files
     my $suffix=$options{suffix};
     my @files=dir_files($soft_dir, qr/$suffix$/); # parse ALL the files!
+    warnf "got %d %s files under %s\n", scalar @files, $options{suffix}, $soft_dir if $ENV{DEBUG};
     foreach my $filename (@files) {
 	warn "$filename\n" unless $options{q};
 	my $p=ParseSoft->new("$soft_dir/$filename");
@@ -164,6 +165,18 @@ sub write_table {		# fixme: implement this
     my ($record)=@_;
 }
 
+
+sub delete_geo_id_keys {
+    my ($geo)=@_;
+    my $type=(split('::', lc ref $geo))[-1];
+    my $regex=qr(^${type}_G\w\w\d+);
+    my @sample_keys=grep /$regex/, keys %$geo;
+    foreach my $key (@sample_keys) {
+	delete $geo->{$key};
+    }
+}
+
+
 sub insert_dataset {
     my ($dataset, $mongos)=@_;
     my $geo_id=$dataset->{geo_id} or dief "no geo_id in %s", Dumper($dataset);
@@ -171,6 +184,7 @@ sub insert_dataset {
 
     my $ds=GEO::Dataset->new($geo_id);
     $ds->hash_assign(%$dataset);
+    delete_geo_id_keys($ds);
     $ds->update({upsert=>1});
     $stats->{datasets_updated}++;
 
@@ -188,6 +202,7 @@ sub insert_subset {
     my $geo_id=$subset->{geo_id} or confess "no 'geo_id' in ",Dumper($subset);
     my $ss=GEO::DatasetSubset->new($geo_id);
     $ss->hash_assign(%$subset);
+    delete_geo_id_keys($ss);
 
     # remove $ss->{sample_id} and replace with $ss->{sample_ids}:
     my $sample_ids=$ss->{sample_id}; # csv list
@@ -218,7 +233,9 @@ sub insert_subset {
 }
 
 
-sub insert_datatable {		# really only inserting the table header values:
+# really only inserting the table header values:
+# assigns 
+sub insert_datatable {		
     my ($datatable, $mongos)=@_;
     foreach my $pair (@{$datatable->{header}}) {
 	my ($gsm, $header)=@$pair;
@@ -226,6 +243,11 @@ sub insert_datatable {		# really only inserting the table header values:
 	my $sample=$mongos->{sample}->find_one({geo_id=>$gsm}) || {geo_id=>$gsm};
 	$sample->{description}=$header;	# fixme: what if description already exists from different dataset.soft file?
 	my $report=$mongos->{sample}->update({geo_id=>$gsm}, $sample, {upsert=>1, safe=>1});
+	if ($report->{n}==1) {
+	    warn "Sample %s: description=%s\n", $gsm, $header unless $options{q};
+	} else {
+	    warnf "Sample %s: unable to update description (via header): '%s'\n", $gsm, $header; 
+	}
     }
 }
 

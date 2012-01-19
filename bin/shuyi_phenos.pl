@@ -20,7 +20,7 @@ use GEO;
 BEGIN: {
   Options::use(qw(d q v h n fuse=i src_dir=s db_name=s));
     Options::useDefaults(fuse => -1, 
-			 src_dir=>'/mnt/price1/vcassen/trends/shuyi',
+			 src_dir=>"$ENV{TRENDS_HOME}/shuyi",
 			 db_name=>'geo',
 			 );
     Options::get();

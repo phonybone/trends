@@ -204,10 +204,11 @@ sub update_record {
     $geo;
 }
 
+# remove key/value pairs where key is like sample_GSM2382 or series_GSE283
 sub delete_geo_id_keys {
     my ($geo)=@_;
     my $type=(split('::', lc ref $geo))[-1];
-    my $regex=qr(^${type}_G\w\w\d+$);
+    my $regex=qr(^${type}_G\w\w\d+);
     my @sample_keys=grep /$regex/, keys %$geo;
     foreach my $key (@sample_keys) {
 	delete $geo->{$key};
