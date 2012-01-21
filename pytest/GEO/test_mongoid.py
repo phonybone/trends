@@ -1,11 +1,11 @@
-import unittest, sys, os, yaml
-dir=os.path.normpath(os.path.dirname(os.path.abspath(__file__))+"/../..")
-sys.path.append(os.path.join(dir,'pylib'))
+import unittest, sys, os, yaml, pymongo
+sys.path.append(os.path.join(os.environ['AUREA_HOME'], 'src'))
+sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
+
 
 from warn import *
-from GEO import GEO
+from GEO.Factory import Factory # GEO.Factory has to imported before Sample
 from GEO.Sample import Sample
-import pymongo
 
 class TestMongoid(unittest.TestCase):
     ''' tests Mongoid.connect(), Mongoid.db(), and Mongoid.mongo() '''
