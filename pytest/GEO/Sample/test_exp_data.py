@@ -1,7 +1,7 @@
-import unittest, sys, os
-dir=os.path.normpath(os.path.dirname(os.path.abspath(__file__))+"/../../..")
-sys.path.append(os.path.join(dir+'/pylib'))
+import unittest, os, sys
+sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
+import GEO
 from warn import *
 from GEO.Sample import Sample
 
@@ -11,8 +11,9 @@ class TestData(unittest.TestCase):
         pass
         
     def test_exp_data(self):
-        sample=Sample('GSM15718').populate()
-        data=sample.expression_data('probe')
+        sample=Sample('GSM15718').populate() # GSM15718 comes from GSE994
+        (id_type,data)=sample.expression_data('probe')
+        self.assertEqual(id_type, 'probe')
         self.assertEqual(len(data), 22215)
         self.assertEqual(data['200003_s_at'], 2483.300)
         self.assertEqual(data['1438_at'], 78.500)
