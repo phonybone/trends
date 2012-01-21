@@ -27,21 +27,13 @@ class GEO(Mongoid):
             for (k,v) in record.items():
                 setattr(self,k,v)
 
-    def populate(self):
-        ''' populate a geo object from the database '''
-        record=self.mongo().find_one({'geo_id':self.geo_id})
+    def populate(self, record=None):
+        ''' populate a geo object from a dict or the database '''
+        if record==None:
+            record=self.mongo().find_one({'geo_id':self.geo_id})
         if isinstance(record, dict):
             for (k,v) in record.items():
                 setattr(self,k,v)
         return self
         
-
-    def id2class(self, geo_id=None):
-        if geo_id == none: geo_id=self.geo_id
-        mg=re.search('^G\w\w', geo_id)
-        if not mg: raise Exception("Unknown geo_id: %s" % geo_id)
-        prefix=mg.groups(0)
-        try: return self.prefix2class(prefix)
-        except KeyError: raise Exception("no class for prefix '%s'" % prefix)
-
     

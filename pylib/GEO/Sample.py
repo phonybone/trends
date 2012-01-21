@@ -1,8 +1,8 @@
-import os, re
+import os, re, sys
+
 from GEO import GEO
+import Factory
 from warn import *
-
-
 
 class Sample(GEO):
     id_types2suffix={'probe':'table.data', 'gene':'data'}
@@ -104,7 +104,25 @@ class Sample(GEO):
         return (id_type, data)
 
     ########################################################################
+    def descriptions(self):
+        ''' return a dictionary containing all related descriptions to the sample. '''
+        descs={}
+        if hasattr(self, 'description'):
+            if type(self.description) == type([]):
+                descs[self.geo_id]=', '.join(self.description)
+            else:
+                descs[self.geo_id]=self.description # assume str
 
+        f=Factory()
+        for attr in ['series_ids', 'dataset_ids', 'subset_ids']:
+            if hasattr(self, attr):
+                for geo_id in getattr(self, attr):
+                    geo=f.newGEO(geo_id)
+                    try: descs[geo_id]=geo.description
+                    except AttributeError: pass
+        return descs
+
+        
 
 
     ########################################################################

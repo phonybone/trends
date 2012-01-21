@@ -1,4 +1,3 @@
-import re
 from Series import Series
 from Sample import Sample
 from Dataset import Dataset
@@ -15,5 +14,6 @@ class Factory(object):
         return klass
 
     def newGEO(self, geo_id):
-        return self.id2class(geo_id)(geo_id)
+        return self.id2class(geo_id)(geo_id).populate()
+        
 
