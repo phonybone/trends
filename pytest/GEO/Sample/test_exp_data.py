@@ -1,8 +1,9 @@
 import unittest, os, sys
 sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
-import GEO
 from warn import *
+import GEO
+from GEO.Factory import Factory
 from GEO.Sample import Sample
 
 class TestData(unittest.TestCase):

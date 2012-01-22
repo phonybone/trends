@@ -1,11 +1,11 @@
 import unittest, sys, os
 
-dir=os.path.normpath(os.path.dirname(os.path.abspath(__file__))+"/../..")
-sys.path.append(os.path.join(dir+'/pylib'))
+sys.path.append(os.path.join(os.environ['AUREA_HOME'], 'src'))
+sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
 from warn import *
-from GEO import GEO
-from GEO.Sample import Sample
+import GEO
+Sample=GEO.Sample.Sample
 
 class TestOneVsAll(unittest.TestCase):
     

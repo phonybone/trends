@@ -1,8 +1,6 @@
-import os, re
-from GEO import GEO
-from warn import *
+import GEOBase
 
-class Platform(GEO):
+class Platform(GEOBase.GEOBase):
     subdir='platforms'
     collection_name='platform'
 

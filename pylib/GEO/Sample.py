@@ -1,10 +1,10 @@
 import os, re, sys
 
-from GEO import GEO
-import Factory
 from warn import *
+import Factory                  # imports the module
+import GEOBase
 
-class Sample(GEO):
+class Sample(GEOBase.GEOBase):
     id_types2suffix={'probe':'table.data', 'gene':'data'}
     subdir='sample_data'
     collection_name='samples'
@@ -113,7 +113,9 @@ class Sample(GEO):
             else:
                 descs[self.geo_id]=self.description # assume str
 
-        f=Factory()
+#        warn("Sample.py: Factory is %s" % Factory)
+        f=Factory.Factory()
+#        f=Factory()
         for attr in ['series_ids', 'dataset_ids', 'subset_ids']:
             if hasattr(self, attr):
                 for geo_id in getattr(self, attr):
@@ -132,3 +134,5 @@ class Sample(GEO):
     @classmethod
     def one_vs_all(self, **kwargs):
         pass
+
+#print "%s checking in" % __file__

@@ -3,8 +3,8 @@ sys.path.append(os.path.join(os.environ['AUREA_HOME'], 'src'))
 sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
 from warn import *
-from GEO import GEO
-from GEO.Sample import Sample
+import GEO
+Sample=GEO.Sample.Sample
 import pymongo
 
 class TestRecordInit(unittest.TestCase):

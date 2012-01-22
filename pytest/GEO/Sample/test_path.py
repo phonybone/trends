@@ -1,10 +1,10 @@
 import unittest, sys, os
-dir=os.path.normpath(os.path.dirname(os.path.abspath(__file__))+"/../../..")
-sys.path.append(os.path.join(dir+'/pylib'))
+sys.path.append(os.path.join(os.environ['AUREA_HOME'], 'src'))
+sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
-from GEO.Sample import *
+import GEO.Sample
+Sample=GEO.Sample.Sample
 from warn import *
-
 
 class TestPath(unittest.TestCase):
     

@@ -1,11 +1,12 @@
-from Series import Series
-from Sample import Sample
-from Dataset import Dataset
-from Platform import Platform
 from warn import *
 
+import Sample
+import Dataset
+import Series
+import Platform
+
 class Factory(object):
-    prefix2class={'GSM' : Sample, 'GDS': Dataset, 'GSE' : Series, 'GPL' : Platform}
+    prefix2class={'GSM' : Sample.Sample, 'GDS': Dataset.Dataset, 'GSE' : Series.Series, 'GPL' : Platform.Platform}
     
     def id2class(self, geo_id):
         prefix=geo_id[0:3]
@@ -17,3 +18,4 @@ class Factory(object):
         return self.id2class(geo_id)(geo_id).populate()
         
 
+#warn("%s checking in" % __file__)

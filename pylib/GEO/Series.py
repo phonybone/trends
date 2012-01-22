@@ -1,8 +1,6 @@
-import os, re
-from GEO import GEO
-from warn import *
+import GEOBase
 
-class Series(GEO):
+class Series(GEOBase.GEOBase):
     collection_name='series'
     subdir='series'
 

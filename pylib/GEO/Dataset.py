@@ -1,8 +1,7 @@
-import os, re
-from GEO import GEO
-from warn import *
+import os
+import GEOBase
 
-class Dataset(GEO):
+class Dataset(GEOBase.GEOBase):
     subdir='datasets'
     collection_name='datasets'
 
