@@ -1,4 +1,4 @@
-print "%s checking in" % __file__
+#print "%s checking in" % __file__
 
 import Factory
 import GEOBase
