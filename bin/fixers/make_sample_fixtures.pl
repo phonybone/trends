@@ -72,6 +72,8 @@ sub write_sample_data {
     my $sample=GEO::Sample->new($sample_id);
     $sample->update({upsert=>1});
 
+    mkdir($sample->path) unless -d $sample->path;
+
     my $dst_file=$id_type eq 'gene'? $sample->data_file : $sample->table_data_file;
     open(OUTPUT, ">$dst_file") or die "Can't open $dst_file for writing: $!\n";
     print OUTPUT $header if $header;
