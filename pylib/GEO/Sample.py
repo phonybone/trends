@@ -58,7 +58,9 @@ class Sample(GEOBase.GEOBase):
         try: suffix=self.id_types2suffix[kwargs['id_type']]
         except KeyError: suffix=self.id_types2suffix['probe']
 
-        return os.path.join(self.data_dir, self.subdir, prefix, '.'.join([geo_id, suffix]))
+        filename=os.path.join(self.data_dir, self.subdir, prefix, '.'.join([geo_id, suffix]))
+        warn("%s: returing data_path=%s" % (geo_id, filename))
+        return filename
 
     def data_path(self, **kwargs):
         kwargs['geo_id']=self.geo_id
