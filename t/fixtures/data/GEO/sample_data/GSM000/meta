@@ -1,1 +1,3 @@
 GSM0003: missing UBA7
+GSM0004: added ADD1, ADD2, ADD3
+	 (it turns out these all have affy probe ids)

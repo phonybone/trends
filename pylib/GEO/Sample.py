@@ -58,8 +58,7 @@ class Sample(GEOBase.GEOBase):
         try: suffix=self.id_types2suffix[kwargs['id_type']]
         except KeyError: suffix=self.id_types2suffix['probe']
 
-        filename=os.path.join(self.data_dir, self.subdir, prefix, '.'.join([geo_id, suffix]))
-        warn("%s: returing data_path=%s" % (geo_id, filename))
+        filename=os.path.join(self.data_dir(), self.subdir, prefix, '.'.join([geo_id, suffix]))
         return filename
 
     def data_path(self, **kwargs):
@@ -99,6 +98,8 @@ class Sample(GEOBase.GEOBase):
         data={}
         for line in data_file:
             l=re.split('[,\s]+', line)
+            if l[0] in data:
+                warn("Sample.expression_data: overwriting %s %f->%f" % (l[0], data[l[0]], l[1]))
             data[l[0]]=float(l[1])
         data_file.close()
 

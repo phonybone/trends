@@ -12,7 +12,11 @@ from warn import *
 
 class GEOBase(Mongoid):
     db_name='geo'
-    data_dir=os.path.join(os.environ['TRENDS_HOME'], 'data', 'GEO')
+
+    _data_dir=os.path.join(os.environ['TRENDS_HOME'], 'data', 'GEO')
+    @classmethod
+    def data_dir(self): 
+        return self._data_dir
 
     def __init__(self,geo_id):
         ''' can initialize a geo object with either a geo_id or a dict '''
