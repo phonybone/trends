@@ -39,6 +39,31 @@ class Sample(GEOBase.GEOBase):
         return sample_ids
 
     @classmethod
+    def all_with_data(self, **kwargs):
+        '''
+        Return a list of sample objects that have the given id_type stored on disk.
+        Doesn't populate the sample objects unless requested.
+        Can also return a list of ids:
+        '''
+        try: id_type=kwargs['id_type']
+        except KeyError: id_type='probe'
+        suffix=self.id_types2suffix[id_type]
+        samples=[]
+
+        sample_dir=os.path.join(self.data_dir(), self.subdir)
+        for root, dirs, files in os.walk(sample_dir):
+            for file in files:
+                if file.endswith(suffix):
+                    sample_id='.'.split(file)[0]
+                    if 'ids_only' in kwargs:
+                        samples.append(sample_id)
+                    else:
+                        sample=Sample(sample_id)
+                        if 'populate' in kwargs: sample.populate()
+                        samples.append(sample)
+        return samples
+
+    @classmethod
     def all_ids_with_pheno(self, pheno):
         cursor=self.mongo().find({'phenotype':pheno}, {'geo_id':1})
         ids=[x['geo_id'] for x in cursor]
@@ -129,13 +154,13 @@ class Sample(GEOBase.GEOBase):
 
         
 
-
     ########################################################################
-    # Return a matrix (would be best to return a DataTable from AUREA) such that
-    # 
-
     @classmethod
-    def one_vs_all(self, **kwargs):
-        pass
+    def with_pheno(self, pheno):
+        samples=[]
+        for record in self.mongo().find({'phenotype':pheno}):
+            samples.append(self(record['geo_id']).populate(record=record))
+        return samples
+
 
 #print "%s checking in" % __file__
