@@ -1,4 +1,4 @@
-import os, re, sys
+import os, re
 
 from warn import *
 import Factory                  # imports the module
