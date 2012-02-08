@@ -50,25 +50,24 @@ sub series {
 
 
 # return the full path the the data
-# fixme: sometimes this ends in .table.data, sometimes in .data (arrgghh!)
-sub data_file {
-    my ($self)=@_;
-    join('/', $self->path, join('.', $self->geo_id, 'data'));
+sub _file {
+    my ($self, $type)=@_;
+    $type||='probe';
+    my $suffix={gene=>'data', probe=>'table.data'}->{$type} or
+	die "unknown type: '$type'";
+    join('/', $self->path, join('.', $self->geo_id, $suffix));
 }
-
-# table.data files 
-sub table_data_file {
-    my ($self)=@_;
-    join('/', $self->path, join('.', $self->geo_id, 'table.data'));
-}
+sub data_file { shift->_file('gene') }
+sub table_data_file { shift->_file('probe') }
 
 # returns sample's data as a hashref: k=probe_id (or other gene id), v=expression value
 # throws exceptions if can't find $self->data_file
 sub as_vector_hash {
     my ($self, $opts)=@_;
-    $opts||={};
+    $opts||={id_type=>'probe'};
     my $vector={};
-    my $data_src=$opts->{data_src} eq 'genes' ? $self->data_file : $self->table_data_file;
+    my $data_src=$self->_file($opts->{id_type});
+
     open(DONUT, $data_src) or dief "Can't open %s: $!\n", $data_src;
     <DONUT>; <DONUT>;		# burn first two lines
     while (<DONUT>) {

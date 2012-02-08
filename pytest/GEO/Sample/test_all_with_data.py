@@ -12,14 +12,14 @@ class TestAllWithData(unittest.TestCase):
         pass
         
     def test_all_with_data_probe(self):
-        samples=Sample.all_with_data(id_type='probe')
+        samples=Sample.all_with_data(id_type='probe', ids_only=True)
         warn("got %d 'probe' samples" % (len(samples)))
-        self.assertTrue(len(samples)>1)
+        self.assertTrue(len(samples)>100)
 
     def test_all_with_data_gene(self):
         samples=Sample.all_with_data(id_type='gene')
         warn("got %d 'gene' samples" % (len(samples)))
-        self.assertTrue(len(samples)>1)
+        self.assertTrue(len(samples)>100)
 
 
 

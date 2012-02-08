@@ -15,6 +15,7 @@ class Factory(object):
         return klass
 
     def newGEO(self, geo_id):
+        warn("newGEO: geo_id=%s" % (geo_id))
         return self.id2class(geo_id)(geo_id).populate()
         
 

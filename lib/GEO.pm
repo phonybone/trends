@@ -155,12 +155,6 @@ sub by_geo_id($$) {
 sub factory {
     my ($self, $geo_id, $class)=@_;
 
-#   $class ||= ref $self || $self;
-#   if ($class eq 'GEO') {
-#	confess "no geo_id" unless $geo_id;
-#	$class=$self->class_of($geo_id);
-#   }
-
     # Get class from geo_id:
     $geo_id ||= $self->geo_id;
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;

@@ -14,6 +14,7 @@ class Sample(GEOBase.GEOBase):
         self.data={'probe':None, 'gene':None}
 
 
+    # this one starts by looking in the db...
     @classmethod
     def all_ids_with_data(self, **kwargs):
         ''' 
@@ -31,13 +32,13 @@ class Sample(GEOBase.GEOBase):
 #        warn("all_with_data: got %d total records" % cursor.count())
         while (True):
             try: record=cursor.next()
-            except StopIteration: break
-            kwargs['geo_id']=record['geo_id']
-            if os.access(Sample.data_path_of(**kwargs), os.R_OK):
+            except StopIteration: break # god python can be irritating (unless I'm doing this wrong?)
+            if os.access(Sample.data_path_of(geo_id=record['geo_id']), os.R_OK):
                 sample_ids.append(record['geo_id'])
 
         return sample_ids
 
+    # ...and this one starts by looking in the file system.
     @classmethod
     def all_with_data(self, **kwargs):
         '''
@@ -54,7 +55,7 @@ class Sample(GEOBase.GEOBase):
         for root, dirs, files in os.walk(sample_dir):
             for file in files:
                 if file.endswith(suffix):
-                    sample_id='.'.split(file)[0]
+                    sample_id=file.split('.')[0]
                     if 'ids_only' in kwargs:
                         samples.append(sample_id)
                     else:
@@ -77,6 +78,7 @@ class Sample(GEOBase.GEOBase):
             else: raise ProgrammerGoof("no geo_id")
         
         mg=re.match("GSM\d\d?\d?", geo_id)
+        if not mg: raise Exception("invalid gsm id: '%s'" % geo_id)
         prefix=mg.group(0)
         if not prefix: raise Exception("invalid gsm id: '%s'" % geo_id)
         
@@ -102,19 +104,13 @@ class Sample(GEOBase.GEOBase):
 
         # determine id_type if necessary, checking for existance as well:
         if id_type == None:
-            if os.access(self.data_path(id_type='gene'), os.R_OK):
-                id_type='gene'
-            elif os.access(self.data_path(id_type='probe'), os.R_OK):
-                id_type='probe'
-            else:
-                raise Exception("No data for sample %s" % self.geo_id)
-        else:
-            if not re.search('^gene|probe$', id_type):
-                raise Exception('id_type must be one of "gene" or "probe"')
+            id_type=self._get_id_type()
+        if not re.search('^gene|probe$', id_type):
+            raise Exception('id_type must be one of "gene" or "probe"')
+
 
         # open data file:
-        data_filename=self.data_path(id_type=id_type)
-        data_file=open(data_filename, 'r')
+        data_file=open(self.data_path(id_type=id_type), 'r')
         if id_type == 'probe': 
             burn_line=data_file.readline()
             burn_line=data_file.readline()
@@ -128,8 +124,16 @@ class Sample(GEOBase.GEOBase):
             data[l[0]]=float(l[1])
         data_file.close()
 
-#        self.data[id_type]=data
         return (id_type, data)
+
+    def _get_id_type(self):
+        if os.access(self.data_path(id_type='gene'), os.R_OK):
+            id_type='gene'
+        elif os.access(self.data_path(id_type='probe'), os.R_OK):
+            id_type='probe'
+        else:
+            raise Exception("No data for sample %s" % self.geo_id)
+
 
     ########################################################################
     def descriptions(self):
