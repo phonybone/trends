@@ -47,6 +47,7 @@ class Mongoid(object):
 
         try: collection_name=self.collection_name
         except AttributeError: collection_name=self.__class__.__name__
+#        warn("mongo(%s): collection_name=%s, db[%s]=%s" % (self, collection_name, collection_name, db[collection_name]))
         return db[collection_name]
 
 

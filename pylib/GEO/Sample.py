@@ -145,9 +145,7 @@ class Sample(GEOBase.GEOBase):
             else:
                 descs[self.geo_id]=self.description # assume str
 
-#        warn("Sample.py: Factory is %s" % Factory)
         f=Factory.Factory()
-#        f=Factory()
         for attr in ['series_ids', 'dataset_ids', 'subset_ids']:
             if hasattr(self, attr):
                 for geo_id in getattr(self, attr):
