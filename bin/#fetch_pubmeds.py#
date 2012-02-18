@@ -97,7 +97,7 @@ if __name__ == '__main__':
     (options, args)=parser.parse_args()
     warn("options are %s" % (options))
     warn("args are %s" % (args))
-    if hasattr(options, 'ids'):
+    if hasattr(options, 'idlist'):
         options.idlist.extend(args)
     else:
         options.idlist=args

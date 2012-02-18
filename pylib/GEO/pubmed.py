@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, yaml, pymongo
 from Mongoid import Mongoid
 
 sys.path.append('/usr/lib64/python2.6/site-packages') # need this for Entrez
@@ -11,13 +11,18 @@ class Pubmed(Mongoid):
     '''
     A class for storing a subset of information about Pubmed articles
     Record structure: pmid, tag, value
-    EG pmid=1028384, tag='MeshHeading', value=['frogs', 'purple', 'helicopter', 'Milan', ...]
+    EG pmid=1028384, tag="MeshHeading", value=["frogs", "purple", "helicopter", "Milan", ...]
+    Because of this, there are (currently) 3 entries in the mongo db for each pubmed, one for each
+    tag value; see self.text_tags
     '''
-
+    
     db_name='geo'
     collection_name='pubmed'
     subdir='pubmeds'
     text_tags=["MeshHeading" , "AbstractText", "ArticleTitle"]
+    indexes=[{'keys': 'pmid', 'options': {}},
+             {'keys': [('pmid', pymongo.ASCENDING), ('tag', pymongo.ASCENDING)], 'options': {'unique':True}},
+             ]
 
     def __init__(self, *args):
         assert len(args)==1
@@ -26,6 +31,7 @@ class Pubmed(Mongoid):
     @classmethod
     def __class_init__(self):
         Entrez.email=self._get_user_email()
+        self.ensure_indexes()
 
     @classmethod
     def _get_user_email(self):
@@ -35,7 +41,7 @@ class Pubmed(Mongoid):
             hostname=os.environ['HOST']
         else: 
             hostname=os.system('hostname')
-        warn("hostname is %s" % (hostname))
+#        warn("hostname is %s" % (hostname))
         return '@'.join([os.environ['USER'], hostname])
 
     ########################################################################
@@ -43,6 +49,16 @@ class Pubmed(Mongoid):
     def path(self):
         ''' Return the path to the stored document (fetched from NCBI) '''
         return os.path.join(os.environ['TRENDS_HOME'], 'data', 'GEO', self.subdir, '%s.xml' % self.pubmed_id)
+
+    ########################################################################
+
+    def populate(self):
+        cursor=self.mongo().find({'pubmed_id': self.pubmed_id})
+        for record in cursor:
+            warn("tag %s: %d words" % (record['tag'], len(record['words'])))
+            setattr(self, record['tag'], record['words'])
+
+        return self
 
 
     def remove(self, pubmed_id=None):
