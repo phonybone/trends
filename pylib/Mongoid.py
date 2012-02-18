@@ -48,6 +48,15 @@ class Mongoid(object):
         try: collection_name=self.collection_name
         except AttributeError: collection_name=self.__class__.__name__
 #        warn("mongo(%s): collection_name=%s, db[%s]=%s" % (self, collection_name, collection_name, db[collection_name]))
-        return db[collection_name]
+        return db[collection_name] # here occurs magic mongo collection creation!
 
-
+    @classmethod
+    def ensure_indexes(self):
+        if hasattr(self, 'indexes'):
+            for index_spec in self.indexes:
+#                warn("indexing %s with %s" % (self.__name__, index_spec))
+                try:
+                    kwargs=index_spec['options']
+                    self.mongo().ensure_index(index_spec['keys'])
+                except AttributeError as ae:
+                    warn("caught %s for %s" % (ae, index_spec))
