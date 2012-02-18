@@ -29,7 +29,14 @@ class Pubmed(Mongoid):
 
     @classmethod
     def _get_user_email(self):
-        return '@'.join([os.environ['USER'], os.environ['HOSTNAME']])
+        if    'HOSTNAME' in os.environ: 
+            hostname=os.environ['HOSTNAME']
+        elif 'HOST' in os.environ:     
+            hostname=os.environ['HOST']
+        else: 
+            hostname=os.system('hostname')
+        warn("hostname is %s" % (hostname))
+        return '@'.join([os.environ['USER'], hostname])
 
     ########################################################################
 
