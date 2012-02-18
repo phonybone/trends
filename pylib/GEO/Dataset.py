@@ -9,3 +9,4 @@ class Dataset(GEOBase.GEOBase):
         return os.path.join(self.data_dir, self.subdir, '.'.join([self.geo_id, 'soft']))
 
         
+#print "%s checking in" % __file__
