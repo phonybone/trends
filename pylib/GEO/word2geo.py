@@ -35,6 +35,7 @@ class Word2Geo(Mongoid):
         # words: k=tag, v=list of sanitized words (may have dups)
         words=self.get_field_words(geo)
         if hasattr(geo, 'pubmed_id'):
+            warn("%s: pubmed_id is %s" % (geo.geo_id, geo.pubmed_id))
             words.update(self.get_pubmed_words(geo.pubmed_id))
         
         for source, words in words.items():
