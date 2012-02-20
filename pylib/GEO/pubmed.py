@@ -72,10 +72,12 @@ class Pubmed(Mongoid):
     def fetch(self):
         ''' Return Document object for this pubmed id, obtained from NCBI if necessary '''
         if os.access(self.path(), os.R_OK):
+            warn("%d: already on disk" % ())
             f=open(self.path(), 'r')
             xml_doc=f.read()
             f.close()
         else: 
+            warn("%d: fetching from pubmed" % (self.pubmed_id))
             xml_doc=Entrez.efetch(db="pubmed", id=self.pubmed_id, retmode='xml').read()
             f=open(self.path(), 'w')
             f.write(xml_doc+"\n")

@@ -2,6 +2,8 @@
 get all geo objects that have a pubmed id
 fetch the info from NCBI using a Pubmed object
 store the info
+
+usage: python fetch_pubmeds.py [-f <id_file>] [-n] [-fuse <n>]
 '''
 
 import sys, os, time, re
@@ -23,10 +25,12 @@ def main(options):
     fuse=options.fuse
     for pmid in idlist:
         pubmed=Pubmed(pmid)
+        warn("pmid is %s" % (pmid))
+        continue
         try: 
             pubmed.store()      # does the fetching automatically
         except Exception as e:
-            warn("caught %s" % (e))
+            warn("%d: caught %s" % (pmid, e))
 
         fuse-=1
         if (fuse==0): break
