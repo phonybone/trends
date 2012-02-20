@@ -26,7 +26,10 @@ class Pubmed(Mongoid):
 
     def __init__(self, *args):
         assert len(args)==1
-        self.pubmed_id=int(args[0])
+        try:
+            self.pubmed_id=int(args[0])
+        except Exception as e:
+            warn("args[0]: %s; caught %s" % (args[0], e))
 
     @classmethod
     def __class_init__(self):
