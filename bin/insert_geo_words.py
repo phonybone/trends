@@ -25,6 +25,7 @@ def get_options():
     from optparse import OptionParser
     parser=OptionParser()
     parser.add_option('--fuse', dest='fuse', type='int', default=-1, help='debugging fuse (limits iterations in main loop)')
+
     (options, args)=parser.parse_args()
     try:    options.idlist.extend(args) # this will never happen as yet
     except: options.idlist=args

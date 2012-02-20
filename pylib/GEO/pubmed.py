@@ -58,7 +58,7 @@ class Pubmed(Mongoid):
     def populate(self):
         cursor=self.mongo().find({'pubmed_id': self.pubmed_id})
         for record in cursor:
-            warn("tag %s: %d words" % (record['tag'], len(record['words'])))
+#            warn("tag %s: %d words" % (record['tag'], len(record['words'])))
             setattr(self, record['tag'], record['words'])
 
         return self

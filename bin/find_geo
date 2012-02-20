@@ -1,10 +1,11 @@
 #!/tools/bin/perl
 
 #
-# A script to find one monogoDB record and print it nicely
+# A script to find one GEO record and print it nicely.
 #
-# Usage: find_one.pl <db> <collection> "field=value"
+# Usage: find_geo <geo_id> [db_name=s] [-full|f] [dump]
 #
+
 
 use strict;
 use warnings;

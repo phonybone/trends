@@ -35,13 +35,13 @@ class Word2Geo(Mongoid):
         # words: k=tag, v=list of sanitized words (may have dups)
         words=self.get_field_words(geo)
         if hasattr(geo, 'pubmed_id'):
-            warn("%s: pubmed_id is %s" % (geo.geo_id, geo.pubmed_id))
             if type(geo.pubmed_id)==type([]):
                 for pmid in [int(x) for x in geo.pubmed_id]:
                     words.update(self.get_pubmed_words(pmid))
             else:
                 words.update(self.get_pubmed_words(int(geo.pubmed_id)))
         
+        totals=dict()
         for source, words in words.items():
             for word in words:
                 query={'geo_id':geo.geo_id, 'word':word, 'source':source}
@@ -53,7 +53,12 @@ class Word2Geo(Mongoid):
                     record=query
                     record['count']=1
                 self.mongo().save(record)
-                    
+
+                try: totals[source]+=1
+                except: totals[source]=1
+
+
+        warn("%s: %s" % (geo.geo_id, totals))
         return
     
     @classmethod
@@ -65,12 +70,15 @@ class Word2Geo(Mongoid):
         for field in self.word_fields:
             words[field]=[]
             if hasattr(geo, field):
-                word_list=getattr(geo, field)
-                if type(word_list)==type(""):
-                    word_list=[word_list]
-                for wl in word_list:
-                    for w in sanitized_list(wl):
+                field_words=getattr(geo, field) # can be a string, a list of single words, or a list of paragraphs
+
+                if type(field_words) != list:
+                    field_words=[field_words]
+
+                for wl in field_words:
+                    for w in sanitized_list(wl): # sanitized_list converts a string to a list
                         words[field].append(w)
+
         return words
 
 
@@ -84,10 +92,9 @@ class Word2Geo(Mongoid):
         for tag in Pubmed.text_tags:
             try: 
                 words[tag]=getattr(pubmed, tag)
-                warn("got %d words for %s" % (len(words[tag]), tag))
             
             except AttributeError as ae:
-                warn("(%s): no %s words for %s?" % (ae, tag, pubmed_id))
+                pass
 
 
         return words
