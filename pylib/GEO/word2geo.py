@@ -36,7 +36,7 @@ class Word2Geo(Mongoid):
         words=self.get_field_words(geo)
         if hasattr(geo, 'pubmed_id'):
             warn("%s: pubmed_id is %s" % (geo.geo_id, geo.pubmed_id))
-            if type(geo.pubmed_id)=type([]):
+            if type(geo.pubmed_id)==type([]):
                 for pmid in [int(x) for x n geo.pubmed_id]:
                     words.update(self.get_pubmed_words(pmid))
             else:
