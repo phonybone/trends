@@ -75,7 +75,7 @@ def _all_geo_pmids():
                 if type(pmids)==type([]):
                     pmidlist.extend([int(x) for x in pmids])
                 else:
-                    pmidlist.append([int(pmids)])
+                    pmidlist.append(int(pmids))
                 warn("pmids are %s" % (pmids))
 
     return pmidlist
