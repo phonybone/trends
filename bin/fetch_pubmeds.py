@@ -72,9 +72,12 @@ def _all_geo_pmids():
         for record in cursor:
             if 'pubmed_id' in record: 
                 pmids=record['pubmed_id']
+                if type(pmids)==type([]):
+                    pmidlist.extend[int(x) for x in pmids]
+                else:
+                    pmidlist.append[int(pmids)]
                 warn("pmids are %s" % (pmids))
-                try: pmidlist.extend(pmids)
-                except: pmidlist.append(pmids)
+
     return pmidlist
 
 
