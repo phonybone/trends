@@ -1,7 +1,7 @@
 import os, sys, re, yaml
 from Mongoid import Mongoid
 
-from GEO.pubmed import Pubmed
+from pubmed import Pubmed
 from string_helpers import sanitized_list
 from warn import *
 
