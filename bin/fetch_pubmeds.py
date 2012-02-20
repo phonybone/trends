@@ -17,7 +17,7 @@ from GEO.Factory import Factory
 from warn import *
 
 def main(options):
-
+    warn("getting pmid list..." % ())
     idlist=get_pmidlist(options)
     warn("processing %d ids: %s" % (len(idlist), idlist))
     if options.dry_run: exit(0)
@@ -72,6 +72,7 @@ def _all_geo_pmids():
         for record in cursor:
             if 'pubmed_id' in record: 
                 pmids=record['pubmed_id']
+                warn("pmids are %s" % (pmids))
                 try: pmidlist.extend(pmids)
                 except: pmidlist.append(pmids)
     return pmidlist
