@@ -16,3 +16,6 @@ def sanitized_list(string, cleaner='[^-_a-z\d]', separator_re='\s+'):
             words.append(cleaned)
         
     return words
+
+def _l2s(l):
+    
