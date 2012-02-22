@@ -16,9 +16,9 @@ class TestGetFieldWords(unittest.TestCase):
         geo=Factory().newGEO(geo_id)
         words=Word2Geo.get_field_words(geo)
 
-        self.assertEqual(len(words['title']), 15)
+        self.assertEqual(len(words['title']), 42)
         self.assertEqual(len(words['description']), 0)
-        self.assertEqual(len(words['summary']), 248)
+        self.assertEqual(len(words['summary']), 738)
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestGetFieldWords)
