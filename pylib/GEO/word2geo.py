@@ -76,8 +76,17 @@ class Word2Geo(Mongoid):
                     field_words=[field_words]
 
                 for wl in field_words:
-                    for w in sanitized_list(wl): # sanitized_list converts a string to a list
-                        words[field].append(w)
+                    # wrap this in a loop n=(1..3)
+                    # replace sanitized_list() with str_windows(wl, n)
+                    for n in range(1,4): # give 1,2,3
+                        for w in str_windows(wl, n):
+                            words[field].append(w)
+
+                    # old code:
+#                    for w in sanitized_list(wl): # sanitized_list converts a string to a list
+#                        words[field].append(w)
+
+
 
         return words
 

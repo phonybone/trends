@@ -16,3 +16,24 @@ def sanitized_list(string, cleaner='[^-_a-z\d]', separator_re='\s+'):
             words.append(cleaned)
         
     return words
+
+def str_windows(string, n):
+    '''
+    Return a list of (sanitized) word-pairs (triplets, etc) from a single string.
+    EG str_tuples('this string has a bunch of words', 2) returns:
+    ['this string', 'string has', 'has a', 'a bunch', 'bunch of', 'of words']
+
+    Note that this routine makes use of santized_list, above, so if you
+    pass a string containing character that get removed, you  may get
+    unexpected results.
+    '''
+    if not type(string) == str:
+        raise ValueError('%s (%s): not a string' % (string, type(string)))
+
+    l=sanitized_list(string)
+    assert n>0 and n<=len(l)
+
+    answer=[]
+    for i in range(len(l)-n+1):
+        answer.append(' '.join(l[i:i+n]))
+    return answer
