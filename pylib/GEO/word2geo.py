@@ -2,7 +2,7 @@ import os, sys, re, yaml
 from Mongoid import Mongoid
 
 from pubmed import Pubmed
-from string_helpers import sanitized_list
+from string_helpers import str_windows
 from warn import *
 
 
@@ -57,30 +57,41 @@ class Word2Geo(Mongoid):
                 try: totals[source]+=1
                 except: totals[source]=1
 
-
-        warn("%s: %s" % (geo.geo_id, totals))
-        return
+        return totals
     
     @classmethod
     def get_field_words(self, geo):
         '''
         collect words from certain fields in the record:
         '''
-        words={}
+        debug='DEBUG' in os.environ
+        words={}                # k=field, v=[w1, w2, w3, ...] (w's can be "windows")
         for field in self.word_fields:
-            words[field]=[]
+            words[field]=[]     
             if hasattr(geo, field):
                 field_words=getattr(geo, field) # can be a string, a list of single words, or a list of paragraphs
-
                 if type(field_words) != list:
                     field_words=[field_words]
 
+                if len(field_words)==0:
+                    if debug: warn("does this ever happen?" % ())
+                    continue
+
+                i=0
                 for wl in field_words:
+                    if debug: warn("\n%s[%d]: wl(%s, %d) is %s" % (field, i, type(wl), len(wl), wl))
+                    i+=1
                     # wrap this in a loop n=(1..3)
                     # replace sanitized_list() with str_windows(wl, n)
-                    for n in range(1,4): # give 1,2,3
-                        for w in str_windows(wl, n):
-                            words[field].append(w)
+                    for n in range(1,4): # gives 1,2,3
+                        if len(wl)>=n:
+                            windows=str_windows(wl, n)
+                            if debug: warn("%s(%d): %d windows " % (field, n, len(windows)))
+                            for w in windows:
+                                words[field].append(w)
+                        else:
+                            if debug: warn("skipping %s(%d): len(wl)=%d" % (field, n, len(wl)))
+
 
                     # old code:
 #                    for w in sanitized_list(wl): # sanitized_list converts a string to a list

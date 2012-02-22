@@ -15,7 +15,8 @@ def main():
     for geo_id in geo_ids:
         geo=f.newGEO(geo_id)
         warn("inserting %s" % (geo.geo_id))
-        Word2Geo.insert_geo(geo)
+        stats=Word2Geo.insert_geo(geo)
+        warn("%s: %s" % (geo_id, stats))
         fuse-=1
         if (fuse==0): break
 
@@ -23,8 +24,13 @@ def main():
 
 def get_options():
     from optparse import OptionParser
+    def set_debug(option, opt, value, parser):
+        os.environ['DEBUG']='True'
+        return                  # indent fixer
+
     parser=OptionParser()
     parser.add_option('--fuse', dest='fuse', type='int', default=-1, help='debugging fuse (limits iterations in main loop)')
+    parser.add_option('-d', '--debug', action='callback', callback=set_debug)
 
     (options, args)=parser.parse_args()
     try:    options.idlist.extend(args) # this will never happen as yet

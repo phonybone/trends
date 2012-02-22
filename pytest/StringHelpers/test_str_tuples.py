@@ -31,6 +31,12 @@ class TestStrTuples(unittest.TestCase):
         self.assertEqual(len(ts), 1)
         
 
+    def test_n_too_big(self):
+        s='this is a string with some stuff in it'
+        n_words=len(s.split(' '))
+        warn("n_words is %d" % (n_words))
+        self.assertEqual(str_windows(s,n_words+1), [])
+
     def test_bad_s(self):
         self.assertRaises(ValueError, str_windows, 3, 5)
 
@@ -38,7 +44,7 @@ class TestStrTuples(unittest.TestCase):
         s='this is a string with some stuff in it'
         n_words=len(s.split(' '))
         self.assertRaises(AssertionError, str_windows, s,0)
-        self.assertRaises(AssertionError, str_windows, s,n_words+1)
+
             
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestStrTuples)
