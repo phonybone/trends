@@ -2,7 +2,7 @@ import os, sys, re, yaml
 from Mongoid import Mongoid
 
 from pubmed import Pubmed
-from string_helpers import sanitized_list
+from string_helpers import sanitized_list, str_windows
 from warn import *
 
 
@@ -44,6 +44,7 @@ class Word2Geo(Mongoid):
         totals=dict()
         for source, words in words.items():
             for word in words:
+                warn("%s: adding %s:%s" % (geo.geo_id, source, word))
                 query={'geo_id':geo.geo_id, 'word':word, 'source':source}
                 record=self.mongo().find_one(query)
                 if record:
@@ -76,8 +77,17 @@ class Word2Geo(Mongoid):
                     field_words=[field_words]
 
                 for wl in field_words:
-                    for w in sanitized_list(wl): # sanitized_list converts a string to a list
-                        words[field].append(w)
+                    # wrap this in a loop n=(1..3)
+                    # replace sanitized_list() with str_windows(wl, n)
+                    for n in range(1,4): # give 1,2,3
+                        for w in str_windows(str(wl), n):
+                            words[field].append(w)
+
+                    # old code:
+#                    for w in sanitized_list(wl): # sanitized_list converts a string to a list
+#                        words[field].append(w)
+
+
 
         return words
 
