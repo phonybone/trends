@@ -1,7 +1,7 @@
 import re
 from warn import *
 
-def sanitized_list(string, cleaner='[^-_a-z\d]', separator_re='\s+'):
+def sanitized_list(string, cleaner='[^_a-z\d]', separator_re='[-\s]+'):
     ''' 
     convert a string to a list of cleaned up words.
     cleaner: a regex s.t. all characters NOT matching the regexp will be removed.

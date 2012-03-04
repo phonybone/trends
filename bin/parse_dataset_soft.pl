@@ -8,7 +8,7 @@
 # ALL PREVIOUS DATA IN THE  DATASETS AND DATASET_SUBSETS COLLECTIONS TO BE DELETED!
 #
 # It also modifies the series->{dataset_ids} field.
-# It also adds to the word2geo table.
+# It does NOT add to the word2geo table.
 #
 
 
@@ -24,7 +24,7 @@ use lib "$ENV{HOME}/Dropbox/sandbox/perl";
 use lib "$ENV{HOME}/Dropbox/sandbox/perl/PhonyBone";
 use Options;
 use PhonyBone::FileUtilities qw(dir_files warnf dief);
-use PhonyBone::ListUtilities qw(in_list);
+use PhonyBone::ListUtilities qw(in_list max);
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
@@ -109,8 +109,6 @@ sub get_mongos {
     $collections{series}=get_mongo($options{db_name},'series');
     $collections{series}->ensure_index({geo_id=>1}, {unique=>1});
 
-    $collections{word2geo}=get_mongo($options{db_name},'word2geo');
-    $collections{word2geo}->ensure_index({word=>1, geo_id=>1}, {unique=>1}); # wish I had done this earlier
     wantarray? %collections : \%collections;
 }
 
@@ -190,7 +188,6 @@ sub insert_dataset {
 
     GEO::Series->new($dataset->{reference_series})->tie_to_geo($dataset->{geo_id}, 'dataset_ids');
 #    tie_geo_to_geo($dataset->{reference_series}, $dataset, 'dataset_ids'); # to series to dataset
-    $ds->add_to_word2geo();
     $stats->{n_datasets}++;
 }
 
@@ -228,9 +225,16 @@ sub insert_subset {
 	$sample->tie_to_geo($series_id, 'series_ids') if $series_id;
     }
 
-    # add to the word2geo:
-    $ss->add_to_word2geo();
+
+    # up the number of subsets in the dataset record:
+    $geo_id=~/_\d+$/ or die "badly formed subset geo_id: $geo_id";
+    my $nth_subset=substr($&,1);
+    my $n_subsets=$ds_rec->{n_subsets} || 0;
+    $n_subsets=max($n_subsets, $nth_subset);
+    $ds_rec->{n_subsets}=$n_subsets;
+    GEO::Dataset->mongo()->update({geo_id=>$dataset_id}, $ds_rec);
 }
+
 
 
 # really only inserting the table header values:
