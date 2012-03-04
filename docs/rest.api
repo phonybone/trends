@@ -1,0 +1,7 @@
+
+/sample/GSM2389 - return json object describing sample
+/sample/GSM2389/data?format=gene
+/sample/GSM2389/data?format=probe
+/series/GSE21938
+/dataset/GDS293
+/search?term=<search_term>	# search term can be 
