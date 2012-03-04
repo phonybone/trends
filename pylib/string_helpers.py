@@ -1,6 +1,7 @@
 import re
+from warn import *
 
-def sanitized_list(string, cleaner='[^-_a-z\d]', separator_re='\s+'):
+def sanitized_list(string, cleaner='[^_a-z\d]', separator_re='[-\s]+'):
     ''' 
     convert a string to a list of cleaned up words.
     cleaner: a regex s.t. all characters NOT matching the regexp will be removed.
@@ -11,7 +12,6 @@ def sanitized_list(string, cleaner='[^-_a-z\d]', separator_re='\s+'):
     words=[]
     for w in re.split(separator_re, string.lower()):
         cleaned=re.sub(cleaner, '', w) # remove anything that's not "nice"
-#        print "%s -> %s" % (w, cleaned)
         if re.search('\S', cleaned): # only retain if there's anything left
             words.append(cleaned)
         
@@ -28,14 +28,15 @@ def str_windows(string, n):
     pass a string containing character that get removed, you  may get
     unexpected results.
     '''
-    if not type(string) == str:
+    if type(string) != str and type(string) != unicode:
         raise ValueError('%s (%s): not a string' % (string, type(string)))
 
     l=sanitized_list(string)
-    assert n>0 and n<=len(l)
+    assert n>0
 
     answer=[]
-    for i in range(len(l)-n+1):
+    n_windows=len(l)-n+1
+    for i in range(n_windows):
         answer.append(' '.join(l[i:i+n]))
     return answer
 
