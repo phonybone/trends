@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title>Fred</title>
+<meta charset='utf-8'>
+
+<style>
+    a.test { font-weight: bold; }
+ </style>
+
+</head>
+<body>
+
+<a href='http://jquery.com/'>jQuery</a>
+<script src='json_helpers.js'></script>
+<script src='jquery-1.7.1.js'></script>
+
+<script>
+$(document).ready(function(){
+});
+
+
+function fetch_geo() {
+  var geo_id=$('#geo_id_tf')[0].value;
+  var uri='http://localhost:3000/geo/'+geo_id+'.json';
+//  $.getJSON(uri, {}, function(data) { json2html(data, 'geo_display')});
+//  $.getJSON(uri, {}, function(data) { display_geo(data, 'geo_display')});
+  var ret=$.ajax({url: uri, 
+          data: {},
+          dataType: 'json',
+          success: function(data) { display_geo(data, 'geo_display') },
+          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\n'+e2str(errorThrown)) },
+         });
+  alert('ret is '+e2str(ret));
+}
+
+function e2str(e) {
+  var str=new Array();
+  for (k in e) {
+    if (typeof (e[k]) == 'string' || typeof(e[k]) == 'number') {
+      str.push(k+': '+e[k]);
+    } else if (typeof(e[k]) != 'function') {
+      str.push(k+': '+typeof(e[k]))
+    }
+  }
+  return str.join('\n');
+}
+
+function display_geo(json, id) {
+  alert('display_geo('+id+') called');
+  var d=$('#'+id);
+//  d.append('<pre>'+e2str(json)+'</pre>');
+  json2html(json, id)
+}
+
+function add_display() {
+  var dd=$('#geo_display');
+  dd.append('<p>yadda</p>');
+}
+
+</script>
+
+<form>
+<label for='geo_id_tf'>Enter a GEO id: </label><input id='geo_id_tf' type='text' autofocus='yes' value='GSE10072'/>
+<button onclick='fetch_geo()'>Fetch</button>
+<button onclick='add_display()'>Add to display</button>
+</form>
+<div id='geo_display'>
+</div>
+</body>
+</html>

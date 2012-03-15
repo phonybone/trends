@@ -12,6 +12,8 @@ use Text::CSV;
 use Devel::Size qw(size total_size);
 use File::Basename;
 use File::Path qw(make_path);
+use JSON;			# should use JSON::XS if available
+use PhonyBone::StringUtilities qw(full_split);
 
 use GEO::Dataset;
 use GEO::DatasetSubset;
@@ -158,7 +160,7 @@ sub factory {
     # Get class from geo_id:
     $geo_id ||= $self->geo_id;
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;
-    $class=$self->class_of($geo_id) if $geo_id;	# when
+    $class=$geo_id? $self->class_of($geo_id) : (ref $self || $self);
     my $geo=$class->new($geo_id);
 }
 
@@ -343,6 +345,37 @@ sub dump {
 	$dump.="\n";
     }
     $dump;
+}
+
+sub json {
+    my ($self, $host)=@_;
+    my $jsonify=JSON::XS->new->ascii->pretty->allow_nonref->allow_blessed;
+    my $json=$jsonify->encode(unbless $self);
+    
+    my $scrap=<<'    SCRAP';
+    # replace all geo_id's in $json with a uri for that geo_id:
+    my $geo_id_re=qr/G\w\w[_\d]+/;
+    my @chunks=full_split($json, $geo_id_re); 
+    my @json2;
+    foreach my $chunk (@chunks) {
+	if ($chunk=~/$geo_id_re/) {
+	    my $replacement=bless({geo_id=>$chunk}, 'GEO')->uri($host);
+	    push @json2, $replacement;
+	} else {
+	    push @json2, $chunk;
+	}
+    }
+    join('', @json2);
+    SCRAP
+
+    return $json;
+}
+
+
+sub uri {
+    my ($self, $host, $suffix)=@_;
+    my $ending=$suffix? join('.', $self->geo_id, $suffix) : $self->geo_id;
+    join('/', "http://$host", 'geo', $ending);
 }
 
 # this has some whitespace

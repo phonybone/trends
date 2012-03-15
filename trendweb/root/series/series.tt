@@ -1,0 +1,4 @@
+<p>
+This is '[% template.name %] ([% timestamp %])'
+<table border=1>[% INCLUDE hash.tt hash=series left_tag='<tr><td>' mid_tag='</td><td>' right_tag="</td></tr>" %]</table>
+</p>

@@ -5,6 +5,8 @@ use namespace::autoclean;
 #use lib "$ENV{TRENDS_HOME}/lib";
 use lib '/mnt/price1/vcassen/trends/lib';
 use GEO::Series;
+use Data::Dumper;
+use Template::Stash;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
@@ -35,28 +37,14 @@ sub index :Path :Args(0) {
 
 =cut
 
-sub series :Path('/series') :Args(1) {
-    my ( $self, $c, $gse) = @_;
-
-    my $format='html';
-    if ($gse =~ /^(GSE\d+)\.json$/i) {
-	$gse=$1;
-	$format='json';
-    } elsif ($gse=~/^(GSE\d+)\.html$/i) {
-	$gse=$1;
-    }
+sub series :Path('/series') :Args(2) {
+    my ( $self, $c, $gse, $format ) = @_;
 
     my $series=new GEO::Series($gse);
-    $c->stash(timestamp => scalar localtime());
-    if ($format eq 'html') {
-	$c->stash(series=>$series);
-	$c->forward('View::HTML');
-    } elsif ($format eq 'json') {
-	$c->stash(series=>$series->json);
-	$c->forward('View::JSON');
-    }
-}
+    my $ts=scalar localtime();
+    $c->stash(series=>$series, timestamp => $ts);
 
+}
 
 =head1 AUTHOR
 

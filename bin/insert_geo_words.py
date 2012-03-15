@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, datetime
 sys.path.append(os.path.join(os.environ['TRENDS_HOME'], 'pylib'))
 
 import GEO
@@ -18,6 +18,7 @@ def main():
     options=get_options()
     geo_ids=get_geo_ids(options)
     f=Factory()
+    warn("insert_geo_words starting: %s" % (datetime.datetime.now().__str__()))
 
     fuse=options.fuse
     for geo_id in geo_ids:
@@ -28,6 +29,7 @@ def main():
         fuse-=1
         if (fuse==0): break
 
+    warn("insert_geo_words done: %s" % (datetime.datetime.now().__str__()))
     return 0
 
 ########################################################################
@@ -52,7 +54,10 @@ def insert_series(series):
 
     # build up words from datasets and subsets, and insert words as we go:
     # (but only insert dataset/subset words once)
-    for dataset in series.datasets():
+    datasets=series.datasets()
+    warn("%s: %d datasets" % (series.geo_id, len(datasets)))
+    for dataset in datasets:
+        warn("  %s: inserting %s" % (series.geo_id, dataset.geo_id))
         ds_words=gather_words(dataset)
         add_words(words, ds_words)
         if dataset.geo_id not in seen_dataset: 
@@ -60,7 +65,11 @@ def insert_series(series):
             if debug: warn("dataset %s: %s" % (dataset.geo_id, totals))
             add_totals(totals, ds_totals)
 
+        try: warn("%s: %d subsets" % (dataset.geo_id, dataset.n_subsets))
+        except AttributeError: warn("%s: subsets not defined???" % (dataset.geo_id))
+
         for subset in dataset.subsets():
+            warn("  %s: inserting %s" % (series.geo_id, subset.geo_id))
             ss_words=gather_words(subset)
             add_words(words, ss_words)
             if dataset.geo_id not in seen_dataset:
@@ -69,11 +78,14 @@ def insert_series(series):
                 add_totals(totals,ss_totals)
         seen_dataset[dataset.geo_id]=True
 
-        # add the sum of words from all objects to every sample in the series:
-        for sample in series.samples():
-            s_totals=insert_words(sample, words)
-            if debug: warn("sample %s: %s" % (sample.geo_id, totals))
-            add_totals(totals, s_totals)
+    # add the sum of words from all objects to every sample in the series:
+    samples=series.samples()
+    warn("%d samples for %s" % (len(samples), series.geo_id))
+    for sample in samples:
+        warn("  %s: inserting %s" % (series.geo_id, sample.geo_id))
+        s_totals=insert_words(sample, words)
+        if debug: warn("sample %s: %s" % (sample.geo_id, totals))
+        add_totals(totals, s_totals)
 
     return totals
 

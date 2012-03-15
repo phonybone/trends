@@ -1,0 +1,29 @@
+package trendweb::Controller::Series;
+use Moose;
+use namespace::autoclean;
+
+use lib '/mnt/price1/vcassen/trends/lib';
+use GEO::Series;
+
+BEGIN {extends 'Catalyst::Controller::REST'; }
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+
+    $c->response->body('Matched trendweb::Controller::Series in Series.');
+}
+
+sub single_series :Path('/series') :Args(1) :ActionClass('REST') {
+    my ($self, $c, $geo_id)=@_;
+    my $series=GEO::Series($geo_id);
+    $c->stash->{'series'}=$series;
+}
+
+sub single_series_GET {
+    my ($self, $c, $geo_id)=@_;
+
+}
+
+__PACKAGE__->meta->make_immutable;
+
+1;

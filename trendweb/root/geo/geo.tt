@@ -1,0 +1,3 @@
+<div>
+<table border=1>[% INCLUDE hash.tt hash=geo left_tag='<tr><td>' mid_tag='</td><td>' right_tag="</td></tr>" %]</table>
+</div>

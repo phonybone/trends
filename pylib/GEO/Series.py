@@ -21,6 +21,8 @@ class Series(GEOBase.GEOBase):
 
     def datasets(self):
         datasets=[]
+        if not hasattr(self, 'datast_ids'): return datasets
+
         for geo_id in self.dataset_ids:
             datasets.append(Dataset(geo_id).populate())
         return datasets
