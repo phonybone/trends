@@ -33,6 +33,12 @@ sub index :Path :Args(0) {
     $c->response->body( $c->welcome_message );
 }
 
+
+sub hello : Global {
+    my ($self, $c)=@_;
+    $c->stash(template => 'hello.tt');
+}
+
 =head2 default
 
 Standard 404 error page

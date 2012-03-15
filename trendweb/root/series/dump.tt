@@ -1,0 +1,6 @@
+<p>
+This is '[% template.name %]'
+dump: <br/>
+[% msg %]
+</p>
+<p>[% timestamp %]</p>
