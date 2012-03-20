@@ -23,16 +23,14 @@ $(document).ready(function(){
 function fetch_geo() {
   var geo_id=$('#geo_id_tf')[0].value;
   var uri='http://localhost:3000/geo/'+geo_id+'.json';
-//  $.getJSON(uri, {}, function(data) { json2html(data, 'geo_display')});
-//  $.getJSON(uri, {}, function(data) { display_geo(data, 'geo_display')});
   var ret=$.ajax({url: uri, 
           data: {},
           dataType: 'json',
           success: function(data) { display_geo(data, 'geo_display') },
-          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\n'+e2str(errorThrown)) },
+          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\n'+errorThrown) },
          });
-  alert('ret is '+e2str(ret));
 }
+
 
 function e2str(e) {
   var str=new Array();
@@ -47,10 +45,18 @@ function e2str(e) {
 }
 
 function display_geo(json, id) {
-  alert('display_geo('+id+') called');
   var d=$('#'+id);
-//  d.append('<pre>'+e2str(json)+'</pre>');
-  json2html(json, id)
+  var data=eval(json);
+  json2html(data, id)
+}
+
+function display_literal(json, id) {
+  var d=$('#'+id);
+  var data=eval(json);
+  d.append('json: <pre>'+json+'</pre>');
+  d.append('eval(json): <pre>'+eval(json)+'</pre>');
+  d.append('stringify(json): <pre>'+JSON.stringify(json)+'</pre>');
+
 }
 
 function add_display() {
@@ -60,7 +66,7 @@ function add_display() {
 
 </script>
 
-<form>
+<form onsubmit='return false'>
 <label for='geo_id_tf'>Enter a GEO id: </label><input id='geo_id_tf' type='text' autofocus='yes' value='GSE10072'/>
 <button onclick='fetch_geo()'>Fetch</button>
 <button onclick='add_display()'>Add to display</button>

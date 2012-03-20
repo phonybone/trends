@@ -80,21 +80,14 @@ sub BUILD {
 }
 
 
-# get the class from a geo_id
+# get the class from a geo_id, or undef
 sub class_of { 
     my ($self, $geo_id)=@_;
     my $prefix=substr($geo_id,0,3);
-    my $class=$self->prefix2class->{$prefix} or confess "no class for $geo_id\n";
+    my $class=$self->prefix2class->{$prefix} or return undef;
     $class='GEO::DatasetSubset' if $class eq 'GEO::Dataset' && $geo_id=~/GDS\d+_\d+/;
     $class;
 }
-
-
-# "private" class variables
-#our $connection;
-#our $db;
-
-
 
 # Assign the contents of a hash to a geo object.  Extract each field of hash for which
 # a geo accessor exists.
@@ -161,6 +154,7 @@ sub factory {
     $geo_id ||= $self->geo_id;
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;
     $class=$geo_id? $self->class_of($geo_id) : (ref $self || $self);
+    die "no class for '$geo_id'" unless $class;
     my $geo=$class->new($geo_id);
 }
 
@@ -347,7 +341,7 @@ sub dump {
     $dump;
 }
 
-sub json {
+sub json_old {
     my ($self, $host)=@_;
     my $jsonify=JSON::XS->new->ascii->pretty->allow_nonref->allow_blessed;
     my $json=$jsonify->encode(unbless $self);
@@ -372,13 +366,32 @@ sub json {
 }
 
 
+########################################################################
+
+# return a uri for this geo object, given a host and an optional suffix
 sub uri {
     my ($self, $host, $suffix)=@_;
-    my $ending=$suffix? join('.', $self->geo_id, $suffix) : $self->geo_id;
+    $self->uri_for($self->geo_id, $host, $suffix);
+}
+
+sub uri_for {
+    my ($self, $geo_id, $host, $suffix)=@_;
+    my $ending=$suffix? join('.', $geo_id, $suffix) : $geo_id;
     join('/', "http://$host", 'geo', $ending);
 }
 
-# this has some whitespace
+sub urify_geo_ids {
+    my ($self, $host, $suffix)=@_;
+    while (my ($k,$v)=each %$self) {
+	if ($v =~ /^G\w\w\[_\d]+$/i) {
+ 	    $self->{$k}=$self->uri_for($v, $host, $suffix);
+        }
+    }
+}
+
+
+
+
 __PACKAGE__->_init();
 
 1;

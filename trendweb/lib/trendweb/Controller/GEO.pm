@@ -6,6 +6,8 @@ use Data::Dumper;
 use lib '/mnt/price1/vcassen/trends/lib';
 use GEO;
 
+use PhonyBone::HashUtilities qw(walk_hash);
+
 BEGIN {extends 'Catalyst::Controller'; }
 
 sub index :Path :Args(0) {
@@ -34,15 +36,22 @@ sub geo :Path('/geo') :Args(1) {
     }
 
     my $geo=GEO->factory($geo_id);
-    $geo->{fart}={this=>'that', these=>'those',
-		  list=>[qw(a b c d e)],
-		  hash=>{more=>'junk', totally=>'boring'}};
 
     if ($format eq 'html') {
 	$c->stash(geo=>$geo);
 	$c->forward('View::HTML');
     } elsif ($format eq 'json') {
-	$c->stash(geo=>$geo->json);
+	my $host='localhost:3000';
+	my $suffix='json';
+	my $subrefs={str=>sub { my ($c,$i,$v)=@_; # container, index, value
+				if (GEO->class_of($v)) { # shorthand for is_geo_id($v)
+				    my $uri=GEO->uri_for($v, $host, $suffix);
+				    my $link="<a href='$uri'>$v</a>";
+				    ref $c eq 'ARRAY'? $c->[$i]=$link : $c->{$i}=$link;
+				}},
+	};
+	$geo=walk_hash(unbless $geo, $subrefs);
+	$c->stash(geo=>$geo);
 	$c->forward('View::JSON');
     } else {
        $c->error("unknown format: '$format'");
