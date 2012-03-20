@@ -1,8 +1,10 @@
+// Append the HTML representation of json to a DOM element:
 function json2html(json, id) {
-  alert('json2html('+id+') called');
-  $("#"+id).append(display_object(json));
+  $("#"+id).empty().append(display_object(json));
 }
 
+// Recursive function (along with display_list) to convert
+// a JSON object to HTML (in <ul> list format)
 function display_object(o) {
   var content=new Array();
   content.push('<ul>\n');
@@ -27,7 +29,7 @@ function display_object(o) {
   return content.join("\n");
 }
 
-function display_list(l, id) {
+function display_list(l) {
   var content=new Array();
   content.push('<ul>\n');
   for (i in l) {
