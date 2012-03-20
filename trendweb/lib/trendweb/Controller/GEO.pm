@@ -34,15 +34,12 @@ sub geo :Path('/geo') :Args(1) {
     }
 
     my $geo=GEO->factory($geo_id);
-    $geo->{fart}={this=>'that', these=>'those',
-		  list=>[qw(a b c d e)],
-		  hash=>{more=>'junk', totally=>'boring'}};
 
     if ($format eq 'html') {
 	$c->stash(geo=>$geo);
 	$c->forward('View::HTML');
     } elsif ($format eq 'json') {
-	$c->stash(geo=>$geo->json);
+	$c->stash(geo=>unbless $geo);
 	$c->forward('View::JSON');
     } else {
        $c->error("unknown format: '$format'");

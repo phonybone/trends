@@ -60,10 +60,10 @@ function add_display() {
 
 </script>
 
-<form>
+<form onsubmit='false'>
 <label for='geo_id_tf'>Enter a GEO id: </label><input id='geo_id_tf' type='text' autofocus='yes' value='GSE10072'/>
-<button onclick='fetch_geo()'>Fetch</button>
-<button onclick='add_display()'>Add to display</button>
+<button onclick='fetch_geo(); return false;'>Fetch</button>
+<button onclick='add_display(); return false;'>Add to display</button>
 </form>
 <div id='geo_display'>
 </div>
