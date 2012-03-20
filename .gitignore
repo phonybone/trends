@@ -11,3 +11,5 @@ bin/butte
 *.pyc
 no_git/*
 .DS_Store
+*.log
+*.logs
