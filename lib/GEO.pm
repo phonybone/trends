@@ -72,7 +72,6 @@ sub BUILD {
     return $self if ref $self eq 'GEO::word2geo'; # we don't need to init the object from the db
     
     if ($self->geo_id && !$self->_id) {
-#	warnf "BUILD: fetching record for %s (%s)\n", $self->geo_id, (ref $self || $self) if $ENV{DEBUG};
 	my $record=$self->get_mongo_record;
 	$self->hash_assign(%$record);
     }
@@ -159,7 +158,7 @@ sub get_mongo_record {
     }
 
     my $mongo=$class? $class->mongo : $self->mongo;
-    $mongo->find_one({geo_id=>$geo_id});
+    my $r=$mongo->find_one({geo_id=>$geo_id});
 }
 
 # class method to look up lots of records in the db:

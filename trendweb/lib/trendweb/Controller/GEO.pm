@@ -6,6 +6,7 @@ use lib '/mnt/price1/vcassen/trends/lib';
 use GEO;
 
 use PhonyBone::HashUtilities qw(walk_hash);
+use Data::Dumper;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
@@ -42,6 +43,8 @@ sub geo :Path('/geo') :Args(1) {
     } elsif ($format eq 'json') {
 	my $host='localhost:3000';
 	my $suffix='json';
+	
+	# This anonymous sub wraps (in place) a geo_id into a uri locating the geo object on our server:
 	my $subrefs={str=>sub { my ($c,$i,$v)=@_; # container, index, value
 				if (GEO->class_of($v)) { # shorthand for is_geo_id($v)
 				    my $uri=GEO->uri_for($v, $host, $suffix);
@@ -49,8 +52,10 @@ sub geo :Path('/geo') :Args(1) {
 				    ref $c eq 'ARRAY'? $c->[$i]=$link : $c->{$i}=$link;
 				}},
 	};
-	$geo=walk_hash($geo->record, $subrefs);
-	$c->stash(geo=>$geo);
+	my $r=$geo->record;
+	delete $r->{_id};	# No objects allowed by JSON w/o special settings
+	walk_hash($r, $subrefs);
+	$c->stash(entity=>$r);
 	$c->forward('View::JSON');
     } else {
        $c->error("unknown format: '$format'");

@@ -45,9 +45,10 @@ function e2str(e) {
 }
 
 function display_geo(json, id) {
+  alert('display_geo('+json+', '+id+') called');
   var d=$('#'+id);
   var data=eval(json);
-  json2html(data, id)
+  json2html(json, id)
 }
 
 function display_literal(json, id) {
