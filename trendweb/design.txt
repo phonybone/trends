@@ -1,0 +1,8 @@
+- individual view of GEO entities (Series, Dataset, Samples, etc)
+- look at classifiers:
+- - Samples considered "in"
+- - Results of classifer (eg gene list)
+- move samples in/out of classifiers
+- find samples by keyword (ie, in word2geo)
+- launch training jobs
+- display classifiers in aggregate?
