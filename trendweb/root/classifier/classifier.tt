@@ -1,0 +1,4 @@
+<div>
+Found this classifier:
+<table border=1>[% INCLUDE hash.tt hash=entity left_tag='<tr><td>' mid_tag='</td><td>' right_tag="</td></tr>" %]</table>
+</div>

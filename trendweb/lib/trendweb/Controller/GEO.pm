@@ -1,7 +1,6 @@
 package trendweb::Controller::GEO;
 use Moose;
 use namespace::autoclean;
-use Data::Dumper;
 
 use lib '/mnt/price1/vcassen/trends/lib';
 use GEO;
@@ -50,7 +49,7 @@ sub geo :Path('/geo') :Args(1) {
 				    ref $c eq 'ARRAY'? $c->[$i]=$link : $c->{$i}=$link;
 				}},
 	};
-	$geo=walk_hash(unbless $geo, $subrefs);
+	$geo=walk_hash($geo->record, $subrefs);
 	$c->stash(geo=>$geo);
 	$c->forward('View::JSON');
     } else {

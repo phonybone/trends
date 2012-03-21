@@ -12,9 +12,12 @@ __PACKAGE__->config(
 
 
 use Template::Stash;
-$Template::Stash::SCALAR_OPS->{ref} = sub { 'SCALAR' };
-$Template::Stash::LIST_OPS->{ref} = sub { 'ARRAY' };
-$Template::Stash::HASH_OPS->{ref} = sub { 'HASH' };
+Template::Stash->define_method('scalar', 'ref', sub { 'SCALAR' });
+Template::Stash->define_method('array', 'ref', sub { 'ARRAY' });
+Template::Stash->define_method('hash', 'ref', sub { 'HASH' });
+#$Template::Stash::SCALAR_OPS->{ref} = sub { 'SCALAR' };
+#$Template::Stash::LIST_OPS->{ref} = sub { 'ARRAY' };
+#$Template::Stash::HASH_OPS->{ref} = sub { 'HASH' };
 
 =head1 NAME
 

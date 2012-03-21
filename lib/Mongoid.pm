@@ -10,6 +10,7 @@ use MongoDB;
 use MooseX::ClassAttribute;
 use PhonyBone::FileUtilities qw(warnf dief);
 use Data::Dumper;
+use Data::Structure::Util qw(unbless);
 
 has '_id'    => (isa=>'MongoDB::OID', is=>'rw');	# mongo id
 
@@ -48,6 +49,11 @@ sub mongo {
 
 
 ########################################################################
+
+sub find_one {
+    my ($self, $id)=@_;
+    $id ||= $self->primary_key or confess "no primary key";
+}
 
 sub insert {
     my ($self, $options)=@_;
@@ -99,6 +105,26 @@ sub remove_dups {
 }
 
 
+# Assign the contents of a hash to a geo object.  Extract each field of hash for which
+# a geo accessor exists.
+# Returns $self
+sub hash_assign {
+    my ($self, @args)=@_;
+    confess "ref found where list needed" if ref $args[0]; # should be a hash key
+    my %hash=@args;
+    while (my ($k,$v)=each %hash) {
+	$self->{$k}=$v unless $k=~/^_/;
+    }
+    $self->_id($hash{_id}) if $hash{_id}; # as in constructor
+    $self;
+}
+
+sub record {
+    my ($self)=@_;
+    my %record=%$self;
+#    unbless \%record;
+    wantarray? %record:\%record;
+}
 
 
 1;

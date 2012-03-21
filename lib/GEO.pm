@@ -7,7 +7,6 @@ use Carp;
 use Data::Dumper;
 use MongoDB;
 use Net::FTP;
-use Data::Structure::Util qw(unbless);
 use Text::CSV;
 use Devel::Size qw(size total_size);
 use File::Basename;
@@ -40,10 +39,11 @@ class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO:
 								      GDS_SS=>'GEO::DatasetSubset',
 								      GPL=>'GEO::Platform',
 								      w2g=>'GEO::word2geo',
-								  } });
+    } });
 
 class_has 'db_name'         => (is=>'rw', isa=>'Str', default=>'geo');	
 class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [{geo_id=>1},{unique=>1}] });
+class_has 'primary_key' => (is=>'ro', isa=>'Str', default=>'geo_id');
 
 sub _init {
     my ($class)=@_;
@@ -89,26 +89,6 @@ sub class_of {
     $class;
 }
 
-# Assign the contents of a hash to a geo object.  Extract each field of hash for which
-# a geo accessor exists.
-# Returns $self
-sub hash_assign {
-    my ($self, @args)=@_;
-    confess "ref found where list needed" if ref $args[0]; # should be a hash key
-    my %hash=@args;
-    while (my ($k,$v)=each %hash) {
-	$self->{$k}=$v unless $k=~/^_/;
-    }
-    $self->_id($hash{_id}) if $hash{_id}; # as in constructor
-    $self;
-}
-
-sub record {
-    my ($self)=@_;
-    my %record=%$self;
-    unbless \%record;
-    wantarray? %record:\%record;
-}
 ########################################################################
 
 # return the class-based prefix for geo_ids: subclasses must define
@@ -341,29 +321,6 @@ sub dump {
     $dump;
 }
 
-sub json_old {
-    my ($self, $host)=@_;
-    my $jsonify=JSON::XS->new->ascii->pretty->allow_nonref->allow_blessed;
-    my $json=$jsonify->encode(unbless $self);
-    
-    my $scrap=<<'    SCRAP';
-    # replace all geo_id's in $json with a uri for that geo_id:
-    my $geo_id_re=qr/G\w\w[_\d]+/;
-    my @chunks=full_split($json, $geo_id_re); 
-    my @json2;
-    foreach my $chunk (@chunks) {
-	if ($chunk=~/$geo_id_re/) {
-	    my $replacement=bless({geo_id=>$chunk}, 'GEO')->uri($host);
-	    push @json2, $replacement;
-	} else {
-	    push @json2, $chunk;
-	}
-    }
-    join('', @json2);
-    SCRAP
-
-    return $json;
-}
 
 
 ########################################################################
