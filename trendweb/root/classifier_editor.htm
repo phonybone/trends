@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>Classifier Editor</title>
+
+<link rel="stylesheet" type="text/css" href="classifier.css" />
+<script src='/jquery-1.7.1.js'></script>
+<script src='/js/classifier.js'></script>
+
+<script>
+$(document).ready(function(){
+  
+});
+
+function toggle_visibility(id) {
+  alert('toggle_visibility nyi');
+}
+
+function load_classifier() {
+  var classifier_name=$('#cef_name')[0].value;
+  if (classifier_name == null || classifier_name.length == 0) {
+    alert('No classifier name specified');
+    $('#cef_name').focus();
+    return false;
+  }
+
+  var ret=$.ajax({url: 'http://localhost:3000/classifier/by_name/'+classifier_name+'.json',
+          data: {},
+          dataType: 'json',
+          success: function(data) { load_classifier_cb(new Classifier(data), '#cef') },
+          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\nthrown: '+errorThrown) },
+         });
+
+  return false;
+}
+
+function load_classifier_cb(classifier, form_id) {
+  console.log(classifier.to_string());
+  $(form_id+'_name')[0].value=classifier.name;
+  $(form_id+'_n_pos_samples')[0].textContent=classifier.samples_pos.length;
+  $(form_id+'_n_neg_samples')[0].textContent=classifier.samples_neg.length;
+  
+  // gene_pos and gene_neg, timestamp:
+  $(form_id+'_gene_pos')[0].textContent=classifier.results.gene_pos;
+  $(form_id+'_gene_neg')[0].textContent=classifier.results.gene_neg;
+  $(form_id+'_last_run')[0].textContent=classifier.timestamp;
+
+  var sample_elems=new Array();
+  for (idx in classifier.samples_pos) {
+    sample_elems.push("<tr>");
+    var name=form_id.substring(1) + "_rb_" + classifier.samples_pos[idx];
+    console.log('name is '+name);
+    sample_elems.push("<td><label for='" + name + "'>" + classifier.samples_pos[idx] + "</label></td>");
+    sample_elems.push("<td><input type='radio' name='" + name + "' value='1' checked='1' />");
+    sample_elems.push("<input type='radio' name='" + name + "' value='-1' />");
+    sample_elems.push("<input type='radio' name='" + name + "' value='0' /></td>");
+    sample_elems.push("</tr");
+  }
+	
+  for (idx in classifier.samples_neg) {
+    var name=form_id.substring(1) + "_rb_" + classifier.samples_neg[idx];
+    sample_elems.push("<tr>");
+    sample_elems.push("<td><label for='" + name + "'>" + classifier.samples_neg[idx] + "</label></td>");
+    sample_elems.push("<td><input type='radio' name='" + name + "' value='1' />");
+    sample_elems.push("<input type='radio' name='" + name + "' value='-1' checked='1' />");
+    sample_elems.push("<input type='radio' name='" + name + "' value='0' /></td>");
+    sample_elems.push("</tr>");
+  }
+  $(form_id+'_samples').empty().append(sample_elems.join('\n'));
+
+}
+
+</script>
+
+</head>
+
+
+
+
+<body>
+<h1></h1>
+
+<div id='classifier'>
+  <a id='classifier_viz_toggle' class='toggle_link' href='' onclick='toggle_visibility("classifier")'>Hide</a>
+  <form id='cef' onsubmit='return false'>
+    <label for='cef_name'>Classifier</label>
+    <input type='text' id='cef_name' size='20' placeholder='classifier name' />
+    <button id='cef_load_button' onclick='load_classifier(); return false'>Load</button>
+    <br />
+    # +Samples: <span id='cef_n_pos_samples'></span></label>
+    # -Samples: <span id='cef_n_neg_samples'></span></label>
+
+    <br />
+    +Gene: <span id='cef_gene_pos'>&nbsp;</span>
+    -Gene: <span id='cef_gene_neg'>&nbsp;</span>
+  
+    <br />
+    Last run:<span id='cef_last_run'></span>
+
+    <br />
+    Samples:<table>
+      <thead><tr><th>Sample</th><th>+ &nbsp; - &nbsp; 0</th></tr></thead>
+      <tbody  id='cef_samples'></tbody>
+      </table>
+      
+  </form>
+</div>
+
+<div id='search'>
+  <a id='search_viz_toggle' class='toggle_link' href='' onclick='toggle_visibility("search")'>Hide</a>
+</div>
+
+</body> </html>
