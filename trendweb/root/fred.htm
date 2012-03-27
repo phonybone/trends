@@ -8,12 +8,13 @@
     a.test { font-weight: bold; }
  </style>
 
+<script src='json_helpers.js'></script>
+<script src='jquery-1.7.1.js'></script>
+
 </head>
 <body>
 
 <a href='http://jquery.com/'>jQuery</a>
-<script src='json_helpers.js'></script>
-<script src='jquery-1.7.1.js'></script>
 
 <script>
 $(document).ready(function(){
@@ -27,7 +28,7 @@ function fetch_geo() {
           data: {},
           dataType: 'json',
           success: function(data) { display_geo(data, 'geo_display') },
-          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\n'+errorThrown) },
+          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\nthrown: '+errorThrown) },
          });
 }
 
@@ -45,7 +46,6 @@ function e2str(e) {
 }
 
 function display_geo(json, id) {
-  alert('display_geo('+json+', '+id+') called');
   var d=$('#'+id);
   var data=eval(json);
   json2html(json, id)

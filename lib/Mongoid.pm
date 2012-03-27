@@ -126,6 +126,7 @@ sub record {
     my ($self)=@_;
     my %record=%$self;
 #    unbless \%record;
+    
     wantarray? %record:\%record;
 }
 
