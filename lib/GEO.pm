@@ -158,6 +158,7 @@ sub get_mongo_record {
     }
 
     my $mongo=$class? $class->mongo : $self->mongo;
+    $mongo->slave_okay(1);
     my $r=$mongo->find_one({geo_id=>$geo_id});
 }
 

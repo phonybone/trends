@@ -1,3 +1,4 @@
+
 import re
 from warn import *
 
@@ -18,7 +19,7 @@ def sanitized_list(string, cleaner='[^_a-z\d]', separator_re='[-\s]+'):
     return words
 
 
-def str_windows(string, n):
+def str_windows(string, n, separator_re='[-\s]+'):
     '''
     Return a list of (sanitized) word-pairs (triplets, etc) from a single string.
     EG str_tuples('this string has a bunch of words', 2) returns:
@@ -31,7 +32,7 @@ def str_windows(string, n):
     if type(string) != str and type(string) != unicode:
         raise ValueError('%s (%s): not a string' % (string, type(string)))
 
-    l=sanitized_list(string)
+    l=sanitized_list(string, separator_re)
     assert n>0
 
     answer=[]

@@ -35,4 +35,11 @@ sub BUILD {
     $self;
 }
 
+sub _class_init {
+    my ($class)=@_;
+    $class->mongo->slave_okay(1);
+}
+
+__PACKAGE__->_class_init;
+
 1;

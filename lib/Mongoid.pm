@@ -10,6 +10,7 @@ use MongoDB;
 use MooseX::ClassAttribute;
 use PhonyBone::FileUtilities qw(warnf dief);
 use Data::Dumper;
+use Carp;
 use Data::Structure::Util qw(unbless);
 
 has '_id'    => (isa=>'MongoDB::OID', is=>'rw');	# mongo id
@@ -44,6 +45,7 @@ sub mongo {
     my $collection=$class->db->$collection_name;
 #    warnf "got collection %s:%s for %s\n", $class->db_name, $class->collection_name, $class if $ENV{DEBUG};
     $self->mongo_dbs->{$class}=$collection;
+    $collection->{slave_ok}=1;
     $collection;
 }
 
@@ -53,6 +55,7 @@ sub mongo {
 sub find_one {
     my ($self, $id)=@_;
     $id ||= $self->primary_key or confess "no primary key";
+    confess "nyi";
 }
 
 sub insert {
