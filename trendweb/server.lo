@@ -1,0 +1,722 @@
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+[info] *** Request 7 (0.059/s) [604] [Mon Apr  2 12:24:17 2012] ***
+[debug] Path is "/"
+[debug] Arguments are "classifier/by_name/liver cancer.json"
+[debug] "GET" request for "classifier/by_name/liver%20cancer.json" from "127.0.0.1"
+[debug] Response Code: 404; Content-Type: text/html; charset=utf-8; Content-Length: 14
+[info] Request took 0.017313s (57.760/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++------------------------------------------------------------+-----------+
+| /default                                                   | 0.000558s |
+| /end                                                       | 0.001135s |
+'------------------------------------------------------------+-----------'
+
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+Useless use of hash element in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+Useless use of private variable in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+Useless use of hash element in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+Useless use of private variable in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+Useless use of hash element in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+Useless use of private variable in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+Useless use of hash element in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+Useless use of private variable in void context at /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm line 52.
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+Saw changes to the following files:
+ - /home/victor/ISB/trends/trendweb/lib/trendweb/Controller/Classifier.pm (modify)
+
+Attempting to restart the server
+
+[debug] Debug messages enabled
+[debug] Statistics enabled
+[debug] Loaded plugins:
+.----------------------------------------------------------------------------.
+| Catalyst::Plugin::ConfigLoader  0.30                                       |
+| Catalyst::Plugin::StackTrace  0.11                                         |
+'----------------------------------------------------------------------------'
+
+[debug] Loaded dispatcher "Catalyst::Dispatcher"
+[debug] Loaded engine "Catalyst::Engine"
+[debug] Found home "/home/victor/ISB/trends/trendweb"
+[debug] Loaded Config "/home/victor/ISB/trends/trendweb/trendweb.conf"
+[debug] Loaded components:
+.-----------------------------------------------------------------+----------.
+| Class                                                           | Type     |
++-----------------------------------------------------------------+----------+
+| trendweb::Controller::Classifier                                | instance |
+| trendweb::Controller::GEO                                       | instance |
+| trendweb::Controller::Root                                      | instance |
+| trendweb::View::HTML                                            | instance |
+| trendweb::View::JSON                                            | instance |
+'-----------------------------------------------------------------+----------'
+
+[debug] Loaded Private actions:
+.----------------------+--------------------------------------+--------------.
+| Private              | Class                                | Method       |
++----------------------+--------------------------------------+--------------+
+| /default             | trendweb::Controller::Root           | default      |
+| /end                 | trendweb::Controller::Root           | end          |
+| /index               | trendweb::Controller::Root           | index        |
+| /hello               | trendweb::Controller::Root           | hello        |
+| /classifier/classif- | trendweb::Controller::Classifier     | classifier_- |
+| ier_GET              |                                      | GET          |
+| /classifier/begin    | trendweb::Controller::Classifier     | begin        |
+| /classifier/end      | trendweb::Controller::Classifier     | end          |
+| /geo/index           | trendweb::Controller::GEO            | index        |
+| /geo/geo             | trendweb::Controller::GEO            | geo          |
+'----------------------+--------------------------------------+--------------'
+
+[debug] Loaded Path actions:
+.-------------------------------------+--------------------------------------.
+| Path                                | Private                              |
++-------------------------------------+--------------------------------------+
+| /                                   | /index                               |
+| /...                                | /default                             |
+| /classifier/*                       | /classifier/classifier_GET           |
+| /geo/                               | /geo/index                           |
+| /geo/*                              | /geo/geo                             |
+| /hello/...                          | /hello                               |
+'-------------------------------------+--------------------------------------'
+
+[info] trendweb powered by Catalyst 5.90010
+HTTP::Server::PSGI: Accepting connections at http://0:3000/
+[info] *** Request 1 (0.000/s) [1524] [Mon Apr  2 13:02:49 2012] ***
+[debug] Path is "/"
+[debug] Arguments are "classifier/by_name/liver cancer.json"
+[debug] "GET" request for "classifier/by_name/liver%20cancer.json" from "127.0.0.1"
+[debug] Response Code: 404; Content-Type: text/html; charset=utf-8; Content-Length: 14
+[info] Request took 0.020697s (48.316/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++------------------------------------------------------------+-----------+
+| /default                                                   | 0.000598s |
+| /end                                                       | 0.001222s |
+'------------------------------------------------------------+-----------'
+
+[info] *** Request 32 (0.012/s) [1524] [Mon Apr  2 13:07:11 2012] ***
+[debug] Path is "classifier"
+[debug] Arguments are "liver cancer"
+[debug] "GET" request for "classifier/liver%20cancer" from "127.0.0.1"
+[debug] Response Code: 200; Content-Type: application/json; charset=utf-8; Content-Length: 251
+[info] Request took 0.618543s (1.617/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++------------------------------------------------------------+-----------+
+| /classifier/begin                                          | 0.000554s |
+| /classifier/classifier_GET                                 | 0.604519s |
+|  -> trendweb::View::JSON->process                          | 0.002213s |
+| /classifier/end                                            | 0.000531s |
+'------------------------------------------------------------+-----------'
+
+[info] *** Request 38 (0.014/s) [1524] [Mon Apr  2 13:08:13 2012] ***
+[debug] Path is "classifier"
+[debug] Arguments are "liver cancer"
+[debug] "GET" request for "classifier/liver%20cancer" from "127.0.0.1"
+[debug] Response Code: 200; Content-Type: application/json; charset=utf-8; Content-Length: 251
+[info] Request took 0.026527s (37.697/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++------------------------------------------------------------+-----------+
+| /classifier/begin                                          | 0.000556s |
+| /classifier/classifier_GET                                 | 0.012162s |
+|  -> trendweb::View::JSON->process                          | 0.001698s |
+| /classifier/end                                            | 0.000423s |
+'------------------------------------------------------------+-----------'
+
+[info] *** Request 44 (0.016/s) [1524] [Mon Apr  2 13:09:21 2012] ***
+[debug] Path is "classifier"
+[debug] Arguments are "liver cancer"
+[debug] "GET" request for "classifier/liver%20cancer" from "127.0.0.1"
+[debug] Response Code: 200; Content-Type: application/json; charset=utf-8; Content-Length: 251
+[info] Request took 0.021699s (46.085/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++------------------------------------------------------------+-----------+
+| /classifier/begin                                          | 0.000554s |
+| /classifier/classifier_GET                                 | 0.007766s |
+|  -> trendweb::View::JSON->process                          | 0.001770s |
+| /classifier/end                                            | 0.000455s |
+'------------------------------------------------------------+-----------'
+

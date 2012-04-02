@@ -1,6 +1,8 @@
 package trendweb::Controller::Classifier;
 use Moose;
 use MooseX::ClassAttribute;
+
+
 use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller::REST'; }
@@ -10,12 +12,9 @@ class_has default_format => (is=>'ro', isa=>'Str', default=>'json');
 use Classifier;
 use Data::Dumper;
 use URI::Escape;
+use Data::Structure::Util qw(unbless);
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
 
-    $c->response->body('Matched trendweb::Controller::Classifier in Classifier.');
-}
 
 # Split an $id to extract its base and format.  If no format exists, the id is unchanged.
 # return a two-element list[ref] where:
@@ -36,48 +35,29 @@ sub get_format {
     wantarray? @answer:\@answer;
 }
 
-sub classifier_GET :Path('/classifier') :Args(1) {
+#sub classifier_GET :Chained('/') :PathPart('classifier') :CaptureArgs(1) {
+sub classifier_GET :Path :Args(1) {
     my ($self, $c, $id)=@_;
 
     my $format;
-    ($id,$format)=$self->get_format(uri_unescape($id), 'html');
-    my $classifier=Classifier->new($id);
+    ($id,$format)=$self->get_format(uri_unescape($id));
 
+    my $query=($id =~ /^\d+$/)? {id=>$id} : {name=>uri_unescape($id)};
+    my $classifier=Classifier->new(%$query);
+#    $c->log->debug(sprintf("query is %s", Dumper($query)));
+#    $c->log->debug(sprintf "classifier is %s", Dumper($classifier));
     if ($classifier->_id) {
-	$c->stash(entity=>$classifier);
-	if ($format eq 'html') {
-	    $c->stash(template=>'classifier/classifier.tt');
-	    $c->forward('View::HTML');
-	} elsif ($format eq 'json') {
-	    $c->forward('View::JSON');
-	} else {
-	    $c->response->status(415); # Unsupported media type
-	}
-    } else {
-	$self->status_not_found($c, message=>"no classifier for id '$id'");
-    }
-}
-
-sub by_name :Path('/classifier/by_name') :Args(1) {
-    my ($self, $c, $name)=@_;
-    my $format;
-    ($name,$format)=$self->get_format(uri_unescape($name), 'json');
-    my $record=Classifier->mongo->find_one({name=>$name});
-    $self->status_not_found($c, message=>"no classifier with name '$name'") 
-	unless ref $record->{_id} eq 'MongoDB::OID';
-    my $classifier=Classifier->new(%$record);
-
-    if ($format eq 'html') {
-	$c->stash(entity=>$classifier);
-	$c->stash(template=>'classifier/classifier.tt');
-	$c->forward('View::HTML');
-    } elsif ($format eq 'json') {
-	delete $record->{_id};
-	$c->stash(entity=>$record);
+	delete $classifier->{_id};
+	$c->stash->{entity}=unbless $classifier;
+	$c->stash->{format}=$format;
 	$c->forward('View::JSON');
     } else {
-	$c->response->status(415); # Unsupported media type
-    }
+	$self->status_not_found($c, message=>"no classifier for '$id'");
+    }	
+}
+
+sub edit {
+
 }
 
 

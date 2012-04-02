@@ -42,7 +42,4 @@ Classifier.prototype = {
 
 };
 
-/*
-  Generic classifier helper functions
-*/
 

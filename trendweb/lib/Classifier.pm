@@ -27,11 +27,23 @@ around BUILDARGS => sub {
 
 sub BUILD { 
     my $self=shift;
+    my @args=@_;
 
     if ($self->id && !$self->_id) {
 	my $record=$self->mongo->find_one({id=>int($self->id)});
 	$self->hash_assign(%$record) if $record;
+    } elsif (scalar @args > 0) {
+	my @records=$self->mongo->find(@args)->all;
+	my $n_args=scalar @records;
+	if ($n_args==1) {
+	    $self->hash_assign(%{$records[0]});
+	} elsif ($n_args==0) {
+	    die sprintf("no classifier for %s",Dumper(\@args));
+	} else {
+	    die sprintf("%d classifiers for %s",Dumper(\@args));
+	}
     }
+
     $self;
 }
 
