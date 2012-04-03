@@ -1,6 +1,5 @@
 var Classifier=function(argHash) {
     var attr_names=['id', 'name', 'type', 'results', 'samples_pos', 'samples_neg', 'timestamp'];
-    argHash=argHash.entity;
     for (i in attr_names) {
         attr=attr_names[i];
 	this[attr]=typeof argHash[attr] == "undefined"? null : argHash[attr];

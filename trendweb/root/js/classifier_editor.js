@@ -14,8 +14,10 @@ ClassifierEditor.prototype = {
   var ret=$.ajax({url: 'http://localhost:3000/classifier/'+classifier_name,
           data: {},
           dataType: 'json',
-          success: function(data) { document.CE.load_classifier_form(new Classifier(data), '#cef') },
-          error: function(jqXHR, textStatus, errorThrown) { alert('error: '+textStatus+'\nthrown: '+errorThrown) },
+	  method: 'GET',
+          success: function(data) { document.CE.load_classifier_form(data, '#cef') },
+          error: function(jqXHR, textStatus, errorThrown) { 
+	  	 alert('Unable to retrieve classifier "' + classifier_name + '"\nerror: '+textStatus+'\n') },
          });
 
   return false;
@@ -27,7 +29,8 @@ ClassifierEditor.prototype = {
   RB's correspond to the sample being in the '+' set, the '-' set, or
   the null set.
 */
-  load_classifier_form: function(classifier, form_id) {
+  load_classifier_form: function(data, form_id) {
+  var classifier=new Classifier(data);
   $(form_id+'_name')[0].value=classifier.name;
   $(form_id+'_n_pos_samples')[0].textContent=classifier.samples_pos.length;
   $(form_id+'_n_neg_samples')[0].textContent=classifier.samples_neg.length;

@@ -33,6 +33,7 @@ function toggle_visibility(id) {
     <label for='cef_name'>Classifier</label>
     <input type='text' id='cef_name' size='20' placeholder='classifier name' />
     <button id='cef_load_button' onclick='document.CE.load_classifier("cef_name"); return false'>Load</button>
+    <button id='cef_store_button' onclick='document.CE.store_classifier("cef_name"); return false'>Store</button>
     <br />
     # +Samples: <span id='cef_n_pos_samples'></span></label>
     # -Samples: <span id='cef_n_neg_samples'></span></label>
