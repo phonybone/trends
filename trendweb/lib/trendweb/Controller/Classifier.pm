@@ -68,7 +68,7 @@ sub classifier_GET {
 
     if (my $classifier=$c->stash->{classifier}) {
 	$self->status_ok($c, entity=>unbless $classifier);
-	$c->forward('View::JSON');
+	$c->log->debug(sprintf "classifier_GET: entity is %s", Dumper(unbless $classifier));
     } else {
 	$self->status_not_found($c, message=>sprintf "no classifier for '%s'", $c->stash->{classifier_id});
     }	
@@ -112,7 +112,6 @@ sub classifier_POST {
     $location=join('/', @s1, join('.',@s2));
 
     $self->status_created($c, location=>$location, entity=>unbless $classifier);
-#    $c->forward('View::JSON'); # replace with status_found or something?
 }
 
 

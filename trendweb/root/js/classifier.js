@@ -25,7 +25,7 @@ Classifier.prototype = {
         return "<a href='" + this.uri() + "'>" + this.name + "</a>";
     },
 
-    to_string: function() {
+    to_string2: function() {
        var str=new Array();
        str.push('name: '+this.name);
        str.push('id: '+this.id);

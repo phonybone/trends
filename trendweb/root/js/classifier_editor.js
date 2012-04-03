@@ -29,6 +29,7 @@ ClassifierEditor.prototype = {
   RB's correspond to the sample being in the '+' set, the '-' set, or
   the null set.
 */
+
   load_classifier_form: function(data, form_id) {
   var classifier=new Classifier(data);
   $(form_id+'_name')[0].value=classifier.name;
