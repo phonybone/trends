@@ -6,7 +6,7 @@
 
 [% FOREACH k IN hash.keys().sort() %]
   [% SET value=hash.$k %][% SET vref=$value.ref %]
-  [% left_tag %][% k %]([% vref %])[% mid_tag %]
+  [% left_tag %][% k %](ref=[% vref %])[% mid_tag %]
   [% IF vref == 'ARRAY' %]<ul>[% INCLUDE list.tt list=value left_tag='&nbsp;' right_tag=',&nbsp; ' %]</ul>
   [% ELSIF vref == 'HASH' %][% INCLUDE hash.tt hash=value %]
   [% ELSE %]

@@ -9,6 +9,7 @@ use Test::More qw(no_plan);
 
 use FindBin;
 use lib "$FindBin::Bin/../../lib";
+use TestJson;
 
 our $class='GEO';
 use GEO::Series;
@@ -24,12 +25,9 @@ BEGIN: {
 
 
 sub main {
-    require_ok($class);
-    my $geo_id='GSE10072';
-    my $series=GEO->factory($geo_id);
-    isa_ok($series, 'GEO::Series');
-    my $json=$series->json('localhost');
-    warn "json is $json\n";
+    my $tc=new TestJson($class);
+    $tc->test_compiles();
+    $tc->test_json();
 }
 
 main(@ARGV);

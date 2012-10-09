@@ -182,7 +182,7 @@ def get_field_words(geo):
                 # replace sanitized_list() with str_windows(wl, n)
                 for n in range(1,4): # gives 1,2,3
                     if len(wl)>=n:
-                        windows=str_windows(wl, n)
+                        windows=str_windows(wl, n, '[-_\s]+')
 #                        if debug: warn("%s(%d): %d windows " % (field, n, len(windows)))
                         for w in windows:
                             words[field].append(w)

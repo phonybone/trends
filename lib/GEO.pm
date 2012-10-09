@@ -1,6 +1,5 @@
 package GEO;
 use Moose;
-extends 'Mongoid';
 
 use MooseX::ClassAttribute;
 use Carp;
@@ -11,21 +10,18 @@ use Text::CSV;
 use Devel::Size qw(size total_size);
 use File::Basename;
 use File::Path qw(make_path);
-use JSON;			# should use JSON::XS if available
 use PhonyBone::StringUtilities qw(full_split);
+use PhonyBone::FileUtilities qw(warnf dief);
+use PhonyBone::ListUtilities qw(in_list);
 
 use GEO::Dataset;
 use GEO::DatasetSubset;
 use GEO::Sample;
 use GEO::Series;
 use GEO::Platform;
-use GEO::word2geo;
-
-use PhonyBone::FileUtilities qw(warnf dief);
-use PhonyBone::ListUtilities qw(in_list);
+use GEO::SeriesData;		# really?
 
 has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
-#has 'record' => (is=>'rw', isa=>'HashRef'); # 
 
 our %mongos=();
 class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>"$ENV{TRENDS_HOME}/data/GEO");
@@ -38,12 +34,16 @@ class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO:
 								      GDS=>'GEO::Dataset',
 								      GDS_SS=>'GEO::DatasetSubset',
 								      GPL=>'GEO::Platform',
-								      w2g=>'GEO::word2geo',
     } });
 
 class_has 'db_name'         => (is=>'rw', isa=>'Str', default=>'geo');	
-class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [{geo_id=>1},{unique=>1}] });
+class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { 
+    [
+     {keys=>['geo_id'], opts=>{unique=>1}},
+    ]}
+    );
 class_has 'primary_key' => (is=>'ro', isa=>'Str', default=>'geo_id');
+with 'Mongoid';
 
 sub _init {
     my ($class)=@_;
@@ -69,11 +69,12 @@ around BUILDARGS => sub {
 
 sub BUILD { 
     my $self=shift;
-    return $self if ref $self eq 'GEO::word2geo'; # we don't need to init the object from the db
-    
     if ($self->geo_id && !$self->_id) {
-	my $record=$self->get_mongo_record;
-	$self->hash_assign(%$record);
+	eval {
+	    my $record=$self->get_mongo_record; # can die if db not running
+	    $self->hash_assign(%$record) if $record;
+	};
+	warn "error: $@" if $@;
     }
     $self;
 }
@@ -81,7 +82,18 @@ sub BUILD {
 
 # get the class from a geo_id, or undef
 sub class_of { 
-    my ($self, $geo_id)=@_;
+    my ($self, $arg)=@_;
+
+    my $geo_id;
+    if (ref $self && $self->isa('GEO')) {
+	$geo_id=$self->geo_id;
+    } elsif (ref $arg && $arg->isa('GEO')) {
+	$geo_id=$arg->geo_id; # $arg was actually a geo object
+    } else {
+	$geo_id=$arg;
+    }
+    confess "no geo_id" unless $geo_id;
+
     my $prefix=substr($geo_id,0,3);
     my $class=$self->prefix2class->{$prefix} or return undef;
     $class='GEO::DatasetSubset' if $class eq 'GEO::Dataset' && $geo_id=~/GDS\d+_\d+/;
@@ -134,7 +146,9 @@ sub factory {
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;
     $class=$geo_id? $self->class_of($geo_id) : (ref $self || $self);
     die "no class for '$geo_id'" unless $class;
-    my $geo=$class->new($geo_id);
+    my $geo=eval {$class->new($geo_id)};
+    confess $@ if $@;
+    $geo;
 }
 
 

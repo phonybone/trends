@@ -1,0 +1,9 @@
+Look in to launching a job in response to a client request, and
+running the job as a daemon.  the job will send a message back to the
+server when it's done, or if it dies (so must be wrapped; you'll need
+a class to manage the job).  The server will maintain a Q of messages
+for individual clients, so look in to Catalyst's authentication
+chaining commands, too.  The client will have to poll or otherwise ask
+for messages stored by the server (So we'll need some sort of timer
+that fires off an ajax request for any pending messages).  See
+jQuery.everyTime().

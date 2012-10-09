@@ -1,11 +1,11 @@
 package GEO::Sample;
 use Moose;
-extends 'GEO';
 use MooseX::ClassAttribute;
 
 use Data::Dumper;
 use File::Spec;
 use PhonyBone::FileUtilities qw(warnf dief);
+use PhonyBone::FileIterator;
 
 #
 # Class to model series data 
@@ -14,11 +14,12 @@ use PhonyBone::FileUtilities qw(warnf dief);
 # values overlap or not.
 #
 
-has 'dataset_ids'     => (is=>'rw');
 has 'title'           => (is=>'rw', isa=>'Str');
 has 'description'     => (is=>'rw'); # comes from Dataset .soft files (table headings)
 has 'phenotype'       => (is=>'rw', isa=>'Str');
 has 'path_raw_data' => (is=>'rw', isa=>'Str');
+
+has 'exp_data'      => (is=>'ro', isa=>'HashRef', lazy=>1, builder=>'_build_exp_data');
 
 has 'series_ids'    => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
 has 'dataset_ids'   => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
@@ -30,6 +31,7 @@ class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'gsm' );
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'samples');
 class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'sample_data');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title description)]});
+extends 'GEO';
 
 
 # series accessor
@@ -49,7 +51,7 @@ sub series {
 
 
 
-# return the full path the the data
+# return the full path the the data (gene or probe)
 sub _file {
     my ($self, $type)=@_;
     $type||='probe';
@@ -100,19 +102,38 @@ sub descriptions {
 
 sub report {
     my ($self)=@_;
-    my $report=sprintf("%10s (%s): %s, %s", $self->geo_id, ref $self, ($self->title || '<no title>'), ($self->description || '<no description>'));
-    $report.=sprintf("\n            phenotype: %s", $self->phenotype) if $self->phenotype;
+    my @lines;
+
+    push @lines, sprintf("%10s (%s): %s, %s", $self->geo_id, ref $self, ($self->title || '<no title>'), ($self->description || '<no description>'));
+    push @lines, sprintf("            phenotype: %s", $self->phenotype) if $self->phenotype;
 
     foreach my $pair (['series', $self->series_ids], 
 		      ['datasets', $self->dataset_ids],
 		      ['subsets', $self->subset_ids]) {
-	my ($name, $list)=@$pair;
-	my $str=ref $list? join(', ', @$list) : $list;
-	$report.=sprintf("\n            %s: %s", $name, $str);
+	my ($name, $id_list)=@$pair;
+	$id_list=[$id_list] unless ref $id_list;
+
+	foreach my $id (@$id_list) {
+	    my $geo=GEO->factory($id);
+	    my $line=sprintf("            %8s: %12s %s", $name, $id, $geo->title);
+	    push @lines, $line;
+	}
     }
 
-    $report;
+    join("\n", @lines);
 }
 
+# Currently this only uses normalized GDS data
+# returns a hashref: k=gene symbol, v=exp value
+sub _build_exp_data {
+    my ($self)=@_;
+    my $exp_data={};
+    my $fi=new PhonyBone::FileIterator($self->data_file);
+    while (my $line=$fi->next) {
+	my ($gene, $exp)=split(/\s+/, $line);
+	$exp_data->{$gene}=$exp eq 'null'? 0.0 : +$exp;
+    }    
+    $exp_data;
+}
 
 1;

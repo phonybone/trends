@@ -6,7 +6,8 @@ use FileHandle;
 # A package to parse GEO .soft files
 # Main entry point is parse().  It returns a list of records, each blessed
 # into a "fake" class whose name is whatever follows the '^' character
-# in the first line of the block.  Each record has an entry for each '!' line
+# in the first line of the block (eg SERIES, PLATFORM, DATABASE, SAMPLE).
+# Each record has an entry for each '!' line (ie, attributes)
 # in the block  (key/value pairs), with repeat values expanded into lists.
 # Each record also has a {__table} entry, which is a two-element hash (keys are {header}
 # and {table}).  If populated by the block, {header} and {table} contain the corresponding
@@ -20,6 +21,7 @@ use FileHandle;
 has 'filename' => (isa=>'Str', is=>'rw');
 has '_fh' => (is=>'rw');
 has 'ignore_table' => (is=>'rw');
+has 'records' => (is=>'rw', isa=>'ArrayRef', lazy=>1, builder=>'parse');
 
 around BUILDARGS => sub {
     my $orig  = shift;
@@ -35,7 +37,9 @@ around BUILDARGS => sub {
 
 sub parse {
     my ($self)=@_;
+    return $self->{records} if $self->{records}; # DON'T call $self->records, infinite recursion
     my $filename=$self->filename or confess "no filename";
+    warn "parsing $filename...\n" if $ENV{DEBUG};
     local $/="\n^";
     local *FILE;
 
@@ -47,13 +51,16 @@ sub parse {
     my $file_order=1;
     foreach (@blocks) {		# $_ holds each block
 	my $record=$self->parse_block($_, $record_hash);
+#	warnf "got a %s record\n", ref $record if $ENV{DEBUG};
 	$record->{__file_order}=$file_order++ unless defined $record->{__file_order};
 	my $key=join('_', ref $record, $record->{geo_id});
-	$record_hash->{$key}=$record;	# can overwrite because $record was added to in parse_block()
+	$record_hash->{$key}=$record;	# overwrite ok because $record was added to in parse_block()
     }
 
     my @records=sort {$a->{__file_order} <=> $b->{__file_order}} values %$record_hash;
-    wantarray? @records:\@records;
+    $self->records(\@records);
+#    wantarray? @records:\@records;
+    \@records;
 }
 
 

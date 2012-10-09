@@ -1,6 +1,7 @@
 package trendweb::Controller::Root;
 use Moose;
 use namespace::autoclean;
+use Data::Dumper;
 
 BEGIN { extends 'Catalyst::Controller' }
 
@@ -34,11 +35,6 @@ sub index :Path :Args(0) {
 }
 
 
-sub hello : Global {
-    my ($self, $c)=@_;
-    $c->stash(template => 'hello.tt');
-}
-
 =head2 default
 
 Standard 404 error page
@@ -47,7 +43,8 @@ Standard 404 error page
 
 sub default :Path {
     my ( $self, $c ) = @_;
-    $c->response->body( 'Page not found' );
+    
+    $c->response->body( 'Page not found' . '<pre> req path=' . $c->req->path . '</pre>');
     $c->response->status(404);
 }
 
@@ -57,7 +54,10 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {}
+sub end : ActionClass('RenderView') {
+    my ($self, $c)=@_;
+#    $c->res->body("<pre>\n" . Dumper($c->stash->{matches}) . "</pre>");
+}
 
 =head1 AUTHOR
 

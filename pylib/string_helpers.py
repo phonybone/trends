@@ -19,7 +19,7 @@ def sanitized_list(string, cleaner='[^_a-z\d]', separator_re='[-\s]+'):
     return words
 
 
-def str_windows(string, n, separator_re='[-\s]+'):
+def str_windows(string, n, separator_re=''):
     '''
     Return a list of (sanitized) word-pairs (triplets, etc) from a single string.
     EG str_tuples('this string has a bunch of words', 2) returns:

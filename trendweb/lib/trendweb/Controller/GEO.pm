@@ -1,65 +1,76 @@
 package trendweb::Controller::GEO;
 use Moose;
+use Data::Dumper;
 use namespace::autoclean;
-
+use Data::Structure::Util qw(unbless);
 use lib '/mnt/price1/vcassen/trends/lib';
-use GEO;
+use GEO;			# shouldn't we, like, be getting the model from the stash or something?
 
-use PhonyBone::HashUtilities qw(walk_hash);
 use Data::Dumper;
 
-BEGIN {extends 'Catalyst::Controller'; }
+BEGIN {extends 'Catalyst::Controller::REST'; }
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-    $c->response->body('Matched trendweb::Controller::GEO in GEO.');
+# sub index :Path :Args(0) {
+#     my ( $self, $c ) = @_;
+#     $c->response->body('Matched trendweb::Controller::GEO in GEO.');
+# }
+
+
+sub base : Chained('/') PathPart('geo') CaptureArgs(1) {
+    my ($self, $c, $geo_id)=@_;
+    my $geo=GEO->factory($geo_id);
+    $c->stash->{geo}=$geo;
 }
 
-=head2
-    geo()
+########################################################################
+## REST methods
+########################################################################
 
-    Returns a geo object.
-    Uses suffix of uri to determine return format.  Allowable suffixes
-    are '', '.html', or '.json'.  An empty suffix results in HTML.
+sub geo : Chained('base') PathPart('') Args(0) ActionClass('REST') {}
 
-=cut
+sub geo_GET {
+    my ($self, $c)=@_;
+    my $geo=$c->stash->{geo};
+    delete $geo->{_id};
+    $c->stash->{rest}=unbless($geo);
+}
 
-sub geo :Path('/geo') :Args(1) {
-    my ( $self, $c, $geo_id) = @_;
-    my $format='html';
+sub geo_POST {
+    my ($self, $c)=@_;
+    my $geo_data=$c->req->data or
+	return $self->status_bad_request($c, message=>"No data supplied");
 
-    if ($geo_id=~/^(G\w\w[_\d]+)(\.(\w+))?$/i) {
-	$geo_id=$1;
-	$format = lc $3 || $format;
-    } else {
-	$c->error("bad geo_id: '$geo_id'");
+    my $geo=$c->stash->{geo} or die "wtf? no stash->geo";
+    unless ($geo_data->{geo_id} eq $geo->geo_id) {
+	return $self->status_bad_request($c, message=>sprintf("geo_ids don't match: '%s' vs %s", 
+						       $geo_data->{geo_id}, 
+						       $geo->geo_id));
     }
 
-    my $geo=GEO->factory($geo_id);
 
-    if ($format eq 'html') {
-	$c->stash(geo=>$geo);
-	$c->forward('View::HTML');
-    } elsif ($format eq 'json') {
-	my $host='localhost:3000';
-	my $suffix='json';
-	
-	# This anonymous sub wraps (in place) a geo_id into a uri locating the geo object on our server:
-	my $subrefs={str=>sub { my ($c,$i,$v)=@_; # container, index, value
-				if (GEO->class_of($v)) { # shorthand for is_geo_id($v)
-				    my $uri=GEO->uri_for($v, $host, $suffix);
-				    my $link="<a href='$uri'>$v</a>";
-				    ref $c eq 'ARRAY'? $c->[$i]=$link : $c->{$i}=$link;
-				}},
-	};
-	my $r=$geo->record;
-	delete $r->{_id};	# No objects allowed by JSON w/o special settings
-	walk_hash($r, $subrefs);
-	$c->stash(entity=>$r);
-	$c->forward('View::JSON');
-    } else {
-       $c->error("unknown format: '$format'");
-    }
+    # build a new geo object from the POST data and save it:
+    my $geo_class=GEO->class_of($geo);
+    my $new_geo=$geo_class->new(%$geo_data);
+    $new_geo->save;
+
+    # store to stash:
+    $new_geo=unbless($new_geo);
+    delete $new_geo->{_id};
+    $self->status_ok($c, entity=>$new_geo);
+}
+
+########################################################################
+# GUI methods
+########################################################################
+
+sub view : Chained('base') PathPart('view') Args(0) {
+    my ($self,$c)=@_;
+    my $geo=$c->stash->{geo};
+    my $class=lc GEO->class_of($geo);
+    $class=~s/.*:://;
+    $c->log->debug("class is $class/view.tt");
+    $c->stash(template=>"$class/view.tt", entity=>$geo);
+    $c->forward('View::HTML');
 }
 
 __PACKAGE__->meta->make_immutable;

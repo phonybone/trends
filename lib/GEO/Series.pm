@@ -1,6 +1,5 @@
 package GEO::Series;
 use Moose;
-extends 'GEO';
 use MooseX::ClassAttribute;
 
 use Data::Dumper;
@@ -27,6 +26,8 @@ class_has 'ftp_soft'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/SOFT/by_s
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'series');
 class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'series');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title summary)]});
+extends 'GEO';
+
 
 sub samples {
     my ($self)=@_;

@@ -1,6 +1,5 @@
 package GEO::Dataset;
 use Moose;
-extends 'GEO';
 use MooseX::ClassAttribute;
 use Carp;
 
@@ -28,6 +27,7 @@ class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'datasets');
 class_has 'prefix'=> (is=>'ro', isa=>'Str', default=>'GDS');
 class_has 'subdir' => (is=>'ro', isa=>'Str', default=>'datasets');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title description)]});
+extends 'GEO';
 
 # return the path to the .soft file:
 sub soft_file {
@@ -42,6 +42,7 @@ sub subsets {
     my @subsets=map {GEO::DatasetSubset->new(%{$_})} @records;
     wantarray? @subsets:\@subsets;
 }
+sub n_subsets { scalar @{shift->subsets} }
 
 
 # return a list[ref] of SeriesData objects:

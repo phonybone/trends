@@ -27,14 +27,7 @@ extends 'Catalyst';
 
 our $VERSION = '0.01';
 
-# Configure the application.
-#
-# Note that settings in trendweb.conf (or other external
-# configuration file that you set up manually) take precedence
-# over this when using ConfigLoader. Thus configuration
-# details given here can function as a default configuration,
-# with an external configuration file acting as an override for
-# local deployment.
+# Configure the application (defaults, override in trendweb.conf)
 
 __PACKAGE__->config(
     name => 'trendweb',
@@ -46,8 +39,35 @@ __PACKAGE__->config(
     enable_catalyst_header => 1, # Send X-Catalyst header
 );
 
+
+sub push_stack {
+    my ($self, $caller, $msg)=@_;
+    my $action_name=$self->stack->[-1]->name;
+    my $action=$self->controller->action_for($action_name);
+    my $uri=$action? $self->uri_for($action) : undef;
+    push @{$self->stash->{matches}}, {ref($caller) => {$action=>$uri, msg=>$msg}};
+}
+
 # Start the application
 __PACKAGE__->setup();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 =head1 NAME
