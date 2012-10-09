@@ -1,8 +1,0 @@
-processing 1 files (fuse=-1)
-parsing /proj/price1/vcassen/trends/data/GEO/series/GSE19188/GSE19188_family.soft.gz...
-platform GPL570 already in db and data.table exists, skipping
-stats: $VAR1 = {
-          'n_Platform_updated' => 1,
-          'n_Series_updated' => 1,
-          'n_Sample_updated' => 156
-        };
