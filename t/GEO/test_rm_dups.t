@@ -9,8 +9,9 @@ use PhonyBone::FileUtilities qw(warnf);
 use PhonyBone::TimeUtilities qw(tlm);
 use Test::More qw(no_plan);
 
-use FindBin;
-use lib "$FindBin::Bin/../..";
+use FindBin qw($Bin);
+use lib "$Bin/../../lib";
+use lib "$Bin";
 
 our $class='GEO';
 use GEO::word2geo;
@@ -27,7 +28,8 @@ BEGIN: {
 
 sub main {
     require_ok($class);
-    $class->testing(1);		# changes dbs to 'geo_test'
+    $class->testing(1);		# changes dbs to 'geo_test' (hopefully)
+    warn "\n*******************\nThis test needs a fixture db\n*******************\n";
 
     GEO::word2geo->mongo->remove; # wipe clean
     GEO::word2geo->mongo->drop_indexes();
@@ -45,16 +47,16 @@ sub main {
 
     GEO::word2geo->new(geo_id=>'GSE2940', word=>'cyst')->insert;
 
-    my @records=GEO::word2geo->get_mongo_records;
+    my @records=GEO::word2geo->mongo->find->all;
     is (scalar @records, 6, "got 6 starting records");
 
     my $w2g=GEO::word2geo->new(geo_id=>'GSE2938', word=>'cancer');
     $w2g->remove_dups;
 
-    @records=GEO::word2geo->get_mongo_records;
+    @records=GEO::word2geo->mongo->find->all;
     is (scalar @records, 4, "got 4 remainig records (total)");
 
-    @records=GEO::word2geo->get_mongo_records($w2g);
+    @records=GEO::word2geo->mongo->find->all($w2g);
     is (scalar @records, 1, "got 1 remainig record for (GSE2938, cancer))");
     
     

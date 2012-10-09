@@ -3,7 +3,6 @@ use Carp;
 use Data::Dumper;
 
 use Moose;
-extends 'Mongoid';
 use MooseX::ClassAttribute;
 
 has id  =>(is=>'rw', isa=>'Int'); # primary key
@@ -13,6 +12,7 @@ has name=>(is=>'rw', isa=>'Str');
 class_has db_name         => (is=>'ro', isa=>'Str', default=>'geo');
 class_has collection_name => (is=>'ro', isa=>'Str', default=>'classifier');
 class_has primary_key     => (is=>'ro', isa=>'Str', default=>'name');
+with 'Mongoid';
 
 around BUILDARGS => sub {
     my $orig  = shift;

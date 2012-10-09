@@ -7,10 +7,8 @@ use Data::Dumper;
 use MongoDB;
 use Net::FTP;
 use Text::CSV;
-use Devel::Size qw(size total_size);
-use File::Basename;
 use File::Path qw(make_path);
-use PhonyBone::StringUtilities qw(full_split);
+#use PhonyBone::StringUtilities qw(full_split);
 use PhonyBone::FileUtilities qw(warnf dief);
 use PhonyBone::ListUtilities qw(in_list);
 

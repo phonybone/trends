@@ -9,8 +9,9 @@ use PhonyBone::FileUtilities qw(warnf);
 use PhonyBone::TimeUtilities qw(tlm);
 use Test::More qw(no_plan);
 
-use FindBin;
-use lib "$FindBin::Bin/../../lib";
+use FindBin qw($Bin);;
+use lib "$Bin/../../lib";
+use lib "$Bin";
 
 our $class='GEO';
 use TestGeoIdSorting;

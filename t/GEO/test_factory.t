@@ -11,6 +11,7 @@ use Test::More qw(no_plan);
 use FindBin qw($Bin);
 use Cwd 'abs_path';
 use lib abs_path("$Bin/../../lib");
+use lib "$Bin";
 our $class='GEO';
 use TestFactory;
 

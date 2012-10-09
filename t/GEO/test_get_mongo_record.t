@@ -7,8 +7,9 @@ use Data::Dumper;
 use Options;
 use Test::More qw(no_plan);
 
-use FindBin;
-use lib "$FindBin::Bin/../..";
+use FindBin qw($Bin);
+use lib "$Bin";
+use lib "$Bin/../..";
 
 our $class='GEO';
 

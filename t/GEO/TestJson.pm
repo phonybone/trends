@@ -17,7 +17,10 @@ DESC
 
 
 before qr/^test_/ => sub { shift->setup };
-
+sub setup {
+    my ($self)=@_;
+    die $desc;
+}
 
 sub test_compiles : Testcase {
     my ($self)=@_;

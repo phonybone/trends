@@ -9,8 +9,9 @@ use PhonyBone::FileUtilities qw(warnf);
 use PhonyBone::TimeUtilities qw(tlm);
 use Test::More qw(no_plan);
 
-use FindBin;
-use lib "$FindBin::Bin/../..";
+use FindBin qw($Bin);
+use lib "$Bin/../../lib";
+use lib "$Bin";
 
 our $class='GEO';
 
@@ -55,7 +56,7 @@ sub test_series {
 
     my $next_sample=GEO->next('GSM321606');
     is($next_sample->geo_id, 'GSM321607');
-    is($next_sample
+#    is($next_sample
 }
 
 main(@ARGV);
