@@ -1,6 +1,5 @@
 var Classifier=function(argHash) {
     var attr_names=['id', 'name', 'type', 'results', 'samples_pos', 'samples_neg', 'timestamp'];
-    argHash=argHash.entity;
     for (i in attr_names) {
         attr=attr_names[i];
 	this[attr]=typeof argHash[attr] == "undefined"? null : argHash[attr];
@@ -26,7 +25,7 @@ Classifier.prototype = {
         return "<a href='" + this.uri() + "'>" + this.name + "</a>";
     },
 
-    to_string: function() {
+    to_string2: function() {
        var str=new Array();
        str.push('name: '+this.name);
        str.push('id: '+this.id);
@@ -42,7 +41,4 @@ Classifier.prototype = {
 
 };
 
-/*
-  Generic classifier helper functions
-*/
 

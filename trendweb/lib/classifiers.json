@@ -1,0 +1,10 @@
+{name: 'liver cancer', type: 'tsn', gene_pos: 'ABC1', gene_neg: 'DEF2',
+samples_pos: ['GSM12345', 'GSM232832', 'GSM3848882', 'GSM822281'],
+samples_neg: ['GSM13425', 'GSM321112', 'GSM2000182', 'GSM225581']
+}
+
+{id: 4, name: 'colon cancer', type: 'tsn', gene_pos: 'KKS1', gene_neg: 'LSM2',
+samples_pos: ['GSM43145', 'GSM274132', 'GSM8844322', 'GSM928882'],
+samples_neg: ['GSM62511', 'GSM726939', 'GSM6266210', 'GSM122333']
+}
+
