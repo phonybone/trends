@@ -1,23 +1,41 @@
 <!-- This is the dataset view -->
-report is <pre>[% geo.report() %]</pre>
 
 <form>
-<table>
+<div>
+<label for='loader'>Load GEO object:</label>
+<input type='text' id='loader_tb' size='12' placeholder='fart' />
+<button id='loader_button'>Go</button>
+<!-- onchange='document.editor.load_geo(this.value)' -->
+</div>
+
+<table border='1'>
 <tr>
   <td><label for='geo_title'>Title</label></td>
-  <td><input type='text' size='100' value='[% geo.title %]' readonly></td>
+  <td colspan='3'><input type='text' size='100' value='[% dataset.title %]' readonly /></td>
 </tr><tr>
   <td><label for='geo_desc'>Description:</label></td>
-  <td><input type='text' size='100' value='[% geo.description %]' readonly></td>
+  <td colspan='3'><input type='text' size='100' value='[% dataset.description %]' readonly /></td>
 </tr><tr>
-  <td><label for='geo_ref_series'>Series:</label></td>
-  <td><input type='text' size='10' value='[% geo.ref_series %]' readonly></td>
+  <td><label for='geo_ref_series'>Ref. Series:</label></td>
+  <td><input type='text' size='10' value='[% dataset.reference_series %]' readonly /></td>
 
-  <td><label for='geo_n_subsets'>[% geo.n_subsets %] subsets:</label></td>
-  <td><label for='geo_n_samples'>[% geo.n_samples %] subsets:</label></td>
- 
-<!-- really need to think about how to display samples; table? -->
-
+  <td><label for='geo_n_subsets'>[% dataset.n_subsets %] subsets</label></td>
+  <td><label for='geo_n_samples'>[% dataset.n_samples %] samples</label></td>
 </tr>
+
+<tr><td colspan='4'>Subsets:</td></tr>
+
+[% FOREACH subset=dataset.subsets %]
+[% INCLUDE datasetsubset/view.tt %]
+[% END %]
+
 </table>
+
+<div id='samples'>
+<table border='1'>
+[% FOREACH sample=dataset.samples %]
+[% INCLUDE sample/view.tt %]
+[% END %]
+</table>
+</div>
 </form>

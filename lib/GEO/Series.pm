@@ -236,6 +236,37 @@ sub report {
     $report;
 }
 
+########################################################################
+# return a hash[ref] where the keys are the GSEs we want to process
+# generally called as a class method
+# obtain list from:
+#   $options{filter_gses} (can either be command-line list of file containing gses)
+#   $options{filter_gses} eq 'use_datasets' (use GSEs stored in GDS (datasets) db
+# k=$GSE, v=1
+# returns a hash[ref], and not a list, so that removals from list are O(1)
+sub get_filter {
+    my ($self, $filter_option)=@_; 
+    $filter_option||='';
+    my %filter;
+    if (-r $filter_option) {	# if -filter_gses provides filename
+	my @gses=map {/GSE\d+/; $&} file_lines($filter_option);
+	do {$filter{$_}=1} for @gses;
+
+    } elsif ($filter_option eq 'use_datasets') {
+	my @records=GEO::Dataset->get_mongo_records({}, {_id=>0, reference_series=>1});
+	foreach my $r (@records) { $filter{$r->{reference_series}}=1; }
+	
+    } else {		# assume -filter_gses provides a list of gses
+	do {$filter{$_}=1} for split(/,/, $filter_option);
+    }
+    warnf("%d gses in filter\n", scalar keys %filter) if $ENV{DEBUG};
+    wantarray? %filter:\%filter;
+}
+
+########################################################################
+
+
+__END__
 # return a hash[ref] reporting on integrity status
 sub error_report {
     my ($self)=@_;
@@ -266,36 +297,6 @@ sub error_report {
 
     wantarray? %$errors:$errors;
 }
-
-########################################################################
-# return a hash[ref] where the keys are the GSEs we want to process
-# generally called as a class method
-# obtain list from:
-#   $options{filter_gses} (can either be command-line list of file containing gses)
-#   $options{filter_gses} eq 'use_datasets' (use GSEs stored in GDS (datasets) db
-# k=$GSE, v=1
-# returns a hash[ref], and not a list, so that removals from list are O(1)
-sub get_filter {
-    my ($self, $filter_option)=@_; 
-    $filter_option||='';
-    my %filter;
-    if (-r $filter_option) {	# if -filter_gses provides filename
-	my @gses=map {/GSE\d+/; $&} file_lines($filter_option);
-	do {$filter{$_}=1} for @gses;
-
-    } elsif ($filter_option eq 'use_datasets') {
-	my @records=GEO::Dataset->get_mongo_records({}, {_id=>0, reference_series=>1});
-	foreach my $r (@records) { $filter{$r->{reference_series}}=1; }
-	
-    } else {		# assume -filter_gses provides a list of gses
-	do {$filter{$_}=1} for split(/,/, $filter_option);
-    }
-    warnf("%d gses in filter\n", scalar keys %filter) if $ENV{DEBUG};
-    wantarray? %filter:\%filter;
-}
-
-########################################################################
-
 
 
 1;

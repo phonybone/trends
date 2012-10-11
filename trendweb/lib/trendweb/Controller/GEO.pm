@@ -16,11 +16,17 @@ BEGIN {extends 'Catalyst::Controller::REST'; }
 # }
 
 
+# base of the chain: retrieves the geo object in question, stores to the stash:
 sub base : Chained('/') PathPart('geo') CaptureArgs(1) {
     my ($self, $c, $geo_id)=@_;
-    my $geo=GEO->factory($geo_id);
+    my $geo=eval {GEO->factory($geo_id)};
+    if ($@ || ref $geo->_id ne 'MongoDB::OID') {
+	$self->status_not_found($c, message=>"No geo object for $geo_id ($@)");
+	$c->detach;
+    }
     $c->stash->{geo}=$geo;
 }
+
 
 ########################################################################
 ## REST methods
@@ -32,7 +38,13 @@ sub geo_GET {
     my ($self, $c)=@_;
     my $geo=$c->stash->{geo};
     delete $geo->{_id};
+    $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
     $c->stash->{rest}=unbless($geo);
+
+    # we don't set $c->stash->{entity} and $c->forward('View::JSON')
+    # because for 'application/json', ActionClass('REST') does that for us.
+    # But for 'text/html' (ie, generic browser request), we still get 
+    # readable output from View::HTML.
 }
 
 sub geo_POST {
@@ -63,13 +75,18 @@ sub geo_POST {
 # GUI methods
 ########################################################################
 
+# fixme: this might get changed to edit_dataset.  It currently is 
+# WAY too dataset-specific.
 sub view : Chained('base') PathPart('view') Args(0) {
     my ($self,$c)=@_;
     my $geo=$c->stash->{geo};
     my $class=lc GEO->class_of($geo);
     $class=~s/.*:://;
-    $c->log->debug("class is $class/view.tt");
-    $c->stash(template=>"$class/view.tt", entity=>$geo);
+    $c->stash(template=>"$class/view.tt", entity=>$geo, $class=>$geo);
+    $c->title($geo->geo_id);
+    $c->add_js_script('/jquery-1.7.1.js');
+    $c->add_css('/dataset_editor.css'); # fixme: too specific
+    $c->add_js_script("/js/${class}_editor.js"); # fixme: not defined for $class != 'dataset'
     $c->forward('View::HTML');
 }
 

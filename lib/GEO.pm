@@ -17,7 +17,6 @@ use GEO::DatasetSubset;
 use GEO::Sample;
 use GEO::Series;
 use GEO::Platform;
-use GEO::SeriesData;		# really?
 
 has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
 
@@ -82,6 +81,7 @@ sub BUILD {
 sub class_of { 
     my ($self, $arg)=@_;
 
+    # sort $arg->$geo_id:
     my $geo_id;
     if (ref $self && $self->isa('GEO')) {
 	$geo_id=$self->geo_id;
@@ -92,6 +92,7 @@ sub class_of {
     }
     confess "no geo_id" unless $geo_id;
 
+    # Determine class based on prefix of $geo_id; special case of GEO::DatasetSubset
     my $prefix=substr($geo_id,0,3);
     my $class=$self->prefix2class->{$prefix} or return undef;
     $class='GEO::DatasetSubset' if $class eq 'GEO::Dataset' && $geo_id=~/GDS\d+_\d+/;

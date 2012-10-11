@@ -39,6 +39,28 @@ __PACKAGE__->config(
     enable_catalyst_header => 1, # Send X-Catalyst header
 );
 
+sub add_to_page {
+    my ($self, $src, $where)=@_;
+    my $target=$self->path_to(File::Spec->splitdir($src));
+#    -r $target or die "'$target': no such file";
+    push @{$self->stash->{page}->{$where}}, $src;
+}
+
+sub add_js_script {
+    my ($self, $src)=@_;
+    $self->add_to_page($src, 'scripts');
+}
+
+sub add_css {
+    my ($self, $src)=@_;
+    $self->add_to_page($src, 'css_srcs');
+}
+
+sub title {
+    my ($self, $title)=@_;
+    $self->stash->{page}->{title}=$title if $title;
+    $self->stash->{page}->{title};
+}
 
 sub push_stack {
     my ($self, $caller, $msg)=@_;

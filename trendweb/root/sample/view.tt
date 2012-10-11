@@ -1,0 +1,10 @@
+<!-- sample view -->
+<!-- GSM238439 ds_s1.desc cb ds_s2.desc cb ... -->
+<tr>
+<td>[% sample.geo_id %]</td>
+
+[% FOREACH subset=sample.subsets %]
+<td>[% subset.description %]</td>
+<td><input type='checkbox' class='gsm_pheno' id='' name='[% sample.geo_id %]' value='[% subset.description %]' /></td>
+[% END %]
+</tr>

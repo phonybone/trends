@@ -2,6 +2,9 @@ package GEO::Dataset;
 use Moose;
 use MooseX::ClassAttribute;
 use Carp;
+use PhonyBone::ListUtilities qw(unique);
+use PhonyBone::FileUtilities qw(warnf);
+use Data::Dumper;
 
 use GEO::DatasetSubset;
 
@@ -23,6 +26,16 @@ has 'type'                     => (is=>'rw', isa=>'Str');
 has 'update_date'              => (is=>'rw', isa=>'Str');
 has 'value_type'               => (is=>'rw', isa=>'Str');
 
+has 'subsets'                  => (is=>'ro', isa=>'ArrayRef[GEO::DatasetSubset]',
+				   lazy=>1, builder=>'_build_subsets');
+has 'subset_ids'               => (is=>'ro', isa=>'ArrayRef[Str]', 
+				   lazy=>1, builder=>'_build_subset_ids');
+has 'samples'                  => (is=>'ro', isa=>'ArrayRef[GEO::Sample]',
+				   lazy=>1, builder=>'_build_samples');
+has 'sample_ids'               => (is=>'ro', isa=>'ArrayRef[Str]', 
+				   lazy=>1, builder=>'_build_sample_ids');
+
+
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'datasets');
 class_has 'prefix'=> (is=>'ro', isa=>'Str', default=>'GDS');
 class_has 'subdir' => (is=>'ro', isa=>'Str', default=>'datasets');
@@ -36,23 +49,34 @@ sub soft_file {
 }
 
 # return a list[ref] of GEO::DatasetSubset objects for this dataset:
-sub subsets {
+# searches the database.
+sub _build_subsets {
     my ($self)=@_;
     my @records=GEO::DatasetSubset->get_mongo_records({dataset_id=>$self->geo_id});
-    my @subsets=map {GEO::DatasetSubset->new(%{$_})} @records;
-    wantarray? @subsets:\@subsets;
+    [map {GEO::DatasetSubset->new(%{$_})} @records];
 }
+sub _build_subset_ids {
+    my ($self)=@_;
+    [map {$_->geo_id} @{$self->subsets}];
+}
+
 sub n_subsets { scalar @{shift->subsets} }
 
 
-# return a list[ref] of SeriesData objects:
-sub samples {
+# return a list[ref] of Sample objects:
+sub _build_sample_ids {
     my ($self)=@_;
-    my @samples=();
-    foreach my $ss ($self->subsets) {
-	push @samples, $ss->samples;
+    my %sample_ids;
+    foreach my $ss (@{$self->subsets}) {
+	$sample_ids{$_}=$_ for @{$ss->sample_ids};
     }
-    wantarray? @samples:\@samples;
+    [keys %sample_ids];
+}
+
+sub _build_samples {
+    my ($self)=@_;
+    my $sample_ids=$self->sample_ids;
+    [map {GEO->factory($_)} @{$self->sample_ids}];
 }
 
 sub n_samples { scalar @{shift->samples} }
@@ -65,7 +89,7 @@ sub report {
     $report.=sprintf "%12s\n", $self->reference_series;
 
     $report.=sprintf "%12d subsets, %d samples\n", scalar @{$self->subsets}, $self->sample_count;
-    foreach my $subset ($self->subsets) {
+    foreach my $subset (@{$self->subsets}) {
 	$report.=sprintf "    %s\n", $subset->report;
     }
     $report;

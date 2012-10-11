@@ -22,9 +22,27 @@ has 'path_raw_data' => (is=>'rw', isa=>'Str');
 has 'exp_data'      => (is=>'ro', isa=>'HashRef', lazy=>1, builder=>'_build_exp_data');
 
 has 'series_ids'    => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
+has 'series'        => (is=>'ro', isa=>'ArrayRef[GEO::Series]', lazy=>1, builder=>'_build_series');
 has 'dataset_ids'   => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
+has 'datasets'      => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builder=>'_build_datasets');
 has 'subset_ids'    => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
+has 'subsets'       => (is=>'ro', isa=>'ArrayRef[GEO::DatasetSubset]', lazy=>1, builder=>'_build_subsets');
 
+
+sub _build_series {
+    my ($self)=@_;
+    [map { GEO->factory($_) } @{$self->series_ids}];
+}
+
+sub _build_datasets {
+    my ($self)=@_;
+    [map { GEO->factory($_) } @{$self->dataset_ids}];
+}
+
+sub _build_subsets {
+    my ($self)=@_;
+    [map { GEO->factory($_) } @{$self->subset_ids}];
+}
 
 
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'gsm' );
@@ -34,20 +52,6 @@ class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title d
 extends 'GEO';
 
 
-# series accessor
-# fetches series from db if haven't already done so
-# returns an array[ref] of series objects, or undef if none
-has '_series'         => (is=>'rw', isa=>'GEO::Series');
-sub series {
-    my ($self)=@_;
-    return $self->_series if $self->_series;
-    my $geo_id=$self->geo_id;
-    my $series_ids=$self->series_ids or return undef;
-    confess "$geo_id: '$series_ids': should be an arrayref" unless ref $series_ids eq 'ARRAY';
-    my @series=map {GEO::Series->new($_)} @$series_ids;
-    $self->_series(\@series);
-    wantarray? @series:\@series;
-}
 
 
 

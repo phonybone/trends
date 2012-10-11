@@ -12,6 +12,7 @@ use JSON;
 use Data::Structure::Util qw(unbless);
 use PhonyBone::FileUtilities qw(warnf spitString);
 use URI::Escape;
+use Test::WWW::Mechanize::Catalyst;
 
 before qr/^test_/ => sub { shift->setup };
 
@@ -62,6 +63,15 @@ sub test_post : Testcase {
     my $new_series=GEO->factory($geo_id);
     warnf "new series is %s", Dumper($new_series);
     cmp_ok($new_series->{title}, 'eq', $new_title);
+}
+
+sub test_404 : Testcase {
+    my ($self)=@_;
+    my $geo_id='G81';		# malformed
+    my $request=GET "/geo/$geo_id", 'Content-type' => 'application/json';
+    my $response=request $request;
+    isa_ok($response, 'HTTP::Response');
+    cmp_ok($response->code, '==', 404, "got 404 on $geo_id");
 }
 
 # sub test_delete : Testcase {

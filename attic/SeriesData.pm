@@ -17,20 +17,16 @@ use PhonyBone::FileUtilities qw(warnf dief);
 has 'dataset_id'      => (is=>'rw', isa=>'Str');
 has 'title'           => (is=>'rw', isa=>'Str');
 has 'description'     => (is=>'rw');
-has '_series'         => (is=>'rw', isa=>'GEO::Series');
+has 'series'         => (is=>'rw', isa=>'GEO::Series', lazy=>1, builder=>'_build_series');
 has 'phenotype'       => (is=>'rw', isa=>'Str');
 
 
 
 # series accessor
 # fetches series from db if haven't already done so
-sub series {
+sub _build_series {
     my ($self)=@_;
-    return $self->_series if $self->_series;
     my $series=GEO::Series->new($self->dataset_id); # calls get_mongo_record, populates object
-    warnf "SeriesData::Series(%s): series is %s", $self->geo_id, Dumper($series);
-    $self->_series($series);
-    $series;
 }
 
 

@@ -2,6 +2,7 @@ package trendweb::Controller::Root;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
+use Carp;
 
 BEGIN { extends 'Catalyst::Controller' }
 
@@ -10,6 +11,35 @@ BEGIN { extends 'Catalyst::Controller' }
 # so they function identically to actions created in MyApp.pm
 #
 __PACKAGE__->config(namespace => '');
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+
+    # Hello World
+    $c->response->body( $c->welcome_message );
+}
+
+
+sub default :Path {
+    my ( $self, $c ) = @_;
+    
+    $c->response->body( 'Page not found' . '<pre> req path=' . $c->req->path . '</pre>');
+    $c->response->status(404);
+}
+
+sub end : ActionClass('RenderView') {
+    my ($self, $c)=@_;
+#    confess "We're not supposed to get here";
+#    $c->res->body("<pre>\n" . Dumper($c->stash->{matches}) . "</pre>");
+}
+
+
+__PACKAGE__->meta->make_immutable;
+
+1;
+
+
+__END__
 
 =head1 NAME
 
@@ -27,37 +57,6 @@ The root page (/)
 
 =cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    # Hello World
-    $c->response->body( $c->welcome_message );
-}
-
-
-=head2 default
-
-Standard 404 error page
-
-=cut
-
-sub default :Path {
-    my ( $self, $c ) = @_;
-    
-    $c->response->body( 'Page not found' . '<pre> req path=' . $c->req->path . '</pre>');
-    $c->response->status(404);
-}
-
-=head2 end
-
-Attempt to render a view, if needed.
-
-=cut
-
-sub end : ActionClass('RenderView') {
-    my ($self, $c)=@_;
-#    $c->res->body("<pre>\n" . Dumper($c->stash->{matches}) . "</pre>");
-}
 
 =head1 AUTHOR
 
@@ -69,7 +68,3 @@ This library is free software. You can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =cut
-
-__PACKAGE__->meta->make_immutable;
-
-1;
