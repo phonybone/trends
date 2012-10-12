@@ -1,6 +1,10 @@
 <!-- This is the dataset view -->
+<script>
+document.geo_id='[% geo.geo_id %]';
+document.form_id='ds_editor_form';
+</script>
 
-<form>
+<form id='ds_editor_form'>
 <div>
 <label for='loader'>Load GEO object:</label>
 <input type='text' id='loader_tb' size='12' placeholder='fart' />
@@ -8,6 +12,7 @@
 <!-- onchange='document.editor.load_geo(this.value)' -->
 </div>
 
+</form><form>
 <table border='1'>
 <tr>
   <td><label for='geo_title'>Title</label></td>
@@ -30,6 +35,7 @@
 [% END %]
 
 </table>
+<button id='save_button'>Save</button>
 
 <div id='samples'>
 <table border='1'>

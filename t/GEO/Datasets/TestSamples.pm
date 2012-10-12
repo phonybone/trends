@@ -49,6 +49,10 @@ sub test_samples : Testcase {
 		     GSM132639
 		  )];
     ok(in_list($sample_ids, $_), "found $_") for @$expected;
+
+    # verify $ds->{samples} is defined, ArrayRef of GEO::Sample:
+    cmp_ok(ref $ds->{samples}, 'eq', 'ARRAY');
+    cmp_ok(ref $ds->{samples}->[0], 'eq', 'GEO::Sample', 'got $ds->{samples}');
 }
 
 

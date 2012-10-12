@@ -5,13 +5,15 @@ use warnings;
 use Carp;
 use Data::Dumper;
 use Options;
-use TestSamples;
 
 use Test::More qw(no_plan);
 
 use FindBin qw($Bin);
 use Cwd 'abs_path';
 use lib abs_path("$Bin/../../../lib");
+use lib "$Bin";
+use TestSamples;
+
 our $class='GEO::Dataset';
 
 BEGIN: {

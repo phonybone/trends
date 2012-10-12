@@ -16,7 +16,7 @@ use PhonyBone::FileIterator;
 
 has 'title'           => (is=>'rw', isa=>'Str');
 has 'description'     => (is=>'rw'); # comes from Dataset .soft files (table headings)
-has 'phenotype'       => (is=>'rw', isa=>'Str');
+has 'phenotypes'       => (is=>'rw', isa=>'ArrayRef[Str]', default=>sub{[]});
 has 'path_raw_data' => (is=>'rw', isa=>'Str');
 
 has 'exp_data'      => (is=>'ro', isa=>'HashRef', lazy=>1, builder=>'_build_exp_data');
@@ -109,7 +109,7 @@ sub report {
     my @lines;
 
     push @lines, sprintf("%10s (%s): %s, %s", $self->geo_id, ref $self, ($self->title || '<no title>'), ($self->description || '<no description>'));
-    push @lines, sprintf("            phenotype: %s", $self->phenotype) if $self->phenotype;
+    push @lines, sprintf("            phenotypes: %s", join(', ',@{$self->phenotypes})) if $self->phenotypes;
 
     foreach my $pair (['series', $self->series_ids], 
 		      ['datasets', $self->dataset_ids],

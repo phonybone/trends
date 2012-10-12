@@ -5,6 +5,7 @@ use namespace::autoclean;
 use Data::Structure::Util qw(unbless);
 use lib '/mnt/price1/vcassen/trends/lib';
 use GEO;			# shouldn't we, like, be getting the model from the stash or something?
+use JSON;
 
 use Data::Dumper;
 
@@ -39,6 +40,8 @@ sub geo_GET {
     my $geo=$c->stash->{geo};
     delete $geo->{_id};
     $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
+    $geo->samples;		# trigger lazy methods
+    $geo->subsets;
     $c->stash->{rest}=unbless($geo);
 
     # we don't set $c->stash->{entity} and $c->forward('View::JSON')
@@ -80,8 +83,10 @@ sub geo_POST {
 sub view : Chained('base') PathPart('view') Args(0) {
     my ($self,$c)=@_;
     my $geo=$c->stash->{geo};
+
     my $class=lc GEO->class_of($geo);
     $class=~s/.*:://;
+
     $c->stash(template=>"$class/view.tt", entity=>$geo, $class=>$geo);
     $c->title($geo->geo_id);
     $c->add_js_script('/jquery-1.7.1.js');
