@@ -1,0 +1,182 @@
+2012/10/15 12:10:26 [error] 6177#0: *1 open() "/mnt/price1/vcassen/trends/root/js/js/sandbox.js" failed (13: Permission denied), client: 127.0.0.1, server: localhost, request: "GET /js/sandbox.js HTTP/1.1", host: "localhost"
+2012/10/15 12:11:15 [error] 6177#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /fred.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 12:14:01 [error] 6381#0: *1 open() "/mnt/price1/vcassen/trends/root/static/static/fred.html" failed (13: Permission denied), client: 127.0.0.1, server: localhost, request: "GET /static/fred.html HTTP/1.1", host: "localhost"
+2012/10/15 12:42:36 [error] 6693#0: *1 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/static/fred.html" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/fred.html HTTP/1.1", host: "localhost"
+2012/10/15 12:42:58 [error] 6693#0: *1 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/static/fred.html" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/fred.html HTTP/1.1", host: "localhost"
+2012/10/15 12:43:42 [error] 6733#0: *1 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/fred.html" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/fred.html HTTP/1.1", host: "localhost"
+2012/10/15 12:44:39 [error] 6733#0: *1 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/json_helpers.js" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/json_helpers.js HTTP/1.1", host: "localhost", referrer: "http://localhost/static/fred.htm"
+2012/10/15 12:44:39 [error] 6733#0: *1 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/jquery-1.7.1.js" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/jquery-1.7.1.js HTTP/1.1", host: "localhost", referrer: "http://localhost/static/fred.htm"
+2012/10/15 12:45:10 [error] 6733#0: *1 "/home/ISB/vcassen/l/trends/trendweb/root/js/js/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /js/ HTTP/1.1", host: "localhost"
+2012/10/15 12:46:18 [error] 6733#0: *2 open() "/home/ISB/vcassen/l/trends/trendweb/root/js/js/sandbox.js" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /js/sandbox.js HTTP/1.1", host: "localhost"
+2012/10/15 12:49:18 [error] 6793#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /gei HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 12:49:24 [error] 6793#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /geo HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 12:51:27 [error] 6793#0: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /geo HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 12:53:46 [error] 6793#0: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 12:54:44 [error] 6793#0: *7 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/json_helpers.js" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/json_helpers.js HTTP/1.1", host: "localhost", referrer: "http://localhost/static/fred.htm"
+2012/10/15 12:54:44 [error] 6793#0: *7 open() "/home/ISB/vcassen/l/trends/trendweb/root/static/jquery-1.7.1.js" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /static/jquery-1.7.1.js HTTP/1.1", host: "localhost", referrer: "http://localhost/static/fred.htm"
+2012/10/15 12:56:59 [error] 6793#0: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:24 [error] 6793#0: *11 FastCGI sent in stderr: "[info] *** Request 1 (0.077/s) [7822] [Mon Oct 15 13:00:24 2012] ***
+[debug] Path is "/geo/geo"
+[debug] "GET" request for "geo/GDS2321" from "127.0.0.1"
+[debug] geo_GET: want to encode GDS2321
+[debug] Serializing with Catalyst::Action::Serialize::YAML::HTML
+[debug] Response Code: 200; Content-Type: text/html; Content-Length: 28684
+[info] Request took 0.194295s (5.147/s)
+.------------------------------------------------------------+-----------.
+| Action" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:24 [error] 6793#0: *11 FastCGI sent in stderr: "     | Time      |
++------------------------------------------------------------+-----------+
+| /geo/begin                                                 | 0.000312s |
+| /geo/base                                                  | 0.137230s |
+| /geo/geo                                                   | 0.000147s |
+| /geo_GET                                                   | 0.021245s |
+| /geo/end                                                   | 0.028347s |
+'----------------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:24 [error] 6793#0: *11 FastCGI sent in stderr: "--------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:30 [error] 6793#0: *11 FastCGI sent in stderr: "[info] *** Request 1 (0.053/s) [7823] [Mon Oct 15 13:00:30 2012] ***
+[debug] Path is "/geo/view"
+[debug] "GET" request for "geo/GDS2321/view" from "127.0.0.1"
+[debug] Rendering template "dataset/view.tt"
+[debug] Response Code: 200; Content-Type: text/html; charset=utf-8; Content-Length: 6049
+[info] Request took 0.227954s (4.387/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++--------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:30 [error] 6793#0: *11 FastCGI sent in stderr: "----------------------------------------+-----------+
+| /geo/begin                                                 | 0.000371s |
+| /geo/base                                                  | 0.136723s |
+| /geo/view                                                  | 0.083499s |
+|  -> trendweb::View::HTML->process                          | 0.068063s |
+| /geo/end                                                   | 0.000164s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:30 [error] 6793#0: *11 FastCGI sent in stderr: "
+" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost"
+2012/10/15 13:00:30 [error] 6793#0: *11 FastCGI sent in stderr: "[info] *** Request 1 (0.053/s) [7824] [Mon Oct 15 13:00:30 2012] ***
+[debug] Path is "/"
+[debug] Arguments are "dataset_editor.css"
+[debug] "GET" request for "dataset_editor.css" from "127.0.0.1"
+[debug] Response Code: 404; Content-Type: text/html; charset=utf-8; Content-Length: 53
+[info] Request took 0.015274s (65.471/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++-----------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:30 [error] 6793#0: *11 FastCGI sent in stderr: "-------------------------------+-----------+
+| /default                                                   | 0.000249s |
+| /end                                                       | 0.000372s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:31 [error] 6793#0: *17 FastCGI sent in stderr: "[info] *** Request 1 (0.050/s) [7826] [Mon Oct 15 13:00:31 2012] ***
+[debug] Path is "/geo/geo"
+[debug] "GET" request for "geo/GDS2321" from "127.0.0.1"
+[debug] geo_GET: want to encode GDS2321
+[debug] Serializing with Catalyst::Action::Serialize::JSON
+[debug] Response Code: 200; Content-Type: application/json; Content-Length: 25412
+[info] Request took 0.175397s (5.701/s)
+.------------------------------------------------------------+-----------.
+| Action" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:31 [error] 6793#0: *17 FastCGI sent in stderr: "      | Time      |
++------------------------------------------------------------+-----------+
+| /geo/begin                                                 | 0.000498s |
+| /geo/base                                                  | 0.134341s |
+| /geo/geo                                                   | 0.000136s |
+| /geo_GET                                                   | 0.021343s |
+| /geo/end                                                   | 0.011644s |
+'---------------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:31 [error] 6793#0: *17 FastCGI sent in stderr: "---------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2321 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "[info] *** Request 2 (0.047/s) [7822] [Mon Oct 15 13:00:54 2012] ***
+[debug] Path is "/geo/view"
+[debug] "GET" request for "geo/GDS2381/view" from "127.0.0.1"
+[debug] Rendering template "dataset/view.tt"
+[debug] Response Code: 200; Content-Type: text/html; charset=utf-8; Content-Length: 14146
+[info] Request took 0.122448s (8.167/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++-------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "-----------------------------------------+-----------+
+| /geo/begin                                                 | 0.000198s |
+| /geo/base                                                  | 0.001167s |
+| /geo/view                                                  | 0.116614s |
+|  -> trendweb::View::HTML->process                          | 0.101954s |
+| /geo/end                                                   | 0.000194s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "
+" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:54 [error] 6793#0: *15 FastCGI sent in stderr: "[info] *** Request 2 (0.047/s) [7823] [Mon Oct 15 13:00:54 2012] ***
+[debug] Path is "/"
+[debug] Arguments are "dataset_editor.css"
+[debug] "GET" request for "dataset_editor.css" from "127.0.0.1"
+[debug] Response Code: 404; Content-Type: text/html; charset=utf-8; Content-Length: 53
+[info] Request took 0.006186s (161.655/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++----------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:54 [error] 6793#0: *15 FastCGI sent in stderr: "--------------------------------+-----------+
+| /default                                                   | 0.000149s |
+| /end                                                       | 0.000357s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "[info] *** Request 2 (0.047/s) [7825] [Mon Oct 15 13:00:54 2012] ***
+[debug] Path is "/geo/geo"
+[debug] "GET" request for "geo/GDS2381" from "127.0.0.1"
+[debug] geo_GET: want to encode GDS2381
+[debug] Serializing with Catalyst::Action::Serialize::JSON
+[debug] Response Code: 200; Content-Type: application/json; Content-Length: 46702
+[info] Request took 0.187601s (5.330/s)
+.------------------------------------------------------------+-----------.
+| Action" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "      | Time      |
++------------------------------------------------------------+-----------+
+| /geo/begin                                                 | 0.000290s |
+| /geo/base                                                  | 0.138732s |
+| /geo/geo                                                   | 0.000137s |
+| /geo_GET                                                   | 0.031675s |
+| /geo/end                                                   | 0.011764s |
+'---------------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:54 [error] 6793#0: *11 FastCGI sent in stderr: "---------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:55 [error] 6793#0: *15 FastCGI sent in stderr: "[info] *** Request 2 (0.045/s) [7826] [Mon Oct 15 13:00:55 2012] ***
+[debug] Path is "/geo/view"
+[debug] "GET" request for "geo/GDS2381/view" from "127.0.0.1"
+[debug] Rendering template "dataset/view.tt"
+[debug] Response Code: 200; Content-Type: text/html; charset=utf-8; Content-Length: 14146
+[info] Request took 0.127083s (7.869/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++-------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:55 [error] 6793#0: *15 FastCGI sent in stderr: "-----------------------------------------+-----------+
+| /geo/begin                                                 | 0.000147s |
+| /geo/base                                                  | 0.001207s |
+| /geo/view                                                  | 0.121609s |
+|  -> trendweb::View::HTML->process                          | 0.100237s |
+| /geo/end                                                   | 0.000160s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:55 [error] 6793#0: *15 FastCGI sent in stderr: "
+" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381/view HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2321/view"
+2012/10/15 13:00:55 [error] 6793#0: *17 FastCGI sent in stderr: "[info] *** Request 3 (0.068/s) [7822] [Mon Oct 15 13:00:55 2012] ***
+[debug] Path is "/"
+[debug] Arguments are "dataset_editor.css"
+[debug] "GET" request for "dataset_editor.css" from "127.0.0.1"
+[debug] Response Code: 404; Content-Type: text/html; charset=utf-8; Content-Length: 53
+[info] Request took 0.003611s (276.932/s)
+.------------------------------------------------------------+-----------.
+| Action                                                     | Time      |
++----------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:55 [error] 6793#0: *17 FastCGI sent in stderr: "--------------------------------+-----------+
+| /default                                                   | 0.000151s |
+| /end                                                       | 0.000284s |
+'------------------------------------------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /dataset_editor.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:56 [error] 6793#0: *15 FastCGI sent in stderr: "[info] *** Request 3 (0.068/s) [7824] [Mon Oct 15 13:00:55 2012] ***
+[debug] Path is "/geo/geo"
+[debug] "GET" request for "geo/GDS2381" from "127.0.0.1"
+[debug] geo_GET: want to encode GDS2381
+[debug] Serializing with Catalyst::Action::Serialize::JSON
+[debug] Response Code: 200; Content-Type: application/json; Content-Length: 46702
+[info] Request took 0.184114s (5.431/s)
+.------------------------------------------------------------+-----------.
+| Action" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:56 [error] 6793#0: *15 FastCGI sent in stderr: "      | Time      |
++------------------------------------------------------------+-----------+
+| /geo/begin                                                 | 0.000228s |
+| /geo/base                                                  | 0.140386s |
+| /geo/geo                                                   | 0.000135s |
+| /geo_GET                                                   | 0.026855s |
+| /geo/end                                                   | 0.012007s |
+'---------------------------------" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
+2012/10/15 13:00:56 [error] 6793#0: *15 FastCGI sent in stderr: "---------------------------+-----------'" while reading upstream, client: 127.0.0.1, server: localhost, request: "GET /geo/GDS2381 HTTP/1.1", upstream: "fastcgi://127.0.0.1:8999", host: "localhost", referrer: "http://localhost/geo/GDS2381/view"
