@@ -1,3 +1,10 @@
+16Oct:
+- deploy trendweb on umatilla, buffy, aws
+- implement bulk updates via ajax; or many concurrent ajax calls
+- implement search
+- implement user-defined phenos on ds edit page
+- css trendweb
+
 28Dec:
 merge raw_samples, ds_samples into 'samples' table
 - combine records, report on any conflicts (status?)

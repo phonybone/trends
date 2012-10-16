@@ -24,7 +24,7 @@ use TestGeoController;
 sub main {
     my @args=@_;
     GEO->db_name('geo_test');
-    warnf "using %s", GEO->mongo_coords;
+    warnf "GEO: using %s:%s", GEO->host, GEO->db_name;
     my $tc=TestGeoController->new($class);
     $tc->run_all_tests;
     done_testing();

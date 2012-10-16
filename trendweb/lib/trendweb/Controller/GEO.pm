@@ -39,9 +39,9 @@ sub geo_GET {
     my ($self, $c)=@_;
     my $geo=$c->stash->{geo};
     delete $geo->{_id};
-    $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
-    $geo->samples;		# trigger lazy methods
-    $geo->subsets;
+#    $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
+    $geo->samples if $geo->can('samples');		# trigger lazy methods
+    $geo->subsets if $geo->can('subsets');
     $c->stash->{rest}=unbless($geo);
 
     # we don't set $c->stash->{entity} and $c->forward('View::JSON')
@@ -94,6 +94,39 @@ sub view : Chained('base') PathPart('view') Args(0) {
     $c->add_js_script("/js/${class}_editor.js"); # fixme: not defined for $class != 'dataset'
     $c->forward('View::HTML');
 }
+
+########################################################################
+# Named paths
+########################################################################
+
+sub bulk : Path('bulk') ActionClass('REST') {}
+sub bulk_POST {
+    my ($self, $c)=@_;
+    $c->log->debug('bulk_POST called');
+    my $geo_data=$c->req->data or
+	return $self->status_bad_request($c, message=>"No data supplied");
+#    $c->log->debug("geo_data is ", Dumper($geo_data));
+    return $self->status_bad_request($c, message=>"Bad data: not a list of records") 
+	unless ref $geo_data eq 'ARRAY';
+
+    my @errors;
+    foreach my $record (@$geo_data) {
+	eval {
+	    my $geo_id=$record->{geo_id} or die "no geo_id";
+	    my $geo=GEO->factory($geo_id); # get the old record, or a blank if new: don't use GEO->from_data, because then we'll *always* get a new record
+	    delete $record->{_id}; # shouldn't be there anyway
+	    $geo->hash_assign(%$record);
+	    $geo->save;
+	};
+	push @errors, $@ if $@;
+    }
+    if (@errors) {
+	return $self->status_bad_request($c, message=>join("\n", @errors));
+    } else {
+	return $self->status_ok($c, entity=>$geo_data);
+    }
+}
+
 
 __PACKAGE__->meta->make_immutable;
 

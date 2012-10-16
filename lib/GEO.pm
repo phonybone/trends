@@ -150,6 +150,24 @@ sub factory {
     $geo;
 }
 
+sub from_record {
+    my $class=shift;
+    my %record;
+    if (scalar @_ == 1) {
+	%record=ref $_[0] eq 'ARRAY'? @{$_[0]} : %{$_[0]};
+    } else {
+	%record = @_;
+    }
+
+    my $geo_id=$record{geo_id} or die "no geo_id";
+    $class=$class->class_of($geo_id) or die "$geo_id: unknown class";
+    $record{_id}=new MongoDB::OID(1);
+    # fools BUILD into not going to db
+    my $geo=$class->new(%record);
+    delete $geo->{_id};
+    $geo;
+}
+
 
 ########################################################################
 

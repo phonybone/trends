@@ -86,15 +86,36 @@ DatasetEditor.prototype={
   save_phenos : function(event) {
     event.preventDefault();
     var ed=document.editor;
+
+    // Iterate over pheno checkboxes, update sample if cb is checked
+    // or remove pheno if cb isn't checked
     $("input:checkbox.gsm_pheno").each(function() {
-      if (!this.checked) return;
       var pheno=this.value;
       var geo_id=this.name;			  // this==checkbox
       var sample=ed.get_cached_gsm(geo_id);
-      console.log('saving '+geo_id+': '+pheno);
       if (sample.phenos==null) sample.phenos=new Array();
-      sample.phenos.push(pheno);
+
+      // add or remove pheno as necessary:
+      var idx=sample.phenos.indexOf(pheno);
+      if (this.checked && idx==-1) {
+        sample.phenos.push(pheno);
+      } else if (!this.checked && idx != -1) {
+        sample.phenos.splice(idx,1);
+      }
     });
+
+    // ajax call to geo/bulk:
+    var uri='/geo/bulk';
+    var settings={
+      type: 'POST',
+      accepts: 'application/json',
+      contentType: 'application/json',
+      data: ed.cache.samples,
+      error: function(jqXHR, msg, excp) { alert('error status: '+jqXHR.status); },
+      success: function(data, status, jqXHR) { },
+    };
+    $.ajax(uri,settings);
+
   },
 }
 
