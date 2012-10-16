@@ -1,6 +1,7 @@
 16Oct:
 - deploy trendweb on umatilla, buffy, aws
 - implement bulk updates via ajax; or many concurrent ajax calls
+- - write geo.js; implement report() for sample, dataset, etc
 - implement search
 - implement user-defined phenos on ds edit page
 - css trendweb

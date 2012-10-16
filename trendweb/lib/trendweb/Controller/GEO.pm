@@ -102,10 +102,8 @@ sub view : Chained('base') PathPart('view') Args(0) {
 sub bulk : Path('bulk') ActionClass('REST') {}
 sub bulk_POST {
     my ($self, $c)=@_;
-    $c->log->debug('bulk_POST called');
     my $geo_data=$c->req->data or
 	return $self->status_bad_request($c, message=>"No data supplied");
-#    $c->log->debug("geo_data is ", Dumper($geo_data));
     return $self->status_bad_request($c, message=>"Bad data: not a list of records") 
 	unless ref $geo_data eq 'ARRAY';
 

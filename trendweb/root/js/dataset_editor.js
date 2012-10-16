@@ -93,15 +93,18 @@ DatasetEditor.prototype={
       var pheno=this.value;
       var geo_id=this.name;			  // this==checkbox
       var sample=ed.get_cached_gsm(geo_id);
-      if (sample.phenos==null) sample.phenos=new Array();
+      if (sample.phenotypes==null) sample.phenotypes=new Array();
 
       // add or remove pheno as necessary:
-      var idx=sample.phenos.indexOf(pheno);
+      var idx=sample.phenotypes.indexOf(pheno);
       if (this.checked && idx==-1) {
-        sample.phenos.push(pheno);
+        sample.phenotypes.push(pheno);
       } else if (!this.checked && idx != -1) {
-        sample.phenos.splice(idx,1);
+        sample.phenotypes.splice(idx,1);
       }
+
+      // put back in cache:
+      ed.cache.samples[geo_id]=sample;
     });
 
     // ajax call to geo/bulk:
@@ -110,7 +113,7 @@ DatasetEditor.prototype={
       type: 'POST',
       accepts: 'application/json',
       contentType: 'application/json',
-      data: ed.cache.samples,
+      data: JSON.stringify(ed.cache.samples),
       error: function(jqXHR, msg, excp) { alert('error status: '+jqXHR.status); },
       success: function(data, status, jqXHR) { },
     };
