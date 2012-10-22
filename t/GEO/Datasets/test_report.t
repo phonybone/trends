@@ -11,8 +11,9 @@ use Test::More qw(no_plan);
 use FindBin qw($Bin);
 use Cwd 'abs_path';
 use lib abs_path("$Bin/../../../lib");
+use lib abs_path("$Bin");
 our $class='GEO::Dataset';
-use TestReport;		# derived from PhonyBone::TestCase
+use TestReport;		# derived from TestGEO
 
 BEGIN: {
   Options::use(qw(d q v h fuse=i));

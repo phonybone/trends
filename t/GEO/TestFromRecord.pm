@@ -2,8 +2,8 @@ package TestFromRecord;
 use namespace::autoclean;
 
 use Moose;
-extends 'PhonyBone::TestCase';
-use parent qw(PhonyBone::TestCase); # for method attrs, sigh...
+extends 'TestGEO';
+use parent qw(TestGEO); # for method attrs, sigh...
 use Test::More;
 use Data::Structure::Util qw(unbless);
 use Data::Dumper;

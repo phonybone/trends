@@ -11,7 +11,7 @@ use FindBin;
 use Cwd qw(abs_path);
 use File::Spec;
 
-use lib abs_path("$FindBin::Bin/../../../lib");
+use lib abs_path("$FindBin::Bin/../../lib");
 
 our $class='ParseSoft';
 our $trends_dir=abs_path("$FindBin::Bin/../../.."); # can't use this in 'use lib' because it's not set until runtime

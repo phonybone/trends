@@ -131,8 +131,14 @@ $(document).ready(function() {
   $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
   $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
   $("#save_button").on('click', function(event) {editor.save_phenos(event)});
+
+  $("#search_tb").on('change', function(event) {editor.search(event)});
+  $("#search_button").on('click', function(event) {editor.search(event)});
+
+  // Set the value of the loader_tb if possible:
   if (document.geo_id != null) {
     $("#loader_tb").value=document.geo_id;
     editor.load_geo(document.geo_id);
   }
+
 });

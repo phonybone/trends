@@ -26,6 +26,8 @@ BEGIN: {
 
 sub main {
     require_ok($class);
+    warn "$0: obsolete test\n";
+    exit 0;
 #    test_raw_sample();
 #    test_dataset();
 #    test_sample();

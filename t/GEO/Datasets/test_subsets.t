@@ -8,7 +8,7 @@ use Options;
 use Test::More qw(no_plan);
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin/../../../lib";
 
 our $class='GEO::Dataset';
 use GEO::DatasetSubset;
@@ -52,12 +52,14 @@ sub test_subsets {
 
 sub test_samples {		# aka SeriesData
     my ($ds)=@_;
-    my @subsets=$ds->subsets;
+    my $subsets=$ds->subsets;
     
-    foreach my $ss (@subsets) {
-	my @samples=$ss->samples;
-	foreach my $s (@samples) {
-	    is ($s->dataset_id, $ds->geo_id);
+    foreach my $ss (@$subsets) {
+	my $samples=$ss->samples;
+	foreach my $s (@$samples) {
+	    foreach my $ds_id (@{$s->dataset_ids}) {
+		is ($ds_id, $ds->geo_id);
+	    }
 	}
     }
 }

@@ -13,7 +13,7 @@ use lib abs_path("$Bin/../../lib");
 use lib abs_path("$Bin");
 
 use Options;			
-use TestFromRecord;		# derived from PhonyBone::TestCase
+use TestFromRecord;		# derived from TestGEO
 use GEO::Sample;
 
 our $class='GEO';

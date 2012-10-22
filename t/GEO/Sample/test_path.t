@@ -12,7 +12,7 @@ use Options;
 use Test::More qw(no_plan);
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin/../../../lib";
 use GEO;
 
 our $class='GEO::Sample';

@@ -2,8 +2,8 @@ package TestGeoIdSorting;
 use namespace::autoclean;
 
 use Moose;
-extends 'PhonyBone::TestCase';
-use parent qw(PhonyBone::TestCase);
+extends 'TestGEO';
+use parent qw(TestGEO);
 use Test::More;
 use GEO;
 

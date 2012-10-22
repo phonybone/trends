@@ -9,7 +9,7 @@ use PhonyBone::FileUtilities qw(warnf dief);
 use Test::More qw(no_plan);
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin/../../../lib";
 
 our $class='GEO';
 use GEO::Series;
@@ -29,6 +29,7 @@ sub main {
     
     my $geo_id='GSE14777';
     my $series=GEO::Series->new(geo_id=>$geo_id);
+    warn "series is ", $series->report;
 
     test_samples($series);
     test_sample_ids($series);
@@ -39,6 +40,7 @@ sub test_sample_ids {
 
     # check for presence of all samples, both ways:
     my @samples=sort qw(GSM368874  GSM368875  GSM368876  GSM368891  GSM368893);
+    warn Dumper($series->sample_ids);
     foreach my $s (@samples) {
 	ok((grep /^$s$/, @{$series->sample_ids}), "got expected sample $s");
     }

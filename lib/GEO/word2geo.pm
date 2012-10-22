@@ -13,7 +13,7 @@ class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { [ {
     keys=>[qw(geo_id word)], opts=>{unique=>1},
 								    } ] } );
 with 'Mongoid';
-
+use GEO;
 
 # compare geo_id and word fields for equality:
 sub equals {
@@ -24,6 +24,11 @@ sub equals {
 sub as_string {
     my ($self)=@_;
     sprintf("%s:%s", $self->{word}, $self->{geo_id});
+}
+
+# class method
+sub insert_geo {
+    my ($class, $geo)=@_;
 }
 
 # class method:

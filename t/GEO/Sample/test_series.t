@@ -6,9 +6,10 @@ use Carp;
 use Data::Dumper;
 use Options;
 use Test::More qw(no_plan);
+use PhonyBone::ListUtilities qw(in_list);
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin/../../../lib";
 use GEO;
 
 our $class='GEO::Sample';
@@ -26,24 +27,17 @@ BEGIN: {
 sub main {
     require_ok($class);
     my $gsm=GEO::Sample->new('GSM29804');
-    warn "test_series: gsm is ",Dumper($gsm);
+#    warn "test_series: gsm is ",Dumper($gsm);
     isa_ok($gsm, 'GEO::Sample');
     is($gsm->geo_id, 'GSM29804', 'got gsm->geo_id');
-    is($gsm->dataset_id, 'GDS968', 'got gsm->dataset_id');
-
-    my $series=$gsm->series;
-    warn "test_series: series is ", Dumper($series);
-    isa_ok($series, 'GEO::Series');
-    is ($series->geo_id, 'GDS968');
-    is ($series->title, 'DNA damage from ultraviolet and ionizing radiation effect on peripheral blood lymphocytes');
-    is ($series->pubmed_id, 15356296);
-
-    exit 1;
+    ok(in_list($gsm->dataset_ids, 'GDS968'), 'got gsm->dataset_ids');
+    my $ds=GEO->factory('GDS968');
+    is ($ds->pubmed_id, 15096622);
     
-    my $series2=GEO->factory($gsm->dataset_id);
-    warn "series2 is ",Dumper($series2);
-
-    is_deeply($series, $series2, "series are deeply the same");
+    my $series=$gsm->series->[0];
+#    warn "test_series: series is ", Dumper($series);
+    isa_ok($series, 'GEO::Series');
+    is ($series->geo_id, 'GSE1977');
 }
 
 main(@ARGV);

@@ -8,7 +8,7 @@ use Options;
 use Test::More qw(no_plan);
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin/../../../lib";
 use GEO;
 
 our $class='GEO::Sample';
@@ -28,7 +28,7 @@ sub main {
     my $geo_id='GSM177212';	# this is one of Shuyi's
     my $series=$class->new($geo_id);
 
-    is ($series->phenotype, 'asthma', "$geo_id: pheno is ".$series->phenotype);
+    is_deeply ($series->phenotypes, ['asthma'], "$geo_id: pheno is ".join(', ',@{$series->phenotypes}));
     
     ok (-e $series->table_data_file, $series->table_data_file." exists");
     ok (-r $series->table_data_file, $series->table_data_file." readable");

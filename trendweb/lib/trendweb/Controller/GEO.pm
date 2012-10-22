@@ -126,6 +126,22 @@ sub bulk_POST {
 }
 
 
+# We may want to move this to a different controller...
+sub search : Path('search') ActionClass('REST')  {}
+sub search_POST {
+    my ($self, $c)=@_;
+    $c->log->debug(sprintf "Arrived at search: args are <pre>%s</pre>", Dumper($c->req->params));
+    my $search_term=$c->req->params->{search_term} or
+	return $self->status_bad_request($c, message=>'missing search term');
+    my $search=$c->model('Search')->new($search_term);
+
+    my $results=$search->results; # format? should be a structure containing all relevelent info
+
+
+
+    return $self->status_ok($c, entity=>\$results);
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;

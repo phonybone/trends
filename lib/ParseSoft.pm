@@ -4,7 +4,9 @@ use PhonyBone::FileUtilities qw(warnf);
 use FileHandle;
 
 # A package to parse GEO .soft files
-# Main entry point is parse().  It returns a list of records, each blessed
+# Entry points: parse(), next() (perfered).
+#
+# parse() generates a list of records, each blessed
 # into a "fake" class whose name is whatever follows the '^' character
 # in the first line of the block (eg SERIES, PLATFORM, DATABASE, SAMPLE).
 # Each record has an entry for each '!' line (ie, attributes)
@@ -14,6 +16,8 @@ use FileHandle;
 # data table, otherwise the are empty (lists).  Otherwise, the value of {header} is a list of two-element arrays,
 # corresponding to the /^#(.*) = (.*) lines of the block.  The value of {data} is a LoL (ie,
 # a 2D array) containing the data.
+#
+# next() does the same thing as parse(), but only parses and returns one record at a time.
 #
 # Records are returned in the list in the order they are found in the file. 
 #
@@ -64,6 +68,8 @@ sub parse {
 }
 
 
+# Parse records one at a time.  Use this method instead of parse to avoid
+# using ginormous chunks of memory.
 # This is going to do weird shit when blocks are revisited
 sub next {
     my ($self)=@_;

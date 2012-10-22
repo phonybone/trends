@@ -13,7 +13,7 @@ use Data::Structure::Util qw(unbless);
 use PhonyBone::FileUtilities qw(warnf spitString);
 use PhonyBone::ListUtilities qw(in_list);
 use URI::Escape;
-use Test::WWW::Mechanize::Catalyst;
+#use Test::WWW::Mechanize::Catalyst;
 
 before qr/^test_/ => sub { shift->setup };
 

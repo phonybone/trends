@@ -41,7 +41,7 @@ sub samples {
 # return the path to the series's directory:
 sub path {
     my ($self)=@_;
-    return join('/', $self->data_dir, $self->subdir, $self->geo_id);
+    File::Spec->catfile($self->data_dir, $self->subdir, $self->geo_id);
 }
 
 # This looks in the series's directory for filenames matching /GSM\d+/

@@ -1,5 +1,6 @@
 package GEO;
 use Moose;
+use namespace::autoclean;
 
 use MooseX::ClassAttribute;
 use Carp;
@@ -20,11 +21,10 @@ use GEO::Platform;
 
 has 'geo_id' => (isa=>'Str', is=>'rw', required=>1);
 
-our %mongos=();
+# fixme: might be an issue if /data is a link...
 class_has 'data_dir' => (is=>'rw', isa=>'Str', default=>"$ENV{TRENDS_HOME}/data/GEO");
 
 
-class_has 'testing' =>     (is=>'rw', isa=>'Int', default=>0);
 class_has 'ftp_link'=>     (is=>'ro', isa=>'Str', default=>'ftp.ncbi.nih.gov');
 class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO::Sample',
 								      GSE=>'GEO::Series',
@@ -108,7 +108,7 @@ sub prefix {
     confess "no prefix defined for $self";
 }
 
-# sorting method:
+# sorting method: sorts alphabetically on prefix, then by number, then subset number
 sub by_geo_id($$) {
     my $_a=shift;
     my $_b=shift;
@@ -151,7 +151,7 @@ sub factory {
 }
 
 sub from_record {
-    my $class=shift;
+    my $class=shift;		# need not be dst class; 
     my %record;
     if (scalar @_ == 1) {
 	%record=ref $_[0] eq 'ARRAY'? @{$_[0]} : %{$_[0]};
@@ -278,10 +278,15 @@ sub write_table {
 
 ########################################################################
 
+# add a geo's words of interest to the word2geo database
+# called by bin/parse_series_soft.pl
+# why isn't this used by bin/word2geo.pl???
 sub add_to_word2geo {
     my ($self)=@_;
     $self->can('word_fields') or return $self;
     my $fields=$self->word_fields;
+
+    # collect all the words:
     my @words;
     foreach my $field (@$fields) {
 	my $value=$self->{$field};
@@ -291,6 +296,7 @@ sub add_to_word2geo {
 	}
     }
 
+    # clean up words and insert:
     foreach my $word (@words) {
 	$word=lc $word;
 	$word=~s/[^\w\d_]//g;	# remove junk
@@ -355,19 +361,23 @@ sub dump {
 
 
 ########################################################################
+# These routines are use by GEO::Search
 
 # return a uri for this geo object, given a host and an optional suffix
-sub uri {
+# just wraps uri_for($geo_id)
+sub uri {			
     my ($self, $host, $suffix)=@_;
     $self->uri_for($self->geo_id, $host, $suffix);
 }
 
+# actually build the uri:
 sub uri_for {
     my ($self, $geo_id, $host, $suffix)=@_;
     my $ending=$suffix? join('.', $geo_id, $suffix) : $geo_id;
     join('/', "http://$host", 'geo', $ending);
 }
 
+# make a uri for everything where $self->{$k} looks like a geo id:
 sub urify_geo_ids {
     my ($self, $host, $suffix)=@_;
     while (my ($k,$v)=each %$self) {
@@ -381,5 +391,6 @@ sub urify_geo_ids {
 
 
 __PACKAGE__->_init();
+__PACKAGE__->meta->make_immutable;
 
 1;

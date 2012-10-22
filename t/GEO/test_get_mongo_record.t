@@ -9,7 +9,7 @@ use Test::More qw(no_plan);
 
 use FindBin qw($Bin);
 use lib "$Bin";
-use lib "$Bin/../..";
+use lib "$Bin/../../lib";
 
 our $class='GEO';
 
@@ -27,6 +27,10 @@ BEGIN: {
 sub main {
     require_ok($class);
 
+    ok(length $ENV{TRENDS_HOME} > 0, $ENV{TRENDS_HOME});
+    ok(-d $ENV{TRENDS_HOME});
+    ok(-r $ENV{TRENDS_HOME});
+
     test_object_call();
     test_class_call();
     test_cross_class();
@@ -39,10 +43,9 @@ sub main {
 sub test_object_call {
     my $rs_id='GSM643865';
     my $rs=GEO::Sample->new($rs_id);	# calls get_mongo_record from BUILD/constructor
-#    warn "rs is ", Dumper($rs);
     isa_ok($rs, 'GEO::Sample', 'got Sample');
     is ($rs->geo_id, $rs_id, "got geo_id=$rs_id");
-    is ($rs->path, '/proj/price1/vcassen/trends/data/GEO/sample_data/GSM643', "got path");
+    is ($rs->path, File::Spec->catfile(GEO->data_dir, 'sample_data', 'GSM643'), $rs->path);
 }
 
 # call get_mongo_records as a class method:

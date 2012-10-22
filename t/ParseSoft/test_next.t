@@ -11,11 +11,10 @@ use FindBin;
 use Cwd qw(abs_path);
 use File::Spec;
 
-use lib abs_path("$FindBin::Bin/../../../lib");
+use lib abs_path("$FindBin::Bin/../../lib");
 use GEO;
 
 our $class='ParseSoft';
-our $trends_dir=abs_path("$FindBin::Bin/../../.."); # can't use this in 'use lib' because it's not set until runtime
 
 BEGIN: {
   Options::use(qw(d q v h fuse=i));
@@ -31,6 +30,7 @@ sub main {
 
     my $geo_id='GSE10072';
     my $series=GEO->factory($geo_id);
+    isa_ok ($series->_id, 'MongoDB::OID') or BAIL_OUT("$geo_id not in database");
     my $soft_file=$series->soft_path;
     $soft_file=~s/\.gz$//;
     my $parser=$class->new($soft_file);
@@ -64,7 +64,7 @@ sub main {
 	$i++;
     }
 
-    is ($i-1, 109, "got 109 record");
+    is ($i-1, 109, "got 109 records");
 }
 
 main(@ARGV);

@@ -2,8 +2,8 @@ package TestSamples;
 use namespace::autoclean;
 
 use Moose;
-extends 'PhonyBone::TestCase';
-use parent qw(PhonyBone::TestCase); # for method attrs, sigh...
+extends 'TestGEO';
+use parent qw(TestGEO); # for method attrs, sigh...
 use Test::More;
 use PhonyBone::ListUtilities qw(in_list);
 use Data::Dumper;
