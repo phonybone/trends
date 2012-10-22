@@ -1,22 +1,20 @@
 #!/usr/bin/env perl 
 #-*-perl-*-
-
-# Test the functionality of the path() method
-
-
 use strict;
 use warnings;
 use Carp;
 use Data::Dumper;
-use Options;
+
 use Test::More qw(no_plan);
 
-use FindBin;
-use lib "$FindBin::Bin/../../../lib";
-use GEO;
+use FindBin qw($Bin);
+use Cwd 'abs_path';
+use lib abs_path("$Bin/../../lib");
 
-our $class='GEO::Sample';
+use Options;			
+use TestBasic;		# derived from TestGEO
 
+our $class='GEO::word2geo';
 
 BEGIN: {
   Options::use(qw(d q v h fuse=i));
@@ -28,9 +26,9 @@ BEGIN: {
 
 
 sub main {
-    require_ok($class);
-    my $gsm=GEO::Sample->new('GSM92819');
-    warn $gsm->json;
+    my $tc=new TestBasic(class=>$class);
+    $tc->test_compiles();
 }
 
 main(@ARGV);
+

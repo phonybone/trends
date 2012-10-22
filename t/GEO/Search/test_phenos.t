@@ -9,11 +9,12 @@ use PhonyBone::FileUtilities qw(warnf);
 
 use Test::More qw(no_plan);
 
-use FindBin;
+use FindBin qw($Bin);
 use Cwd 'abs_path';
-use lib abs_path("$FindBin::Bin/../../../lib");
+use lib abs_path("$Bin/../../../lib");
+use lib $Bin;
+use TestSearch;
 our $class='GEO::Search';
-
 
 
 BEGIN: {
@@ -27,34 +28,8 @@ BEGIN: {
 
 sub main {
     require_ok($class);
-    test_phenos('adenocarcinoma');
-    test_word_search('cancer');
-}
-
-sub test_phenos {
-    my ($st)=@_;
-    my $s=GEO::Search->new(search_term=>$st);
-    isa_ok($s, $class);
-
-    my $results=$s->search_phenos();
-    warnf "got %d results for %s\n", scalar keys %$results, $st;
-
-    my $geo_id=(keys %$results)[0];
-    my $record=$results->{$geo_id};
-    warn Dumper($record);
-}
-
-sub test_word_search {
-    my ($st)=@_;
-    my $s=GEO::Search->new(search_term=>$st);
-    isa_ok($s, $class);
-
-    my $results=$s->search_words();
-    warnf "got %d results for %s\n", scalar keys %$results, $st;
-
-    my $geo_id=(keys %$results)[0];
-    my $record=$results->{$geo_id};
-    warn Dumper($record);
+    my $tc=TestSearch->new(class=>$class);
+    $tc->test_search_mongo();
 }
 
 main(@ARGV);
