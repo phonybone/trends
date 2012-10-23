@@ -3,12 +3,13 @@ use Moose;
 use Data::Dumper;
 use namespace::autoclean;
 use Data::Structure::Util qw(unbless);
-#use lib '/mnt/price1/vcassen/trends/lib';
+use Data::Dumper;
+
 use GEO;			# shouldn't we, like, be getting the model from the stash or something?
 use GEO::Search;
 use JSON;
+use PhonyBone::ListUtilities qw(in_list);
 
-use Data::Dumper;
 
 BEGIN {extends 'Catalyst::Controller::REST'; }
 
@@ -134,21 +135,12 @@ sub search_POST {
     my $search_term=$c->req->params->{search_term} || $c->req->data->{search_term};
     $c->log->debug("searching for '$search_term'");
     return $self->status_bad_request($c, message=>'missing search term') unless $search_term;
-    my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>1);
 
+    my $accept_content=$c->req->{accepted_content_types};
+    my $wants_json=in_list($accept_content, 'application/json')? 1:0;
+    
+    my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>$wants_json);
     my $results=$search->results; # format? should be a structure containing all relevelent info
-#    $c->log->debug("results is ", Dumper($results));
-#    $c->log->debug(sprintf "'%s': %d results", $search_term, scalar keys %$results);
-
-    if (0) {
-	#  special case for HTML; other formats specified automatically by request header
-	my $format=$c->req->params->{format} || 'HTML';
-	if (lc $format eq 'html') {
-	    $c->stash(template=>'search.tt', results=>$results);
-	    $c->forward('View::HTML');
-	}
-    }
-
     return $self->status_ok($c, entity=>$results);
 }
 
