@@ -5,14 +5,10 @@ use namespace::autoclean;
 
 use Moose;
 
-has 'uri' => (is=>'ro', isa=>'Str', required=>1);
+#has 'uri' => (is=>'ro', isa=>'Str', required=>1);
 has 'geo_id' => (is=>'ro', isa=>'Str', required=>1);
 has 'source' => (is=>'ro', isa=>'Str', required=>1);
 
-sub BUILD { 
-    my $self=shift;
-    $self;
-}
 
 __PACKAGE__->meta->make_immutable;
 

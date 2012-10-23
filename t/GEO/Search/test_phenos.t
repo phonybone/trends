@@ -29,7 +29,9 @@ BEGIN: {
 sub main {
     require_ok($class);
     my $tc=TestSearch->new(class=>$class);
-    $tc->test_search_mongo();
+    $tc->test_search_mongo('asthma', 'GEO::Sample', 'phenotypes', 70);
+    $tc->test_add_results();
+    $tc->test_results();
 }
 
 main(@ARGV);

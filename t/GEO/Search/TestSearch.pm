@@ -3,7 +3,7 @@ use namespace::autoclean;
 
 use Moose;
 extends 'TestGEO';
-use parent qw(PhonyBone::TestCase); # for method attrs, sigh...
+use parent qw(TestGEO); # for method attrs, sigh...
 use Test::More;
 use PhonyBone::FileUtilities qw(warnf);
 use Data::Dumper;
@@ -12,15 +12,60 @@ use GEO;
 before qr/^test_/ => sub { shift->setup };
 
 
+# do a basic search for asthma, using GEO::Sample->phenotypes
 sub test_search_mongo :Testcase {
-    my ($self)=@_;
-    my $search=$self->class->new(search_term=>'asthma', host=>'localhost', suffix=>'json');
-    my $results=$search->search_mongo(GEO::Sample->mongo, 'phenotypes');
-    warnf "got %d results\n", scalar keys %$results;
-    my $geo_id=(keys %$results)[0];
-    warnf "results[$geo_id]: %s", Dumper($results->{$geo_id});
+    my ($self, $st, $class, $field, $n_expected)=@_;
+    my $search=$self->class->new(search_term=>$st, host=>'localhost');
+    my $results=$search->search_mongo($class->mongo, $field);
+    my $n_results=scalar keys %$results;
+    cmp_ok($n_results, '>=', $n_expected, "got at least $n_results results for $class -> $field -> $st");
 }
 
+sub test_add_results :Testcase {
+    my ($self)=@_;
+    cmp_ok(GEO::Sample->mongo_coords, 'eq', 'local:geo_test:samples', 
+	   sprintf "GEO::Sample: %s", GEO::Sample->mongo_coords);
+    cmp_ok(GEO::Series->mongo_coords, 'eq', 'local:geo_test:series', 
+	   sprintf "GEO::Series: %s", GEO::Series->mongo_coords);
+
+    my $s=$self->class->new(search_term=>'adenocarcinoma');
+    my $r1=$s->search_mongo(GEO::Sample->mongo, 'phenotypes');
+    my $r1_count=0;
+    while (my ($geo_id, $list)=each %$r1) {
+	$r1_count+=scalar @$list;
+    }
+
+    my $dataset_mongo=GEO::Dataset->mongo;
+    cmp_ok($dataset_mongo->full_name, 'eq', 'geo_test.datasets', $dataset_mongo->full_name);
+    my $r2=$self->class->new(search_term=>'adenocarcinoma')->search_mongo(GEO::Dataset->mongo, 'title');
+    my $r2_count=0;
+    while (my ($geo_id, $list)=each %$r2) {
+	$r2_count+=scalar @$list;
+    }    
+
+    $s->add_results($r1,$r2);	# $r1 now holds everything
+    my $r1a_count=0;
+    while (my ($geo_id, $list)=each %$r1) {
+	$r1a_count+=scalar @$list;
+    }    
+    cmp_ok($r1_count+$r2_count, '==', $r1a_count, "$r1_count + $r2_count = $r1a_count");
+    while (my ($geo_id, $list2)=each %$r2) {
+	my $list1=$r1->{$geo_id};
+	my $n_list1=scalar @$list1;
+	my $n_list2=scalar @$list2;
+	cmp_ok($n_list1, '==', $n_list2, "$geo_id: $n_list1 == $n_list2");
+    }
+}
+
+
+sub test_results : Testcase {
+    my ($self)=@_;
+    my $st='cancer';
+    my $s=$self->class->new(search_term=>$st);
+    my $results=$s->results;
+    isa_ok($results, 'HASH');
+    warnf "got %d results for %s", $s->count, $st;
+}
 1;
 
 __END__

@@ -9,12 +9,8 @@
 
 use strict;
 use warnings;
-#use MongoDB;
-use Data::Dumper;
-use Carp;
 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
+use lib "$ENV{TRENDS_HOME}/lib";
 use GEO;
 
 use Options;

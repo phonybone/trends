@@ -14,7 +14,7 @@ use FindBin;
 use Options;
 use PhonyBone::FileUtilities qw(warnf dief file_lines dir_files);
 
-use lib "$FindBin::Bin/../lib";
+use lib "$ENV{TRENDS_HOME}/lib";
 use GEO;
 
 BEGIN: {
@@ -27,6 +27,7 @@ BEGIN: {
     die Options::usage() if $options{h};
     $ENV{DEBUG} = 1 if $options{d};
     GEO->db_name($options{db_name});
+    
 }
 
 # Don't actually use these in the db; we'd have to have codes for every phenotype that

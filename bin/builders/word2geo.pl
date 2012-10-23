@@ -19,8 +19,7 @@ use MongoDB;
 use Options;
 use PhonyBone::FileUtilities qw(warnf);
 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
+use lib "$ENV{TRENDS_HOME}/lib";
 use GEO;
 use GEO::word2geo;
 
@@ -45,7 +44,7 @@ sub main {
     my $word2geo=GEO::word2geo->mongo;
     my $src_mongo=$class->mongo;
     my $word_fields=$class->word_fields;
-
+    warn "$class: word_fields=",join(', ', @$word_fields), "\n" if $options{v};
     # build the fields hash used in the mongo query:
     my %fields=map {($_, $_)} @$word_fields;
 
@@ -63,6 +62,8 @@ sub main {
 	    my @wordlist;
 	    if ($options{phrase}) {
 		$wordlist[0]=$record->{$field};
+	    } elsif (ref $record->{$field} eq 'ARRAY') {
+		@wordlist=@{$record->{$field}};
 	    } else {
 		@wordlist=split(/[^\w]+/, $record->{$field});
 	    }
@@ -80,7 +81,7 @@ sub main {
 		    $report=~s/\$VAR1 = //;
 		    $stats->{n_errors}++;
 		}
-		warnf "%s->%s: report=%s\n", $geo_id, $word, $report if $options{v};
+		warnf "%s: %s->%s: report=%s\n", $geo_id, $field, $word, $report if $options{v};
 	    }
 	}
 	last if --$fuse==0;

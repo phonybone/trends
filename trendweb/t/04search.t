@@ -26,7 +26,8 @@ sub main {
     GEO->db_name('geo_test');
     warnf "GEO: using %s:%s", GEO->host, GEO->db_name;
     my $tc=TestSearch->new($class);
-    $tc->run_all_tests;
+    $tc->test_search();
+    $tc->test_search_json('cancer', 281);
     done_testing();
 }
 

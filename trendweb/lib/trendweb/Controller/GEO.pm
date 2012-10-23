@@ -3,8 +3,9 @@ use Moose;
 use Data::Dumper;
 use namespace::autoclean;
 use Data::Structure::Util qw(unbless);
-use lib '/mnt/price1/vcassen/trends/lib';
+#use lib '/mnt/price1/vcassen/trends/lib';
 use GEO;			# shouldn't we, like, be getting the model from the stash or something?
+use GEO::Search;
 use JSON;
 
 use Data::Dumper;
@@ -130,16 +131,25 @@ sub bulk_POST {
 sub search : Path('search') ActionClass('REST')  {}
 sub search_POST {
     my ($self, $c)=@_;
-    $c->log->debug(sprintf "Arrived at search: args are <pre>%s</pre>", Dumper($c->req->params));
-    my $search_term=$c->req->params->{search_term} or
-	return $self->status_bad_request($c, message=>'missing search term');
-    my $search=$c->model('Search')->new($search_term);
+    my $search_term=$c->req->params->{search_term} || $c->req->data->{search_term};
+    $c->log->debug("searching for '$search_term'");
+    return $self->status_bad_request($c, message=>'missing search term') unless $search_term;
+    my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>1);
 
     my $results=$search->results; # format? should be a structure containing all relevelent info
+#    $c->log->debug("results is ", Dumper($results));
+#    $c->log->debug(sprintf "'%s': %d results", $search_term, scalar keys %$results);
 
+    if (0) {
+	#  special case for HTML; other formats specified automatically by request header
+	my $format=$c->req->params->{format} || 'HTML';
+	if (lc $format eq 'html') {
+	    $c->stash(template=>'search.tt', results=>$results);
+	    $c->forward('View::HTML');
+	}
+    }
 
-
-    return $self->status_ok($c, entity=>\$results);
+    return $self->status_ok($c, entity=>$results);
 }
 
 __PACKAGE__->meta->make_immutable;

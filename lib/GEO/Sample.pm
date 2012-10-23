@@ -48,7 +48,9 @@ sub _build_subsets {
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'gsm' );
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'samples');
 class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'sample_data');
-class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title description)]});
+class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', 
+			    default=>sub {[qw(title description phenotypes)]});
+
 extends 'GEO';
 
 
