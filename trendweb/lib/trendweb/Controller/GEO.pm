@@ -22,11 +22,21 @@ BEGIN {extends 'Catalyst::Controller::REST'; }
 # base of the chain: retrieves the geo object in question, stores to the stash:
 sub base : Chained('/') PathPart('geo') CaptureArgs(1) {
     my ($self, $c, $geo_id)=@_;
+    if (!$geo_id) {
+	$self->status_bad_request($c, message=>'Missing geo_id');
+	$c->detach;
+    }	
+
     my $geo=eval {GEO->factory($geo_id)};
-    if ($@ || ref $geo->_id ne 'MongoDB::OID') {
+    my $err=$@;
+#    $c->log->debug('base: geo is '.Dumper($geo));
+    if ($err || 
+	ref $geo !~ /^GEO::/ ||
+	ref $geo->_id ne 'MongoDB::OID') {
 	$self->status_not_found($c, message=>"No geo object for $geo_id ($@)");
 	$c->detach;
     }
+
     $c->stash->{geo}=$geo;
 }
 
