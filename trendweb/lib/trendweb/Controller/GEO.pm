@@ -102,6 +102,7 @@ sub view : Chained('base') PathPart('view') Args(0) {
     $c->stash(template=>"$class/view.tt", entity=>$geo, $class=>$geo);
     $c->title($geo->geo_id);
     $c->add_js_script('/jquery-1.7.1.js');
+    $c->add_js_script('/js/utils.js');
     $c->add_css('/dataset_editor.css'); # fixme: too specific
     $c->add_js_script("/js/${class}_editor.js"); # fixme: not defined for $class != 'dataset'
     $c->forward('View::HTML');

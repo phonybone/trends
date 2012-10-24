@@ -1,4 +1,2 @@
-<span>
 <input type='text' name='search_term' id='search_tb' size='20' />
-<button id='seach_button'>Search</button>
-</span>
+<button id='search_button'>Search</button>

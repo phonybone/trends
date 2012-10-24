@@ -4,19 +4,16 @@ document.geo_id='[% geo.geo_id %]';
 document.form_id='ds_editor_form';
 </script>
 
-<form id='ds_editor_form'>
+<form id='ds_editor_form' onsubmit='return false' >
 <div>
 
-<span>
 <label for='loader'>Load GEO object:</label>
 <input type='text' id='loader_tb' size='12' />
 <button id='loader_button'>Go</button>
-</span>
 
 [% INCLUDE searchbox.tt %]
 </div>
 
-<!-- </form><form> -->
 <table border='1'>
 <tr>
   <td><label for='geo_title'>Title</label></td>

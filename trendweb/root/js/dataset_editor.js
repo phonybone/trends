@@ -52,7 +52,7 @@ DatasetEditor.prototype={
       type: 'GET',
       accepts: 'application/json',
       contentType: 'application/json',
-      error: function(jqXHR, msg, excp) { alert('error status: '+jqXHR.status); },
+      error: function(jqXHR, msg, excp) { alert('load_geo error status: '+jqXHR.status); },
       success: function(data, status, jqXHR) { document.editor.cache_data(data); },
     };
     $.ajax(uri,settings);
@@ -60,10 +60,13 @@ DatasetEditor.prototype={
 
   cache_data : function(data) {
     this.cache=data;
-    console.log('data cached');
+    var n_items=Object.keys(data).length;
+    console.log('data cached: '+n_items+' items');
   },
 
   edit_geo_tb : function(event) {
+    console.log('edit_geo_tb entered');
+    console.log("event: target.id=%s, type=%s",event.target.id, event.type);
     event.preventDefault();
     var geo_id=event.target.value;
     document.editor.edit_geo(geo_id);
@@ -71,6 +74,8 @@ DatasetEditor.prototype={
   },
 
   edit_geo_button : function(event) {
+    console.log('edit_geo_button entered');
+    console.log('event: target.id=%s, type=%s',event.target.id, event.type);
     event.preventDefault();
     var geo_id=$("#loader_tb")[0].value;
     document.editor.edit_geo(geo_id);
@@ -78,12 +83,18 @@ DatasetEditor.prototype={
   },
 
   edit_geo : function(geo_id) {
+    console.log('edit_geo entered');
+    if (geo_id == null || geo_id=='') { console.log('no geo_id, quitting'); return }
     var url="/geo/"+geo_id+"/view";
-    alert("These edits have not been saved; going to "+url)
+    alert("These edits have not been saved; going to "+url);
+    try { throw new Error("dummy"); } catch (e) { alert(e.stack); }
     window.location.replace(url);
+    return false;
   },
 
   save_phenos : function(event) {
+    console.log('save_phenos entered');
+    console.log('event: target.id=%s, type=%s',event.target.id, event.type);
     event.preventDefault();
     var ed=document.editor;
 
@@ -114,13 +125,45 @@ DatasetEditor.prototype={
       accepts: 'application/json',
       contentType: 'application/json',
       data: JSON.stringify(ed.cache.samples),
-      error: function(jqXHR, msg, excp) { alert('error status: '+jqXHR.status); },
+      error: function(jqXHR, msg, excp) { alert('save_phenoes error status: '+jqXHR.status); },
       success: function(data, status, jqXHR) { },
     };
     $.ajax(uri,settings);
-
+    return false;
   },
+
+  search : function(event) {
+    event.preventDefault();
+    var search_term=$('#search_tb')[0].value;
+    alert('this is search('+search_term+')');
+    console.log('event: target.id=%s, type=%s',event.target.id, event.type);
+
+    var uri='/geo/search';
+    var settings={
+      type: 'POST',
+      accepts: 'application/json',
+      contentType: 'application/json',
+      data: JSON.stringify({search_term : search_term}),
+      error: function(jqXHR, msg, excp) { alert('search: error status: '+jqXHR.status); return false },
+      success: function(data, status, jqXHR) { document.editor.display_search(data) },
+    };
+    $.ajax(uri,settings);
+    console.log('search returning false');
+    return false;
+  },
+
+  display_search : function(data) {
+    console.log('search entered');
+    var n_results=0;
+    for (var k in data) { n_results++ }
+    alert('displaying '+n_results+' search results');
+    return false;
+  },
+
+  
 }
+
+
 
 $(document).ready(function() {
   var editor=new DatasetEditor(document.form_id);
@@ -128,8 +171,9 @@ $(document).ready(function() {
 //  editor.set_gsm_pheno_cbs();
 
   // Various initialization tasks:
-  $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
-  $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
+  // Are these being set wrong?  Don't want to actually call these functions, but they are...
+//  $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
+//  $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
   $("#save_button").on('click', function(event) {editor.save_phenos(event)});
 
   $("#search_tb").on('change', function(event) {editor.search(event)});
@@ -141,4 +185,5 @@ $(document).ready(function() {
     editor.load_geo(document.geo_id);
   }
 
+  console.log('ready() finished');
 });
