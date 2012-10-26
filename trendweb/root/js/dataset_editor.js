@@ -12,6 +12,7 @@ DatasetEditor.prototype={
     return id;
   },
 
+  // sets ids for gsm checkboxes
   set_gsm_pheno_cbs : function() {
     var i=0;
     var editor=this;
@@ -86,8 +87,7 @@ DatasetEditor.prototype={
     console.log('edit_geo entered');
     if (geo_id == null || geo_id=='') { console.log('no geo_id, quitting'); return }
     var url="/geo/"+geo_id+"/view";
-    alert("These edits have not been saved; going to "+url);
-    try { throw new Error("dummy"); } catch (e) { alert(e.stack); }
+    alert("These edits might not have been saved; going to "+url);
     window.location.replace(url);
     return false;
   },
@@ -135,7 +135,6 @@ DatasetEditor.prototype={
   search : function(event) {
     event.preventDefault();
     var search_term=$('#search_tb')[0].value;
-    alert('this is search('+search_term+')');
     console.log('event: target.id=%s, type=%s',event.target.id, event.type);
 
     var uri='/geo/search';
@@ -144,7 +143,7 @@ DatasetEditor.prototype={
       accepts: 'application/json',
       contentType: 'application/json',
       data: JSON.stringify({search_term : search_term}),
-      error: function(jqXHR, msg, excp) { alert('search: error status: '+jqXHR.status); return false },
+      error: function(jqXHR, msg, excp) { alert('search: error status: '+jqXHR.status) },
       success: function(data, status, jqXHR) { document.editor.display_search(data) },
     };
     $.ajax(uri,settings);
@@ -172,12 +171,12 @@ $(document).ready(function() {
 
   // Various initialization tasks:
   // Are these being set wrong?  Don't want to actually call these functions, but they are...
-//  $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
-//  $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
+  $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
+  $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
   $("#save_button").on('click', function(event) {editor.save_phenos(event)});
 
-  $("#search_tb").on('change', function(event) {editor.search(event)});
-  $("#search_button").on('click', function(event) {editor.search(event)});
+//  $("#search_tb").on('change', function(event) {editor.search(event)});
+//  $("#search_button").on('click', function(event) {editor.search(event)});
 
   // Set the value of the loader_tb if possible:
   if (document.geo_id != null) {

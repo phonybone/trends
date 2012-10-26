@@ -57,6 +57,48 @@ sub test_add_results :Testcase {
     }
 }
 
+sub test_consolidate : Testcase {
+    my ($self, $st)=@_;
+    my $s=$self->class->new(search_term=>$st);
+
+    my $results=$s->full_search;
+    my $stats_before=stats($results);
+#    warnf "before: %s", Dumper($stats_before);
+
+    my ($results_c, $n_gs, $n_ds)=$s->_consolidate($results);
+    my $n=$n_gs+$n_ds;
+    my $stats_after=stats($results_c);
+    @{$stats_after}{qw(n_gs n_ds n)}=($n_gs, $n_ds, $n);
+#    warnf "after: %s", Dumper($stats_after);
+
+    # make sure all sample and subset hits were removed
+    cmp_ok($stats_after->{'GEO::Sample'}, '==', 0, 'no samples');
+    cmp_ok($stats_after->{'GEO::DatasetSubset'}, '==', 0, 'no samples');
+
+    # total gds hits should be old gds hits plus subset hits
+    cmp_ok($stats_before->{'n_hits'}       +
+	   $stats_after->{'n'}             -
+	   $stats_before->{'GEO::Sample'}, '==',
+	   $stats_after->{'n_hits'},
+	   "all subsets added to datasets");
+
+}
+
+# return a hashref: k=geo class, v=count of hits
+sub stats {
+    my ($results)=@_;
+    my $stats={'GEO::Sample'=>0,
+	       'GEO::Series'=>0,
+	       'GEO::Dataset'=>0,
+	       'GEO::DatasetSubset'=>0,
+    };
+    while (my ($geo_id, $list)=each %$results) {
+	$stats->{n_hits}+=scalar @$list;
+	my $class=GEO->class_of($geo_id);
+	$stats->{$class} += scalar @$list;
+    }
+    $stats;
+}
 
 sub test_results : Testcase {
     my ($self)=@_;

@@ -1,0 +1,5 @@
+Search Results for '[% search_term %]':
+[% FOREACH result=search_results %]
+[% geo_id=result.geo_id %]
+[% INCLUDE search_result.tt %]
+[% END %]

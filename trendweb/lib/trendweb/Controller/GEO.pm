@@ -12,6 +12,10 @@ use PhonyBone::ListUtilities qw(in_list);
 
 
 BEGIN {extends 'Catalyst::Controller::REST'; }
+__PACKAGE__->config(
+    'default' => 'text/html',
+    'map' => {'text/html' => ['View','HTML']},
+    );
 
 # sub index :Path :Args(0) {
 #     my ( $self, $c ) = @_;
@@ -96,6 +100,10 @@ sub view : Chained('base') PathPart('view') Args(0) {
     my ($self,$c)=@_;
     my $geo=$c->stash->{geo};
 
+    $c->log->debug('*' x 72);
+    $c->log->debug('view: req->env is ',Dumper($c->req->env));
+    $c->log->debug('*' x 72);
+
     my $class=lc GEO->class_of($geo);
     $class=~s/.*:://;
 
@@ -139,20 +147,27 @@ sub bulk_POST {
 }
 
 
+# Return a hash of GEO::SearchResult objects:
 # We may want to move this to a different controller...
 sub search : Path('search') ActionClass('REST')  {}
 sub search_POST {
     my ($self, $c)=@_;
     my $search_term=$c->req->params->{search_term} || $c->req->data->{search_term};
-    $c->log->debug("searching for '$search_term'");
     return $self->status_bad_request($c, message=>'missing search term') unless $search_term;
+    $c->stash(search_term => $search_term);
 
-    my $accept_content=$c->req->{accepted_content_types};
-    my $wants_json=in_list($accept_content, 'application/json')? 1:0;
-    
-    my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>$wants_json);
+    # unbless results if returning JSON:
+    my $rest_req=$c->req->content_type eq 'application/json'? 1:0;
+    my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>$rest_req);
     my $results=$search->results; # format? should be a structure containing all relevelent info
-    return $self->status_ok($c, entity=>$results);
+    
+
+    if ($rest_req) {		
+	return $self->status_ok($c, entity=>$results);
+    } else {
+	$c->stash(template=>'search_results.tt', search_results=>$results);
+    }
+    # maybe trying to serve REST and non-REST requests in the same method isn't such a hot idea...
 }
 
 __PACKAGE__->meta->make_immutable;

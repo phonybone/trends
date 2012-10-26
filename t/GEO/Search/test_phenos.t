@@ -32,6 +32,8 @@ sub main {
     $tc->test_search_mongo('asthma', 'GEO::Sample', 'phenotypes', 70);
     $tc->test_add_results();
     $tc->test_results();
+    $tc->test_consolidate('glioblastoma');
+    $tc->test_consolidate('cancer');
 }
 
 main(@ARGV);

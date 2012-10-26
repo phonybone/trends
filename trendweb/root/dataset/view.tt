@@ -4,6 +4,8 @@ document.geo_id='[% geo.geo_id %]';
 document.form_id='ds_editor_form';
 </script>
 
+[% INCLUDE searchbox.tt %]
+
 <form id='ds_editor_form' onsubmit='return false' >
 <div>
 
@@ -11,7 +13,6 @@ document.form_id='ds_editor_form';
 <input type='text' id='loader_tb' size='12' />
 <button id='loader_button'>Go</button>
 
-[% INCLUDE searchbox.tt %]
 </div>
 
 <table border='1'>
