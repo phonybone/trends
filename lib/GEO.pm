@@ -9,6 +9,7 @@ use MongoDB;
 use Net::FTP;
 use Text::CSV;
 use File::Path qw(make_path);
+use File::Spec qw(catfile);
 #use PhonyBone::StringUtilities qw(full_split);
 use PhonyBone::FileUtilities qw(warnf dief);
 use PhonyBone::ListUtilities qw(in_list);
@@ -32,6 +33,7 @@ class_has 'prefix2class'=> (is=>'ro', isa=>'HashRef', default=>sub { {GSM=>'GEO:
 								      GDS_SS=>'GEO::DatasetSubset',
 								      GPL=>'GEO::Platform',
     } });
+sub geo_classes { [values %{shift->prefix2class}] }
 
 class_has 'db_name'         => (is=>'rw', isa=>'Str', default=>'geo');	
 class_has 'indexes' => (is=>'rw', isa=>'ArrayRef', default=>sub { 
@@ -44,12 +46,17 @@ with 'Mongoid';
 
 sub _init {
     my ($class)=@_;
-    if (defined $ENV{TRENDS_HOME}) {
-	$class->data_dir(join('/', $ENV{TRENDS_HOME}, 'data', 'GEO'));
-    } else {
-	$class->data_dir(join('/', '/mnt/price1/vcassen/trends', 'data', 'GEO'));
+    my $trends_home=$ENV{TRENDS_HOME};
+    if (! -d $trends_home) {
+	use FindBin qw($Bin);
+	use Cwd 'abs_path';
+	$trends_home=abs_path("$Bin/..");
     }
-#    warnf "data_dir: %s\n", $class->data_dir;
+    if (! -d $trends_home) {
+	die "Unable to deternmine trends home directory??? Last attempt: '$trends_home'";
+    }
+    
+    $class->data_dir(File::Spec->catfile($trends_home, 'data', 'GEO'));
 }
 
 

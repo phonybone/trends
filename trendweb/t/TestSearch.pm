@@ -15,14 +15,21 @@ before qr/^test_/ => sub { shift->setup };
 
 
 sub test_search : Testcase {
-    my ($self)=@_;
+    my ($self, $st)=@_;
+    warn "test_search($st) entered";
 
-    my $query={search_term=>'cancer'};
+    my $query={search_term=>$st};
     my $request=POST("/geo/search", 
 		     Content=>$query,
 	);
     my $response=request $request;
     cmp_ok($response->code, '==', 200, sprintf("got code=%s", $response->status_line));
+
+    my $content=$response->content;
+    ok ($content =~ /(\d+) Search Results for '(.*)'/);
+    my ($n_results, $found_st)=($1,$2);
+    cmp_ok ($n_results, '>=', 0, "$n_results results");
+    cmp_ok ($found_st, 'eq', $st);
 }
 
 sub test_search_json :Testcase {

@@ -1,5 +1,8 @@
-Search Results for '[% search_term %]':
-[% FOREACH result=search_results %]
-[% geo_id=result.geo_id %]
-[% INCLUDE search_result.tt %]
+[% n_results %] Search Results for '[% search_term %]':
+<ol>
+[% FOREACH geo_id IN search_results.keys %]
+<li>
+[% INCLUDE search_result.tt mangled=search_results.$geo_id %]
+</li>
 [% END %]
+</ol>

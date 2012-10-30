@@ -1,3 +1,5 @@
 <div>
-GEO_ID: [% geo_id %]: [% source %]
-</div>
+[% geo_id %]: [% FOREACH source IN mangled %]
+[% IF source.orig_geo_id %]Orig. geo: [% source.orig_geo_id %][% END %]
+Source: [% source.field %]:  [% source.source %]
+[% END %]</div>

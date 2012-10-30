@@ -4,6 +4,8 @@ use Data::Dumper;
 use namespace::autoclean;
 use Data::Structure::Util qw(unbless);
 use Data::Dumper;
+use PhonyBone::FileUtilities qw(warnf dief);
+use Time::HiRes qw(clock_gettime);
 
 use GEO;			# shouldn't we, like, be getting the model from the stash or something?
 use GEO::Search;
@@ -152,15 +154,39 @@ sub bulk_POST {
 sub search : Path('search') ActionClass('REST')  {}
 sub search_POST {
     my ($self, $c)=@_;
-    my $search_term=$c->req->params->{search_term} || $c->req->data->{search_term};
+    warnf "req->params: %s", Dumper($c->req->params);
+    my $search_term=$c->req->params->{search_term};
+    warnf "req->data: %s", Dumper($c->req->data);
+    $search_term ||= $c->req->data->{search_term};
     return $self->status_bad_request($c, message=>'missing search term') unless $search_term;
     $c->stash(search_term => $search_term);
 
     # unbless results if returning JSON:
     my $rest_req=$c->req->content_type eq 'application/json'? 1:0;
     my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>$rest_req);
+#    warn "about to search for '$st'";
     my $results=$search->results; # format? should be a structure containing all relevelent info
-    
+    $c->stash(n_results => scalar keys %$results);
+
+    # little debug info:
+    my $geo_id=(keys %$results)[0];
+    my $r1=$results->{$geo_id};
+    $c->log->debug(sprintf "%s: %s", $geo_id, Dumper($r1));
+
+    # need to mangle data in $results to fit the needs to .tt
+    foreach my $geo_id (keys %$results) {
+	my $geo=GEO->factory($geo_id);
+	my $sources=$results->{$geo_id};
+	my $mangled=[];
+	foreach my $sh (@$sources) {
+	    my $source=$sh->{source} or dief "no 'source' in %s", Dumper($sh);
+	    my $field=$sh->{field} or dief "no 'field' in %s", Dumper($sh);
+	    my $result={field=>$field, source=>$source};
+	    push @$mangled, $result;
+	}
+	
+	$results->{$geo_id}=$mangled; # overwrite original entry
+    }
 
     if ($rest_req) {		
 	return $self->status_ok($c, entity=>$results);

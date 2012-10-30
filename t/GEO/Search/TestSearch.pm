@@ -62,10 +62,12 @@ sub test_consolidate : Testcase {
     my $s=$self->class->new(search_term=>$st);
 
     my $results=$s->full_search;
+#    warnf "%s: before consolidate:\n%s", $st, Dumper($results);
     my $stats_before=stats($results);
 #    warnf "before: %s", Dumper($stats_before);
 
     my ($results_c, $n_gs, $n_ds)=$s->_consolidate($results);
+#    warnf "%s: after consolidate:\n%s", $st, Dumper($results);
     my $n=$n_gs+$n_ds;
     my $stats_after=stats($results_c);
     @{$stats_after}{qw(n_gs n_ds n)}=($n_gs, $n_ds, $n);
@@ -81,7 +83,35 @@ sub test_consolidate : Testcase {
 	   $stats_before->{'GEO::Sample'}, '==',
 	   $stats_after->{'n_hits'},
 	   "all subsets added to datasets");
+}
 
+sub test_expand : Testcase {
+    my ($self, $st)=@_;
+    my $s=$self->class->new(search_term=>$st);
+    my $results=$s->full_search;
+    $results=$s->_consolidate($results);
+    $results=$s->_expand($results);
+
+    # for each result, verify that $st appears in the field:
+    while (my ($geo_id, $list)=each %$results) {
+	my $geo=GEO->factory($geo_id);
+	foreach my $source (@$list) {
+	    my $field=$source->{field};
+#	    my $orig_source=$geo->$field;
+
+	    my $orig_source;
+	    if (my $orig_geo_id=$source->{orig_geo_id}) {
+		my $orig_geo=GEO->factory($orig_geo_id);
+		ok ($orig_geo->can($field), sprintf "%s has method '$field'", $source->{orig_geo_id});
+		$orig_source=$orig_geo->$field;
+	    } else {
+		ok ($geo->can($field), "$geo_id has method '$field'");
+		$orig_source=$geo->$field;
+	    }
+	    $orig_source=join(' ', @$orig_source) if ref $orig_source eq 'ARRAY';
+	    ok($orig_source =~ /$st/);
+	}
+    }
 }
 
 # return a hashref: k=geo class, v=count of hits
@@ -101,8 +131,8 @@ sub stats {
 }
 
 sub test_results : Testcase {
-    my ($self)=@_;
-    my $st='cancer';
+    my ($self, $st)=@_;
+    confess "no search term" unless $st;
     my $s=$self->class->new(search_term=>$st);
     my $results=$s->results;
     isa_ok($results, 'HASH');
