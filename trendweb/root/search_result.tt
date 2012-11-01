@@ -1,5 +1,12 @@
-<div>
-[% geo_id %]: [% FOREACH source IN mangled %]
-[% IF source.orig_geo_id %]Orig. geo: [% source.orig_geo_id %][% END %]
-Source: [% source.field %]:  [% source.source %]
-[% END %]</div>
+<div><ul>
+<a href='[% result.uri %]'>[% result.geo_id %]</a>: [% result.title %]
+[% FOREACH source IN result.sources %]<li>
+[% IF source.orig_geo_id %][% source.orig_geo_id %]: [% END %]
+[% source.field %]:  <span id='[% source.source_id %]_short'>[% source.short_source %][% IF source.has_short %][% INCLUDE more_link %][% END %]
+</span>
+[% IF source.has_short %]
+<span id='[% source.source_id %]_long' style='display: none' onclick='toggle_more("[% source.source_id %]", false); return false'>[% source.source %]</span>
+[% END %]
+</li>[% END %]</ul></div>
+
+[% BLOCK more_link %]...<a href='' onclick='toggle_more("[% source.source_id %]", true); return false'> more</a>[% END %]

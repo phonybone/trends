@@ -11,6 +11,7 @@ __PACKAGE__->config(
 #    EVAL_PERL => 1,
 );
 
+has 'window_width' => (is=>'ro', isa=>'Int', default=>80);
 
 use Template::Stash;
 if (1) {
@@ -23,27 +24,42 @@ if (1) {
     $Template::Stash::HASH_OPS->{ref} = sub { 'HASH' };
 }
 
-=head1 NAME
+# Take a search result and return a hash ref with fields needed by search_results.tt
+# $sr is a search results as returned by GEO::Search->results.  
+sub post_process_search_results {
+    my ($self, $c, $results)=@_;
 
-trendweb::View::HTML - TT View for trendweb
+    my $search_term=$c->req->params->{search_term};
+    my $window_width=$self->window_width;
 
-=head1 DESCRIPTION
+    foreach my $geo_id (keys %$results) { # don't use 'each %$results'; 
+	my $sources=$results->{$geo_id};
+	my $result={sources=>$sources};
+	my $i=0;
 
-TT View for trendweb.
+	# get $short_source (window around first occurence of $search_term)
+	# also, add some stuff to the $source hashref:
+	foreach my $source (@$sources) {
+	    if (length $source->{source} > $window_width) {
+		my $short_source=substr($source->{source}, 0, $window_width);
+		$source->{short_source}=$short_source;
+		$source->{has_short}=1;
+	    } else {
+		$source->{short_source}=$source->{source};
+	    }
 
-=head1 SEE ALSO
-
-L<trendweb>
-
-=head1 AUTHOR
-
-A clever guy
-
-=head1 LICENSE
-
-This library is free software. You can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+	    $source->{source_id}=join('_', $geo_id, $i);
+	    $i++;
+	}
+	my $geo=GEO->factory($geo_id);
+	$result->{geo_id}=$geo_id;
+	$result->{title}=$geo->title;
+	$result->{$geo_id}=$result;
+#	$result->{uri}=$c->uri_for($c->controller('geo')->action_for("$geo_id/view"), $geo_id);
+	$result->{uri}=$c->uri_for("/geo/$geo_id/view");
+	$results->{$geo_id}=$result;
+    }
+    
+}
 
 1;

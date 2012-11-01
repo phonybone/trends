@@ -154,9 +154,7 @@ sub bulk_POST {
 sub search : Path('search') ActionClass('REST')  {}
 sub search_POST {
     my ($self, $c)=@_;
-    warnf "req->params: %s", Dumper($c->req->params);
     my $search_term=$c->req->params->{search_term};
-    warnf "req->data: %s", Dumper($c->req->data);
     $search_term ||= $c->req->data->{search_term};
     return $self->status_bad_request($c, message=>'missing search term') unless $search_term;
     $c->stash(search_term => $search_term);
@@ -164,34 +162,21 @@ sub search_POST {
     # unbless results if returning JSON:
     my $rest_req=$c->req->content_type eq 'application/json'? 1:0;
     my $search=GEO::Search->new(search_term=>$search_term, unbless_results=>$rest_req);
-#    warn "about to search for '$st'";
     my $results=$search->results; # format? should be a structure containing all relevelent info
     $c->stash(n_results => scalar keys %$results);
 
-    # little debug info:
-    my $geo_id=(keys %$results)[0];
-    my $r1=$results->{$geo_id};
-    $c->log->debug(sprintf "%s: %s", $geo_id, Dumper($r1));
-
-    # need to mangle data in $results to fit the needs to .tt
-    foreach my $geo_id (keys %$results) {
-	my $geo=GEO->factory($geo_id);
-	my $sources=$results->{$geo_id};
-	my $mangled=[];
-	foreach my $sh (@$sources) {
-	    my $source=$sh->{source} or dief "no 'source' in %s", Dumper($sh);
-	    my $field=$sh->{field} or dief "no 'field' in %s", Dumper($sh);
-	    my $result={field=>$field, source=>$source};
-	    push @$mangled, $result;
-	}
-	
-	$results->{$geo_id}=$mangled; # overwrite original entry
-    }
+    # Add some stuff to results, rearrange things a bit:
+    # --end-- 1.
+    my $view=$c->view('HTML');
+    $view->post_process_search_results($c, $results);
 
     if ($rest_req) {		
 	return $self->status_ok($c, entity=>$results);
     } else {
+	$c->add_js_script('/jquery-1.7.1.js');
+	$c->add_js_script("/js/utils.js");
 	$c->stash(template=>'search_results.tt', search_results=>$results);
+	# gets fowarded automagically
     }
     # maybe trying to serve REST and non-REST requests in the same method isn't such a hot idea...
 }
@@ -199,3 +184,26 @@ sub search_POST {
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+
+__END__
+
+1.
+    
+    # Build a list in @$mangled: each entry 
+    # This doesn't seem to do a damn thing..????
+    # It does something, because there are fewer reported search results when you omit the code...
+    if (0) {
+	while (my ($geo_id, $sources)=each %$results) {
+	    my $geo=GEO->factory($geo_id);
+	    my $mangled=[];
+	    foreach my $sh (@$sources) {
+		my $source=$sh->{source} or dief "no 'source' in %s", Dumper($sh);
+		my $field=$sh->{field} or dief "no 'field' in %s", Dumper($sh);
+		my $result={field=>$field, source=>$source};
+		push @$mangled, $result;
+	    }
+	    
+	    $results->{$geo_id}=$mangled; # overwrite original entry
+	}
+    }

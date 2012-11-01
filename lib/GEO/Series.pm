@@ -7,18 +7,19 @@ use PhonyBone::FileUtilities qw(warnf dief);
 use PhonyBone::ListUtilities qw(subtract union unique);
 use Cwd;
 
-has 'author'      => (is=>'rw');
-has 'date'        => (is=>'rw');
-has 'organism'    => (is=>'rw');
-has 'series_type' => (is=>'rw');
-has 'status'      => (is=>'rw');
-has 'isb_status'  => (is=>'rw');
-has 'error'       => (is=>'rw');
-has 'title'       => (is=>'rw');
-has 'dataset_ids' => (is=>'rw');
-has 'sample_ids'  => (is=>'rw');
-has 'summary'     => (is=>'rw');
-#has '_rs_iter'      => (is=>'rw');
+has 'author'      => (is=>'ro');
+has 'date'        => (is=>'ro');
+has 'organism'    => (is=>'ro');
+has 'series_type' => (is=>'ro');
+has 'status'      => (is=>'ro');
+has 'isb_status'  => (is=>'ro');
+has 'error'       => (is=>'ro');
+has 'title'       => (is=>'ro');
+has 'dataset_ids' => (is=>'ro', default=>sub{[]});
+has 'datasets'    => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builder=>'_build_datasets');
+has 'sample_ids'  => (is=>'ro', default=>sub{[]});
+has 'samples'    => (is=>'ro', isa=>'ArrayRef[GEO::Sample]', lazy=>1, builder=>'_build_samples');
+has 'summary'     => (is=>'ro');
 
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GSE' );
 class_has 'ftp_base'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/supplementary/series');
@@ -29,12 +30,19 @@ class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title s
 extends 'GEO';
 
 
-sub samples {
-    my ($self)=@_;
-    my @samples;
-    push @samples, map {$self->factory($_)} @{$self->sample_ids} if $self->sample_ids;
-    wantarray? @samples:\@samples;
-}
+sub _build_samples { [map {GEO->factory($_)} @{shift->sample_ids}] }
+sub n_samples { scalar @{shift->sample_ids}; }
+
+sub _build_datasets { [map {GEO->factory($_)} @{shift->dataset_ids}] }
+sub n_datasets { scalar @{shift->dataset_ids}; }
+
+
+# sub samples {
+#     my ($self)=@_;
+#     my @samples;
+#     push @samples, map {$self->factory($_)} @{$self->sample_ids} if $self->sample_ids;
+#     wantarray? @samples:\@samples;
+# }
 
 ########################################################################
 
@@ -213,27 +221,26 @@ sub report {
     my $sample_ids=$self->sample_ids || ['<no sample_ids>'];
     my $n_samples=$sample_ids->[0] eq '<no sample_ids>'? 0 : scalar @$sample_ids;
     my $status=$self->status || '<status unknown>';
-    my $report=sprintf("%s Title: %s (%s, %s, %d samples)\n", $self->geo_id, $title, $status, $organism, $n_samples);
-    if (defined $self->isb_status && $self->isb_status=~/^error/i) {
-	$report.=sprintf("%17s: %s\n", 'error msg', $self->error);
-    } else {
-	$report.=sprintf("      isb_status: %s\n", ($self->isb_status || '<unknown>'));
-    }
+    my @report;
 
-    if (defined $self->dataset_ids) {
-	foreach my $gds (@{$self->dataset_ids}) {
-	    my $ds=GEO::Dataset->new($gds);
-	    $report.=sprintf("   dataset %s: %s \n    - %s\n\n", $gds, $ds->title, $ds->description);
-	}
+    push @report, sprintf("%s Title: %s (%s, %s, %d samples)", $self->geo_id, $title, $status, $organism, $n_samples);
+    if (defined $self->isb_status && $self->isb_status=~/^error/i) {
+	push @report, sprintf("%17s: %s", 'error msg', $self->error);
     } else {
-	$report.="   no datasets\n";
+	push @report, sprintf("      isb_status: %s", ($self->isb_status || '<unknown>'));
     }
+    
+    foreach my $ds (@{$self->datasets}) {
+	push @report, sprintf("   dataset %s: %s \n    - %s\n", 
+			      $ds->geo_id, $ds->title, $ds->description);
+    }
+    push @report, "    no datasets" unless $self->n_datasets;
 
     if ($argHash{full}) {
-	$report.=join("\n", map {$_->report} @{$self->samples});
+	push @report, map {$_->report} @{$self->samples};
     }
 
-    $report;
+    join("\n", @report);
 }
 
 ########################################################################

@@ -33,16 +33,16 @@ sub main {
     
 
     my $tc=TestSearch->new(class=>$class);
+    $tc->test_results('glioblastoma');
+    exit;
 
     $tc->test_search_mongo('asthma', 'GEO::Sample', 'phenotypes', 70);
     $tc->test_add_results();
-    exit;
     $tc->test_consolidate('cancer');
 
     $tc->test_consolidate('glioblastoma');
     $tc->test_expand('glioblastoma');
 
-    $tc->test_results('glioblastoma');
 }
 
 main(@ARGV);

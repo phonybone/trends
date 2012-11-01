@@ -151,7 +151,7 @@ sub factory {
     $geo_id ||= $self->geo_id;
     confess sprintf("no geo_id in %s", Dumper($self)) unless $geo_id;
     $class=$geo_id? $self->class_of($geo_id) : (ref $self || $self);
-    die "no class for '$geo_id'" unless $class;
+    confess "no class for '$geo_id'" unless $class;
     my $geo=eval {$class->new($geo_id)};
     confess $@ if $@;
     $geo;

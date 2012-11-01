@@ -1,11 +1,23 @@
 package GEO::Search;		# 'Search' as a noun, not verb
+
+# Search (local) the GEO databases.  A GEO::Search object is a noun representing a search.
+# Create a search object: 
+#  my $sr=GEO::Search->new(search_term=>'some search term');
+#  my $results=$sr->results;
+#
+# $results: a hashref w/: k=geo_id, v=list of sources
+# source: a hashref w/: k='field', v=the field in geo object (indexed by geo_id) where the search term was found
+#                       k='source', v=the actual source, ie $geo->$field
+#            optional:  k='orig_geo_id', v=the original geo_id found (if from a subset or sample);
+#                                          In this case, the 'field' entry relates to the original
+#                                          geo object, ie, $orig_geo->$field.
+# Entrypoint is 
+
 use Moose;
 use MooseX::ClassAttribute;
 use Carp;
-use Time::HiRes qw(clock_gettime CLOCK_MONOTONIC);
 use GEO;
 use GEO::word2geo;
-use GEO::SearchResult;
 use PhonyBone::FileUtilities qw(warnf);
 use Data::Structure::Util qw(unbless);
 
@@ -13,7 +25,7 @@ has 'search_term' => (is=>'ro', isa=>'Str', required=>1);
 has 'host' => (is=>'ro', isa=>'Str', default=>'localhost:3000');
 has 'suffix' => (is=>'ro', isa=>'Str');
 has 'results' => (is=>'ro', lazy=>1, isa=>'HashRef[ArrayRef]', 
-		  builder=>'_build_results'); # k=geo_id, v=list of GEO::SearchResult
+		  builder=>'_build_results'); # k=geo_id, v=list of hashrefs
 has 'unbless_results' => (is=>'ro', isa=>'Int', default=>0);
 
 class_has 'classes' => (is=>'ro', isa=>'ArrayRef', 

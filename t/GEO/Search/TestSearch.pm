@@ -137,6 +137,7 @@ sub test_results : Testcase {
     my $results=$s->results;
     isa_ok($results, 'HASH');
     warnf "got %d results for %s", $s->count, $st;
+    warn Dumper($results);
 }
 1;
 
