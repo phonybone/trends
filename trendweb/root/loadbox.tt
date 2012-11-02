@@ -1,0 +1,3 @@
+<label for='loader'>Load GEO object:</label>
+<input type='text' id='loader_tb' size='12' />
+<button id='loader_button'>Go</button>

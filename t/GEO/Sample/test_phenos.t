@@ -4,17 +4,17 @@ use strict;
 use warnings;
 use Carp;
 use Data::Dumper;
-use Options;
 
 use Test::More qw(no_plan);
 
+use lib "$ENV{TRENDS_HOME}/lib";
 use FindBin qw($Bin);
-use Cwd 'abs_path';
-use lib abs_path("$Bin/../../../lib");
 use lib "$Bin";
-use TestSamples;
 
-our $class='GEO::Dataset';
+use Options;			
+use TestPhenos;		# derived from PhonyBone::TestCase
+
+our $class='GEO::Sample';
 
 BEGIN: {
   Options::use(qw(d q v h fuse=i));
@@ -26,11 +26,10 @@ BEGIN: {
 
 
 sub main {
-    my $tc=new TestSamples(class=>$class);
+    my $tc=new TestPhenos(class=>$class);
     $tc->test_compiles();
-    $tc->test_subsets();
-    $tc->test_samples();
-    $tc->test_phenotypes('GDS2381');
+    $tc->test_pheno_hash('GSM132638');
+    $tc->test_subset_phenos('GSM30418');
 }
 
 main(@ARGV);

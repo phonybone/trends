@@ -1,11 +1,13 @@
 package GEO::Sample;
 use Moose;
+with qw(GEO::HasSubsets GEO::HasPhenotypes);
 use MooseX::ClassAttribute;
 
 use Data::Dumper;
 use File::Spec;
 use PhonyBone::FileUtilities qw(warnf dief);
 use PhonyBone::FileIterator;
+use PhonyBone::ListUtilities qw(in_list);
 
 #
 # Class to model series data 
@@ -16,7 +18,9 @@ use PhonyBone::FileIterator;
 
 has 'title'           => (is=>'rw', isa=>'Str');
 has 'description'     => (is=>'rw'); # comes from Dataset .soft files (table headings)
-has 'phenotypes'       => (is=>'rw', isa=>'ArrayRef[Str]', default=>sub{[]});
+
+
+
 has 'path_raw_data' => (is=>'rw', isa=>'Str');
 
 has 'exp_data'      => (is=>'ro', isa=>'HashRef', lazy=>1, builder=>'_build_exp_data');
@@ -25,9 +29,12 @@ has 'series_ids'    => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
 has 'series'        => (is=>'ro', isa=>'ArrayRef[GEO::Series]', lazy=>1, builder=>'_build_series');
 has 'dataset_ids'   => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
 has 'datasets'      => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builder=>'_build_datasets');
-has 'subset_ids'    => (is=>'rw', isa=>'ArrayRef', default=>sub{[]});
-has 'subsets'       => (is=>'ro', isa=>'ArrayRef[GEO::DatasetSubset]', lazy=>1, builder=>'_build_subsets');
 
+# overrides HasPhenotypes::phenotypes; gets data directly from db
+has 'phenotypes'       => (is=>'rw', isa=>'ArrayRef[Str]', default=>sub{[]});
+
+# This is here to make HasPhenotypes::phenotypes work:
+#has 'samples'       => (is=>'ro', isa=>'ArrayRef[GEO::Sample]', default=>sub{[shift]});
 
 sub _build_series {
     my ($self)=@_;
@@ -39,10 +46,6 @@ sub _build_datasets {
     [map { GEO->factory($_) } @{$self->dataset_ids}];
 }
 
-sub _build_subsets {
-    my ($self)=@_;
-    [map { GEO->factory($_) } @{$self->subset_ids}];
-}
 
 
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'gsm' );
@@ -143,3 +146,25 @@ sub _build_exp_data {
 }
 
 1;
+__END__
+
+# This looks through the sample's subsets and builds a hash of phenos based on the subset's description
+# I don't think it's needed here; subset phenos are really only a provence of Datasets.
+has 'pheno_hash'    => (is=>'ro', isa=>'HashRef[ArrayRef]', lazy=>1, builder=>'_build_pheno_hash');
+sub _build_pheno_hash { 
+    my ($self)=@_;
+    my %hash;
+    my $subset=$self->subsets;
+
+    foreach my $pheno (@{$self->phenotypes}) {
+	warn "pheno is $pheno";
+	$hash{$pheno}=[];	# so that even phenos w/o subsets get included
+	foreach my $ss (@{$self->subsets}) {
+	    push @{$hash{$pheno}}, $ss->geo_id if $ss->description eq $pheno;
+	}
+    }
+    \%hash;
+}
+
+
+

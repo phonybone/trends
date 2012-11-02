@@ -6,9 +6,8 @@ use Carp;
 use Data::Dumper;
 use Options;
 use Test::More qw(no_plan);
-
-use FindBin;
-use lib "$FindBin::Bin/../../..";
+use PhonyBone::FileUtilities qw(warnf);
+use lib "$ENV{TRENDS_HOME}/lib";
 
 our $class='GEO';
 use GEO::Series;
@@ -29,9 +28,12 @@ sub main {
     my $series=GEO::Series->new(geo_id=>$geo_id);
     isa_ok ($series, $class, "instanciated GEO::Series->$geo_id");
     
-    unlink $series->soft_path;
+    my $target=$series->soft_path . ".gz";
+    warnf "removing, then fetching, %s\n", $target;
+    unlink $target;
     $series->fetch_soft;
-    ok (-r $series->soft_path, (sprintf "downloaded %s", $series->soft_path));
+    ok (-r $target, (sprintf "downloaded %s", $target));
+
 }
 
 main(@ARGV);

@@ -1,6 +1,6 @@
 package GEO::Series;
 use Moose;
-use MooseX::ClassAttribute;
+with 'GEO::HasSamples';
 
 use Data::Dumper;
 use PhonyBone::FileUtilities qw(warnf dief);
@@ -17,10 +17,9 @@ has 'error'       => (is=>'ro');
 has 'title'       => (is=>'ro');
 has 'dataset_ids' => (is=>'ro', default=>sub{[]});
 has 'datasets'    => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builder=>'_build_datasets');
-has 'sample_ids'  => (is=>'ro', default=>sub{[]});
-has 'samples'    => (is=>'ro', isa=>'ArrayRef[GEO::Sample]', lazy=>1, builder=>'_build_samples');
 has 'summary'     => (is=>'ro');
 
+use MooseX::ClassAttribute;
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GSE' );
 class_has 'ftp_base'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/supplementary/series');
 class_has 'ftp_soft'  => (is=>'ro', isa=>'Str', default=>'pub/geo/DATA/SOFT/by_series');
@@ -29,9 +28,6 @@ class_has 'subdir'    => (is=>'ro', isa=>'Str', default=>'series');
 class_has 'word_fields' => (is=>'ro', isa=>'ArrayRef', default=>sub {[qw(title summary)]});
 extends 'GEO';
 
-
-sub _build_samples { [map {GEO->factory($_)} @{shift->sample_ids}] }
-sub n_samples { scalar @{shift->sample_ids}; }
 
 sub _build_datasets { [map {GEO->factory($_)} @{shift->dataset_ids}] }
 sub n_datasets { scalar @{shift->dataset_ids}; }
@@ -199,7 +195,7 @@ sub fetch_soft {
 	}
 
 	# Download the .tar file:
-	warn "fetching $target...\n" if $ENV{DEBUG};;
+	warn "fetching $target...\n" if $ENV{DEBUG};
 	$ftp->binary;
 	$ftp->get("$target") or die "Can't get $target: ",$ftp->message;
     };
@@ -208,8 +204,6 @@ sub fetch_soft {
     $ftp->quit;
     die $err if $err;
     undef;
-    
-    
 }
 
 ########################################################################

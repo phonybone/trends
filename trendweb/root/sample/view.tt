@@ -5,6 +5,12 @@
 
 [% FOREACH subset=sample.subsets %]
 <td>[% subset.description %]</td>
-<td><input type='checkbox' class='gsm_pheno' id='' name='[% sample.geo_id %]' value='[% subset.description %]' /></td>
+<td><input type='checkbox' class='gsm_pheno' id='' name='[% sample.geo_id %]' value='[% subset.description %]' 
+[% SET desc=subset.description %][% IF sample.pheno_hash.desc %]checked='1'[% END %]
+ /></td>
+[% END %]
+[% FOREACH pheno IN sample.phenotypes %]
+<td>[% pheno %]</td>
+<td><input type='checkbox' class='gsm_pheno' id='' name='[% sample.geo_id %]' value='[% pheno %]' checked='1' /></td>
 [% END %]
 </tr>

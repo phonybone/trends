@@ -1,5 +1,6 @@
 package GEO::Dataset;
 use Moose;
+with qw(GEO::HasSamples GEO::HasSubsets);
 use MooseX::ClassAttribute;
 use Carp;
 use PhonyBone::ListUtilities qw(unique);
@@ -18,6 +19,7 @@ has 'platform_organism'        => (is=>'rw', isa=>'Str');
 has 'platform_technology_type' => (is=>'rw', isa=>'Str');
 has 'pubmed_id'                => (is=>'rw', isa=>'Str');
 has 'reference_series'         => (is=>'rw', isa=>'Str');
+has 'sample_ids'               => (is=>'ro', isa=>'ArrayRef', lazy=>1, builder=>'_build_sample_ids');
 has 'sample_count'             => (is=>'rw', isa=>'Str');
 has 'sample_organism'          => (is=>'rw', isa=>'Str');
 has 'sample_type'              => (is=>'rw', isa=>'Str');
@@ -25,15 +27,6 @@ has 'title'                    => (is=>'rw', isa=>'Str');
 has 'type'                     => (is=>'rw', isa=>'Str');
 has 'update_date'              => (is=>'rw', isa=>'Str');
 has 'value_type'               => (is=>'rw', isa=>'Str');
-
-has 'subsets'                  => (is=>'ro', isa=>'ArrayRef[GEO::DatasetSubset]',
-				   lazy=>1, builder=>'_build_subsets');
-has 'subset_ids'               => (is=>'ro', isa=>'ArrayRef[Str]', 
-				   lazy=>1, builder=>'_build_subset_ids');
-has 'samples'                  => (is=>'ro', isa=>'ArrayRef[GEO::Sample]',
-				   lazy=>1, builder=>'_build_samples');
-has 'sample_ids'               => (is=>'ro', isa=>'ArrayRef[Str]', 
-				   lazy=>1, builder=>'_build_sample_ids');
 
 
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'datasets');
@@ -48,22 +41,15 @@ sub soft_file {
     join('/', $self->data_dir, $self->subdir, join('.', $self->geo_id, 'soft'));
 }
 
-# return a list[ref] of GEO::DatasetSubset objects for this dataset:
-# searches the database.
-sub _build_subsets {
-    my ($self)=@_;
-    my @records=GEO::DatasetSubset->get_mongo_records({dataset_id=>$self->geo_id});
-    [map {GEO::DatasetSubset->new(%{$_})} @records];
-}
+has 'subset_ids'  => (is=>'ro', isa=>'ArrayRef[Str]', lazy=>1, builder=>'_build_subset_ids');
 sub _build_subset_ids {
     my ($self)=@_;
-    [map {$_->geo_id} @{$self->subsets}];
+    [map {$_->{geo_id}} GEO::DatasetSubset->get_mongo_records({dataset_id=>$self->geo_id})];
 }
 
-sub n_subsets { scalar @{shift->subsets} }
 
 
-# return a list[ref] of Sample objects:
+# override GEO::HasSamples::_build_sample_ids: gather all from subsets:
 sub _build_sample_ids {
     my ($self)=@_;
     my %sample_ids;
@@ -71,28 +57,37 @@ sub _build_sample_ids {
 	$sample_ids{$_}=$_ for @{$ss->sample_ids};
     }
     [keys %sample_ids];
-}
+};
 
-sub _build_samples {
-    my ($self)=@_;
-    my $sample_ids=$self->sample_ids;
-    [map {GEO->factory($_)} @{$self->sample_ids}];
-}
 
-sub n_samples { scalar @{shift->samples} }
+
 
 sub report {
     my ($self)=@_;
     return sprintf("%s: no geo record", $self->geo_id) unless $self->_id;
-    my $report=sprintf "%8s: title: %s\n", $self->geo_id, $self->title;
-    $report.=sprintf "    description: %s\n", $self->description;
-    $report.=sprintf "%12s\n", $self->reference_series;
+    my @report;
+    push @report, sprintf "%8s: title: %s", $self->geo_id, $self->title;
+    push @report, sprintf "    description: %s", $self->description;
+    push @report, sprintf "    reference series: %s", $self->reference_series;
 
-    $report.=sprintf "%12d subsets, %d samples\n", scalar @{$self->subsets}, $self->sample_count;
+    push @report, sprintf "%12d subsets, %d samples",
+        scalar @{$self->subsets}, $self->sample_count;
+
+    push @report, sprintf "    assigned phenos: %s  subset phenos: %s",
+        join(', ',@{$self->phenotypes}), join(', ', keys %{$self->subset_phenos});
+
     foreach my $subset (@{$self->subsets}) {
-	$report.=sprintf "    %s\n", $subset->report;
+	push @report, sprintf "    %s", $subset->report;
     }
-    $report;
+    join("\n", @report);
+}
+
+# return a list of phenotypes gathered from subsets and assigned to dataset's samples:
+sub all_phenotypes {
+    my ($self)=@_;
+    my @phenos=keys %{$self->subset_phenos};
+    push @phenos, map {@{$_->phenotypes}} @{$self->samples};
+    wantarray? @phenos:\@phenos;
 }
 
 1;

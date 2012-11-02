@@ -1,0 +1,6 @@
+SeriesEditor=function() {
+}
+
+SeriesEditor.prototype={
+};
+

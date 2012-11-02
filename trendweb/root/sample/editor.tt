@@ -1,0 +1,23 @@
+<!-- sample/editor.tt -->
+<table border='1'>
+[% FOREACH pheno IN all_phenos %]
+<tr>
+  <td>[% pheno %]</td>
+  <td><button type='button' onclick='editor.toggle("[% pheno %]")'>Toggle [% pheno %]</button></td>
+</tr>
+[% END %]
+</table>
+
+<div>Samples:</div>
+<table border='1'> 
+[% FOREACH sample IN geo.samples %]
+<tr>
+<td>[% sample.geo_id %]</td>
+  [% FOREACH pheno IN all_phenos %]
+<td><input type='checkbox' class='gsm_pheno' name='[% sample.geo_id %]' value='[% pheno %]' [% IF sample.has_pheno($pheno) %]checked='1'[% END %] />
+ss=[% sample.is_subset_pheno($pheno) %]
+[% pheno %]</td>
+  [% END %]
+</tr>
+[% END %]
+</table>

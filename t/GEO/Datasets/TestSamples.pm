@@ -6,6 +6,7 @@ extends 'TestGEO';
 use parent qw(TestGEO); # for method attrs, sigh...
 use Test::More;
 use PhonyBone::ListUtilities qw(in_list);
+use PhonyBone::FileUtilities qw(warnf);
 use Data::Dumper;
 
 before qr/^test_/ => sub { shift->setup };
@@ -56,7 +57,7 @@ sub test_samples : Testcase {
 }
 
 
-sub test_subsets {
+sub test_subsets : Testcase {
     my ($self)=@_;
     my $geo_id='GDS2381';
     my $ds=GEO->factory($geo_id);
@@ -86,6 +87,23 @@ sub test_subsets {
 		  )];
 
     ok(in_list($subset_ids, $_), "found $_") for @$expected;
+}
+
+sub test_phenotypes : Testcase {
+    my ($self, $geo_id)=@_;
+    confess "no geo_id" unless $geo_id;
+    my $ds=$self->class->new($geo_id);
+    isa_ok($ds, $self->class);
+
+    my $samples=$ds->samples;
+    my $phenos=$ds->phenotypes;
+    cmp_ok (scalar @$phenos, '>=', 1, sprintf("got %d phenotypes", $ds->n_phenotypes));
+
+    foreach my $sample (@$samples) {
+	foreach my $pheno (@{$sample->phenotypes}) {
+	    ok ($ds->has_pheno($pheno), $pheno)
+	}
+    }
 }
 
 __PACKAGE__->meta->make_immutable;

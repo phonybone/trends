@@ -1,6 +1,5 @@
 package trendweb::Controller::GEO;
 use Moose;
-use Data::Dumper;
 use namespace::autoclean;
 use Data::Structure::Util qw(unbless);
 use Data::Dumper;
@@ -101,11 +100,7 @@ sub geo_POST {
 sub view : Chained('base') PathPart('view') Args(0) {
     my ($self,$c)=@_;
     my $geo=$c->stash->{geo};
-
-    $c->log->debug('*' x 72);
-    $c->log->debug('view: req->env is ',Dumper($c->req->env));
-    $c->log->debug('*' x 72);
-
+#    $c->log->debug("view: geo is ".Dumper($geo));
     my $class=lc GEO->class_of($geo);
     $class=~s/.*:://;
 
@@ -113,7 +108,7 @@ sub view : Chained('base') PathPart('view') Args(0) {
     $c->title($geo->geo_id);
     $c->add_js_script('/jquery-1.7.1.js');
     $c->add_js_script('/js/utils.js');
-    $c->add_css('/dataset_editor.css'); # fixme: too specific
+    $c->add_css("/${class}_editor.css"); # fixme: too specific
     $c->add_js_script("/js/${class}_editor.js"); # fixme: not defined for $class != 'dataset'
     $c->forward('View::HTML');
 }

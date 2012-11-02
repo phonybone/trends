@@ -7,13 +7,7 @@ document.form_id='ds_editor_form';
 [% INCLUDE searchbox.tt %]
 
 <form id='ds_editor_form' onsubmit='return false' >
-<div>
-
-<label for='loader'>Load GEO object:</label>
-<input type='text' id='loader_tb' size='12' />
-<button id='loader_button'>Go</button>
-
-</div>
+<div>[% INCLUDE loadbox.tt %]</div>
 
 <table border='1'>
 <tr>
@@ -32,18 +26,9 @@ document.form_id='ds_editor_form';
 
 <tr><td colspan='4'>Subsets:</td></tr>
 
-[% FOREACH subset=dataset.subsets %]
-[% INCLUDE datasetsubset/view.tt %]
-[% END %]
-
 </table>
 <button id='save_button'>Save</button>
 
-<div id='samples'>
-<table border='1'>
-[% FOREACH sample=dataset.samples %]
-[% INCLUDE sample/view.tt %]
-[% END %]
-</table>
+[% INCLUDE sample/editor.tt all_phenos=dataset.phenotypes %]
 </div>
 </form>

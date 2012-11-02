@@ -24,8 +24,8 @@ sub test_report : Testcase {
     my $expected=<<'    EXPECTED';
  GDS2381: title: Atopic dermatitis (HG-U133A)
     description: Analysis of lesional and non-lesional skin biopsy specimens from adult patients with atopic dermatitis (AD). Results provide insight into the molecular changes associated with early AD inflammation.
-     GSE5667
-          16 subsets, 17 samples
+    reference series: GSE5667
+          16 subsets, 17 samples, phenotypes: Wed Oct 17 14:10:04 2012, Tue Oct 16 14:26:46 2012
     GDS2381_1 (5 samples): normal samples=GSM132623, GSM132624, GSM132625, GSM132626, GSM132627
     GDS2381_2 (12 samples): atopic dermatitis samples=GSM132628, GSM132629, GSM132630, GSM132631, GSM132632, GSM132633, GSM132634, GSM132635, GSM132636, GSM132637, GSM132638, GSM132639
     GDS2381_3 (5 samples): control samples=GSM132623, GSM132624, GSM132625, GSM132626, GSM132627
@@ -43,7 +43,9 @@ sub test_report : Testcase {
     GDS2381_15 (2 samples): patient 5 samples=GSM132632, GSM132638
     GDS2381_16 (2 samples): patient 6 samples=GSM132633, GSM132639
     EXPECTED
+    chomp $expected;
 
+    warn "badly designed test: will break on weird phenotypes.\n";
 
 #    warn $ds->report;
     cmp_ok($ds->report, 'eq', $expected);

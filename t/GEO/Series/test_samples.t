@@ -33,6 +33,8 @@ sub main {
 
     test_samples($series);
     test_sample_ids($series);
+    test_phenos(GEO->factory('GSE1650'));
+    
 }
 
 sub test_sample_ids {
@@ -56,9 +58,24 @@ sub test_sample_ids {
 
 sub test_samples {
     my ($series)=@_;
-    foreach my $sample ($series->samples) {
+    foreach my $sample (@{$series->samples}) {
+#	warn "sample is ", Dumper($sample);
 #	warnf "sample %s (%s)", $sample->geo_id, ref $sample;
-	isa_ok($sample, 'GEO::RawSample', sprintf("%s is a %s", $sample->geo_id, ref $sample));
+	isa_ok($sample, 'GEO::Sample', sprintf("%s is a %s", $sample->geo_id, ref $sample));
+    }
+}
+
+sub test_phenos {
+    my ($series)=@_;
+    my $phenos=$series->phenotypes;
+
+    my $samples=$series->samples;
+    warnf "%s has %d samples\n", $series->geo_id, $series->n_samples;
+
+    foreach my $sample (@$samples) {
+	foreach my $pheno (@{$sample->phenotypes}) {
+	    ok ($series->has_pheno($pheno), $pheno);
+	}
     }
 }
 
