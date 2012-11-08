@@ -1,6 +1,7 @@
 package GEO::Sample;
 use Moose;
-with qw(GEO::HasSubsets GEO::HasPhenotypes);
+#with qw(GEO::HasSubsets GEO::HasPhenotypes);
+with qw(GEO::HasSubsets);
 use MooseX::ClassAttribute;
 
 use Data::Dumper;
@@ -34,6 +35,7 @@ has 'datasets'      => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builde
 has 'phenotypes'       => (is=>'rw', isa=>'ArrayRef[Str]', default=>sub{[]});
 
 # This is here to make HasPhenotypes::phenotypes work:
+# But this causes all sorts of recursive problems
 #has 'samples'       => (is=>'ro', isa=>'ArrayRef[GEO::Sample]', default=>sub{[shift]});
 
 sub _build_series {

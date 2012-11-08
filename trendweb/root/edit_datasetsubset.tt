@@ -1,0 +1,7 @@
+<!-- subset view -->
+<tr>
+<td>[% subset.geo_id %]</td>
+<td>([% subset.n_samples %] samples)</td>
+<td>[% subset.title %]</td>
+<td><button onclick='editor.toggle("[% subset.description %]")'>Toggle samples</button></td>
+</tr>

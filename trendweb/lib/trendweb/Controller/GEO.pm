@@ -32,6 +32,14 @@ sub base : Chained('/') PathPart('geo') CaptureArgs(1) {
 	$c->detach;
     }	
 
+#    my $uri=$c->uri_for($c->controller('GEO')->action_for('edit'), $geo_id);
+    my $action=$c->controller('GEO')->action_for('edit');
+    warnf "action is $action (%s)", ref $action || '<scalar>';
+    my $uri=$c->uri_for($action, [$geo_id]);
+    $uri//='<undef>';
+    warn "uri is $uri";
+
+    $geo_id = uc $geo_id;
     my $geo=eval {GEO->factory($geo_id)};
     my $err=$@;
 #    $c->log->debug('base: geo is '.Dumper($geo));
@@ -56,7 +64,7 @@ sub geo_GET {
     my ($self, $c)=@_;
     my $geo=$c->stash->{geo};
     delete $geo->{_id};
-#    $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
+    $c->log->debug('geo_GET: want to encode '.$geo->geo_id);
     $geo->samples if $geo->can('samples');		# trigger lazy methods
     $geo->subsets if $geo->can('subsets');
     $c->stash->{rest}=unbless($geo);
@@ -79,7 +87,6 @@ sub geo_POST {
 						       $geo->geo_id));
     }
 
-
     # build a new geo object from the POST data and save it:
     my $geo_class=GEO->class_of($geo);
     my $new_geo=$geo_class->new(%$geo_data);
@@ -97,19 +104,18 @@ sub geo_POST {
 
 # fixme: this might get changed to edit_dataset.  It currently is 
 # WAY too dataset-specific.
-sub view : Chained('base') PathPart('view') Args(0) {
+sub edit : Chained('base') PathPart('edit') Args(0) {
     my ($self,$c)=@_;
     my $geo=$c->stash->{geo};
-#    $c->log->debug("view: geo is ".Dumper($geo));
     my $class=lc GEO->class_of($geo);
     $class=~s/.*:://;
+    $c->stash(template=>"edit_${class}.tt", entity=>$geo, $class=>$geo);
 
-    $c->stash(template=>"$class/view.tt", entity=>$geo, $class=>$geo);
     $c->title($geo->geo_id);
     $c->add_js_script('/jquery-1.7.1.js');
     $c->add_js_script('/js/utils.js');
     $c->add_css("/${class}_editor.css"); # fixme: too specific
-    $c->add_js_script("/js/${class}_editor.js"); # fixme: not defined for $class != 'dataset'
+    $c->add_js_script("/js/dataset_editor.js"); # fixme: not defined for $class != 'dataset'
     $c->forward('View::HTML');
 }
 
@@ -174,6 +180,16 @@ sub search_POST {
 	# gets fowarded automagically
     }
     # maybe trying to serve REST and non-REST requests in the same method isn't such a hot idea...
+}
+
+
+sub fred : Path('/fred') {
+    my ($self, $c)=@_;
+    $c->add_js_script('/jquery-1.7.1.js');
+    $c->add_js_script('/jquery-ui.js');
+    $c->add_css("/jquery-ui.css"); 
+    $c->stash(template=>'fred.tt');
+
 }
 
 __PACKAGE__->meta->make_immutable;

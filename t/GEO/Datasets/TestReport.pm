@@ -6,6 +6,7 @@ extends 'TestGEO';
 use parent qw(TestGEO); # for method attrs, sigh...
 use Test::More;
 use GEO;
+use PhonyBone::StringUtilities qw(differ_at);
 
 before qr/^test_/ => sub { shift->setup };
 
@@ -25,7 +26,9 @@ sub test_report : Testcase {
  GDS2381: title: Atopic dermatitis (HG-U133A)
     description: Analysis of lesional and non-lesional skin biopsy specimens from adult patients with atopic dermatitis (AD). Results provide insight into the molecular changes associated with early AD inflammation.
     reference series: GSE5667
-          16 subsets, 17 samples, phenotypes: Wed Oct 17 14:10:04 2012, Tue Oct 16 14:26:46 2012
+          16 subsets, 17 samples
+    assigned phenos: Tue Nov  6 12:30:20 2012, Tue Oct 16 14:26:46 2012
+    subset phenos: healthy 3, healthy 1, patient 4, atopic dermatitis, normal, healthy 4, lesional, patient 5, patient 1, non-lesional, patient 2, healthy 5, healthy 2, patient 6, patient 3, control
     GDS2381_1 (5 samples): normal samples=GSM132623, GSM132624, GSM132625, GSM132626, GSM132627
     GDS2381_2 (12 samples): atopic dermatitis samples=GSM132628, GSM132629, GSM132630, GSM132631, GSM132632, GSM132633, GSM132634, GSM132635, GSM132636, GSM132637, GSM132638, GSM132639
     GDS2381_3 (5 samples): control samples=GSM132623, GSM132624, GSM132625, GSM132626, GSM132627
@@ -45,10 +48,19 @@ sub test_report : Testcase {
     EXPECTED
     chomp $expected;
 
+
+
+
+
     warn "badly designed test: will break on weird phenotypes.\n";
 
-#    warn $ds->report;
-    cmp_ok($ds->report, 'eq', $expected);
+    my $report=$ds->report;
+    cmp_ok($report, 'eq', $expected) or do {
+	my $i=differ_at($report, $expected);
+	my $r1=substr($report, $i-5, 10);
+	my $e1=substr($expected, $i-5, 10);
+	warn "'$r1'\n'$e1'\n", ' 'x5, "^ (i=$i)\n";
+    }
 }
 
 __PACKAGE__->meta->make_immutable;

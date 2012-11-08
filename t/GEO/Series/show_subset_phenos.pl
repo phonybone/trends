@@ -9,13 +9,13 @@ use Test::More qw(no_plan);
 
 use FindBin qw($Bin);
 use Cwd 'abs_path';
-use lib abs_path("$Bin");
+use lib "$Bin";
 use lib "$ENV{TRENDS_HOME}/lib";
 
 use Options;			
-use TestBasic;		# derived from TestGEO
+#use SomeTestcase;		# derived from PhonyBone::TestCase
 
-our $class='GEO::word2geo';
+our $class='GEO';
 
 BEGIN: {
   Options::use(qw(d q v h fuse=i));
@@ -27,8 +27,9 @@ BEGIN: {
 
 
 sub main {
-    my $tc=new TestBasic(class=>$class);
-    $tc->test_compiles();
+    require_ok($class);
+    my $series=GEO->factory('GSE803');
+    warn Dumper($series->subset_phenos);
 }
 
 main(@ARGV);

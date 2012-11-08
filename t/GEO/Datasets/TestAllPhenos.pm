@@ -24,7 +24,7 @@ sub test_all_phenos : Testcase {
     my $sample_phenos=$gds->phenotypes;	     # array
 #    warn "$gds_id: sample_phenos are ", Dumper($sample_phenos);
     my $all_phenos=$gds->all_phenotypes;     # array
-#    warn "$gds_id: all_phenos: ", Dumper($all_phenos);
+    warn "$gds_id: all_phenos: ", Dumper($all_phenos);
 
     # check $all_phenos in one of samples or subsets:
     foreach my $pheno (@{$all_phenos}) {

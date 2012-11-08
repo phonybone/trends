@@ -13,7 +13,7 @@ before qr/^test_/ => sub { shift->setup };
 sub test_pheno_hash : Testcase {
     my ($self, $geo_id)=@_;
     my $sample=$self->class->new($geo_id);
-    my $pheno_hash=$sample->pheno_hash;
+    my $pheno_hash=$sample->_pheno_hash;
     warn Dumper($pheno_hash);
 }
 

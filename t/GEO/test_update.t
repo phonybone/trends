@@ -10,33 +10,33 @@ use PhonyBone::TimeUtilities qw(tlm);
 use Test::More qw(no_plan);
 
 use FindBin qw($Bin);
-use lib "$Bin/../../lib";
 use lib "$Bin";
+use lib "$ENV{TRENDS_HOME}/lib";
 
 our $class='GEO';
 use GEO::Series;
 
 
 BEGIN: {
-  Options::use(qw(d q v h fuse=i));
-    Options::useDefaults(fuse => -1);
+    Options::use(qw(d q v h fuse=i db_name));
+    Options::useDefaults(fuse => -1, db_name=>'geo_test');
     Options::get();
     die Options::usage() if $options{h};
     $ENV{DEBUG} = 1 if $options{d};
+    GEO->db_name($options{db_name});
 }
 
 
 sub main {
     require_ok($class);
-    $class->testing(1);
 
     my $geo_id='GSE14777';
     my $series=GEO::Series->new($geo_id);
 
     my $date='';
     if ($series->_id) {		# was found in db:
-	warn "found $geo_id\n";
-	my $date=$series->date;
+	warnf "found $geo_id: %s\n", Dumper($series);
+	my $date=$series->{date} || '';
 	warn "date is $date, but about to update it to ''\n";
 	$series->date('');
 	$series->update;

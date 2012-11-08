@@ -1,6 +1,6 @@
 package GEO::Series;
 use Moose;
-with 'GEO::HasSamples';
+with qw(GEO::HasSamples GEO::HasSubsets);
 
 use Data::Dumper;
 use PhonyBone::FileUtilities qw(warnf dief);
@@ -18,6 +18,7 @@ has 'title'       => (is=>'ro');
 has 'dataset_ids' => (is=>'ro', default=>sub{[]});
 has 'datasets'    => (is=>'ro', isa=>'ArrayRef[GEO::Dataset]', lazy=>1, builder=>'_build_datasets');
 has 'summary'     => (is=>'ro');
+has 'subset_ids'  => (is=>'ro', isa=>'ArrayRef', lazy=>1, builder=>'_build_subset_ids');
 
 use MooseX::ClassAttribute;
 class_has 'prefix'    => (is=>'ro', isa=>'Str', default=>'GSE' );
@@ -224,6 +225,9 @@ sub report {
 	push @report, sprintf("      isb_status: %s", ($self->isb_status || '<unknown>'));
     }
     
+    push @report, sprintf "      phenotypes: %s", join(', ', @{$self->phenotypes});
+    push @report, sprintf "      subset phenotypes: %s", join(', ', $self->subset_phenos);
+    
     foreach my $ds (@{$self->datasets}) {
 	push @report, sprintf("   dataset %s: %s \n    - %s\n", 
 			      $ds->geo_id, $ds->title, $ds->description);
@@ -265,6 +269,20 @@ sub get_filter {
 }
 
 ########################################################################
+
+
+# override HasSubsets::_build_subset_ids
+sub _build_subset_ids {
+    my ($self)=@_;
+    my %subset_ids;
+    foreach my $ds (@{$self->datasets}) {
+	foreach my $ss (@{$ds->subsets}) {
+	    $subset_ids{$ss->geo_id}=$ss->geo_id;
+	}
+    }
+    [keys %subset_ids];
+}
+
 
 
 __END__

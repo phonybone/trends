@@ -11,6 +11,7 @@ use PhonyBone::FileUtilities qw(warnf);
 
 use FindBin;
 use lib "$FindBin::Bin/../../..";
+use lib "$ENV{TRENDS_HOME}/lib";
 use ParseSoft;
 
 our $class='GEO::Platform';
@@ -28,7 +29,7 @@ BEGIN: {
 
 sub main {
     require_ok($class);
-    GEO->testing(1);
+#    GEO->testing(1);
 
     my $gpl8300_file="$FindBin::Bin/GPL8300.soft";
     my $p=ParseSoft->new($gpl8300_file);

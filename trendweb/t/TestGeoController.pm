@@ -19,7 +19,7 @@ before qr/^test_/ => sub { shift->setup };
 
 # why ain't this working?
 sub setup {
-    die "duck hi!";
+    warn "setup: duck hi!";
 }
 
 sub test_compiles : Testcase {
@@ -104,6 +104,7 @@ sub test_404 : Testcase {
     isa_ok($response, 'HTTP::Response');
     cmp_ok($response->code, '==', 404, "got 404 on $geo_id");
 }
+
 
 # sub test_delete : Testcase {
 #     my ($self)=@_;

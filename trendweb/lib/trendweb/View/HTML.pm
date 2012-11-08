@@ -55,8 +55,8 @@ sub post_process_search_results {
 	$result->{geo_id}=$geo_id;
 	$result->{title}=$geo->title;
 	$result->{$geo_id}=$result;
-#	$result->{uri}=$c->uri_for($c->controller('geo')->action_for("$geo_id/view"), $geo_id);
-	$result->{uri}=$c->uri_for("/geo/$geo_id/view");
+#	$result->{uri}=$c->uri_for($c->controller('geo')->action_for("$geo_id/edit"), $geo_id);
+	$result->{uri}=$c->uri_for("/geo/$geo_id/edit");
 	$results->{$geo_id}=$result;
     }
     

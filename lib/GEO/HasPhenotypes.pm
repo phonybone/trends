@@ -18,9 +18,19 @@ has '_pheno_hash' => (is=>'ro', isa=>'HashRef', lazy=>1, builder=>'_build__pheno
 sub _build__pheno_hash {
     my ($self)=@_;
     my %phenos;
-    foreach my $sample (@{$self->samples}) {
+    my $samples=$self->can('samples')? $self->samples : [$self];
+    foreach my $sample (@$samples) {
 	$phenos{$_}=$_ for @{$sample->phenotypes}; # note: GEO::Sample overrides phenotypes()
     }
+
+    if (0) {			# not sure if this is really correct here...
+	my $subsets=$self->can('subsets')? $self->subsets : [];
+	foreach my $ss (@$subsets) {
+	    my $pheno=$ss->description;
+	    $phenos{$pheno}=$pheno;
+	}
+    }
+
     \%phenos;
 }
 

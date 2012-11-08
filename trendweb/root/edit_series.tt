@@ -1,0 +1,32 @@
+<script>
+document.geo_id='[% geo.geo_id %]';
+document.form_id='ds_editor_form';
+</script>
+
+<!-- This is the series view -->
+[% INCLUDE searchbox.tt %][% INCLUDE loadbox.tt %]
+<div>
+<form method='POST' action='' onsubmit='return false'>
+<table border='1' >
+<tr>
+  <td>[% series.geo_id %]:</td><td>[% series.title %]</td>
+</tr><tr>
+  <td>Datasets:</td><td>[% FOREACH gds IN series.dataset_ids %]<a href='[% c.uri_for("/geo/$gds/edit") %]'>[% gds %]</a>, &nbsp; [% END %]</td>
+</tr>
+</table>
+
+[% INCLUDE user_pheno.tt %]
+<button id='save_button'>Save</button>
+
+<div>Subset phenos: 
+<table id='table_subsets' border='1'>
+[% FOREACH pheno IN series.subset_phenos %]
+<tr><td>[% pheno %]</td>
+<td><button class='toggle_pheno_btn' onclick='editor.toggle("[% pheno %]")'>Toggle samples</button></td></tr>
+[% END %]
+</table></div>
+<table id='samples_table' border='1'>
+[% FOREACH sample IN series.samples %][% INCLUDE edit_sample.tt %][% END %]
+</table>
+</form>
+</div>

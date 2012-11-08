@@ -9,25 +9,27 @@ use Test::More qw(no_plan);
 use LWP::UserAgent;
 
 use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$FindBin::Bin";
+use lib "$ENV{TRENDS_HOME}/lib";
 use ParseSoft;
 
+use GEO;
 our $class='GEO::Platform';
 
 
 
 BEGIN: {
-  Options::use(qw(d q v h fuse=i));
-    Options::useDefaults(fuse => -1);
+    Options::use(qw(d q v h fuse=i db_name=s));
+    Options::useDefaults(fuse => -1, db_name=>'test_geo');
     Options::get();
     die Options::usage() if $options{h};
     $ENV{DEBUG} = 1 if $options{d};
+    GEO->db_name($options{db_name});
 }
 
 
 sub main {
     require_ok($class);
-    GEO->testing(1);
 
     my $gpl96_file="$FindBin::Bin/GPL96.soft";
     my $p=ParseSoft->new($gpl96_file);

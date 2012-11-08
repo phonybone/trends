@@ -18,3 +18,5 @@ no_git/*
 GeneSigDB*
 bin/outs/*
 logs/*
+attic/*
+*.bad

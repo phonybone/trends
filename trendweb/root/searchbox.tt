@@ -1,4 +1,4 @@
-<div id='searchbox'><form action='/geo/search'  method='POST'>
+<div id='searchbox'><form id='search_form' action='/geo/search'  method='POST'>
 <input type='text' name='search_term' id='search_tb' size='20' />
 <button id='search_button'>Search</button>
 </form></div>

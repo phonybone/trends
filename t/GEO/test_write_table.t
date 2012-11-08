@@ -10,7 +10,8 @@ use Text::CSV;
 use PhonyBone::FileUtilities qw(warnf);
 
 use FindBin;
-use lib "$FindBin::Bin/../..";
+use lib "$FindBin::Bin";
+use lib "$ENV{TRENDS_HOME}/lib";
 
 our $class='GEO';
 

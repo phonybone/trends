@@ -1,0 +1,46 @@
+<!-- This is the dataset view -->
+<script>
+document.geo_id='[% geo.geo_id %]';
+document.form_id='ds_editor_form';
+</script>
+
+[% INCLUDE searchbox.tt %]
+
+<form id='ds_editor_form' onsubmit='alert("form submitted"); return false'>
+<div>
+[% INCLUDE loadbox.tt %]
+</div>
+
+<table border='1' id='table_subsets'>
+<tr>
+  <td><label for='geo_title'>Title</label></td>
+  <td colspan='3'>[% dataset.title %]</td>
+</tr><tr>
+  <td><label for='geo_desc'>Description:</label></td>
+  <!-- leaving this as a text box as it's the easiest way to control the size (for now) -->
+  <td colspan='3'><input type='text' size='100' value='[% dataset.description %]' readonly /></td> 
+</tr><tr>
+  <td><label for='geo_ref_series'>Ref. Series:</label></td>
+  <td><a href='[% c.uri_for("/geo/$dataset.reference_series/edit") %]'>[% dataset.reference_series %]</a></td>
+  <td><label for='geo_n_subsets'>[% dataset.n_subsets %] subsets</label></td>
+  <td><label for='geo_n_samples'>[% dataset.n_samples %] samples</label></td>
+</tr>
+
+<tr><td colspan='4'>Subsets:</td></tr>
+
+[% FOREACH subset=dataset.subsets %]
+[% INCLUDE edit_datasetsubset.tt %]
+[% END %]
+
+</table>
+[% INCLUDE user_pheno.tt %]
+<button id='save_button'>Save</button>
+
+<div id='samples'>
+<table id='samples_table' border='1'>
+[% FOREACH sample=dataset.samples %]
+[% INCLUDE edit_sample.tt %]
+[% END %]
+</table>
+</div>
+</form>

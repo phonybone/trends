@@ -1,27 +1,21 @@
 package TestJson;
 use namespace::autoclean;
 
+# Test that it's ok to call to_json on an unbless geo object.
+
 use Moose;
 extends 'TestGEO';
 use parent qw(TestGEO);
 use Test::More;
 use GEO;
-
-my $desc=<<"DESC";
-This test is now obsolete since GEO objects are no longer responsible for
-serializing themselves.  In fact, the test will break on the missing 'json()' 
-method.
-DESC
-
-    has 'description' => (is=>'ro', isa=>'Str', default=>$desc);
-
+use JSON;
+use Data::Structure::Util qw(unbless);
+use Data::Dumper;
+use PhonyBone::FileUtilities qw(warnf);
 
 before qr/^test_/ => sub { shift->setup };
 sub setup {
     my ($self)=@_;
-    print $desc;
-    ok(1);
-    exit 0;
 }
 
 sub test_compiles : Testcase {
@@ -32,11 +26,23 @@ sub test_compiles : Testcase {
 
 sub test_json :Testcase {
     my ($self)=@_;
-    my $geo_id='GSE10072';
-    my $series=GEO->factory($geo_id);
-    isa_ok($series, 'GEO::Series');
-    my $json=$series->json('localhost');
-    warn "json is $json\n";
+    my @geo_ids=qw(GSE10072 GDS2381 GDS2381_1 GSM132638);
+    foreach my $geo_id (@geo_ids) {
+	my $geo=GEO->factory($geo_id);
+	my $json=eval {to_json(unbless $geo)};
+	cmp_ok($@, 'eq', '', 'got json');
+#	warn "json is $json\n";
+
+	{
+	    local $SIG{__DIE__}=sub {confess @_};
+	    my $geo2=from_json($json);
+	    my $id1=delete $geo->{_id};
+	    my $id2=delete $geo2->{_id};
+	    cmp_ok($id1->{value}, 'eq', $id2->{value}, "ids match");
+	    is_deeply($geo, $geo2, $geo_id);
+	}
+
+    }
 }
 
 __PACKAGE__->meta->make_immutable;

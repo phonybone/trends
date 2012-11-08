@@ -1,0 +1,22 @@
+<!-- sample view -->
+<!-- GSM238439 ds_s1.desc cb ds_s2.desc cb ... -->
+<tr>
+<td>[% sample.geo_id %]</td>
+
+[% FOREACH subset=sample.subsets %]
+<td>
+   <input type='checkbox' class='gsm_pheno' name='[% sample.geo_id %]' value='[% subset.description %]' 
+[% IF sample.has_pheno(subset.description) %]checked='1'[% END %]
+ />
+<span style='background-color: #88f'>[% subset.description %]</span>
+</td>
+[% END %]
+[% FOREACH pheno IN sample.phenotypes %]
+[% NEXT IF sample.is_subset_pheno(subset.description) %]
+<td>
+    <input type='checkbox' class='gsm_pheno' id='' name='[% sample.geo_id %]' value='[% pheno %]' checked='1' />
+<span style='background-color: grey'>[% pheno %]</span>
+</td>
+[% END %]
+</tr>
+

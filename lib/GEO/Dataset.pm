@@ -73,8 +73,8 @@ sub report {
     push @report, sprintf "%12d subsets, %d samples",
         scalar @{$self->subsets}, $self->sample_count;
 
-    push @report, sprintf "    assigned phenos: %s  subset phenos: %s",
-        join(', ',@{$self->phenotypes}), join(', ', keys %{$self->subset_phenos});
+    push @report, sprintf "    assigned phenos: %s", join(', ',@{$self->phenotypes});
+    push @report, sprintf "    subset phenos: %s", join(', ', $self->subset_phenos);
 
     foreach my $subset (@{$self->subsets}) {
 	push @report, sprintf "    %s", $subset->report;
@@ -83,10 +83,11 @@ sub report {
 }
 
 # return a list of phenotypes gathered from subsets and assigned to dataset's samples:
-sub all_phenotypes {
+sub all_phenotypes1 {
     my ($self)=@_;
     my @phenos=keys %{$self->subset_phenos};
     push @phenos, map {@{$_->phenotypes}} @{$self->samples};
+#    @phenos;
     wantarray? @phenos:\@phenos;
 }
 

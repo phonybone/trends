@@ -2,32 +2,11 @@ DatasetEditor=function(form_id) {
   this.form_id=form_id;
   this.pheno2gsms=new Object();
   this.cache=new Object();	// gets overwritten
+  this.user_phenos=new Object(); // keep track of user-added phenotypes for this element
+  this.prevent_submit=true;
 }
 
 DatasetEditor.prototype={
-
-  sanify_gsm_pheno_cb_id : function(geo_id, subset_desc) {
-    var id=geo_id+'_'+subset_desc;
-    id.replace(/\w/g, '_');	// replace anything that's not a regular char with '_'
-    return id;
-  },
-
-  // sets ids for gsm checkboxes
-  set_gsm_pheno_cbs : function() {
-    var i=0;
-    var editor=this;
-    $("input:checkbox.gsm_pheno").each(function(idx, e) { 
-      var geo_id=e.name;
-      var pheno=e.value;
-      e.id=document.editor.sanify_gsm_pheno_cb_id(geo_id, pheno);
-      var gsm=editor.get_cached_gsm(geo_id);
-      if (gsm==null) {
-        alert('missing gsm!?!?: '+geo_id);
-        return;
-      }
-      
-    });
-  },
 
   get_cached_gsm : function(geo_id) {
     var gsms=this.cache.samples;	// array of gsms
@@ -41,7 +20,7 @@ DatasetEditor.prototype={
 
   toggle : function(desc) {
     $("input:checkbox.gsm_pheno").filter(function(idx) {
-          return this.value == desc;
+      return this.value == desc;
     }).each(function(idx,e) {
       e.checked=!e.checked;
     })
@@ -59,6 +38,7 @@ DatasetEditor.prototype={
     $.ajax(uri,settings);
   }, 
 
+  // Store the data returned from load_geo in a cache:
   cache_data : function(data) {
     this.cache=data;
     var n_items=Object.keys(data).length;
@@ -84,10 +64,10 @@ DatasetEditor.prototype={
   },
 
   edit_geo : function(geo_id) {
-    console.log('edit_geo entered');
+    console.log('edit_geo entered; this.prevent_submit is '+this.prevent_submit);
+//    if (this.prevent_submit) { console.log('quitting on prevent_submit'); return }
     if (geo_id == null || geo_id=='') { console.log('no geo_id, quitting'); return }
-    var url="/geo/"+geo_id+"/view";
-    alert("These edits might not have been saved; going to "+url);
+    var url="/geo/"+geo_id+"/edit";
     window.location.replace(url);
     return false;
   },
@@ -125,41 +105,48 @@ DatasetEditor.prototype={
       accepts: 'application/json',
       contentType: 'application/json',
       data: JSON.stringify(ed.cache.samples),
-      error: function(jqXHR, msg, excp) { alert('save_phenoes error status: '+jqXHR.status); },
-      success: function(data, status, jqXHR) { },
+      error: function(jqXHR, msg, excp) { alert('Unable to save phenotypes: error='+jqXHR.status); },
+      success: function(data, status, jqXHR) { $(window).off('beforeunload'); },
     };
     $.ajax(uri,settings);
     return false;
   },
 
-  search : function(event) {
+  add_user_pheno : function(event) {
     event.preventDefault();
-    var search_term=$('#search_tb')[0].value;
-    console.log('event: target.id=%s, type=%s',event.target.id, event.type);
+    var pheno=$('#user_pheno_tb').val();
+    if (pheno==null || pheno=='') return;
+    if (this.user_phenos[pheno] != null) return;	// already added
+    this.user_phenos[pheno]=pheno;
+    $('#samples_table tr').append(this.add_user_pheno_hook1);
 
-    var uri='/geo/search';
-    var settings={
-      type: 'POST',
-      accepts: 'application/json',
-      contentType: 'application/json',
-      data: JSON.stringify({search_term : search_term}),
-      error: function(jqXHR, msg, excp) { alert('search: error status: '+jqXHR.status) },
-      success: function(data, status, jqXHR) { document.editor.display_search(data) },
-    };
-    $.ajax(uri,settings);
-    console.log('search returning false');
+    // also have to add a tr to the table of "possible" phenotypes
+    $('#table_subsets').append(this.add_user_pheno_hook2)
     return false;
   },
 
-  display_search : function(data) {
-    console.log('search entered');
-    var n_results=0;
-    for (var k in data) { n_results++ }
-    alert('displaying '+n_results+' search results');
-    return false;
+  // add a <td>...</td> to each row of the samples_table
+  add_user_pheno_hook1 : function(idx, html) {		// html unused
+    // this is the tr element in question
+    var pheno=$('#user_pheno_tb').val();
+    var geo_id=this.children[0].innerHTML;	// happens to be stored in the first <td>
+    var inner="<td><input type='checkbox' class='gsm_pheno' id='+geo_id+' name='' value='"+pheno+"'";
+    if ($('#apply_to_all').attr('checked')) { inner+=" checked='1'"; }
+    inner+="' />";
+    inner+="<span>" + pheno + "</span></td>";
+    return inner;
   },
 
-  
+  // Add a single row to the subsets table:
+  add_user_pheno_hook2 : function(idx, html) {		// html unused
+    // this is the table element
+    var pheno=$('#user_pheno_tb').val();
+    var tr_html='<tr>';
+    tr_html+='<td>'+pheno+'</td>';
+    tr_html+="<td><button onclick='editor.toggle(\""+pheno+"\")'>Toggle samples</button></td>";
+    tr_html+='</tr>';
+    return tr_html;
+  },
 }
 
 
@@ -167,21 +154,38 @@ DatasetEditor.prototype={
 $(document).ready(function() {
   var editor=new DatasetEditor(document.form_id);
   this.editor=editor;	// this==document
-//  editor.set_gsm_pheno_cbs();
+
+  $('.gsm_pheno').on('change', function(event) { 
+    console.log('stay here');
+    $(window).on('beforeunload', function(event) { return 'Changes have not been saved'; });
+  });
 
   // Various initialization tasks:
   // Are these being set wrong?  Don't want to actually call these functions, but they are...
-  $("#loader_tb").on('change',function(event) {editor.edit_geo_tb(event)});
-  $("#loader_button").on('click', function(event) {editor.edit_geo_button(event)});
+  $("#loader_tb").on('change',function(event) { 
+    console.log('loader_tb.change called, calling edit_geo_tb');
+    editor.edit_geo_tb(event)
+  });
+  $("#loader_button").on('click', function(event) { 
+    console.log('loader_button.change called, calling edit_geo_tb');
+    editor.edit_geo_button(event)
+  });
   $("#save_button").on('click', function(event) {editor.save_phenos(event)});
 
+  $("#user_pheno_tb").on('change',function(event) {editor.add_user_pheno(event)});
+  $("#user_pheno_button").on('click',function(event) {editor.add_user_pheno(event)});
+
+// Don't need these anymore because search is a full server action:
 //  $("#search_tb").on('change', function(event) {editor.search(event)});
 //  $("#search_button").on('click', function(event) {editor.search(event)});
 
   // Set the value of the loader_tb if possible:
   if (document.geo_id != null) {
+    console.log('ready: loading '+document.geo_id);
     $("#loader_tb").value=document.geo_id;
     editor.load_geo(document.geo_id);
+  } else {
+    console.log('document.geo_id is undefined');
   }
 
   console.log('ready() finished');

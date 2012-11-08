@@ -12,16 +12,21 @@ use lib "$Bin";
 use lib "$ENV{TRENDS_HOME}/lib";
 use GEO;
 use Options;			
+use PhonyBone::FileUtilities qw(warnf);
 use TestAllPhenos;		# derived from PhonyBone::TestCase
 
 our $class='GEO::Dataset';
 
 BEGIN: {
-  Options::use(qw(d q v h fuse=i));
-    Options::useDefaults(fuse => -1);
+    Options::use(qw(d q v h fuse=i db_name=s));
+    Options::useDefaults(fuse => -1, 
+			 db_name=>'geo_test',
+	);
     Options::get();
     die Options::usage() if $options{h};
     $ENV{DEBUG} = 1 if $options{d};
+    GEO->db_name($options{db_name});
+    warnf "using %s\n", GEO::Dataset->mongo_coords;
 }
 
 

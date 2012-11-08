@@ -8,8 +8,7 @@ use Options;
 use Test::More qw(no_plan);
 use LWP::UserAgent;
 
-use FindBin;
-use lib "$FindBin::Bin/../../..";
+use lib "$ENV{TRENDS_HOME}/lib";
 
 our $class='GEO::Platform';
 

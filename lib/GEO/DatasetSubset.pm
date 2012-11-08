@@ -1,7 +1,7 @@
 package GEO::DatasetSubset;
 use Moose;
 use MooseX::ClassAttribute;
-
+use PhonyBone::ListUtilities qw(in_list);
 
 has 'dataset_id' => (is=>'rw', isa=>'Str');
 has 'description' => (is=>'rw', isa=>'Str');
@@ -9,7 +9,6 @@ sub title { shift->description } # Is there a better way to do this?
 has 'sample_ids' => (is=>'rw', isa=>'ArrayRef[Str]');
 has 'samples' => (is=>'rw', isa=>'ArrayRef[GEO::Sample]', lazy=>1, builder=>'_build_samples');
 has 'type' => (is=>'rw', isa=>'Str');
-
 
 
 class_has 'collection_name'=> (is=>'ro', isa=>'Str', default=>'dataset_subsets');
@@ -23,6 +22,10 @@ sub n_samples { scalar @{shift->sample_ids} }
 sub _build_samples {
     my ($self)=@_;
     [map { GEO->factory($_) } @{$self->sample_ids}];
+}
+sub has_sample { 
+    my ($self,$gsm_id)=@_;
+    in_list($self->sample_ids, $gsm_id) 
 }
 
 sub report {

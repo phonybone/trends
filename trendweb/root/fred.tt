@@ -1,0 +1,32 @@
+
+<button id="opener">open the dialog</button>
+<div id="dialog">Save the changes to the samples before proceeding?</div>
+ 
+<script>
+function yes(dialog) {
+  console.log('yes() called; dialog is ' + dialog);
+  $(dialog).dialog('close');
+}
+
+function no(dialog) {
+  console.log('no() called; dialog is ' + dialog);
+  $(dialog).dialog('close');
+}
+
+var options={ autoOpen: false,
+    	      buttons: { Yes: function() { yes(this); },
+	      	         No:  function() { no(this); }
+		       },
+	      closeOnEscape : true,
+	      draggable: true,
+	      modal: true,
+	      resizable: false,
+	      title: 'Alert!',
+	      };
+$( "#dialog" ).dialog(options);
+$( "#opener" ).click(function() {
+    $( "#dialog" ).dialog( "open" );
+});
+
+//$(window).bind('beforeunload', function() { return "Really leave?"; });
+</script>

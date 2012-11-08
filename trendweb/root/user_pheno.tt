@@ -1,0 +1,7 @@
+<div>
+<label for='user_pheno_tb'>Enter a new phenotype</label>
+<input type='text' id='user_pheno_tb' name='user_pheno_tb' size='40' />
+<button id='user_pheno_button'>Add</button>
+<label for='apply_to_all'>Apply to all samples</label>
+<input type='checkbox' id='apply_to_all' name='apply_to_all' checked='1' onchange='return false'>
+</div>
