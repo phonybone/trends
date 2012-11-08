@@ -3,7 +3,6 @@ DatasetEditor=function(form_id) {
   this.pheno2gsms=new Object();
   this.cache=new Object();	// gets overwritten
   this.user_phenos=new Object(); // keep track of user-added phenotypes for this element
-  this.prevent_submit=true;
 }
 
 DatasetEditor.prototype={
@@ -64,8 +63,6 @@ DatasetEditor.prototype={
   },
 
   edit_geo : function(geo_id) {
-    console.log('edit_geo entered; this.prevent_submit is '+this.prevent_submit);
-//    if (this.prevent_submit) { console.log('quitting on prevent_submit'); return }
     if (geo_id == null || geo_id=='') { console.log('no geo_id, quitting'); return }
     var url="/geo/"+geo_id+"/edit";
     window.location.replace(url);
@@ -83,7 +80,16 @@ DatasetEditor.prototype={
     $("input:checkbox.gsm_pheno").each(function() {
       var pheno=this.value;
       var geo_id=this.name;			  // this==checkbox
+      if (geo_id==null) {
+        console.log('missing geo_id/name in checkbox'+this);
+	return;
+      }
+      
       var sample=ed.get_cached_gsm(geo_id);
+      if (sample==null) {
+        console.log("can't find sample for "+geo_id);
+	return;
+      }
       if (sample.phenotypes==null) sample.phenotypes=new Array();
 
       // add or remove pheno as necessary:
@@ -130,7 +136,7 @@ DatasetEditor.prototype={
     // this is the tr element in question
     var pheno=$('#user_pheno_tb').val();
     var geo_id=this.children[0].innerHTML;	// happens to be stored in the first <td>
-    var inner="<td><input type='checkbox' class='gsm_pheno' id='+geo_id+' name='' value='"+pheno+"'";
+    var inner="<td><input type='checkbox' class='gsm_pheno' name='"+geo_id+"' value='"+pheno+"'";
     if ($('#apply_to_all').attr('checked')) { inner+=" checked='1'"; }
     inner+="' />";
     inner+="<span>" + pheno + "</span></td>";
@@ -155,8 +161,9 @@ $(document).ready(function() {
   var editor=new DatasetEditor(document.form_id);
   this.editor=editor;	// this==document
 
+  // Attempt to keep user on page if changes have not been saved:
+  // register a handler when the gsm checkboxes are clicked:
   $('.gsm_pheno').on('change', function(event) { 
-    console.log('stay here');
     $(window).on('beforeunload', function(event) { return 'Changes have not been saved'; });
   });
 
@@ -174,10 +181,6 @@ $(document).ready(function() {
 
   $("#user_pheno_tb").on('change',function(event) {editor.add_user_pheno(event)});
   $("#user_pheno_button").on('click',function(event) {editor.add_user_pheno(event)});
-
-// Don't need these anymore because search is a full server action:
-//  $("#search_tb").on('change', function(event) {editor.search(event)});
-//  $("#search_button").on('click', function(event) {editor.search(event)});
 
   // Set the value of the loader_tb if possible:
   if (document.geo_id != null) {
